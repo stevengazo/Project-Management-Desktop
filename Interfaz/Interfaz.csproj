@@ -6,6 +6,13 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PlatformTarget>x64</PlatformTarget>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Modelos\Modelos.csproj" />
+    <ProjectReference Include="..\Negocio\Negocio.csproj" />
+  </ItemGroup>
 
 </Project>
