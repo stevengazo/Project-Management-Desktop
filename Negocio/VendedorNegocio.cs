@@ -8,7 +8,26 @@ using Modelos;
 
 namespace Negocios
 {
-	internal class VendedorNegocio
+	public class VendedorNegocio
 	{
+		private  DBContextProyectosAsfaltos dbContext { get; set; } = new DBContextProyectosAsfaltos();
+
+		public bool CrearVendedor(Vendedor vendedor)
+		{
+			try
+			{
+				using( var db = dbContext )
+				{
+					dbContext.Vendedores.Add( vendedor );
+					dbContext.SaveChanges();
+				}
+				return true;
+			}
+			catch (Exception r)
+			{
+				return false;
+			}
+		}
+
 	}
 }

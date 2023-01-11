@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,13 +175,13 @@
 			// listaToolStripMenuItem
 			// 
 			this.listaToolStripMenuItem.Name = "listaToolStripMenuItem";
-			this.listaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.listaToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.listaToolStripMenuItem.Text = "Lista";
 			// 
 			// agregarToolStripMenuItem
 			// 
 			this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-			this.agregarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.agregarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.agregarToolStripMenuItem.Text = "Agregar";
 			this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
 			// 
@@ -548,9 +549,9 @@
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Form1";
-			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Principal";
 			this.menuStrip1.ResumeLayout(false);
