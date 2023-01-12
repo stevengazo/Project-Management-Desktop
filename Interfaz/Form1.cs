@@ -1,12 +1,13 @@
 using Modelos;
 using Negocios;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Interfaz
 {
 	public partial class Form1 : Form
-	{		
-
+	{
+		private List<Proyecto> proyectos = new();
 		public Form1()
 		{
 			InitializeComponent();
@@ -17,6 +18,8 @@ namespace Interfaz
 			AgregarCliente tmp1= new AgregarCliente();
 			tmp1.ShowDialog();
 			// Actualizar combobox
+			CargarClientes();
+			
 		}
 
 		private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,6 +33,7 @@ namespace Interfaz
 		{
 			CargarVendedores();
 			CargarTabla();
+			CargarClientes();
 		}
 
 		private void CargarVendedores()
@@ -38,6 +42,7 @@ namespace Interfaz
 			{
 				var VendedoresNegocios = new VendedorNegocio();
 				var listaVendedores = VendedoresNegocios.ListarVendedores();
+				cbVendedores.Items.Clear();
 				foreach (Vendedor i in listaVendedores) { 
 					cbVendedores.Items.Add(i.Nombre);
 				}
@@ -47,10 +52,28 @@ namespace Interfaz
 			}
 
 		}
+		private void CargarClientes()
+		{
+			try
+			{
+				var ClienteNegocios = new ClienteNegocio();
+				var listaClientes = ClienteNegocios.ListarClientes();
+				cbCliente.Items.Clear();
+				foreach (Cliente i in listaClientes)
+				{
+					cbCliente.Items.Add($"{i.RazonSocial} - {i.Cedula} ");
+				}
+
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
 		private void CargarTabla()
 		{
 			var proyectosNegocio = new ProyectoNegocios();
-			List<Proyecto> proyectos = proyectosNegocio.ListaProyectos();
+			proyectos = proyectosNegocio.ListaProyectos();
 			if(proyectos.Count > 0)
 			{
 				DataTable _tabla = new();
@@ -80,6 +103,15 @@ namespace Interfaz
 				}
 
 				dgvProyectos.DataSource = _tabla;
+
+				DataGridViewButtonColumn botonVer = new();
+				botonVer.HeaderText = "Ver";
+				botonVer.Text = "Ver";
+				botonVer.Name = "btnVerProyecto";
+				botonVer.UseColumnTextForButtonValue = true;
+				dgvProyectos.Columns.Add(botonVer);
+
+
 			}
 		}
 
@@ -87,6 +119,40 @@ namespace Interfaz
 		{
 			ListarCliente tmp = new();
 			tmp.ShowDialog();
+		}
+
+		private void listaToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ListarVendedor tmp = new();
+			tmp.ShowDialog();
+		}
+
+		private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ListarUsuario listarUsuariotmp = new();
+			listarUsuariotmp.ShowDialog();
+		}
+
+		private void excelToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if(proyectos.Count>0) {
+					saveFileDialog.Title = "Exportar Proyectos";
+					saveFileDialog.Filter = "Hoja de Calculo|*.xlsx";
+					if(saveFileDialog.ShowDialog() == DialogResult.OK)
+					{
+
+					}
+				}
+				else
+				{
+					MessageBox.Show("No hay proyectos para exportar","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				}
+			}catch(Exception ex) {
+				MessageBox.Show(ex.Message);
+			}
+
 		}
 	}
 }

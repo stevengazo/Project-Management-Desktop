@@ -36,7 +36,7 @@ namespace Negocios
 				using (var db = dbContext)
 				{
 					return (from vend in db.Vendedores
-							orderby vend.Nombre
+							orderby vend.Nombre ascending
 							select vend).ToList();
 				}
 			}catch (Exception e)

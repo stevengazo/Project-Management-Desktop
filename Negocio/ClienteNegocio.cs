@@ -8,7 +8,46 @@ using Modelos;
 
 namespace Negocios
 {
-	internal class ClienteNegocio
+	public class ClienteNegocio
 	{
+		private DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
+
+
+		public bool RegistrarCliente(Cliente cliente)
+		{
+			try
+			{
+				using (var db = dBContext)
+				{
+					db.Clientes.Add(cliente);
+					db.SaveChanges();
+					return true;
+				}			
+			}catch(Exception ex)
+			{
+				return false;
+			}
+		}
+		public List<Cliente> ListarClientes()
+		{
+			try
+			{
+				List<Cliente> clientes= new List<Cliente>();
+				using( var db = dBContext)
+				{
+					clientes = (
+							from cliente in db.Clientes
+							orderby cliente.RazonSocial descending
+							select cliente
+						).ToList();
+				}
+				return clientes;
+
+			}catch(Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+				return null;
+			}
+		}
 	}
 }

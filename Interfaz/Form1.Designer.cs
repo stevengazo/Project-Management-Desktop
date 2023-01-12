@@ -48,7 +48,7 @@
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.cbCliente = new System.Windows.Forms.ComboBox();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.label17 = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgvProyectos = new System.Windows.Forms.DataGridView();
+			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -123,12 +124,14 @@
 			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
 			this.excelToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
 			this.excelToolStripMenuItem.Text = "Excel";
+			this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
 			// 
 			// usuariosToolStripMenuItem
 			// 
 			this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
 			this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
 			this.usuariosToolStripMenuItem.Text = "Usuarios";
+			this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
@@ -176,13 +179,14 @@
 			// listaToolStripMenuItem
 			// 
 			this.listaToolStripMenuItem.Name = "listaToolStripMenuItem";
-			this.listaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.listaToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.listaToolStripMenuItem.Text = "Lista";
+			this.listaToolStripMenuItem.Click += new System.EventHandler(this.listaToolStripMenuItem_Click);
 			// 
 			// agregarToolStripMenuItem
 			// 
 			this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-			this.agregarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.agregarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.agregarToolStripMenuItem.Text = "Agregar";
 			this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
 			// 
@@ -193,7 +197,7 @@
 			this.groupBox1.Controls.Add(this.numericUpDown1);
 			this.groupBox1.Controls.Add(this.dateTimePicker2);
 			this.groupBox1.Controls.Add(this.dateTimePicker1);
-			this.groupBox1.Controls.Add(this.comboBox1);
+			this.groupBox1.Controls.Add(this.cbCliente);
 			this.groupBox1.Controls.Add(this.button3);
 			this.groupBox1.Controls.Add(this.button2);
 			this.groupBox1.Controls.Add(this.label17);
@@ -267,13 +271,13 @@
 			this.dateTimePicker1.Size = new System.Drawing.Size(225, 23);
 			this.dateTimePicker1.TabIndex = 33;
 			// 
-			// comboBox1
+			// cbCliente
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(180, 58);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(225, 23);
-			this.comboBox1.TabIndex = 32;
+			this.cbCliente.FormattingEnabled = true;
+			this.cbCliente.Location = new System.Drawing.Point(180, 58);
+			this.cbCliente.Name = "cbCliente";
+			this.cbCliente.Size = new System.Drawing.Size(225, 23);
+			this.cbCliente.TabIndex = 32;
 			// 
 			// button3
 			// 
@@ -547,6 +551,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.LightBlue;
 			this.ClientSize = new System.Drawing.Size(1426, 646);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
@@ -621,7 +626,8 @@
 		private NumericUpDown numericUpDown1;
 		private DateTimePicker dateTimePicker2;
 		private DateTimePicker dateTimePicker1;
-		private ComboBox comboBox1;
+		private ComboBox cbCliente;
 		private ComboBox cbVendedores;
+		private SaveFileDialog saveFileDialog;
 	}
 }
