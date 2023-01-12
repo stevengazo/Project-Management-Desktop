@@ -8,6 +8,7 @@ namespace Interfaz
 	public partial class Form1 : Form
 	{
 		private List<Proyecto> proyectos = new();
+		private Proyecto ProyectoTemporal = new();
 		public Form1()
 		{
 			InitializeComponent();
@@ -153,6 +154,17 @@ namespace Interfaz
 				MessageBox.Show(ex.Message);
 			}
 
+		}
+		private void btnAgregar_Click(object sender, EventArgs e)
+		{
+			try
+			{
+
+			}
+			catch (Exception r)
+			{
+				MessageBox.Show(r.Message);	
+			}
 		}
 	}
 }
