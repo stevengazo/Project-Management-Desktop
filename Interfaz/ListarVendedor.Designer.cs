@@ -63,9 +63,12 @@
 			// 
 			// dgvVendedores
 			// 
+			this.dgvVendedores.AllowUserToAddRows = false;
+			this.dgvVendedores.AllowUserToDeleteRows = false;
 			this.dgvVendedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvVendedores.Location = new System.Drawing.Point(12, 59);
 			this.dgvVendedores.Name = "dgvVendedores";
+			this.dgvVendedores.ReadOnly = true;
 			this.dgvVendedores.RowTemplate.Height = 25;
 			this.dgvVendedores.Size = new System.Drawing.Size(320, 255);
 			this.dgvVendedores.TabIndex = 3;
