@@ -43,6 +43,7 @@
 			this.listaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.cbVendedores = new System.Windows.Forms.ComboBox();
 			this.comboBox2 = new System.Windows.Forms.ComboBox();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -69,7 +70,6 @@
 			this.textBox7 = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -79,12 +79,12 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgvProyectos = new System.Windows.Forms.DataGridView();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.groupBox2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -95,7 +95,7 @@
             this.vendedoresToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1238, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1426, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -155,6 +155,7 @@
 			this.razonesSocialesToolStripMenuItem.Name = "razonesSocialesToolStripMenuItem";
 			this.razonesSocialesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
 			this.razonesSocialesToolStripMenuItem.Text = "Razones Sociales";
+			this.razonesSocialesToolStripMenuItem.Click += new System.EventHandler(this.razonesSocialesToolStripMenuItem_Click);
 			// 
 			// agregarRazónSocialToolStripMenuItem
 			// 
@@ -175,18 +176,19 @@
 			// listaToolStripMenuItem
 			// 
 			this.listaToolStripMenuItem.Name = "listaToolStripMenuItem";
-			this.listaToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+			this.listaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.listaToolStripMenuItem.Text = "Lista";
 			// 
 			// agregarToolStripMenuItem
 			// 
 			this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-			this.agregarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+			this.agregarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.agregarToolStripMenuItem.Text = "Agregar";
 			this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.cbVendedores);
 			this.groupBox1.Controls.Add(this.comboBox2);
 			this.groupBox1.Controls.Add(this.numericUpDown1);
 			this.groupBox1.Controls.Add(this.dateTimePicker2);
@@ -213,7 +215,6 @@
 			this.groupBox1.Controls.Add(this.textBox7);
 			this.groupBox1.Controls.Add(this.label7);
 			this.groupBox1.Controls.Add(this.textBox5);
-			this.groupBox1.Controls.Add(this.textBox3);
 			this.groupBox1.Controls.Add(this.label5);
 			this.groupBox1.Controls.Add(this.label4);
 			this.groupBox1.Controls.Add(this.label3);
@@ -223,6 +224,14 @@
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Agregar Proyecto";
+			// 
+			// cbVendedores
+			// 
+			this.cbVendedores.FormattingEnabled = true;
+			this.cbVendedores.Location = new System.Drawing.Point(180, 21);
+			this.cbVendedores.Name = "cbVendedores";
+			this.cbVendedores.Size = new System.Drawing.Size(225, 23);
+			this.cbVendedores.TabIndex = 37;
 			// 
 			// comboBox2
 			// 
@@ -439,13 +448,6 @@
 			this.textBox5.Size = new System.Drawing.Size(225, 23);
 			this.textBox5.TabIndex = 5;
 			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(180, 21);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(225, 23);
-			this.textBox3.TabIndex = 3;
-			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
@@ -480,10 +482,10 @@
 			this.groupBox2.Controls.Add(this.label2);
 			this.groupBox2.Controls.Add(this.textBox1);
 			this.groupBox2.Controls.Add(this.label1);
-			this.groupBox2.Controls.Add(this.dataGridView1);
+			this.groupBox2.Controls.Add(this.dgvProyectos);
 			this.groupBox2.Location = new System.Drawing.Point(464, 27);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(762, 607);
+			this.groupBox2.Size = new System.Drawing.Size(950, 607);
 			this.groupBox2.TabIndex = 2;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Proyectos";
@@ -529,23 +531,23 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "Cliente";
 			// 
-			// dataGridView1
+			// dgvProyectos
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(6, 61);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.RowTemplate.Height = 25;
-			this.dataGridView1.Size = new System.Drawing.Size(750, 540);
-			this.dataGridView1.TabIndex = 0;
+			this.dgvProyectos.AllowUserToAddRows = false;
+			this.dgvProyectos.AllowUserToDeleteRows = false;
+			this.dgvProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvProyectos.Location = new System.Drawing.Point(6, 61);
+			this.dgvProyectos.Name = "dgvProyectos";
+			this.dgvProyectos.ReadOnly = true;
+			this.dgvProyectos.RowTemplate.Height = 25;
+			this.dgvProyectos.Size = new System.Drawing.Size(938, 540);
+			this.dgvProyectos.TabIndex = 0;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1238, 646);
+			this.ClientSize = new System.Drawing.Size(1426, 646);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
@@ -554,6 +556,7 @@
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Principal";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
@@ -561,7 +564,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -604,7 +607,6 @@
 		private TextBox textBox7;
 		private Label label7;
 		private TextBox textBox5;
-		private TextBox textBox3;
 		private Label label5;
 		private Label label4;
 		private Label label3;
@@ -614,11 +616,12 @@
 		private Label label2;
 		private TextBox textBox1;
 		private Label label1;
-		private DataGridView dataGridView1;
+		private DataGridView dgvProyectos;
 		private ComboBox comboBox2;
 		private NumericUpDown numericUpDown1;
 		private DateTimePicker dateTimePicker2;
 		private DateTimePicker dateTimePicker1;
 		private ComboBox comboBox1;
+		private ComboBox cbVendedores;
 	}
 }

@@ -43,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -59,6 +67,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 y x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.6.0.x64"
+                    {
+                    "Name" = "8:.NET Runtime 6.0.12 (x64)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.6.0.x64"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -165,9 +194,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Instalador"
+        "ProductName" = "8:Proyectos - Asfaltos Mecsa"
         "ProductCode" = "8:{C0FEB977-51D5-4C21-B8B2-0C182CF99C4A}"
-        "PackageCode" = "8:{17807723-8EBE-4783-87F3-0329ACA12392}"
+        "PackageCode" = "8:{A3E0C89D-D948-4604-9BF4-475C6EA314F0}"
         "UpgradeCode" = "8:{F8A6C2A5-B240-4255-9B6F-63737EB70309}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -175,16 +204,16 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Mecsa SErvice"
+        "Manufacturer" = "8:Mecsa Service"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Proyectos Asfaltos"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Steven Gazo"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
+        "ARPCOMMENTS" = "8:App para registro de proyectos de asfaltos de mecsa service"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_18ED159733FA4E95AF31D0A1DDD4EDB7"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -297,6 +326,20 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_F251D8DEBF3B4F4ABB7E34E13AD04101"
             "Folder" = "8:_275CC77564F44C8A820FF16E42239868"
+            "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
+            "Icon" = "8:_18ED159733FA4E95AF31D0A1DDD4EDB7"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3B129F17432C4CBFAD954DA954B2327C"
+            {
+            "Name" = "8:Proyectos de Asfaltos"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_F251D8DEBF3B4F4ABB7E34E13AD04101"
+            "Folder" = "8:_C0D0EB7C3A724ABBA7B8AB758DE0D339"
             "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
             "Icon" = "8:_18ED159733FA4E95AF31D0A1DDD4EDB7"
             "Feature" = "8:"
@@ -786,7 +829,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F251D8DEBF3B4F4ABB7E34E13AD04101"
             {
-            "SourcePath" = "8:..\\Interfaz\\obj\\Debug\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Interfaz\\obj\\Release\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"

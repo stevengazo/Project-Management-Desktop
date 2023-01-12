@@ -16,5 +16,14 @@ namespace Interfaz
 		{
 			InitializeComponent();
 		}
+
+		private void ListarCliente_Load(object sender, EventArgs e)
+		{
+
+		}
+		private void CargarClientes()
+		{
+
+		}
 	}
 }

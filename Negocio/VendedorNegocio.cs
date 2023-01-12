@@ -29,5 +29,21 @@ namespace Negocios
 			}
 		}
 
+		public List<Vendedor> ListarVendedores()
+		{
+			try
+			{
+				using (var db = dbContext)
+				{
+					return (from vend in db.Vendedores
+							orderby vend.Nombre
+							select vend).ToList();
+				}
+			}catch (Exception e)
+			{
+				return null;
+			}
+		}
+
 	}
 }

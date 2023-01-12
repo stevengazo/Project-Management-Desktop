@@ -28,12 +28,108 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.dgvCliente = new System.Windows.Forms.DataGridView();
+			this.label1 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// dgvCliente
+			// 
+			this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvCliente.Location = new System.Drawing.Point(12, 59);
+			this.dgvCliente.Name = "dgvCliente";
+			this.dgvCliente.RowTemplate.Height = 25;
+			this.dgvCliente.Size = new System.Drawing.Size(515, 379);
+			this.dgvCliente.TabIndex = 0;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(12, 22);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(39, 15);
+			this.label1.TabIndex = 1;
+			this.label1.Text = "Razón";
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(67, 19);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(118, 23);
+			this.textBox1.TabIndex = 2;
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(249, 19);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(118, 23);
+			this.textBox2.TabIndex = 4;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(194, 22);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(44, 15);
+			this.label2.TabIndex = 3;
+			this.label2.Text = "Cedula";
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(373, 19);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 5;
+			this.button1.Text = "Buscar";
+			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(454, 19);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(75, 23);
+			this.button2.TabIndex = 6;
+			this.button2.Text = "Limpiar";
+			this.button2.UseVisualStyleBackColor = true;
+			// 
+			// ListarCliente
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Text = "ListarCliente";
+			this.ClientSize = new System.Drawing.Size(539, 450);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.dgvCliente);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.Name = "ListarCliente";
+			this.ShowIcon = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Lista de Clientes";
+			this.Load += new System.EventHandler(this.ListarCliente_Load);
+			((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
 		}
 
 		#endregion
+
+		private DataGridView dgvCliente;
+		private Label label1;
+		private TextBox textBox1;
+		private TextBox textBox2;
+		private Label label2;
+		private Button button1;
+		private Button button2;
 	}
 }

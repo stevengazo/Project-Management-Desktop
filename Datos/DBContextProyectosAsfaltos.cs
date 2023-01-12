@@ -122,7 +122,7 @@ namespace Modelos
 
 		private void GetConnectionString(string connectionStringName = "RayosNoConnection")
 		{
-			CadenaDeConexion = "Data Source=127.0.0.1;Initial Catalog=ProyectosAsfaltos;User ID=sa;Password=Password123;encrypt=false";
+			CadenaDeConexion = "Data Source=192.168.1.15;Initial Catalog=ProyectosAsfaltos;User ID=sa;Password=Password123;encrypt=false";
 		}
 	}
 }
