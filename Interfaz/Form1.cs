@@ -86,6 +86,7 @@ namespace Interfaz
 				_tabla.Columns.Add("Oferta");
 				_tabla.Columns.Add("Fecha Inicio");
 				_tabla.Columns.Add("Fecha Final");
+				_tabla.Columns.Add("Monto");
 				_tabla.Columns.Add("Estado");
 
 
@@ -99,6 +100,7 @@ namespace Interfaz
 						i.OfertaId,
 						i.FechaInicio.ToLongDateString(),
 						i.FechaFinal.ToLongDateString(),
+						i.Monto,
 						i.Estado
 						);
 				}
@@ -165,6 +167,23 @@ namespace Interfaz
 			{
 				MessageBox.Show(r.Message);	
 			}
+		}
+
+		private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void usuariosToolStripMenuItem_Click_1(object sender, EventArgs e)
+		{
+			ListarUsuario listarUsuariousuarios = new();
+			listarUsuariousuarios.ShowDialog();
+		}
+
+		private void agregarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			AgregarUsuario agregarUsuario = new();
+			agregarUsuario.ShowDialog();
 		}
 	}
 }

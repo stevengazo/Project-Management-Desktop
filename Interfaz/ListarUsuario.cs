@@ -55,6 +55,7 @@ namespace Interfaz
 					botonContrasena.Name = "btnContrasena";
 					botonContrasena.UseColumnTextForButtonValue = true;
 					dgvUsuarios.Columns.Add(botonContrasena);
+					
 				}
 				else
 				{
@@ -66,10 +67,25 @@ namespace Interfaz
 
 			}
 		}
-
 		private void ListarUsuario_Load(object sender, EventArgs e)
 		{
 			CargarUsuarios();
+		}
+
+		private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			try
+			{
+				if(e.ColumnIndex== 3)
+				{
+					CambiarContrasena cambiarContrasena = new();
+					cambiarContrasena.ShowDialog();	
+				}
+
+			}catch (Exception ex) {
+				MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+			}
+
 		}
 	}
 }

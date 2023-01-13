@@ -30,7 +30,7 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
 			this.txtUsuario = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.txtContrasena = new System.Windows.Forms.TextBox();
 			this.lblErrorMessage = new System.Windows.Forms.Label();
 			this.btnIngresar = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
@@ -43,22 +43,25 @@
 			this.txtUsuario.Name = "txtUsuario";
 			this.txtUsuario.Size = new System.Drawing.Size(191, 23);
 			this.txtUsuario.TabIndex = 0;
+			this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// textBox2
+			// txtContrasena
 			// 
-			this.textBox2.Location = new System.Drawing.Point(59, 94);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.PasswordChar = '*';
-			this.textBox2.Size = new System.Drawing.Size(191, 23);
-			this.textBox2.TabIndex = 1;
+			this.txtContrasena.Location = new System.Drawing.Point(59, 94);
+			this.txtContrasena.Name = "txtContrasena";
+			this.txtContrasena.PasswordChar = '*';
+			this.txtContrasena.Size = new System.Drawing.Size(191, 23);
+			this.txtContrasena.TabIndex = 1;
+			this.txtContrasena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// lblErrorMessage
 			// 
 			this.lblErrorMessage.AutoSize = true;
-			this.lblErrorMessage.Location = new System.Drawing.Point(133, 132);
+			this.lblErrorMessage.Location = new System.Drawing.Point(76, 129);
 			this.lblErrorMessage.Name = "lblErrorMessage";
 			this.lblErrorMessage.Size = new System.Drawing.Size(0, 15);
 			this.lblErrorMessage.TabIndex = 2;
+			this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// btnIngresar
 			// 
@@ -68,6 +71,7 @@
 			this.btnIngresar.TabIndex = 3;
 			this.btnIngresar.Text = "Ingresar";
 			this.btnIngresar.UseVisualStyleBackColor = true;
+			this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
 			// 
 			// label2
 			// 
@@ -102,7 +106,7 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.btnIngresar);
 			this.Controls.Add(this.lblErrorMessage);
-			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.txtContrasena);
 			this.Controls.Add(this.txtUsuario);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Login";
@@ -116,7 +120,7 @@
 		#endregion
 
 		private TextBox txtUsuario;
-		private TextBox textBox2;
+		private TextBox txtContrasena;
 		private Label lblErrorMessage;
 		private Button btnIngresar;
 		private Label label2;

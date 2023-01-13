@@ -164,6 +164,17 @@
                 {
                 }
             }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_975E6DE46AD84EB9A72B659812DBD10C"
+            {
+            "Name" = "8:#1911"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:FontsFolder"
+                "Folders"
+                {
+                }
+            }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_9DDC05EB0698460384A1EF218E9AABE9"
             {
             "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
@@ -208,19 +219,19 @@
         "UpgradeCode" = "8:{F8A6C2A5-B240-4255-9B6F-63737EB70309}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Mecsa Service"
-        "ARPHELPTELEPHONE" = "8:"
+        "ARPHELPTELEPHONE" = "8:40000646"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Proyectos Asfaltos"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Steven Gazo"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:App para registro de proyectos de asfaltos de mecsa service"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPURLINFOABOUT" = "8:https://grupomecsa.net/"
         "ARPPRODUCTICON" = "8:_18ED159733FA4E95AF31D0A1DDD4EDB7"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"

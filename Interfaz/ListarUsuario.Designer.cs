@@ -43,6 +43,7 @@
 			this.dgvUsuarios.RowTemplate.Height = 25;
 			this.dgvUsuarios.Size = new System.Drawing.Size(477, 392);
 			this.dgvUsuarios.TabIndex = 0;
+			this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
 			// 
 			// ListarUsuario
 			// 
