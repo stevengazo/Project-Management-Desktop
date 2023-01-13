@@ -37,7 +37,7 @@ namespace Interfaz
 				var aprobado = tmp.IniciarSesion(txtUsuario.Text,txtContrasena.Text);
 				if (aprobado)
 				{
-					Form1 tp = new Form1();
+					ModuloVentas tp = new ModuloVentas();
 					this.Hide();
 					tp.ShowDialog();				
 					this.Close();

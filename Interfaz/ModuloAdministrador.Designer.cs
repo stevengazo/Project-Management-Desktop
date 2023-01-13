@@ -1,14 +1,14 @@
 ﻿namespace Interfaz
 {
-	partial class Form1
+	partial class ModuloAdministrador
 	{
 		/// <summary>
-		///  Required designer variable.
+		/// Required designer variable.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
 
 		/// <summary>
-		///  Clean up any resources being used.
+		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
@@ -23,24 +23,25 @@
 		#region Windows Form Designer generated code
 
 		/// <summary>
-		///  Required method for Designer support - do not modify
-		///  the contents of this method with the code editor.
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.agregarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModuloAdministrador));
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.button1 = new System.Windows.Forms.Button();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.dgvProyectos = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.txtRazonSocial = new System.Windows.Forms.TextBox();
 			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+			this.cbVendedores = new System.Windows.Forms.ComboBox();
 			this.comboBox2 = new System.Windows.Forms.ComboBox();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -66,89 +67,94 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.dgvProyectos = new System.Windows.Forms.DataGridView();
-			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-			this.cbVendedores = new System.Windows.Forms.ComboBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.txtRazonSocial = new System.Windows.Forms.TextBox();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.agregarCotizaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.verCotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.menuStrip1.SuspendLayout();
-			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			this.listarOfertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.agregarOfertaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.listarVendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.agregarUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripDropDownMenu();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
+			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// menuStrip1
+			// groupBox2
 			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
-            this.agregarUsuariosToolStripMenuItem,
-            this.ofertasToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1426, 24);
-			this.menuStrip1.TabIndex = 0;
-			this.menuStrip1.Text = "menuStrip1";
+			this.groupBox2.Controls.Add(this.button1);
+			this.groupBox2.Controls.Add(this.textBox2);
+			this.groupBox2.Controls.Add(this.label2);
+			this.groupBox2.Controls.Add(this.textBox1);
+			this.groupBox2.Controls.Add(this.label1);
+			this.groupBox2.Controls.Add(this.dgvProyectos);
+			this.groupBox2.Location = new System.Drawing.Point(447, 27);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(967, 607);
+			this.groupBox2.TabIndex = 4;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Proyectos";
 			// 
-			// archivoToolStripMenuItem
+			// button1
 			// 
-			this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportarToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.salirToolStripMenuItem});
-			this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-			this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-			this.archivoToolStripMenuItem.Text = "Archivo";
+			this.button1.Location = new System.Drawing.Point(473, 28);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(141, 23);
+			this.button1.TabIndex = 5;
+			this.button1.Text = "Buscar";
+			this.button1.UseVisualStyleBackColor = true;
 			// 
-			// exportarToolStripMenuItem
+			// textBox2
 			// 
-			this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.excelToolStripMenuItem});
-			this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-			this.exportarToolStripMenuItem.Text = "Exportar";
+			this.textBox2.Location = new System.Drawing.Point(365, 29);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(102, 23);
+			this.textBox2.TabIndex = 4;
 			// 
-			// excelToolStripMenuItem
+			// label2
 			// 
-			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.excelToolStripMenuItem.Text = "Excel";
-			this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(242, 32);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(117, 15);
+			this.label2.TabIndex = 3;
+			this.label2.Text = "Numero de Proyecto";
 			// 
-			// toolStripSeparator1
+			// textBox1
 			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
+			this.textBox1.Location = new System.Drawing.Point(56, 29);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(163, 23);
+			this.textBox1.TabIndex = 2;
 			// 
-			// salirToolStripMenuItem
+			// label1
 			// 
-			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-			this.salirToolStripMenuItem.Text = "Salir";
-			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(6, 32);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(44, 15);
+			this.label1.TabIndex = 1;
+			this.label1.Text = "Cliente";
 			// 
-			// usuariosToolStripMenuItem
+			// dgvProyectos
 			// 
-			this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-			this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-			this.usuariosToolStripMenuItem.Text = "usuarios";
-			this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click_1);
-			// 
-			// agregarUsuariosToolStripMenuItem
-			// 
-			this.agregarUsuariosToolStripMenuItem.Name = "agregarUsuariosToolStripMenuItem";
-			this.agregarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
-			this.agregarUsuariosToolStripMenuItem.Text = "agregar usuarios";
-			this.agregarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuariosToolStripMenuItem_Click);
+			this.dgvProyectos.AllowUserToAddRows = false;
+			this.dgvProyectos.AllowUserToDeleteRows = false;
+			this.dgvProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvProyectos.Location = new System.Drawing.Point(6, 61);
+			this.dgvProyectos.Name = "dgvProyectos";
+			this.dgvProyectos.ReadOnly = true;
+			this.dgvProyectos.RowTemplate.Height = 25;
+			this.dgvProyectos.Size = new System.Drawing.Size(955, 540);
+			this.dgvProyectos.TabIndex = 0;
 			// 
 			// groupBox1
 			// 
@@ -185,9 +191,16 @@
 			this.groupBox1.Location = new System.Drawing.Point(12, 27);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(429, 607);
-			this.groupBox1.TabIndex = 1;
+			this.groupBox1.TabIndex = 3;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Agregar Proyecto";
+			// 
+			// txtRazonSocial
+			// 
+			this.txtRazonSocial.Location = new System.Drawing.Point(181, 98);
+			this.txtRazonSocial.Name = "txtRazonSocial";
+			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
+			this.txtRazonSocial.TabIndex = 6;
 			// 
 			// txtNumeroProyecto
 			// 
@@ -212,6 +225,14 @@
 			this.dateTimePicker3.Name = "dateTimePicker3";
 			this.dateTimePicker3.Size = new System.Drawing.Size(225, 23);
 			this.dateTimePicker3.TabIndex = 38;
+			// 
+			// cbVendedores
+			// 
+			this.cbVendedores.FormattingEnabled = true;
+			this.cbVendedores.Location = new System.Drawing.Point(181, 61);
+			this.cbVendedores.Name = "cbVendedores";
+			this.cbVendedores.Size = new System.Drawing.Size(225, 23);
+			this.cbVendedores.TabIndex = 37;
 			// 
 			// comboBox2
 			// 
@@ -255,7 +276,6 @@
 			this.btnAgregar.TabIndex = 31;
 			this.btnAgregar.Text = "Agregar";
 			this.btnAgregar.UseVisualStyleBackColor = true;
-			this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
 			// 
 			// button2
 			// 
@@ -426,133 +446,132 @@
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Vendedor";
 			// 
-			// groupBox2
+			// menuStrip1
 			// 
-			this.groupBox2.Controls.Add(this.button1);
-			this.groupBox2.Controls.Add(this.textBox2);
-			this.groupBox2.Controls.Add(this.label2);
-			this.groupBox2.Controls.Add(this.textBox1);
-			this.groupBox2.Controls.Add(this.label1);
-			this.groupBox2.Controls.Add(this.dgvProyectos);
-			this.groupBox2.Location = new System.Drawing.Point(447, 27);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(967, 607);
-			this.groupBox2.TabIndex = 2;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Proyectos";
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem,
+            this.ofertasToolStripMenuItem,
+            this.usuariosToolStripMenuItem,
+            this.ayudaToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(1420, 24);
+			this.menuStrip1.TabIndex = 5;
+			this.menuStrip1.Text = "menuStrip1";
 			// 
-			// button1
+			// archivoToolStripMenuItem
 			// 
-			this.button1.Location = new System.Drawing.Point(473, 28);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(141, 23);
-			this.button1.TabIndex = 5;
-			this.button1.Text = "Buscar";
-			this.button1.UseVisualStyleBackColor = true;
+			this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.salirToolStripMenuItem});
+			this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+			this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+			this.archivoToolStripMenuItem.Text = "Archivo";
 			// 
-			// textBox2
+			// exportarToolStripMenuItem
 			// 
-			this.textBox2.Location = new System.Drawing.Point(365, 29);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(102, 23);
-			this.textBox2.TabIndex = 4;
+			this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.excelToolStripMenuItem});
+			this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
+			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exportarToolStripMenuItem.Text = "Exportar";
 			// 
-			// label2
+			// excelToolStripMenuItem
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(242, 32);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(117, 15);
-			this.label2.TabIndex = 3;
-			this.label2.Text = "Numero de Proyecto";
+			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
+			this.excelToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+			this.excelToolStripMenuItem.Text = "Excel";
 			// 
-			// label1
+			// toolStripSeparator1
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(6, 32);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(44, 15);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Cliente";
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
 			// 
-			// dgvProyectos
+			// salirToolStripMenuItem
 			// 
-			this.dgvProyectos.AllowUserToAddRows = false;
-			this.dgvProyectos.AllowUserToDeleteRows = false;
-			this.dgvProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvProyectos.Location = new System.Drawing.Point(6, 61);
-			this.dgvProyectos.Name = "dgvProyectos";
-			this.dgvProyectos.ReadOnly = true;
-			this.dgvProyectos.RowTemplate.Height = 25;
-			this.dgvProyectos.Size = new System.Drawing.Size(955, 540);
-			this.dgvProyectos.TabIndex = 0;
-			// 
-			// cbVendedores
-			// 
-			this.cbVendedores.FormattingEnabled = true;
-			this.cbVendedores.Location = new System.Drawing.Point(181, 61);
-			this.cbVendedores.Name = "cbVendedores";
-			this.cbVendedores.Size = new System.Drawing.Size(225, 23);
-			this.cbVendedores.TabIndex = 37;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(56, 29);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(163, 23);
-			this.textBox1.TabIndex = 2;
-			// 
-			// txtRazonSocial
-			// 
-			this.txtRazonSocial.Location = new System.Drawing.Point(181, 98);
-			this.txtRazonSocial.Name = "txtRazonSocial";
-			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
-			this.txtRazonSocial.TabIndex = 6;
+			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.salirToolStripMenuItem.Text = "Salir";
 			// 
 			// ofertasToolStripMenuItem
 			// 
 			this.ofertasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarCotizaciónToolStripMenuItem,
-            this.verCotizacionesToolStripMenuItem});
+            this.listarOfertasToolStripMenuItem,
+            this.agregarOfertaToolStripMenuItem});
 			this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
-			this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-			this.ofertasToolStripMenuItem.Text = "Ofertas ";
+			this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+			this.ofertasToolStripMenuItem.Text = "Ofertas";
 			// 
-			// agregarCotizaciónToolStripMenuItem
+			// listarOfertasToolStripMenuItem
 			// 
-			this.agregarCotizaciónToolStripMenuItem.Name = "agregarCotizaciónToolStripMenuItem";
-			this.agregarCotizaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.agregarCotizaciónToolStripMenuItem.Text = "Agregar Cotización";
+			this.listarOfertasToolStripMenuItem.Name = "listarOfertasToolStripMenuItem";
+			this.listarOfertasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.listarOfertasToolStripMenuItem.Text = "Listar Ofertas";
 			// 
-			// verCotizacionesToolStripMenuItem
+			// agregarOfertaToolStripMenuItem
 			// 
-			this.verCotizacionesToolStripMenuItem.Name = "verCotizacionesToolStripMenuItem";
-			this.verCotizacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.verCotizacionesToolStripMenuItem.Text = "Ver Cotizaciones";
+			this.agregarOfertaToolStripMenuItem.Name = "agregarOfertaToolStripMenuItem";
+			this.agregarOfertaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.agregarOfertaToolStripMenuItem.Text = "Agregar Oferta";
 			// 
-			// Form1
+			// usuariosToolStripMenuItem
+			// 
+			this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listarVendedoresToolStripMenuItem,
+            this.agregarUsuarioToolStripMenuItem1});
+			this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+			this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+			this.usuariosToolStripMenuItem.Text = "Usuarios";
+			// 
+			// listarVendedoresToolStripMenuItem
+			// 
+			this.listarVendedoresToolStripMenuItem.Name = "listarVendedoresToolStripMenuItem";
+			this.listarVendedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.listarVendedoresToolStripMenuItem.Text = "Listar Usuarios";
+			this.listarVendedoresToolStripMenuItem.Click += new System.EventHandler(this.listarVendedoresToolStripMenuItem_Click);
+			// 
+			// agregarUsuarioToolStripMenuItem1
+			// 
+			this.agregarUsuarioToolStripMenuItem1.Name = "agregarUsuarioToolStripMenuItem1";
+			this.agregarUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.agregarUsuarioToolStripMenuItem1.Text = "Agregar Usuario";
+			this.agregarUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem1_Click);
+			// 
+			// ayudaToolStripMenuItem
+			// 
+			this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+			this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+			this.ayudaToolStripMenuItem.Text = "Ayuda";
+			// 
+			// agregarUsuarioToolStripMenuItem
+			// 
+			this.agregarUsuarioToolStripMenuItem.AutoClose = false;
+			this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
+			this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(61, 4);
+			// 
+			// ModuloAdministrador
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.LightBlue;
-			this.ClientSize = new System.Drawing.Size(1426, 646);
+			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.ClientSize = new System.Drawing.Size(1420, 647);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
-			this.Name = "Form1";
+			this.Name = "ModuloAdministrador";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Modulo Ventas ";
-			this.Load += new System.EventHandler(this.Form1_Load);
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			this.Text = "Modulo Administrador";
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -560,13 +579,23 @@
 
 		#endregion
 
-		private MenuStrip menuStrip1;
-		private ToolStripMenuItem archivoToolStripMenuItem;
-		private ToolStripMenuItem exportarToolStripMenuItem;
-		private ToolStripMenuItem excelToolStripMenuItem;
-		private ToolStripSeparator toolStripSeparator1;
-		private ToolStripMenuItem salirToolStripMenuItem;
+		private GroupBox groupBox2;
+		private Button button1;
+		private TextBox textBox2;
+		private Label label2;
+		private TextBox textBox1;
+		private Label label1;
+		private DataGridView dgvProyectos;
 		private GroupBox groupBox1;
+		private TextBox txtRazonSocial;
+		private TextBox txtNumeroProyecto;
+		private Label label6;
+		private DateTimePicker dateTimePicker3;
+		private ComboBox cbVendedores;
+		private ComboBox comboBox2;
+		private NumericUpDown numericUpDown1;
+		private DateTimePicker dateTimePicker2;
+		private DateTimePicker dateTimePicker1;
 		private Button btnAgregar;
 		private Button button2;
 		private Label label17;
@@ -588,27 +617,19 @@
 		private Label label5;
 		private Label label4;
 		private Label label3;
-		private GroupBox groupBox2;
-		private Button button1;
-		private TextBox textBox2;
-		private Label label2;
-		private Label label1;
-		private DataGridView dgvProyectos;
-		private ComboBox comboBox2;
-		private NumericUpDown numericUpDown1;
-		private DateTimePicker dateTimePicker2;
-		private DateTimePicker dateTimePicker1;
-		private SaveFileDialog saveFileDialog;
-		private DateTimePicker dateTimePicker3;
-		private TextBox txtNumeroProyecto;
-		private Label label6;
-		private ToolStripMenuItem usuariosToolStripMenuItem;
-		private ToolStripMenuItem agregarUsuariosToolStripMenuItem;
+		private MenuStrip menuStrip1;
+		private ToolStripMenuItem archivoToolStripMenuItem;
+		private ToolStripMenuItem exportarToolStripMenuItem;
+		private ToolStripMenuItem excelToolStripMenuItem;
+		private ToolStripSeparator toolStripSeparator1;
+		private ToolStripMenuItem salirToolStripMenuItem;
+		private ToolStripMenuItem ayudaToolStripMenuItem;
 		private ToolStripMenuItem ofertasToolStripMenuItem;
-		private ToolStripMenuItem agregarCotizaciónToolStripMenuItem;
-		private ToolStripMenuItem verCotizacionesToolStripMenuItem;
-		private TextBox txtRazonSocial;
-		private ComboBox cbVendedores;
-		private TextBox textBox1;
+		private ToolStripMenuItem listarOfertasToolStripMenuItem;
+		private ToolStripMenuItem agregarOfertaToolStripMenuItem;
+		private ToolStripMenuItem usuariosToolStripMenuItem;
+		private ToolStripMenuItem listarVendedoresToolStripMenuItem;
+		private ToolStripMenuItem agregarUsuarioToolStripMenuItem1;
+		private ToolStripDropDownMenu agregarUsuarioToolStripMenuItem;
 	}
 }

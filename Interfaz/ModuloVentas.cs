@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-	public partial class Form1 : Form
+	public partial class ModuloVentas : Form
 	{
 		private List<Proyecto> proyectos = new();
 		private Proyecto ProyectoTemporal = new();
-		public Form1()
+		public ModuloVentas()
 		{
 			InitializeComponent();
 		}
@@ -19,7 +19,7 @@ namespace Interfaz
 			AgregarCliente tmp1= new AgregarCliente();
 			tmp1.ShowDialog();
 			// Actualizar combobox
-			CargarClientes();
+
 			
 		}
 
@@ -34,8 +34,7 @@ namespace Interfaz
 		{
 			CargarVendedores();
 			CargarTabla();
-			CargarClientes();
-		}
+					}
 
 		private void CargarVendedores()
 		{
@@ -53,24 +52,7 @@ namespace Interfaz
 			}
 
 		}
-		private void CargarClientes()
-		{
-			try
-			{
-				var ClienteNegocios = new ClienteNegocio();
-				var listaClientes = ClienteNegocios.ListarClientes();
-				cbCliente.Items.Clear();
-				foreach (Cliente i in listaClientes)
-				{
-					cbCliente.Items.Add($"{i.RazonSocial} - {i.Cedula} ");
-				}
-
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-			}
-		}
+		
 		private void CargarTabla()
 		{
 			var proyectosNegocio = new ProyectoNegocios();
