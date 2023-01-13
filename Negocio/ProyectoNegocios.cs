@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos;
 using Microsoft.EntityFrameworkCore;
 using Modelos;
 
@@ -23,7 +22,7 @@ namespace Negocios
 				{
 					proyectos = (from proye in db.Proyectos
 								 orderby proye.ProyectoId descending
-								 select proye).Include(P=>P.Cliente).Include(P=>P.Vendedor) .ToList();
+								 select proye).Include(P=>P.Vendedor) .ToList();
 				}
 				return proyectos;
 			}catch (Exception f)

@@ -35,6 +35,7 @@
 			this.btnIngresar = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.cbTipo = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// txtUsuario
@@ -57,7 +58,7 @@
 			// lblErrorMessage
 			// 
 			this.lblErrorMessage.AutoSize = true;
-			this.lblErrorMessage.Location = new System.Drawing.Point(76, 129);
+			this.lblErrorMessage.Location = new System.Drawing.Point(77, 151);
 			this.lblErrorMessage.Name = "lblErrorMessage";
 			this.lblErrorMessage.Size = new System.Drawing.Size(0, 15);
 			this.lblErrorMessage.TabIndex = 2;
@@ -65,7 +66,7 @@
 			// 
 			// btnIngresar
 			// 
-			this.btnIngresar.Location = new System.Drawing.Point(105, 150);
+			this.btnIngresar.Location = new System.Drawing.Point(106, 172);
 			this.btnIngresar.Name = "btnIngresar";
 			this.btnIngresar.Size = new System.Drawing.Size(95, 23);
 			this.btnIngresar.TabIndex = 3;
@@ -96,12 +97,24 @@
 			this.label3.Text = "Contrasena";
 			this.label3.Click += new System.EventHandler(this.label3_Click);
 			// 
+			// cbTipo
+			// 
+			this.cbTipo.FormattingEnabled = true;
+			this.cbTipo.Items.AddRange(new object[] {
+            "Vendedores",
+            "Administrador"});
+			this.cbTipo.Location = new System.Drawing.Point(92, 123);
+			this.cbTipo.Name = "cbTipo";
+			this.cbTipo.Size = new System.Drawing.Size(121, 23);
+			this.cbTipo.TabIndex = 6;
+			// 
 			// Login
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.SteelBlue;
 			this.ClientSize = new System.Drawing.Size(309, 207);
+			this.Controls.Add(this.cbTipo);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.btnIngresar);
@@ -125,5 +138,6 @@
 		private Button btnIngresar;
 		private Label label2;
 		private Label label3;
+		private ComboBox cbTipo;
 	}
 }

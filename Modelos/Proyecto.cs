@@ -20,20 +20,11 @@ namespace Modelos
 		public DateTime FechaInicio { get; set; }
 		public DateTime FechaFinal { get; set; }
 		public string Estado { get; set; }
-
 		public string Autor { get; set; }
-		public DateTime UltimaEdicion { get; set; }
-
-
-
-		// Relaciones
-
-		/// Vendedor
-		public int VendedorId { get; set; }
-		public Vendedor Vendedor { get; set; }
-
-		// Cliente
-		public int ClienteId { get; set; }
-		public Cliente Cliente { get; set; }
+		public DateTime UltimaEdicion { get; set; }	
+		public string UltimoEditor { get; set; }			
+		public Usuario Vendedor { get; set; }
+		public int UsuarioId { get; set; }
 	}
+	
 }

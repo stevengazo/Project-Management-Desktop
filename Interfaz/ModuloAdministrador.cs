@@ -28,5 +28,19 @@ namespace Interfaz
 			AgregarUsuario agregarUsuario = new();
 			agregarUsuario.ShowDialog();
 		}
+
+		private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			try
+			{
+				if(e.ColumnIndex== 0)
+				{
+
+				}
+			}catch(Exception ex)
+			{
+				MessageBox.Show(ex.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 	}
 }

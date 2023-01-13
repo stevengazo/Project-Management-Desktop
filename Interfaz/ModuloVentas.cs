@@ -16,48 +16,28 @@ namespace Interfaz
 
 		private void agregarRazónSocialToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			AgregarCliente tmp1= new AgregarCliente();
-			tmp1.ShowDialog();
-			// Actualizar combobox
 
-			
+
+
 		}
 
 		private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			AgregarVendedor tmp1 = new AgregarVendedor();
-			tmp1.ShowDialog();
-			CargarVendedores();
+
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			CargarVendedores();
 			CargarTabla();
-					}
-
-		private void CargarVendedores()
-		{
-			try
-			{
-				var VendedoresNegocios = new VendedorNegocio();
-				var listaVendedores = VendedoresNegocios.ListarVendedores();
-				cbVendedores.Items.Clear();
-				foreach (Vendedor i in listaVendedores) { 
-					cbVendedores.Items.Add(i.Nombre);
-				}
-
-			}catch (Exception ex) {
-				MessageBox.Show(ex.Message);
-			}
-
 		}
-		
+
+
+
 		private void CargarTabla()
 		{
 			var proyectosNegocio = new ProyectoNegocios();
 			proyectos = proyectosNegocio.ListaProyectos();
-			if(proyectos.Count > 0)
+			if (proyectos.Count > 0)
 			{
 				DataTable _tabla = new();
 
@@ -72,12 +52,11 @@ namespace Interfaz
 				_tabla.Columns.Add("Estado");
 
 
-				foreach ( Proyecto i in proyectos)
+				foreach (Proyecto i in proyectos)
 				{
 					_tabla.Rows.Add(
 						i.ProyectoId,
 						i.Vendedor.Nombre,
-						i.Cliente.RazonSocial,
 						i.FechaOC,
 						i.OfertaId,
 						i.FechaInicio.ToLongDateString(),
@@ -102,14 +81,12 @@ namespace Interfaz
 
 		private void razonesSocialesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			ListarCliente tmp = new();
-			tmp.ShowDialog();
+			
+			
 		}
 
 		private void listaToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			ListarVendedor tmp = new();
-			tmp.ShowDialog();
+		{ 
 		}
 
 		private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,19 +99,22 @@ namespace Interfaz
 		{
 			try
 			{
-				if(proyectos.Count>0) {
+				if (proyectos.Count > 0)
+				{
 					saveFileDialog.Title = "Exportar Proyectos";
 					saveFileDialog.Filter = "Hoja de Calculo|*.xlsx";
-					if(saveFileDialog.ShowDialog() == DialogResult.OK)
+					if (saveFileDialog.ShowDialog() == DialogResult.OK)
 					{
 
 					}
 				}
 				else
 				{
-					MessageBox.Show("No hay proyectos para exportar","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+					MessageBox.Show("No hay proyectos para exportar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
-			}catch(Exception ex) {
+			}
+			catch (Exception ex)
+			{
 				MessageBox.Show(ex.Message);
 			}
 
@@ -147,7 +127,7 @@ namespace Interfaz
 			}
 			catch (Exception r)
 			{
-				MessageBox.Show(r.Message);	
+				MessageBox.Show(r.Message);
 			}
 		}
 

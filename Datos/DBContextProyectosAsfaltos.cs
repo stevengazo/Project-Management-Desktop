@@ -26,11 +26,10 @@ namespace Modelos
 
 		#region Atributos Publicos
 		public DbSet<Proyecto> Proyectos { get; set; }
-		public DbSet<Cliente> Clientes { get; set; }
 		public DbSet<Rol> Roles { get; set; }
 		public DbSet<RolUsuario> RolUsuarios { get; set; }
 		public DbSet<Usuario> Usuarios { get; set; }
-		public DbSet<Vendedor> Vendedores { get; set; }
+		
 		#endregion
 
 		/// <summary>
@@ -39,21 +38,39 @@ namespace Modelos
 		/// <param name="model"></param>
 		protected void GenerateSeedOfData(ModelBuilder model)
 		{
+			var contrasena = "admin123";
+			using (var md6Hash = MD5.Create())
+			{
+				var fuente = Encoding.UTF8.GetBytes(contrasena);
+				var hashBytes = md6Hash.ComputeHash(fuente);
+				var hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
+				contrasena = hash;
+			}
+			Usuario usuarioBase = new()
+			{
+				UsuarioId = 1,
+				Login = "admin",
+				Nombre = "Administrador",
+				HashContraseña = contrasena,
+			};
+			model.Entity<Usuario>().HasData(usuarioBase);
 
-			Cliente ClienteBase = new()
+			Rol Admin = new()
 			{
-				ClienteId = 1,
-				Cedula = 1,
-				RazonSocial = "Ejemplo S.A",
-				NombreComercial = "Ejemplo"
+				RolId = 1,
+				Nombre = "Admin"
 			};
-			model.Entity<Cliente>().HasData(ClienteBase);
-			Vendedor VendedorBase = new()
+			model.Entity<Rol>().HasData(Admin);
+
+			RolUsuario rolUsuarioBase = new()
 			{
-				VendedorId = 1,
-				Nombre = "Ejemplo"
+				RolUsuarioId = 1,
+				RolId = Admin.RolId,
+				UsuarioId = usuarioBase.UsuarioId
 			};
-			model.Entity<Vendedor>().HasData(VendedorBase);
+			model.Entity<RolUsuario>().HasData(rolUsuarioBase);
+
+
 			Proyecto ProyectoBase = new()
 			{
 				ProyectoId = 1,
@@ -69,40 +86,32 @@ namespace Modelos
 				FechaInicio = DateTime.Today.AddDays(-1),
 				FechaFinal = DateTime.Today.AddDays(2),
 				Estado = "Finalizado",
-				Autor = "Ejemplo",
+				Autor = usuarioBase.Nombre,
 				UltimaEdicion = DateTime.Today,
-				VendedorId = VendedorBase.VendedorId,
-				ClienteId = ClienteBase.ClienteId
+				UsuarioId= usuarioBase.UsuarioId,
+				UltimoEditor = usuarioBase.Nombre
 			};
 			model.Entity<Proyecto>().HasData(ProyectoBase);
-			var contrasena = "admin123";
-			using (var md6Hash = MD5.Create())
-			{
-				var fuente = Encoding.UTF8.GetBytes(contrasena);
-				var hashBytes = md6Hash.ComputeHash(fuente);
-				var hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
-				contrasena = hash;
-			}
-			Usuario usuarioBase = new()
-			{
-				UsuarioId = 1,
-				Nombre = "admin",
-				HashContraseña = contrasena,
-			};
-			model.Entity<Usuario>().HasData(usuarioBase);
-			Rol Editor = new()
-			{
-				RolId = 1,
-				Nombre = "Editor"
-			};
-			model.Entity<Rol>().HasData(Editor);
-			RolUsuario rolUsuarioBase = new()
-			{
-				RolUsuarioId=1,
-				RolId = Editor.RolId,
+
+			Oferta oferta = new() {
+				OfetaId = 1,
+				Fecha = DateTime.Today,
+				Codigo = 1,
+				Sellador = true,
+				Asfalto = true,
+				Base = true,
+				SubBase = true,
+				Excavacion = true,
+				Monto = 100f,
+				Notas = string.Empty,
+				Observaciones = string.Empty,
+				AutorPrespuesto = usuarioBase.Nombre,
+				UltimaModificacion = DateTime.Today.AddHours(1),
 				UsuarioId = usuarioBase.UsuarioId
 			};
-			model.Entity<RolUsuario>().HasData(rolUsuarioBase);
+
+
+
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -119,7 +128,6 @@ namespace Modelos
 				optionsBuilder.UseSqlServer(CadenaDeConexion);
 			}
 		}
-
 		private void GetConnectionString(string connectionStringName = "RayosNoConnection")
 		{
 			CadenaDeConexion = "Data Source=192.168.1.15;Initial Catalog=ProyectosAsfaltos;User ID=sa;Password=Password123;encrypt=false";
