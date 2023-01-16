@@ -28,27 +28,27 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.txtContrasena = new System.Windows.Forms.TextBox();
+			this.txtVerificarContrasena = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.btnCambiar = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// textBox1
+			// txtContrasena
 			// 
-			this.textBox1.Location = new System.Drawing.Point(155, 12);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(193, 23);
-			this.textBox1.TabIndex = 0;
+			this.txtContrasena.Location = new System.Drawing.Point(155, 12);
+			this.txtContrasena.Name = "txtContrasena";
+			this.txtContrasena.Size = new System.Drawing.Size(193, 23);
+			this.txtContrasena.TabIndex = 0;
 			// 
-			// textBox2
+			// txtVerificarContrasena
 			// 
-			this.textBox2.Location = new System.Drawing.Point(155, 41);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(193, 23);
-			this.textBox2.TabIndex = 1;
+			this.txtVerificarContrasena.Location = new System.Drawing.Point(155, 41);
+			this.txtVerificarContrasena.Name = "txtVerificarContrasena";
+			this.txtVerificarContrasena.Size = new System.Drawing.Size(193, 23);
+			this.txtVerificarContrasena.TabIndex = 1;
 			// 
 			// label1
 			// 
@@ -76,6 +76,7 @@
 			this.btnCambiar.TabIndex = 4;
 			this.btnCambiar.Text = "Cambiar Contraseña";
 			this.btnCambiar.UseVisualStyleBackColor = true;
+			this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
 			// 
 			// button1
 			// 
@@ -85,6 +86,7 @@
 			this.button1.TabIndex = 5;
 			this.button1.Text = "Cancelar";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// CambiarContrasena
 			// 
@@ -95,8 +97,8 @@
 			this.Controls.Add(this.btnCambiar);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.txtVerificarContrasena);
+			this.Controls.Add(this.txtContrasena);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "CambiarContrasena";
@@ -110,8 +112,8 @@
 
 		#endregion
 
-		private TextBox textBox1;
-		private TextBox textBox2;
+		private TextBox txtContrasena;
+		private TextBox txtVerificarContrasena;
 		private Label label1;
 		private Label label2;
 		private Button btnCambiar;

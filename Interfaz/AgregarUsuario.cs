@@ -61,10 +61,9 @@ namespace Interfaz
 						bool Resultado = tmp.CrearUsuario(UsuarioTemporal, out int idUsuario);
 						if (Resultado)
 						{
-							MessageBox.Show($"Usuario Registrado. \nId {idUsuario} \nLogin{UsuarioTemporal.Login}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							MessageBox.Show($"Usuario Registrado.\nId: {idUsuario}\nLogin: {UsuarioTemporal.Login}\nNombre: {UsuarioTemporal.Nombre}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 							UsuarioTemporal.UsuarioId = idUsuario;
 							AsignarRol(UsuarioTemporal);
-
 						}
 					}
 					else

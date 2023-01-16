@@ -78,7 +78,10 @@ namespace Interfaz
 			{
 				if(e.ColumnIndex== 3)
 				{
+					// Obtener el id
 					CambiarContrasena cambiarContrasena = new();
+					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
+					cambiarContrasena.idUsuario= id;
 					cambiarContrasena.ShowDialog();	
 				}
 

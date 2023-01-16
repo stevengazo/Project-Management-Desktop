@@ -12,6 +12,38 @@ namespace Negocios
 {
 	public class UsuarioNegocio
 	{
+
+		public bool CambiarContraseña(int idUsuario, string contraseña)
+		{
+			try
+			{
+				Usuario usuario = ObtenerUsuario(idUsuario);
+				if(usuario != null)
+				{
+					using (var md6Hash = MD5.Create())
+					{
+						var fuente = Encoding.UTF8.GetBytes(contraseña);
+						var hashBytes = md6Hash.ComputeHash(fuente);
+						var hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
+						usuario.HashContraseña = hash;
+					}
+					using( var db = new DBContextProyectosAsfaltos())
+					{
+						db.Usuarios.Update(usuario);
+						db.SaveChanges();
+					}
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+				
+			}catch (Exception e)
+			{
+				return false;
+			}
+		}
 		public bool CrearUsuario(Usuario _usuario, out int UsuarioId)
 		{
 			try
@@ -91,7 +123,25 @@ namespace Negocios
 				return null;
 			}
 		}
-		public async Task<UsuarioNegocio> ObtenerUsuario(int idUsuario)
+		public Usuario ObtenerUsuario(int _idUsuario)
+		{
+			try
+			{
+				using (var db = new DBContextProyectosAsfaltos())
+				{
+					var s = (from i in db.Usuarios
+							 where i.UsuarioId == _idUsuario
+							 select i).FirstOrDefault();
+					return s;
+				}
+			}
+			catch (Exception ex)
+			{
+				return null;
+			}
+		}
+
+		public async Task<UsuarioNegocio> ObtenerUsuarioAsync(int idUsuario)
 		{
 			throw new NotImplementedException();
 		}
