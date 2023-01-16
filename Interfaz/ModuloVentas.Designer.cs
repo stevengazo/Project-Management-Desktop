@@ -35,12 +35,15 @@
 			this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.agregarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.agregarCotizaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.verCotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.txtRazonSocial = new System.Windows.Forms.TextBox();
 			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+			this.cbVendedores = new System.Windows.Forms.ComboBox();
 			this.comboBox2 = new System.Windows.Forms.ComboBox();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -70,15 +73,10 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgvProyectos = new System.Windows.Forms.DataGridView();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-			this.cbVendedores = new System.Windows.Forms.ComboBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.txtRazonSocial = new System.Windows.Forms.TextBox();
-			this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.agregarCotizaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.verCotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -90,8 +88,6 @@
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
-            this.agregarUsuariosToolStripMenuItem,
             this.ofertasToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
@@ -120,7 +116,7 @@
 			// excelToolStripMenuItem
 			// 
 			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.excelToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
 			this.excelToolStripMenuItem.Text = "Excel";
 			this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
 			// 
@@ -136,19 +132,27 @@
 			this.salirToolStripMenuItem.Text = "Salir";
 			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
 			// 
-			// usuariosToolStripMenuItem
+			// ofertasToolStripMenuItem
 			// 
-			this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-			this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-			this.usuariosToolStripMenuItem.Text = "usuarios";
-			this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click_1);
+			this.ofertasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarCotizaciónToolStripMenuItem,
+            this.verCotizacionesToolStripMenuItem});
+			this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
+			this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+			this.ofertasToolStripMenuItem.Text = "Ofertas ";
 			// 
-			// agregarUsuariosToolStripMenuItem
+			// agregarCotizaciónToolStripMenuItem
 			// 
-			this.agregarUsuariosToolStripMenuItem.Name = "agregarUsuariosToolStripMenuItem";
-			this.agregarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
-			this.agregarUsuariosToolStripMenuItem.Text = "agregar usuarios";
-			this.agregarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuariosToolStripMenuItem_Click);
+			this.agregarCotizaciónToolStripMenuItem.Name = "agregarCotizaciónToolStripMenuItem";
+			this.agregarCotizaciónToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.agregarCotizaciónToolStripMenuItem.Text = "Agregar Cotización";
+			// 
+			// verCotizacionesToolStripMenuItem
+			// 
+			this.verCotizacionesToolStripMenuItem.Name = "verCotizacionesToolStripMenuItem";
+			this.verCotizacionesToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.verCotizacionesToolStripMenuItem.Text = "Ver Cotizaciones";
+			this.verCotizacionesToolStripMenuItem.Click += new System.EventHandler(this.verCotizacionesToolStripMenuItem_Click);
 			// 
 			// groupBox1
 			// 
@@ -189,6 +193,13 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Agregar Proyecto";
 			// 
+			// txtRazonSocial
+			// 
+			this.txtRazonSocial.Location = new System.Drawing.Point(181, 98);
+			this.txtRazonSocial.Name = "txtRazonSocial";
+			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
+			this.txtRazonSocial.TabIndex = 6;
+			// 
 			// txtNumeroProyecto
 			// 
 			this.txtNumeroProyecto.Location = new System.Drawing.Point(181, 29);
@@ -213,6 +224,14 @@
 			this.dateTimePicker3.Size = new System.Drawing.Size(225, 23);
 			this.dateTimePicker3.TabIndex = 38;
 			// 
+			// cbVendedores
+			// 
+			this.cbVendedores.FormattingEnabled = true;
+			this.cbVendedores.Location = new System.Drawing.Point(181, 61);
+			this.cbVendedores.Name = "cbVendedores";
+			this.cbVendedores.Size = new System.Drawing.Size(225, 23);
+			this.cbVendedores.TabIndex = 37;
+			// 
 			// comboBox2
 			// 
 			this.comboBox2.FormattingEnabled = true;
@@ -225,6 +244,7 @@
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(225, 23);
 			this.comboBox2.TabIndex = 36;
+			this.comboBox2.Text = "Pendiente de Ejecución";
 			// 
 			// numericUpDown1
 			// 
@@ -466,6 +486,13 @@
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Numero de Proyecto";
 			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(56, 29);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(163, 23);
+			this.textBox1.TabIndex = 2;
+			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -486,51 +513,9 @@
 			this.dgvProyectos.RowTemplate.Height = 25;
 			this.dgvProyectos.Size = new System.Drawing.Size(955, 540);
 			this.dgvProyectos.TabIndex = 0;
+			this.dgvProyectos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProyectos_CellContentClick);
 			// 
-			// cbVendedores
-			// 
-			this.cbVendedores.FormattingEnabled = true;
-			this.cbVendedores.Location = new System.Drawing.Point(181, 61);
-			this.cbVendedores.Name = "cbVendedores";
-			this.cbVendedores.Size = new System.Drawing.Size(225, 23);
-			this.cbVendedores.TabIndex = 37;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(56, 29);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(163, 23);
-			this.textBox1.TabIndex = 2;
-			// 
-			// txtRazonSocial
-			// 
-			this.txtRazonSocial.Location = new System.Drawing.Point(181, 98);
-			this.txtRazonSocial.Name = "txtRazonSocial";
-			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
-			this.txtRazonSocial.TabIndex = 6;
-			// 
-			// ofertasToolStripMenuItem
-			// 
-			this.ofertasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarCotizaciónToolStripMenuItem,
-            this.verCotizacionesToolStripMenuItem});
-			this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
-			this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-			this.ofertasToolStripMenuItem.Text = "Ofertas ";
-			// 
-			// agregarCotizaciónToolStripMenuItem
-			// 
-			this.agregarCotizaciónToolStripMenuItem.Name = "agregarCotizaciónToolStripMenuItem";
-			this.agregarCotizaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.agregarCotizaciónToolStripMenuItem.Text = "Agregar Cotización";
-			// 
-			// verCotizacionesToolStripMenuItem
-			// 
-			this.verCotizacionesToolStripMenuItem.Name = "verCotizacionesToolStripMenuItem";
-			this.verCotizacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.verCotizacionesToolStripMenuItem.Text = "Ver Cotizaciones";
-			// 
-			// Form1
+			// ModuloVentas
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -541,7 +526,7 @@
 			this.Controls.Add(this.menuStrip1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
-			this.Name = "Form1";
+			this.Name = "ModuloVentas";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Modulo Ventas ";
 			this.Load += new System.EventHandler(this.Form1_Load);
@@ -602,8 +587,6 @@
 		private DateTimePicker dateTimePicker3;
 		private TextBox txtNumeroProyecto;
 		private Label label6;
-		private ToolStripMenuItem usuariosToolStripMenuItem;
-		private ToolStripMenuItem agregarUsuariosToolStripMenuItem;
 		private ToolStripMenuItem ofertasToolStripMenuItem;
 		private ToolStripMenuItem agregarCotizaciónToolStripMenuItem;
 		private ToolStripMenuItem verCotizacionesToolStripMenuItem;

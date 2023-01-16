@@ -52,6 +52,7 @@ namespace Interfaz
 							if (Autorizacion)
 							{
 								Temporal.UsuarioActivo =  usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
+								Temporal.TipoLogin = "Vendedor";
 								ModuloVentas moduloVentas = new();
 								this.Hide();
 								moduloVentas.ShowDialog();
@@ -79,6 +80,7 @@ namespace Interfaz
 							if (Autorizacion)
 							{
 								Temporal.UsuarioActivo = usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
+								Temporal.TipoLogin = "Administrador";
 								ModuloAdministrador moduloAdministrador = new();
 								this.Hide();
 								moduloAdministrador.ShowDialog();

@@ -12,6 +12,25 @@ namespace Negocios
 {
 	public class UsuarioNegocio
 	{
+		public List<Usuario> ListarVendedores()
+		{
+			try
+			{
+				List<Usuario> Vendedores = new();
+				using (var db = new DBContextProyectosAsfaltos())
+				{
+					Vendedores = (from usuario in db.Usuarios
+								  join rolesUsuario in db.RolUsuarios on usuario.UsuarioId equals rolesUsuario.UsuarioId
+								  where rolesUsuario.RolId == 2
+								  select usuario
+								  ).ToList();
+				}
+				return Vendedores;
+			}catch (Exception f)
+			{
+				return null;
+			}
+		}
 
 		public bool CambiarContraseña(int idUsuario, string contraseña)
 		{

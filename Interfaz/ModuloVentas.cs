@@ -9,6 +9,7 @@ namespace Interfaz
 	{
 		private List<Proyecto> proyectos = new();
 		private Proyecto ProyectoTemporal = new();
+		private List<Usuario> Vendedores = new();
 		public ModuloVentas()
 		{
 			InitializeComponent();
@@ -29,14 +30,26 @@ namespace Interfaz
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			CargarTabla();
+			CargarVendedores();
 		}
 
 
-
+		private void CargarVendedores()
+		{
+			UsuarioNegocio usuarioNegocio = new();
+			Vendedores = usuarioNegocio.ListarVendedores();
+			if(Vendedores.Count > 0)
+			{
+				foreach (var item in Vendedores)
+				{
+					cbVendedores.Items.Add(item.Nombre);
+				}
+			}
+		}
 		private void CargarTabla()
 		{
 			var proyectosNegocio = new ProyectoNegocios();
-			proyectos = proyectosNegocio.ListaProyectos();
+			proyectos = proyectosNegocio.ListaProyectos(Temporal.UsuarioActivo.UsuarioId);
 			if (proyectos.Count > 0)
 			{
 				DataTable _tabla = new();
@@ -74,20 +87,9 @@ namespace Interfaz
 				botonVer.Name = "btnVerProyecto";
 				botonVer.UseColumnTextForButtonValue = true;
 				dgvProyectos.Columns.Add(botonVer);
-
-
 			}
 		}
 
-		private void razonesSocialesToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			
-			
-		}
-
-		private void listaToolStripMenuItem_Click(object sender, EventArgs e)
-		{ 
-		}
 
 		private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -146,6 +148,23 @@ namespace Interfaz
 		{
 			AgregarUsuario agregarUsuario = new();
 			agregarUsuario.ShowDialog();
+		}
+
+		private void verCotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ListarOferta listarOferta = new();
+			listarOferta.ShowDialog();
+		}
+
+		private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if(e.ColumnIndex == 9)
+			{
+				VerProyecto verProyecto = new();
+				var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
+				verProyecto.idProyecto = id;
+				verProyecto.ShowDialog();
+			}
 		}
 	}
 }

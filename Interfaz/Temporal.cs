@@ -16,7 +16,7 @@ namespace Interfaz
 		/// <summary>
 		/// Indica el tipo de Usuario 
 		/// </summary>
-		public static string TipoUsuario { get; set; }
+		public static string TipoLogin { get; set; }
 		/// <summary>
 		/// Lista los roles que posee el usuario
 		/// </summary>

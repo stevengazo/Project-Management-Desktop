@@ -104,6 +104,7 @@
 			this.cbTipo.Name = "cbTipo";
 			this.cbTipo.Size = new System.Drawing.Size(121, 23);
 			this.cbTipo.TabIndex = 6;
+			this.cbTipo.Text = "Vendedor";
 			// 
 			// Login
 			// 

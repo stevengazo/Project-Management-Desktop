@@ -34,9 +34,9 @@
 			this.label17 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
-			this.textBox14 = new System.Windows.Forms.TextBox();
+			this.txtUbicacion = new System.Windows.Forms.TextBox();
 			this.label14 = new System.Windows.Forms.Label();
-			this.textBox13 = new System.Windows.Forms.TextBox();
+			this.txtNumeroTarea = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.textBox11 = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
@@ -50,20 +50,21 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtMonto = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.txtFechaInicio = new System.Windows.Forms.TextBox();
+			this.txtFechaFinal = new System.Windows.Forms.TextBox();
 			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.textBox9 = new System.Windows.Forms.TextBox();
+			this.txtEstado = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// txtRazonSocial
 			// 
 			this.txtRazonSocial.Location = new System.Drawing.Point(186, 90);
 			this.txtRazonSocial.Name = "txtRazonSocial";
+			this.txtRazonSocial.ReadOnly = true;
 			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
 			this.txtRazonSocial.TabIndex = 44;
 			// 
@@ -111,13 +112,14 @@
 			this.label15.TabIndex = 58;
 			this.label15.Text = "Fecha Inicio";
 			// 
-			// textBox14
+			// txtUbicacion
 			// 
-			this.textBox14.Location = new System.Drawing.Point(186, 325);
-			this.textBox14.Multiline = true;
-			this.textBox14.Name = "textBox14";
-			this.textBox14.Size = new System.Drawing.Size(225, 75);
-			this.textBox14.TabIndex = 57;
+			this.txtUbicacion.Location = new System.Drawing.Point(186, 325);
+			this.txtUbicacion.Multiline = true;
+			this.txtUbicacion.Name = "txtUbicacion";
+			this.txtUbicacion.ReadOnly = true;
+			this.txtUbicacion.Size = new System.Drawing.Size(225, 75);
+			this.txtUbicacion.TabIndex = 57;
 			// 
 			// label14
 			// 
@@ -128,12 +130,13 @@
 			this.label14.TabIndex = 56;
 			this.label14.Text = "Ubicación";
 			// 
-			// textBox13
+			// txtNumeroTarea
 			// 
-			this.textBox13.Location = new System.Drawing.Point(186, 296);
-			this.textBox13.Name = "textBox13";
-			this.textBox13.Size = new System.Drawing.Size(225, 23);
-			this.textBox13.TabIndex = 55;
+			this.txtNumeroTarea.Location = new System.Drawing.Point(186, 296);
+			this.txtNumeroTarea.Name = "txtNumeroTarea";
+			this.txtNumeroTarea.ReadOnly = true;
+			this.txtNumeroTarea.Size = new System.Drawing.Size(225, 23);
+			this.txtNumeroTarea.TabIndex = 55;
 			// 
 			// label13
 			// 
@@ -148,6 +151,7 @@
 			// 
 			this.textBox11.Location = new System.Drawing.Point(186, 267);
 			this.textBox11.Name = "textBox11";
+			this.textBox11.ReadOnly = true;
 			this.textBox11.Size = new System.Drawing.Size(225, 23);
 			this.textBox11.TabIndex = 53;
 			// 
@@ -164,6 +168,7 @@
 			// 
 			this.textBox10.Location = new System.Drawing.Point(186, 212);
 			this.textBox10.Name = "textBox10";
+			this.textBox10.ReadOnly = true;
 			this.textBox10.Size = new System.Drawing.Size(225, 23);
 			this.textBox10.TabIndex = 51;
 			// 
@@ -189,6 +194,7 @@
 			// 
 			this.textBox8.Location = new System.Drawing.Point(186, 180);
 			this.textBox8.Name = "textBox8";
+			this.textBox8.ReadOnly = true;
 			this.textBox8.Size = new System.Drawing.Size(225, 23);
 			this.textBox8.TabIndex = 48;
 			// 
@@ -205,6 +211,7 @@
 			// 
 			this.textBox7.Location = new System.Drawing.Point(186, 151);
 			this.textBox7.Name = "textBox7";
+			this.textBox7.ReadOnly = true;
 			this.textBox7.Size = new System.Drawing.Size(225, 23);
 			this.textBox7.TabIndex = 46;
 			// 
@@ -244,12 +251,13 @@
 			this.label3.TabIndex = 41;
 			this.label3.Text = "Vendedor";
 			// 
-			// textBox1
+			// txtMonto
 			// 
-			this.textBox1.Location = new System.Drawing.Point(186, 406);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(225, 23);
-			this.textBox1.TabIndex = 72;
+			this.txtMonto.Location = new System.Drawing.Point(186, 406);
+			this.txtMonto.Name = "txtMonto";
+			this.txtMonto.ReadOnly = true;
+			this.txtMonto.Size = new System.Drawing.Size(225, 23);
+			this.txtMonto.TabIndex = 72;
 			// 
 			// label1
 			// 
@@ -264,6 +272,7 @@
 			// 
 			this.textBox2.Location = new System.Drawing.Point(186, 58);
 			this.textBox2.Name = "textBox2";
+			this.textBox2.ReadOnly = true;
 			this.textBox2.Size = new System.Drawing.Size(225, 23);
 			this.textBox2.TabIndex = 73;
 			// 
@@ -271,49 +280,54 @@
 			// 
 			this.textBox3.Location = new System.Drawing.Point(186, 122);
 			this.textBox3.Name = "textBox3";
+			this.textBox3.ReadOnly = true;
 			this.textBox3.Size = new System.Drawing.Size(225, 23);
 			this.textBox3.TabIndex = 74;
 			// 
-			// textBox4
+			// txtFechaInicio
 			// 
-			this.textBox4.Location = new System.Drawing.Point(186, 435);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(225, 23);
-			this.textBox4.TabIndex = 75;
+			this.txtFechaInicio.Location = new System.Drawing.Point(186, 435);
+			this.txtFechaInicio.Name = "txtFechaInicio";
+			this.txtFechaInicio.ReadOnly = true;
+			this.txtFechaInicio.Size = new System.Drawing.Size(225, 23);
+			this.txtFechaInicio.TabIndex = 75;
 			// 
-			// textBox5
+			// txtFechaFinal
 			// 
-			this.textBox5.Location = new System.Drawing.Point(186, 464);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(225, 23);
-			this.textBox5.TabIndex = 76;
+			this.txtFechaFinal.Location = new System.Drawing.Point(186, 464);
+			this.txtFechaFinal.Name = "txtFechaFinal";
+			this.txtFechaFinal.ReadOnly = true;
+			this.txtFechaFinal.Size = new System.Drawing.Size(225, 23);
+			this.txtFechaFinal.TabIndex = 76;
 			// 
 			// textBox6
 			// 
 			this.textBox6.Location = new System.Drawing.Point(186, 241);
 			this.textBox6.Name = "textBox6";
+			this.textBox6.ReadOnly = true;
 			this.textBox6.Size = new System.Drawing.Size(225, 23);
 			this.textBox6.TabIndex = 77;
 			// 
-			// textBox9
+			// txtEstado
 			// 
-			this.textBox9.Location = new System.Drawing.Point(186, 493);
-			this.textBox9.Name = "textBox9";
-			this.textBox9.Size = new System.Drawing.Size(225, 23);
-			this.textBox9.TabIndex = 78;
+			this.txtEstado.Location = new System.Drawing.Point(186, 493);
+			this.txtEstado.Name = "txtEstado";
+			this.txtEstado.ReadOnly = true;
+			this.txtEstado.Size = new System.Drawing.Size(225, 23);
+			this.txtEstado.TabIndex = 78;
 			// 
 			// VerProyecto
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(435, 533);
-			this.Controls.Add(this.textBox9);
+			this.Controls.Add(this.txtEstado);
 			this.Controls.Add(this.textBox6);
-			this.Controls.Add(this.textBox5);
-			this.Controls.Add(this.textBox4);
+			this.Controls.Add(this.txtFechaFinal);
+			this.Controls.Add(this.txtFechaInicio);
 			this.Controls.Add(this.textBox3);
 			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.txtMonto);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.txtRazonSocial);
 			this.Controls.Add(this.txtNumeroProyecto);
@@ -321,9 +335,9 @@
 			this.Controls.Add(this.label17);
 			this.Controls.Add(this.label16);
 			this.Controls.Add(this.label15);
-			this.Controls.Add(this.textBox14);
+			this.Controls.Add(this.txtUbicacion);
 			this.Controls.Add(this.label14);
-			this.Controls.Add(this.textBox13);
+			this.Controls.Add(this.txtNumeroTarea);
 			this.Controls.Add(this.label13);
 			this.Controls.Add(this.textBox11);
 			this.Controls.Add(this.label11);
@@ -342,7 +356,8 @@
 			this.Name = "VerProyecto";
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "VerProyecto";
+			this.Text = "Información del Proyecto";
+			this.Load += new System.EventHandler(this.VerProyecto_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -356,9 +371,9 @@
 		private Label label17;
 		private Label label16;
 		private Label label15;
-		private TextBox textBox14;
+		private TextBox txtUbicacion;
 		private Label label14;
-		private TextBox textBox13;
+		private TextBox txtNumeroTarea;
 		private Label label13;
 		private TextBox textBox11;
 		private Label label11;
@@ -372,13 +387,13 @@
 		private Label label5;
 		private Label label4;
 		private Label label3;
-		private TextBox textBox1;
+		private TextBox txtMonto;
 		private Label label1;
 		private TextBox textBox2;
 		private TextBox textBox3;
-		private TextBox textBox4;
-		private TextBox textBox5;
+		private TextBox txtFechaInicio;
+		private TextBox txtFechaFinal;
 		private TextBox textBox6;
-		private TextBox textBox9;
+		private TextBox txtEstado;
 	}
 }
