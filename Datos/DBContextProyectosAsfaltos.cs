@@ -52,6 +52,7 @@ namespace Modelos
 				Login = "admin",
 				Nombre = "Administrador",
 				HashContraseña = contrasena,
+				Activo = true
 			};
 			model.Entity<Usuario>().HasData(usuarioBase);
 
@@ -61,6 +62,13 @@ namespace Modelos
 				Nombre = "Admin"
 			};
 			model.Entity<Rol>().HasData(Admin);
+
+			Rol Vendedor = new()
+			{
+				RolId = 2,
+				Nombre = "Vendedor"
+			};
+			model.Entity<Rol>().HasData(Vendedor);
 
 			RolUsuario rolUsuarioBase = new()
 			{
@@ -109,9 +117,6 @@ namespace Modelos
 				UltimaModificacion = DateTime.Today.AddHours(1),
 				UsuarioId = usuarioBase.UsuarioId
 			};
-
-
-
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -128,7 +133,7 @@ namespace Modelos
 				optionsBuilder.UseSqlServer(CadenaDeConexion);
 			}
 		}
-		private void GetConnectionString(string connectionStringName = "RayosNoConnection")
+		private void GetConnectionString(string connectionStringName = "")
 		{
 			CadenaDeConexion = "Data Source=192.168.1.15;Initial Catalog=ProyectosAsfaltos;User ID=sa;Password=Password123;encrypt=false";
 		}

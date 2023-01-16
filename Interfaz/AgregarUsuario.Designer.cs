@@ -32,10 +32,10 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.txtLogin = new System.Windows.Forms.TextBox();
+			this.txtNombre = new System.Windows.Forms.TextBox();
+			this.txtContrasena = new System.Windows.Forms.TextBox();
+			this.txtContrasenaConfirmacion = new System.Windows.Forms.TextBox();
 			this.btnAgregar = new System.Windows.Forms.Button();
 			this.btnCancelar = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -78,33 +78,39 @@
 			this.label4.TabIndex = 3;
 			this.label4.Text = "Confirmar Contraseña";
 			// 
-			// textBox1
+			// txtLogin
 			// 
-			this.textBox1.Location = new System.Drawing.Point(163, 18);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(234, 23);
-			this.textBox1.TabIndex = 4;
+			this.txtLogin.Location = new System.Drawing.Point(163, 18);
+			this.txtLogin.Name = "txtLogin";
+			this.txtLogin.PlaceholderText = "Admin";
+			this.txtLogin.Size = new System.Drawing.Size(234, 23);
+			this.txtLogin.TabIndex = 4;
 			// 
-			// textBox2
+			// txtNombre
 			// 
-			this.textBox2.Location = new System.Drawing.Point(163, 53);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(234, 23);
-			this.textBox2.TabIndex = 5;
+			this.txtNombre.Location = new System.Drawing.Point(163, 53);
+			this.txtNombre.Name = "txtNombre";
+			this.txtNombre.PlaceholderText = "Administrador";
+			this.txtNombre.Size = new System.Drawing.Size(234, 23);
+			this.txtNombre.TabIndex = 5;
 			// 
-			// textBox3
+			// txtContrasena
 			// 
-			this.textBox3.Location = new System.Drawing.Point(163, 89);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(234, 23);
-			this.textBox3.TabIndex = 6;
+			this.txtContrasena.Location = new System.Drawing.Point(163, 89);
+			this.txtContrasena.Name = "txtContrasena";
+			this.txtContrasena.PasswordChar = '*';
+			this.txtContrasena.PlaceholderText = "Contraseña";
+			this.txtContrasena.Size = new System.Drawing.Size(234, 23);
+			this.txtContrasena.TabIndex = 6;
 			// 
-			// textBox4
+			// txtContrasenaConfirmacion
 			// 
-			this.textBox4.Location = new System.Drawing.Point(163, 127);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(234, 23);
-			this.textBox4.TabIndex = 7;
+			this.txtContrasenaConfirmacion.Location = new System.Drawing.Point(163, 127);
+			this.txtContrasenaConfirmacion.Name = "txtContrasenaConfirmacion";
+			this.txtContrasenaConfirmacion.PasswordChar = '*';
+			this.txtContrasenaConfirmacion.PlaceholderText = "Contraseña";
+			this.txtContrasenaConfirmacion.Size = new System.Drawing.Size(234, 23);
+			this.txtContrasenaConfirmacion.TabIndex = 7;
 			// 
 			// btnAgregar
 			// 
@@ -114,6 +120,7 @@
 			this.btnAgregar.TabIndex = 8;
 			this.btnAgregar.Text = "Agregar ";
 			this.btnAgregar.UseVisualStyleBackColor = true;
+			this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
 			// 
 			// btnCancelar
 			// 
@@ -132,10 +139,10 @@
 			this.ClientSize = new System.Drawing.Size(409, 203);
 			this.Controls.Add(this.btnCancelar);
 			this.Controls.Add(this.btnAgregar);
-			this.Controls.Add(this.textBox4);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.txtContrasenaConfirmacion);
+			this.Controls.Add(this.txtContrasena);
+			this.Controls.Add(this.txtNombre);
+			this.Controls.Add(this.txtLogin);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
@@ -157,10 +164,10 @@
 		private Label label2;
 		private Label label3;
 		private Label label4;
-		private TextBox textBox1;
-		private TextBox textBox2;
-		private TextBox textBox3;
-		private TextBox textBox4;
+		private TextBox txtLogin;
+		private TextBox txtNombre;
+		private TextBox txtContrasena;
+		private TextBox txtContrasenaConfirmacion;
 		private Button btnAgregar;
 		private Button btnCancelar;
 	}

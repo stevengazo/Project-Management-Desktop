@@ -15,7 +15,7 @@ namespace Modelos
 		public int UsuarioId { get; set; }
 		public string Nombre { get; set; }
 		public string Login { get; set; }
-		public string Activo { get; set; }
+		public bool Activo { get; set; }
 		public string HashContraseña { get; set; }
 
 		// Relaciones
