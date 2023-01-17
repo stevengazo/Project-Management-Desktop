@@ -38,25 +38,23 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.txtNumeroTarea = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
-			this.textBox11 = new System.Windows.Forms.TextBox();
+			this.txtNumeroFacturaAnticipo = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
-			this.textBox10 = new System.Windows.Forms.TextBox();
+			this.txtMontoProyecto = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
-			this.textBox8 = new System.Windows.Forms.TextBox();
+			this.txtOferta = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
-			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.txtContacto = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.txtMonto = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.txtVendedor = new System.Windows.Forms.TextBox();
+			this.txtOC = new System.Windows.Forms.TextBox();
 			this.txtFechaInicio = new System.Windows.Forms.TextBox();
 			this.txtFechaFinal = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
+			this.txtPorcentaje = new System.Windows.Forms.TextBox();
 			this.txtEstado = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
@@ -88,7 +86,7 @@
 			// label17
 			// 
 			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(12, 497);
+			this.label17.Location = new System.Drawing.Point(12, 468);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(42, 15);
 			this.label17.TabIndex = 60;
@@ -97,7 +95,7 @@
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(12, 464);
+			this.label16.Location = new System.Drawing.Point(12, 435);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(103, 15);
 			this.label16.TabIndex = 59;
@@ -106,7 +104,7 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(12, 435);
+			this.label15.Location = new System.Drawing.Point(12, 406);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(70, 15);
 			this.label15.TabIndex = 58;
@@ -147,13 +145,13 @@
 			this.label13.TabIndex = 54;
 			this.label13.Text = "Tarea Bitrix";
 			// 
-			// textBox11
+			// txtNumeroFacturaAnticipo
 			// 
-			this.textBox11.Location = new System.Drawing.Point(186, 267);
-			this.textBox11.Name = "textBox11";
-			this.textBox11.ReadOnly = true;
-			this.textBox11.Size = new System.Drawing.Size(225, 23);
-			this.textBox11.TabIndex = 53;
+			this.txtNumeroFacturaAnticipo.Location = new System.Drawing.Point(186, 267);
+			this.txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
+			this.txtNumeroFacturaAnticipo.ReadOnly = true;
+			this.txtNumeroFacturaAnticipo.Size = new System.Drawing.Size(225, 23);
+			this.txtNumeroFacturaAnticipo.TabIndex = 53;
 			// 
 			// label11
 			// 
@@ -164,13 +162,13 @@
 			this.label11.TabIndex = 52;
 			this.label11.Text = "Número Factura";
 			// 
-			// textBox10
+			// txtMontoProyecto
 			// 
-			this.textBox10.Location = new System.Drawing.Point(186, 212);
-			this.textBox10.Name = "textBox10";
-			this.textBox10.ReadOnly = true;
-			this.textBox10.Size = new System.Drawing.Size(225, 23);
-			this.textBox10.TabIndex = 51;
+			this.txtMontoProyecto.Location = new System.Drawing.Point(186, 212);
+			this.txtMontoProyecto.Name = "txtMontoProyecto";
+			this.txtMontoProyecto.ReadOnly = true;
+			this.txtMontoProyecto.Size = new System.Drawing.Size(225, 23);
+			this.txtMontoProyecto.TabIndex = 51;
 			// 
 			// label10
 			// 
@@ -190,13 +188,13 @@
 			this.label9.TabIndex = 49;
 			this.label9.Text = "Monto";
 			// 
-			// textBox8
+			// txtOferta
 			// 
-			this.textBox8.Location = new System.Drawing.Point(186, 180);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.ReadOnly = true;
-			this.textBox8.Size = new System.Drawing.Size(225, 23);
-			this.textBox8.TabIndex = 48;
+			this.txtOferta.Location = new System.Drawing.Point(186, 180);
+			this.txtOferta.Name = "txtOferta";
+			this.txtOferta.ReadOnly = true;
+			this.txtOferta.Size = new System.Drawing.Size(225, 23);
+			this.txtOferta.TabIndex = 48;
 			// 
 			// label8
 			// 
@@ -207,13 +205,13 @@
 			this.label8.TabIndex = 47;
 			this.label8.Text = "Oferta Mecsa";
 			// 
-			// textBox7
+			// txtContacto
 			// 
-			this.textBox7.Location = new System.Drawing.Point(186, 151);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.ReadOnly = true;
-			this.textBox7.Size = new System.Drawing.Size(225, 23);
-			this.textBox7.TabIndex = 46;
+			this.txtContacto.Location = new System.Drawing.Point(186, 151);
+			this.txtContacto.Name = "txtContacto";
+			this.txtContacto.ReadOnly = true;
+			this.txtContacto.Size = new System.Drawing.Size(225, 23);
+			this.txtContacto.TabIndex = 46;
 			// 
 			// label7
 			// 
@@ -251,42 +249,25 @@
 			this.label3.TabIndex = 41;
 			this.label3.Text = "Vendedor";
 			// 
-			// txtMonto
+			// txtVendedor
 			// 
-			this.txtMonto.Location = new System.Drawing.Point(186, 406);
-			this.txtMonto.Name = "txtMonto";
-			this.txtMonto.ReadOnly = true;
-			this.txtMonto.Size = new System.Drawing.Size(225, 23);
-			this.txtMonto.TabIndex = 72;
+			this.txtVendedor.Location = new System.Drawing.Point(186, 58);
+			this.txtVendedor.Name = "txtVendedor";
+			this.txtVendedor.ReadOnly = true;
+			this.txtVendedor.Size = new System.Drawing.Size(225, 23);
+			this.txtVendedor.TabIndex = 73;
 			// 
-			// label1
+			// txtOC
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 409);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(43, 15);
-			this.label1.TabIndex = 71;
-			this.label1.Text = "Monto";
-			// 
-			// textBox2
-			// 
-			this.textBox2.Location = new System.Drawing.Point(186, 58);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.ReadOnly = true;
-			this.textBox2.Size = new System.Drawing.Size(225, 23);
-			this.textBox2.TabIndex = 73;
-			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(186, 122);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.ReadOnly = true;
-			this.textBox3.Size = new System.Drawing.Size(225, 23);
-			this.textBox3.TabIndex = 74;
+			this.txtOC.Location = new System.Drawing.Point(186, 122);
+			this.txtOC.Name = "txtOC";
+			this.txtOC.ReadOnly = true;
+			this.txtOC.Size = new System.Drawing.Size(225, 23);
+			this.txtOC.TabIndex = 74;
 			// 
 			// txtFechaInicio
 			// 
-			this.txtFechaInicio.Location = new System.Drawing.Point(186, 435);
+			this.txtFechaInicio.Location = new System.Drawing.Point(186, 406);
 			this.txtFechaInicio.Name = "txtFechaInicio";
 			this.txtFechaInicio.ReadOnly = true;
 			this.txtFechaInicio.Size = new System.Drawing.Size(225, 23);
@@ -294,23 +275,23 @@
 			// 
 			// txtFechaFinal
 			// 
-			this.txtFechaFinal.Location = new System.Drawing.Point(186, 464);
+			this.txtFechaFinal.Location = new System.Drawing.Point(186, 435);
 			this.txtFechaFinal.Name = "txtFechaFinal";
 			this.txtFechaFinal.ReadOnly = true;
 			this.txtFechaFinal.Size = new System.Drawing.Size(225, 23);
 			this.txtFechaFinal.TabIndex = 76;
 			// 
-			// textBox6
+			// txtPorcentaje
 			// 
-			this.textBox6.Location = new System.Drawing.Point(186, 241);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.ReadOnly = true;
-			this.textBox6.Size = new System.Drawing.Size(225, 23);
-			this.textBox6.TabIndex = 77;
+			this.txtPorcentaje.Location = new System.Drawing.Point(186, 241);
+			this.txtPorcentaje.Name = "txtPorcentaje";
+			this.txtPorcentaje.ReadOnly = true;
+			this.txtPorcentaje.Size = new System.Drawing.Size(225, 23);
+			this.txtPorcentaje.TabIndex = 77;
 			// 
 			// txtEstado
 			// 
-			this.txtEstado.Location = new System.Drawing.Point(186, 493);
+			this.txtEstado.Location = new System.Drawing.Point(186, 464);
 			this.txtEstado.Name = "txtEstado";
 			this.txtEstado.ReadOnly = true;
 			this.txtEstado.Size = new System.Drawing.Size(225, 23);
@@ -322,13 +303,11 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(435, 533);
 			this.Controls.Add(this.txtEstado);
-			this.Controls.Add(this.textBox6);
+			this.Controls.Add(this.txtPorcentaje);
 			this.Controls.Add(this.txtFechaFinal);
 			this.Controls.Add(this.txtFechaInicio);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.txtMonto);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.txtOC);
+			this.Controls.Add(this.txtVendedor);
 			this.Controls.Add(this.txtRazonSocial);
 			this.Controls.Add(this.txtNumeroProyecto);
 			this.Controls.Add(this.label6);
@@ -339,14 +318,14 @@
 			this.Controls.Add(this.label14);
 			this.Controls.Add(this.txtNumeroTarea);
 			this.Controls.Add(this.label13);
-			this.Controls.Add(this.textBox11);
+			this.Controls.Add(this.txtNumeroFacturaAnticipo);
 			this.Controls.Add(this.label11);
-			this.Controls.Add(this.textBox10);
+			this.Controls.Add(this.txtMontoProyecto);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.label9);
-			this.Controls.Add(this.textBox8);
+			this.Controls.Add(this.txtOferta);
 			this.Controls.Add(this.label8);
-			this.Controls.Add(this.textBox7);
+			this.Controls.Add(this.txtContacto);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
@@ -375,25 +354,23 @@
 		private Label label14;
 		private TextBox txtNumeroTarea;
 		private Label label13;
-		private TextBox textBox11;
+		private TextBox txtNumeroFacturaAnticipo;
 		private Label label11;
-		private TextBox textBox10;
+		private TextBox txtMontoProyecto;
 		private Label label10;
 		private Label label9;
-		private TextBox textBox8;
+		private TextBox txtOferta;
 		private Label label8;
-		private TextBox textBox7;
+		private TextBox txtContacto;
 		private Label label7;
 		private Label label5;
 		private Label label4;
 		private Label label3;
-		private TextBox txtMonto;
-		private Label label1;
-		private TextBox textBox2;
-		private TextBox textBox3;
+		private TextBox txtVendedor;
+		private TextBox txtOC;
 		private TextBox txtFechaInicio;
 		private TextBox txtFechaFinal;
-		private TextBox textBox6;
+		private TextBox txtPorcentaje;
 		private TextBox txtEstado;
 	}
 }

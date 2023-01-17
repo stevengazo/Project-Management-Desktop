@@ -100,9 +100,9 @@
 			// cbTipo
 			// 
 			this.cbTipo.FormattingEnabled = true;
-			this.cbTipo.Location = new System.Drawing.Point(92, 123);
+			this.cbTipo.Location = new System.Drawing.Point(112, 123);
 			this.cbTipo.Name = "cbTipo";
-			this.cbTipo.Size = new System.Drawing.Size(121, 23);
+			this.cbTipo.Size = new System.Drawing.Size(80, 23);
 			this.cbTipo.TabIndex = 6;
 			this.cbTipo.Text = "Vendedor";
 			// 
@@ -122,7 +122,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Login";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Login";
+			this.Text = "Inicio de Sesión";
 			this.Load += new System.EventHandler(this.Login_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

@@ -45,5 +45,11 @@ namespace Interfaz
 		{
 			this.Close();
 		}
+
+		private void agregarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			AgregarOferta agregarOferta = new();
+			agregarOferta.ShowDialog();
+		}
 	}
 }

@@ -68,6 +68,7 @@
 			this.agregarOfertaToolStripMenuItem.Name = "agregarOfertaToolStripMenuItem";
 			this.agregarOfertaToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
 			this.agregarOfertaToolStripMenuItem.Text = "Agregar Oferta";
+			this.agregarOfertaToolStripMenuItem.Click += new System.EventHandler(this.agregarOfertaToolStripMenuItem_Click);
 			// 
 			// ListarOferta
 			// 

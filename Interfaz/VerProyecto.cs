@@ -46,7 +46,20 @@ namespace Interfaz
 			{
 				ProyectoNegocios proyectoNegocios = new();
 				Proyecto proyectoTemporal = proyectoNegocios.ObtenerProyecto(idProyecto);
+				txtNumeroProyecto.Text = proyectoTemporal.ProyectoId.ToString();
 				txtEstado.Text = proyectoTemporal.Estado;
+				txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
+			//	txtRazonSocial.Text = proyectoTemporal.
+				txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
+				txtContacto.Text = proyectoTemporal.Contacto;
+				txtOferta.Text = proyectoTemporal.OfertaId;
+				txtMontoProyecto.Text = proyectoTemporal.Monto.ToString();
+				txtPorcentaje.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
+				txtNumeroFacturaAnticipo.Text = proyectoTemporal.FacturaAnticipoId;
+				txtNumeroTarea.Text = proyectoTemporal.TareaId.ToString();
+				txtUbicacion.Text = proyectoTemporal.Ubicacion;
+				txtFechaInicio.Text = proyectoTemporal.FechaInicio.ToLongDateString() ;
+				txtFechaFinal.Text = proyectoTemporal.FechaFinal.ToLongDateString();
 				
 			}
 

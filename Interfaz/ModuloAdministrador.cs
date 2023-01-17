@@ -57,7 +57,6 @@ namespace Interfaz
 
 				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
-				_tabla.Columns.Add("Raz[on Social");
 				_tabla.Columns.Add("Fecha OC");
 				_tabla.Columns.Add("Oferta");
 				_tabla.Columns.Add("Fecha Inicio");
@@ -71,15 +70,14 @@ namespace Interfaz
 					_tabla.Rows.Add(
 						i.ProyectoId,
 						i.Vendedor.Nombre,
-						i.FechaOC,
+						i.FechaOC.ToShortTimeString(),
 						i.OfertaId,
-						i.FechaInicio.ToLongDateString(),
-						i.FechaFinal.ToLongDateString(),
+						i.FechaInicio.ToShortTimeString(),
+						i.FechaFinal.ToShortTimeString(),
 						i.Monto,
 						i.Estado
 						);
 				}
-
 				dgvProyectos.DataSource = _tabla;
 
 				DataGridViewButtonColumn botonVer = new();
@@ -88,24 +86,31 @@ namespace Interfaz
 				botonVer.Name = "btnVerProyecto";
 				botonVer.UseColumnTextForButtonValue = true;
 				dgvProyectos.Columns.Add(botonVer);
+
+
+				DataGridViewButtonColumn botonEditar = new();
+				botonEditar.HeaderText = "Editar";
+				botonEditar.Text = "Editar";
+				botonEditar.Name = "btnEditarProyecto";
+				botonEditar.UseColumnTextForButtonValue = true;
+				dgvProyectos.Columns.Add(botonEditar);
 			}
 		}
 
 		private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			try
+
+			if (e.ColumnIndex == 0)
 			{
-				 if (e.ColumnIndex == 9)
-				{
-					VerProyecto verProyecto = new();
-					var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
-					verProyecto.idProyecto = id;
-					verProyecto.ShowDialog();
-				}
+				VerProyecto verProyecto = new();
+				var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[2].Value.ToString());
+				verProyecto.idProyecto = id;
+				verProyecto.ShowDialog();
 			}
-			catch(Exception ex)
+			else if(e.ColumnIndex == 1)
 			{
-				MessageBox.Show(ex.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				EditarProyecto editarProyecto = new();
+				editarProyecto.ShowDialog();
 			}
 		}
 
@@ -128,6 +133,12 @@ namespace Interfaz
 		{
 			ListarOferta listarOferta = new();
 			listarOferta.ShowDialog();
+		}
+
+		private void agregarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			AgregarOferta agregarOferta = new();
+			agregarOferta.ShowDialog();
 		}
 	}
 }
