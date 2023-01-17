@@ -12,8 +12,8 @@ using Modelos;
 namespace Datos.Migrations
 {
     [DbContext(typeof(DBContextProyectosAsfaltos))]
-    [Migration("20230117221357_ejemplo")]
-    partial class ejemplo
+    [Migration("20230117231908_sample")]
+    partial class sample
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,30 @@ namespace Datos.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Modelos.Cliente", b =>
+                {
+                    b.Property<int>("ClienteID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClienteID"));
+
+                    b.Property<string>("ClienteName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ClienteID");
+
+                    b.ToTable("Clientes");
+
+                    b.HasData(
+                        new
+                        {
+                            ClienteID = 1,
+                            ClienteName = "Cliente Base"
+                        });
+                });
 
             modelBuilder.Entity("Modelos.Oferta", b =>
                 {
@@ -42,6 +66,10 @@ namespace Datos.Migrations
 
                     b.Property<bool>("Base")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Cliente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Codigo")
                         .HasColumnType("int");
@@ -88,6 +116,7 @@ namespace Datos.Migrations
                             Asfalto = true,
                             AutorPrespuesto = "Administrador",
                             Base = true,
+                            Cliente = "Ejemplo",
                             Codigo = 1,
                             Excavacion = true,
                             Fecha = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Local),
@@ -112,6 +141,9 @@ namespace Datos.Migrations
                     b.Property<string>("Autor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ClienteID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Contacto")
                         .IsRequired()
@@ -167,6 +199,8 @@ namespace Datos.Migrations
 
                     b.HasKey("ProyectoId");
 
+                    b.HasIndex("ClienteID");
+
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("Proyectos");
@@ -176,13 +210,14 @@ namespace Datos.Migrations
                         {
                             ProyectoId = 1,
                             Autor = "Administrador",
+                            ClienteID = 1,
                             Contacto = "Ejemplo",
                             Estado = "Finalizado",
                             FacturaAnticipoId = "No existente",
                             FacturaFinalId = "No Existente",
                             FechaFinal = new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
                             FechaInicio = new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2023, 1, 17, 16, 13, 57, 641, DateTimeKind.Local).AddTicks(7645),
+                            FechaOC = new DateTime(2023, 1, 17, 17, 19, 8, 74, DateTimeKind.Local).AddTicks(2550),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,
@@ -305,11 +340,19 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Modelos.Proyecto", b =>
                 {
+                    b.HasOne("Modelos.Cliente", "Cliente")
+                        .WithMany("Proyectos")
+                        .HasForeignKey("ClienteID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Modelos.Usuario", "Vendedor")
                         .WithMany("Proyectos")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Cliente");
 
                     b.Navigation("Vendedor");
                 });
@@ -331,6 +374,11 @@ namespace Datos.Migrations
                     b.Navigation("Rol");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Modelos.Cliente", b =>
+                {
+                    b.Navigation("Proyectos");
                 });
 
             modelBuilder.Entity("Modelos.Rol", b =>

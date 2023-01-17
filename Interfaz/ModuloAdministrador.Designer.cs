@@ -37,7 +37,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgvProyectos = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.txtRazonSocial = new System.Windows.Forms.TextBox();
+			this.cbOfertas = new System.Windows.Forms.ComboBox();
 			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
@@ -81,7 +81,7 @@
 			this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripDropDownMenu();
 			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-			this.cbOfertas = new System.Windows.Forms.ComboBox();
+			this.cbClientes = new System.Windows.Forms.ComboBox();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
 			this.groupBox1.SuspendLayout();
@@ -160,8 +160,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.cbClientes);
 			this.groupBox1.Controls.Add(this.cbOfertas);
-			this.groupBox1.Controls.Add(this.txtRazonSocial);
 			this.groupBox1.Controls.Add(this.txtNumeroProyecto);
 			this.groupBox1.Controls.Add(this.label6);
 			this.groupBox1.Controls.Add(this.dateTimePicker3);
@@ -197,12 +197,13 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Agregar Proyecto";
 			// 
-			// txtRazonSocial
+			// cbOfertas
 			// 
-			this.txtRazonSocial.Location = new System.Drawing.Point(181, 98);
-			this.txtRazonSocial.Name = "txtRazonSocial";
-			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
-			this.txtRazonSocial.TabIndex = 6;
+			this.cbOfertas.FormattingEnabled = true;
+			this.cbOfertas.Location = new System.Drawing.Point(181, 191);
+			this.cbOfertas.Name = "cbOfertas";
+			this.cbOfertas.Size = new System.Drawing.Size(225, 23);
+			this.cbOfertas.TabIndex = 41;
 			// 
 			// txtNumeroProyecto
 			// 
@@ -549,13 +550,13 @@
 			this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
 			this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(61, 4);
 			// 
-			// cbOfertas
+			// cbClientes
 			// 
-			this.cbOfertas.FormattingEnabled = true;
-			this.cbOfertas.Location = new System.Drawing.Point(181, 191);
-			this.cbOfertas.Name = "cbOfertas";
-			this.cbOfertas.Size = new System.Drawing.Size(225, 23);
-			this.cbOfertas.TabIndex = 41;
+			this.cbClientes.FormattingEnabled = true;
+			this.cbClientes.Location = new System.Drawing.Point(181, 93);
+			this.cbClientes.Name = "cbClientes";
+			this.cbClientes.Size = new System.Drawing.Size(225, 23);
+			this.cbClientes.TabIndex = 42;
 			// 
 			// ModuloAdministrador
 			// 
@@ -596,7 +597,6 @@
 		private Label label1;
 		private DataGridView dgvProyectos;
 		private GroupBox groupBox1;
-		private TextBox txtRazonSocial;
 		private TextBox txtNumeroProyecto;
 		private Label label6;
 		private DateTimePicker dateTimePicker3;
@@ -641,5 +641,6 @@
 		private ToolStripDropDownMenu agregarUsuarioToolStripMenuItem;
 		private SaveFileDialog saveFileDialog1;
 		private ComboBox cbOfertas;
+		private ComboBox cbClientes;
 	}
 }

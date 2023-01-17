@@ -30,6 +30,7 @@ namespace Modelos
 		public DbSet<RolUsuario> RolUsuarios { get; set; }
 		public DbSet<Usuario> Usuarios { get; set; }
 		public DbSet<Oferta> Ofertas { get; set; }
+		public DbSet<Cliente> Clientes { get; set; }	
 		
 		#endregion
 
@@ -39,6 +40,15 @@ namespace Modelos
 		/// <param name="model"></param>
 		protected void GenerateSeedOfData(ModelBuilder model)
 		{
+
+			Cliente clienteBase = new Cliente()
+			{
+				ClienteID = 1,
+				ClienteName = "Cliente Base"
+			};
+			model.Entity<Cliente>().HasData(clienteBase);
+
+
 			var contrasena = "admin123";
 			using (var md6Hash = MD5.Create())
 			{
@@ -98,7 +108,8 @@ namespace Modelos
 				Autor = usuarioBase.Nombre,
 				UltimaEdicion = DateTime.Today,
 				UsuarioId= usuarioBase.UsuarioId,
-				UltimoEditor = usuarioBase.Nombre
+				UltimoEditor = usuarioBase.Nombre,
+				ClienteID = clienteBase.ClienteID
 			};
 			model.Entity<Proyecto>().HasData(ProyectoBase);
 
@@ -116,7 +127,8 @@ namespace Modelos
 				Observaciones = string.Empty,
 				AutorPrespuesto = usuarioBase.Nombre,
 				UltimaModificacion = DateTime.Today.AddHours(1),
-				UsuarioId = usuarioBase.UsuarioId
+				UsuarioId = usuarioBase.UsuarioId,
+				Cliente = "Ejemplo"
 			};
 			model.Entity<Oferta>().HasData(ofertaBase);
 		}

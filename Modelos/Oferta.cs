@@ -24,6 +24,7 @@ namespace Modelos
 		public string Notas { get; set; }
 		public string Observaciones { get; set; }
 		public string AutorPrespuesto { get; set; }
+		public string Cliente { get; set; }	
 
 		public DateTime UltimaModificacion { get; set; }
 

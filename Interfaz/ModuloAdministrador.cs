@@ -20,12 +20,34 @@ namespace Interfaz
 	{
 		private List<Usuario> Vendedores = new();
 		private List<Proyecto> proyectos = new();
-		public ModuloAdministrador()
+		private List<Cliente> clientes = new();
+ 		public ModuloAdministrador()
 		{
 			InitializeComponent();
 			CargarVendedores();
 			CargarTabla();
 			cargarOfertas();
+			CargarClientes();
+		}
+
+		private void CargarClientes()
+		{
+			try
+			{
+				ClienteNegocio clienteNegocio = new();
+				clientes = clienteNegocio.ListaClientes();
+				if(clientes.Count > 0 )
+				{
+					foreach (Cliente i in clientes)
+					{
+						cbClientes.Items.Add(i.ClienteName);
+					}
+				}
+				
+			}catch(Exception ex)
+			{
+				MessageBox.Show($"Error interno {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void cargarOfertas()
@@ -81,6 +103,7 @@ namespace Interfaz
 			  DataTable _tabla = new();
 				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
+				_tabla.Columns.Add("Cliente");
 				_tabla.Columns.Add("Fecha OC");
 				_tabla.Columns.Add("Oferta");
 				_tabla.Columns.Add("Fecha Inicio");
@@ -92,6 +115,7 @@ namespace Interfaz
 					_tabla.Rows.Add(
 						i.ProyectoId,
 						i.Vendedor.Nombre,
+						i.Cliente.ClienteName,
 						i.FechaOC.ToShortTimeString(),
 						i.OfertaId,
 						i.FechaInicio.ToShortTimeString(),

@@ -23,7 +23,7 @@ namespace Negocios
 					proyectos = (from proye in db.Proyectos
 								 where proye.UsuarioId == idEncargado
 								 orderby proye.ProyectoId descending
-								 select proye).Include(P => P.Vendedor).ToList();
+								 select proye).Include(P => P.Vendedor).Include(P=>P.Cliente).ToList();
 				}
 				return proyectos;
 			}
@@ -41,7 +41,7 @@ namespace Negocios
 				{
 					proyectos = (from proye in db.Proyectos
 								 orderby proye.ProyectoId descending
-								 select proye).Include(P=>P.Vendedor) .ToList();
+								 select proye).Include(P=>P.Vendedor).Include(P => P.Cliente).ToList();
 				}
 				return proyectos;
 			}catch (Exception f)
@@ -58,7 +58,7 @@ namespace Negocios
 				{
 					proyectos = (from proye in db.Proyectos
 								 where proye.ProyectoId == id
-								 select proye).Include(P => P.Vendedor).FirstOrDefault();
+								 select proye).Include(P => P.Vendedor).Include(P => P.Cliente).FirstOrDefault();
 				}
 				return proyectos;
 			}

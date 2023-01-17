@@ -49,7 +49,7 @@ namespace Interfaz
 				txtNumeroProyecto.Text = proyectoTemporal.ProyectoId.ToString();
 				txtEstado.Text = proyectoTemporal.Estado;
 				txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
-			//	txtRazonSocial.Text = proyectoTemporal.
+				txtRazonSocial.Text = proyectoTemporal.Cliente.ClienteName;
 				txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
 				txtContacto.Text = proyectoTemporal.Contacto;
 				txtOferta.Text = proyectoTemporal.OfertaId;
