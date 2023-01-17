@@ -57,7 +57,6 @@ namespace Interfaz
 			if (proyectos.Count > 0)
 			{
 			  DataTable _tabla = new();
-
 				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
 				_tabla.Columns.Add("Fecha OC");
@@ -66,8 +65,6 @@ namespace Interfaz
 				_tabla.Columns.Add("Fecha Final");
 				_tabla.Columns.Add("Monto");
 				_tabla.Columns.Add("Estado");
-
-
 				foreach (Proyecto i in proyectos)
 				{
 					_tabla.Rows.Add(
@@ -89,8 +86,6 @@ namespace Interfaz
 				botonVer.Name = "btnVerProyecto";
 				botonVer.UseColumnTextForButtonValue = true;
 				dgvProyectos.Columns.Add(botonVer);
-
-
 				DataGridViewButtonColumn botonEditar = new();
 				botonEditar.HeaderText = "Editar";
 				botonEditar.Text = "Editar";
@@ -102,7 +97,6 @@ namespace Interfaz
 
 		private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-
 			if (e.ColumnIndex == 0)
 			{
 				VerProyecto verProyecto = new();
@@ -150,7 +144,6 @@ namespace Interfaz
 			{
 				saveFileDialog1.Title = "Exportar a Excel";
 				saveFileDialog1.Filter = "Excel|*.xlsx";
-
 				if(saveFileDialog1.ShowDialog() == DialogResult.OK)
 				{
 					string URLArchivo = saveFileDialog1.FileName;
@@ -168,12 +161,12 @@ namespace Interfaz
 					foreach (Proyecto item in proyectos)
 					{
 						worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
-						worksheet.Cells[contador, 1] = item.Vendedor.Nombre;
-						worksheet.Cells[contador, 1] = item.FechaOC.ToLongDateString();
-						worksheet.Cells[contador, 1] = item.OfertaId.ToString();
-						worksheet.Cells[contador, 1] = item.FechaInicio.ToLongDateString();
-						worksheet.Cells[contador, 1] = item.FechaFinal.ToLongDateString();
-						worksheet.Cells[contador, 1] = item.Monto.ToString();
+						worksheet.Cells[contador, 2] = item.Vendedor.Nombre;
+						worksheet.Cells[contador, 3] = item.FechaOC.ToLongDateString();
+						worksheet.Cells[contador, 4] = item.OfertaId.ToString();
+						worksheet.Cells[contador, 5] = item.FechaInicio.ToLongDateString();
+						worksheet.Cells[contador, 6] = item.FechaFinal.ToLongDateString();
+						worksheet.Cells[contador, 7] = item.Monto.ToString();
 						contador++;
 					}
 					ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
