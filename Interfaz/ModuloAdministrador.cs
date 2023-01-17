@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
+using DataTable = System.Data.DataTable;
 
 namespace Interfaz
 {
@@ -53,7 +56,7 @@ namespace Interfaz
 			proyectos = proyectosNegocio.ListaProyectos();
 			if (proyectos.Count > 0)
 			{
-				DataTable _tabla = new();
+			  DataTable _tabla = new();
 
 				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
@@ -139,6 +142,51 @@ namespace Interfaz
 		{
 			AgregarOferta agregarOferta = new();
 			agregarOferta.ShowDialog();
+		}
+
+		private void excelToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				saveFileDialog1.Title = "Exportar a Excel";
+				saveFileDialog1.Filter = "Excel|*.xlsx";
+
+				if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+				{
+					string URLArchivo = saveFileDialog1.FileName;
+					var ExcelApp = new Excel.Application();
+					ExcelApp.Workbooks.Add();
+					Excel._Worksheet worksheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
+					worksheet.Cells[1, "A"] = "Numero Proyecto";
+					worksheet.Cells[1, "B"] = "Vendedor";
+					worksheet.Cells[1, "C"] = "Fecha OC";
+					worksheet.Cells[1, "D"] = "Oferta";
+					worksheet.Cells[1, "E"] = "Fecha Inicio";
+					worksheet.Cells[1, "F"] = "Fecha Final";
+					worksheet.Cells[1, "G"] = "Monto";
+					int contador = 2;
+					foreach (Proyecto item in proyectos)
+					{
+						worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
+						worksheet.Cells[contador, 1] = item.Vendedor.Nombre;
+						worksheet.Cells[contador, 1] = item.FechaOC.ToLongDateString();
+						worksheet.Cells[contador, 1] = item.OfertaId.ToString();
+						worksheet.Cells[contador, 1] = item.FechaInicio.ToLongDateString();
+						worksheet.Cells[contador, 1] = item.FechaFinal.ToLongDateString();
+						worksheet.Cells[contador, 1] = item.Monto.ToString();
+						contador++;
+					}
+					ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
+					ExcelApp.ActiveWorkbook.Close();
+					ExcelApp.Quit();
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Ocurrió un problema. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				
+
+			}
 		}
 	}
 }

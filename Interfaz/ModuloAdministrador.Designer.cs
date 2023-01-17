@@ -81,6 +81,7 @@
 			this.agregarUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripDropDownMenu();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
 			this.groupBox1.SuspendLayout();
@@ -476,24 +477,25 @@
 			this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.excelToolStripMenuItem});
 			this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.exportarToolStripMenuItem.Text = "Exportar";
 			// 
 			// excelToolStripMenuItem
 			// 
 			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+			this.excelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.excelToolStripMenuItem.Text = "Excel";
+			this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.salirToolStripMenuItem.Text = "Salir";
 			// 
 			// ofertasToolStripMenuItem
@@ -508,14 +510,14 @@
 			// listarOfertasToolStripMenuItem
 			// 
 			this.listarOfertasToolStripMenuItem.Name = "listarOfertasToolStripMenuItem";
-			this.listarOfertasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.listarOfertasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.listarOfertasToolStripMenuItem.Text = "Listar Ofertas";
 			this.listarOfertasToolStripMenuItem.Click += new System.EventHandler(this.listarOfertasToolStripMenuItem_Click);
 			// 
 			// agregarOfertaToolStripMenuItem
 			// 
 			this.agregarOfertaToolStripMenuItem.Name = "agregarOfertaToolStripMenuItem";
-			this.agregarOfertaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.agregarOfertaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.agregarOfertaToolStripMenuItem.Text = "Agregar Oferta";
 			this.agregarOfertaToolStripMenuItem.Click += new System.EventHandler(this.agregarOfertaToolStripMenuItem_Click);
 			// 
@@ -531,14 +533,14 @@
 			// listarVendedoresToolStripMenuItem
 			// 
 			this.listarVendedoresToolStripMenuItem.Name = "listarVendedoresToolStripMenuItem";
-			this.listarVendedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.listarVendedoresToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
 			this.listarVendedoresToolStripMenuItem.Text = "Listar Usuarios";
 			this.listarVendedoresToolStripMenuItem.Click += new System.EventHandler(this.listarVendedoresToolStripMenuItem_Click);
 			// 
 			// agregarUsuarioToolStripMenuItem1
 			// 
 			this.agregarUsuarioToolStripMenuItem1.Name = "agregarUsuarioToolStripMenuItem1";
-			this.agregarUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.agregarUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
 			this.agregarUsuarioToolStripMenuItem1.Text = "Agregar Usuario";
 			this.agregarUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem1_Click);
 			// 
@@ -637,5 +639,6 @@
 		private ToolStripMenuItem listarVendedoresToolStripMenuItem;
 		private ToolStripMenuItem agregarUsuarioToolStripMenuItem1;
 		private ToolStripDropDownMenu agregarUsuarioToolStripMenuItem;
+		private SaveFileDialog saveFileDialog1;
 	}
 }
