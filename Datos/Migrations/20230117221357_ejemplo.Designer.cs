@@ -12,8 +12,8 @@ using Modelos;
 namespace Datos.Migrations
 {
     [DbContext(typeof(DBContextProyectosAsfaltos))]
-    [Migration("20230116193452_migracion")]
-    partial class migracion
+    [Migration("20230117221357_ejemplo")]
+    partial class ejemplo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,11 +27,11 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Modelos.Oferta", b =>
                 {
-                    b.Property<int>("OfetaId")
+                    b.Property<int>("OfertaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OfetaId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OfertaId"));
 
                     b.Property<bool>("Asfalto")
                         .HasColumnType("bit");
@@ -75,11 +75,30 @@ namespace Datos.Migrations
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
-                    b.HasKey("OfetaId");
+                    b.HasKey("OfertaId");
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("Oferta");
+                    b.ToTable("Ofertas");
+
+                    b.HasData(
+                        new
+                        {
+                            OfertaId = 1,
+                            Asfalto = true,
+                            AutorPrespuesto = "Administrador",
+                            Base = true,
+                            Codigo = 1,
+                            Excavacion = true,
+                            Fecha = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Monto = 100f,
+                            Notas = "",
+                            Observaciones = "",
+                            Sellador = true,
+                            SubBase = true,
+                            UltimaModificacion = new DateTime(2023, 1, 17, 1, 0, 0, 0, DateTimeKind.Local),
+                            UsuarioId = 1
+                        });
                 });
 
             modelBuilder.Entity("Modelos.Proyecto", b =>
@@ -161,15 +180,15 @@ namespace Datos.Migrations
                             Estado = "Finalizado",
                             FacturaAnticipoId = "No existente",
                             FacturaFinalId = "No Existente",
-                            FechaFinal = new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2023, 1, 15, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2023, 1, 16, 13, 34, 52, 702, DateTimeKind.Local).AddTicks(3349),
+                            FechaFinal = new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaInicio = new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaOC = new DateTime(2023, 1, 17, 16, 13, 57, 641, DateTimeKind.Local).AddTicks(7645),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,
                             TareaId = 2000,
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });

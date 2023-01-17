@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Datos.Migrations
 {
     /// <inheritdoc />
-    public partial class migracion : Migration
+    public partial class ejemplo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,10 +43,10 @@ namespace Datos.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Oferta",
+                name: "Ofertas",
                 columns: table => new
                 {
-                    OfetaId = table.Column<int>(type: "int", nullable: false)
+                    OfertaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Codigo = table.Column<int>(type: "int", nullable: false),
@@ -64,9 +64,9 @@ namespace Datos.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Oferta", x => x.OfetaId);
+                    table.PrimaryKey("PK_Ofertas", x => x.OfertaId);
                     table.ForeignKey(
-                        name: "FK_Oferta_Usuarios_UsuarioId",
+                        name: "FK_Ofertas_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioId",
@@ -148,9 +148,14 @@ namespace Datos.Migrations
                 values: new object[] { 1, true, "0192023A7BBD73250516F069DF18B500", "admin", "Administrador" });
 
             migrationBuilder.InsertData(
+                table: "Ofertas",
+                columns: new[] { "OfertaId", "Asfalto", "AutorPrespuesto", "Base", "Codigo", "Excavacion", "Fecha", "Monto", "Notas", "Observaciones", "Sellador", "SubBase", "UltimaModificacion", "UsuarioId" },
+                values: new object[] { 1, true, "Administrador", true, 1, true, new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Local), 100f, "", "", true, true, new DateTime(2023, 1, 17, 1, 0, 0, 0, DateTimeKind.Local), 1 });
+
+            migrationBuilder.InsertData(
                 table: "Proyectos",
                 columns: new[] { "ProyectoId", "Autor", "Contacto", "Estado", "FacturaAnticipoId", "FacturaFinalId", "FechaFinal", "FechaInicio", "FechaOC", "Monto", "OfertaId", "PorcentajeAnticipo", "TareaId", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
-                values: new object[] { 1, "Administrador", "Ejemplo", "Finalizado", "No existente", "No Existente", new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 15, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 16, 13, 34, 52, 702, DateTimeKind.Local).AddTicks(3349), 100f, "PS-00001", 50, 2000, "Grupo Mecsa", new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
+                values: new object[] { 1, "Administrador", "Ejemplo", "Finalizado", "No existente", "No Existente", new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 17, 16, 13, 57, 641, DateTimeKind.Local).AddTicks(7645), 100f, "PS-00001", 50, 2000, "Grupo Mecsa", new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
 
             migrationBuilder.InsertData(
                 table: "RolUsuarios",
@@ -158,8 +163,8 @@ namespace Datos.Migrations
                 values: new object[] { 1, 1, 1 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Oferta_UsuarioId",
-                table: "Oferta",
+                name: "IX_Ofertas_UsuarioId",
+                table: "Ofertas",
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
@@ -182,7 +187,7 @@ namespace Datos.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Oferta");
+                name: "Ofertas");
 
             migrationBuilder.DropTable(
                 name: "Proyectos");

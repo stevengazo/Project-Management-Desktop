@@ -60,7 +60,6 @@
 			this.textBox10 = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
-			this.textBox8 = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.textBox7 = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
@@ -82,6 +81,7 @@
 			this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripDropDownMenu();
 			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+			this.cbOfertas = new System.Windows.Forms.ComboBox();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
 			this.groupBox1.SuspendLayout();
@@ -160,6 +160,7 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.cbOfertas);
 			this.groupBox1.Controls.Add(this.txtRazonSocial);
 			this.groupBox1.Controls.Add(this.txtNumeroProyecto);
 			this.groupBox1.Controls.Add(this.label6);
@@ -183,7 +184,6 @@
 			this.groupBox1.Controls.Add(this.textBox10);
 			this.groupBox1.Controls.Add(this.label10);
 			this.groupBox1.Controls.Add(this.label9);
-			this.groupBox1.Controls.Add(this.textBox8);
 			this.groupBox1.Controls.Add(this.label8);
 			this.groupBox1.Controls.Add(this.textBox7);
 			this.groupBox1.Controls.Add(this.label7);
@@ -390,13 +390,6 @@
 			this.label9.TabIndex = 12;
 			this.label9.Text = "Monto";
 			// 
-			// textBox8
-			// 
-			this.textBox8.Location = new System.Drawing.Point(181, 188);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.Size = new System.Drawing.Size(225, 23);
-			this.textBox8.TabIndex = 11;
-			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
@@ -477,25 +470,25 @@
 			this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.excelToolStripMenuItem});
 			this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
 			this.exportarToolStripMenuItem.Text = "Exportar";
 			// 
 			// excelToolStripMenuItem
 			// 
 			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.excelToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
 			this.excelToolStripMenuItem.Text = "Excel";
 			this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
 			this.salirToolStripMenuItem.Text = "Salir";
 			// 
 			// ofertasToolStripMenuItem
@@ -555,6 +548,14 @@
 			this.agregarUsuarioToolStripMenuItem.AutoClose = false;
 			this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
 			this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(61, 4);
+			// 
+			// cbOfertas
+			// 
+			this.cbOfertas.FormattingEnabled = true;
+			this.cbOfertas.Location = new System.Drawing.Point(181, 191);
+			this.cbOfertas.Name = "cbOfertas";
+			this.cbOfertas.Size = new System.Drawing.Size(225, 23);
+			this.cbOfertas.TabIndex = 41;
 			// 
 			// ModuloAdministrador
 			// 
@@ -618,7 +619,6 @@
 		private TextBox textBox10;
 		private Label label10;
 		private Label label9;
-		private TextBox textBox8;
 		private Label label8;
 		private TextBox textBox7;
 		private Label label7;
@@ -640,5 +640,6 @@
 		private ToolStripMenuItem agregarUsuarioToolStripMenuItem1;
 		private ToolStripDropDownMenu agregarUsuarioToolStripMenuItem;
 		private SaveFileDialog saveFileDialog1;
+		private ComboBox cbOfertas;
 	}
 }

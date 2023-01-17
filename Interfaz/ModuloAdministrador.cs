@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using DataTable = System.Data.DataTable;
+using Negocio;
 
 namespace Interfaz
 {
@@ -24,6 +25,27 @@ namespace Interfaz
 			InitializeComponent();
 			CargarVendedores();
 			CargarTabla();
+			cargarOfertas();
+		}
+
+		private void cargarOfertas()
+		{
+			try
+			{
+				OfertaNegocio ofertaNegocio = new();
+				List<Oferta> ofertas = new();
+				ofertas = ofertaNegocio.ListaOfertasPorAño();
+				if(ofertas != null )
+				{
+					foreach (var item in ofertas)
+					{
+						cbOfertas.Items.Add(item.OfertaId);
+					}
+				}
+
+			}catch(Exception ex) { 
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void listarVendedoresToolStripMenuItem_Click(object sender, EventArgs e)

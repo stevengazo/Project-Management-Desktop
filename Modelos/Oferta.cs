@@ -12,7 +12,7 @@ namespace Modelos
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int OfetaId { get; set; }
+		public int OfertaId { get; set; }
 		public DateTime Fecha { get; set; }
 		public int Codigo { get; set; }
 		public bool Sellador { get; set; }

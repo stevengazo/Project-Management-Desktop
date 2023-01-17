@@ -29,6 +29,7 @@ namespace Modelos
 		public DbSet<Rol> Roles { get; set; }
 		public DbSet<RolUsuario> RolUsuarios { get; set; }
 		public DbSet<Usuario> Usuarios { get; set; }
+		public DbSet<Oferta> Ofertas { get; set; }
 		
 		#endregion
 
@@ -101,8 +102,8 @@ namespace Modelos
 			};
 			model.Entity<Proyecto>().HasData(ProyectoBase);
 
-			Oferta oferta = new() {
-				OfetaId = 1,
+			Oferta ofertaBase = new() {
+				OfertaId = 1,
 				Fecha = DateTime.Today,
 				Codigo = 1,
 				Sellador = true,
@@ -117,6 +118,7 @@ namespace Modelos
 				UltimaModificacion = DateTime.Today.AddHours(1),
 				UsuarioId = usuarioBase.UsuarioId
 			};
+			model.Entity<Oferta>().HasData(ofertaBase);
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

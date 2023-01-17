@@ -28,22 +28,22 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgvOfertas = new System.Windows.Forms.DataGridView();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.agregarOfertaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvOfertas)).BeginInit();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// dataGridView1
+			// dgvOfertas
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(12, 27);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.RowTemplate.Height = 25;
-			this.dataGridView1.Size = new System.Drawing.Size(1213, 556);
-			this.dataGridView1.TabIndex = 0;
+			this.dgvOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvOfertas.Location = new System.Drawing.Point(12, 27);
+			this.dgvOfertas.Name = "dgvOfertas";
+			this.dgvOfertas.RowTemplate.Height = 25;
+			this.dgvOfertas.Size = new System.Drawing.Size(1213, 556);
+			this.dgvOfertas.TabIndex = 0;
 			// 
 			// menuStrip1
 			// 
@@ -75,7 +75,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1237, 595);
-			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.dgvOfertas);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.MaximizeBox = false;
@@ -86,7 +86,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Lista de Ofertas";
 			this.Load += new System.EventHandler(this.ListarOferta_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvOfertas)).EndInit();
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
@@ -96,7 +96,7 @@
 
 		#endregion
 
-		private DataGridView dataGridView1;
+		private DataGridView dgvOfertas;
 		private MenuStrip menuStrip1;
 		private ToolStripMenuItem salirToolStripMenuItem;
 		private ToolStripMenuItem agregarOfertaToolStripMenuItem;
