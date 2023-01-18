@@ -10,6 +10,21 @@ namespace Negocio
 {
 	public class OfertaNegocio
 	{
+		public Dictionary<int,string> DiccionarioOfertas(int año = 0)
+		{
+			try
+			{
+				Dictionary<int,string> keyValuePairs= new Dictionary<int,string>();
+				using(var db = new DBContextProyectosAsfaltos())
+				{
+
+				}
+			}catch (Exception ex)
+			{
+				return null;
+			}
+
+		}
 		public List<Oferta> ListaOfertasPorAño (int ano = 0)
 		{
 			try{

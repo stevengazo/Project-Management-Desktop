@@ -21,7 +21,8 @@ namespace Interfaz
 		private List<Usuario> Vendedores = new();
 		private List<Proyecto> proyectos = new();
 		private List<Cliente> clientes = new();
- 		public ModuloAdministrador()
+		private Dictionary<int,string> Ofertas = new();
+		public ModuloAdministrador()
 		{
 			InitializeComponent();
 			CargarVendedores();
@@ -36,15 +37,16 @@ namespace Interfaz
 			{
 				ClienteNegocio clienteNegocio = new();
 				clientes = clienteNegocio.ListaClientes();
-				if(clientes.Count > 0 )
+				if (clientes.Count > 0)
 				{
 					foreach (Cliente i in clientes)
 					{
 						cbClientes.Items.Add(i.ClienteName);
 					}
 				}
-				
-			}catch(Exception ex)
+
+			}
+			catch (Exception ex)
 			{
 				MessageBox.Show($"Error interno {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
@@ -57,15 +59,16 @@ namespace Interfaz
 				OfertaNegocio ofertaNegocio = new();
 				List<Oferta> ofertas = new();
 				ofertas = ofertaNegocio.ListaOfertasPorAño();
-				if(ofertas != null )
+				if (ofertas != null)
 				{
 					foreach (var item in ofertas)
 					{
 						cbOfertas.Items.Add(item.OfertaId);
 					}
 				}
-
-			}catch(Exception ex) { 
+			}
+			catch (Exception ex)
+			{
 				MessageBox.Show(ex.Message);
 			}
 		}
@@ -100,7 +103,7 @@ namespace Interfaz
 			proyectos = proyectosNegocio.ListaProyectos();
 			if (proyectos.Count > 0)
 			{
-			  DataTable _tabla = new();
+				DataTable _tabla = new();
 				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
 				_tabla.Columns.Add("Cliente");
@@ -150,7 +153,7 @@ namespace Interfaz
 				verProyecto.idProyecto = id;
 				verProyecto.ShowDialog();
 			}
-			else if(e.ColumnIndex == 1)
+			else if (e.ColumnIndex == 1)
 			{
 				EditarProyecto editarProyecto = new();
 				editarProyecto.ShowDialog();
@@ -166,9 +169,10 @@ namespace Interfaz
 			try
 			{
 
-			}catch (Exception f)
+			}
+			catch (Exception f)
 			{
-				MessageBox.Show("Error interno","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+				MessageBox.Show("Error interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -190,7 +194,7 @@ namespace Interfaz
 			{
 				saveFileDialog1.Title = "Exportar a Excel";
 				saveFileDialog1.Filter = "Excel|*.xlsx";
-				if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+				if (saveFileDialog1.ShowDialog() == DialogResult.OK)
 				{
 					string URLArchivo = saveFileDialog1.FileName;
 					var ExcelApp = new Excel.Application();
@@ -223,8 +227,72 @@ namespace Interfaz
 			catch (Exception ex)
 			{
 				MessageBox.Show("Ocurrió un problema. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				
 
+
+			}
+		}
+
+		private void btnAgregar_Click(object sender, EventArgs e)
+		{
+			bool Resultado = ValidarCampos();
+			if (Resultado)
+			{
+				Proyecto proyectoTemporal = new Proyecto();
+				proyectoTemporal.Contacto = txtContacto.Text;
+				proyectoTemporal.FechaOC = dtpOrdenCompra.Value;
+				proyectoTemporal.FechaInicio = dtpFechaInicio.Value;
+				proyectoTemporal.FechaFinal = dtpFechaFinal.Value;
+				proyectoTemporal.Monto = int.Parse(txtMonto.Text);
+				proyectoTemporal.Ubicacion= txtUbicacion.Text;
+				proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
+				proyectoTemporal.Estado = cbEstado.Text;
+
+				proyectoTemporal.Vendedor = (from i in Vendedores
+											 where i.Nombre == cbVendedores.Text
+											 select i).FirstOrDefault();
+				proyectoTemporal.OfertaId = (from i in ofertas)
+			}
+		}
+
+		private bool ValidarCampos()
+		{
+			try
+			{
+				var vendedorSeleccionado = cbVendedores.Text;
+				var ofertaSeleccionada = cbOfertas.Text;
+				var clienteSeleccionado = cbClientes.Text;
+				if (string.IsNullOrEmpty(vendedorSeleccionado) || string.IsNullOrEmpty(ofertaSeleccionada) || string.IsNullOrEmpty(clienteSeleccionado))
+				{
+					MessageBox.Show("Verifique los desplegables ");
+					return false;
+				}
+				int.TryParse(txtMonto.Text, out int resultado);
+				if (resultado == 0)
+				{
+					MessageBox.Show("Indique el monto del proyecto");
+					return false;
+				}
+				int.TryParse(txtNumeroTarea.Text, out int resultado1);
+				if (resultado1 == 0)
+				{
+					MessageBox.Show("Indique el numero de tarea en bitrix");
+					return false;
+				}
+				if (string.IsNullOrEmpty(txtContacto.Text))
+				{
+					MessageBox.Show("Indique el nombre del contacto");
+					return false;
+				}
+				if (numericUpDownPorcentaje.Value== 0)
+				{
+					MessageBox.Show("Indique un porcentaje mayor a 0");
+					return false;
+				}
+				return true;
+			}
+			catch (Exception f)
+			{
+				return false;
 			}
 		}
 	}
