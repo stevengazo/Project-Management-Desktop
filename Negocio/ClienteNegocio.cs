@@ -14,13 +14,14 @@ namespace Negocio
 			try
 			{
 				List<Cliente> clientes = new List<Cliente>();
-				using (var db =new DBContextProyectosAsfaltos())
+				/*using (var db =new DBContextProyectosAsfaltos())
 				{
 					
 					clientes = (from c in db.Clientes
 								orderby c.ClienteName descending
 								select c).ToList();	
-				}
+				}*/
+				throw new NotImplementedException();
 				return clientes;
 			}catch(Exception ex)
 			{

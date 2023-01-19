@@ -13,6 +13,27 @@ namespace Negocios
 		private  DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
 
 
+
+		public bool CrearProyecto(Proyecto proyecto, out int idProyecto)
+		{
+			try
+			{
+				using(var db = new DBContextProyectosAsfaltos())
+				{
+					db.Proyectos.Add(proyecto);
+					db.SaveChanges();
+					idProyecto = (from pro in db.Proyectos
+								  where (pro.Autor == proyecto.Autor) && (pro.OfertaId == proyecto.OfertaId)
+								  orderby pro.ProyectoId descending
+								  select pro.ProyectoId).FirstOrDefault();
+				}
+				return true;
+			}catch (Exception ex)
+			{
+				idProyecto = -1;
+				return false;
+			}
+		}
 		public List<Proyecto> ListaProyectos(int idEncargado)
 		{
 			try
@@ -23,7 +44,7 @@ namespace Negocios
 					proyectos = (from proye in db.Proyectos
 								 where proye.UsuarioId == idEncargado
 								 orderby proye.ProyectoId descending
-								 select proye).Include(P => P.Vendedor).Include(P=>P.Cliente).ToList();
+								 select proye).Include(P => P.Vendedor).ToList();
 				}
 				return proyectos;
 			}
@@ -41,7 +62,7 @@ namespace Negocios
 				{
 					proyectos = (from proye in db.Proyectos
 								 orderby proye.ProyectoId descending
-								 select proye).Include(P=>P.Vendedor).Include(P => P.Cliente).ToList();
+								 select proye).Include(P=>P.Vendedor).ToList();
 				}
 				return proyectos;
 			}catch (Exception f)
@@ -58,7 +79,7 @@ namespace Negocios
 				{
 					proyectos = (from proye in db.Proyectos
 								 where proye.ProyectoId == id
-								 select proye).Include(P => P.Vendedor).Include(P => P.Cliente).FirstOrDefault();
+								 select proye).Include(P => P.Vendedor).FirstOrDefault();
 				}
 				return proyectos;
 			}

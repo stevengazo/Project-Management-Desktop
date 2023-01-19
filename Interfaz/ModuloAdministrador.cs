@@ -13,6 +13,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using DataTable = System.Data.DataTable;
 using Negocio;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Interfaz
 {
@@ -28,23 +29,13 @@ namespace Interfaz
 			CargarVendedores();
 			CargarTabla();
 			cargarOfertas();
-			CargarClientes();
+			
 		}
 
 		private void CargarClientes()
 		{
 			try
 			{
-				ClienteNegocio clienteNegocio = new();
-				clientes = clienteNegocio.ListaClientes();
-				if (clientes.Count > 0)
-				{
-					foreach (Cliente i in clientes)
-					{
-						cbClientes.Items.Add(i.ClienteName);
-					}
-				}
-
 			}
 			catch (Exception ex)
 			{
@@ -57,13 +48,13 @@ namespace Interfaz
 			try
 			{
 				OfertaNegocio ofertaNegocio = new();
-				List<Oferta> ofertas = new();
-				ofertas = ofertaNegocio.ListaOfertasPorAño();
-				if (ofertas != null)
+				Ofertas = ofertaNegocio.DiccionarioOfertas();
+				if (Ofertas != null)
 				{
-					foreach (var item in ofertas)
+					cbOfertas.Items.Clear();
+					foreach (var item in Ofertas)
 					{
-						cbOfertas.Items.Add(item.OfertaId);
+						cbOfertas.Items.Add($"{item.Key}-{item.Value}");
 					}
 				}
 			}
@@ -77,6 +68,7 @@ namespace Interfaz
 		{
 			ListarUsuario listarUsuario = new();
 			listarUsuario.ShowDialog();
+			CargarVendedores();
 		}
 
 		private void agregarUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -91,6 +83,7 @@ namespace Interfaz
 			Vendedores = usuarioNegocio.ListarVendedores();
 			if (Vendedores.Count > 0)
 			{
+				cbVendedores.Items.Clear();
 				foreach (var item in Vendedores)
 				{
 					cbVendedores.Items.Add(item.Nombre);
@@ -99,10 +92,15 @@ namespace Interfaz
 		}
 		private void CargarTabla()
 		{
+
 			var proyectosNegocio = new ProyectoNegocios();
 			proyectos = proyectosNegocio.ListaProyectos();
 			if (proyectos.Count > 0)
 			{
+				dgvProyectos.Columns.Clear();
+
+
+
 				DataTable _tabla = new();
 				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
@@ -118,7 +116,7 @@ namespace Interfaz
 					_tabla.Rows.Add(
 						i.ProyectoId,
 						i.Vendedor.Nombre,
-						i.Cliente.ClienteName,
+						i.Cliente,
 						i.FechaOC.ToShortTimeString(),
 						i.OfertaId,
 						i.FechaInicio.ToShortTimeString(),
@@ -127,8 +125,6 @@ namespace Interfaz
 						i.Estado
 						);
 				}
-				dgvProyectos.DataSource = _tabla;
-
 				DataGridViewButtonColumn botonVer = new();
 				botonVer.HeaderText = "Ver";
 				botonVer.Text = "Ver";
@@ -141,6 +137,11 @@ namespace Interfaz
 				botonEditar.Name = "btnEditarProyecto";
 				botonEditar.UseColumnTextForButtonValue = true;
 				dgvProyectos.Columns.Add(botonEditar);
+
+				dgvProyectos.DataSource = _tabla;
+
+
+
 			}
 		}
 
@@ -180,12 +181,14 @@ namespace Interfaz
 		{
 			ListarOferta listarOferta = new();
 			listarOferta.ShowDialog();
+			cargarOfertas();
 		}
 
 		private void agregarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			AgregarOferta agregarOferta = new();
 			agregarOferta.ShowDialog();
+			cargarOfertas();
 		}
 
 		private void excelToolStripMenuItem_Click(object sender, EventArgs e)
@@ -234,6 +237,7 @@ namespace Interfaz
 
 		private void btnAgregar_Click(object sender, EventArgs e)
 		{
+			ProyectoNegocios proyectoNegocios = new ProyectoNegocios();
 			bool Resultado = ValidarCampos();
 			if (Resultado)
 			{
@@ -246,11 +250,28 @@ namespace Interfaz
 				proyectoTemporal.Ubicacion= txtUbicacion.Text;
 				proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
 				proyectoTemporal.Estado = cbEstado.Text;
-
-				proyectoTemporal.Vendedor = (from i in Vendedores
+				proyectoTemporal.FacturaAnticipoId = txtNumeroFactura.Text;
+				proyectoTemporal.UsuarioId = (from i in Vendedores
 											 where i.Nombre == cbVendedores.Text
-											 select i).FirstOrDefault();
-				proyectoTemporal.OfertaId = (from i in ofertas)
+											 select i.UsuarioId).FirstOrDefault();
+				var ofertatmp = cbOfertas.Text.Split('-');
+				proyectoTemporal.OfertaId =ofertatmp[0];
+				proyectoTemporal.UltimoEditor = Temporal.UsuarioActivo.Nombre;
+				proyectoTemporal.Autor = Temporal.UsuarioActivo.Nombre;
+				proyectoTemporal.FacturaFinalId = string.Empty;
+				proyectoTemporal.UltimaEdicion = DateTime.Today;
+				proyectoTemporal.Cliente = txtNombreCliente.Text;
+				var resultado = proyectoNegocios.CrearProyecto(proyectoTemporal,out int idProyecto);
+				if (resultado)
+				{
+					MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					CargarTabla();
+				}
+				else
+				{
+					MessageBox.Show($"Error Interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				
 			}
 		}
 
@@ -260,7 +281,7 @@ namespace Interfaz
 			{
 				var vendedorSeleccionado = cbVendedores.Text;
 				var ofertaSeleccionada = cbOfertas.Text;
-				var clienteSeleccionado = cbClientes.Text;
+				var clienteSeleccionado = txtNombreCliente.Text;
 				if (string.IsNullOrEmpty(vendedorSeleccionado) || string.IsNullOrEmpty(ofertaSeleccionada) || string.IsNullOrEmpty(clienteSeleccionado))
 				{
 					MessageBox.Show("Verifique los desplegables ");
@@ -294,6 +315,21 @@ namespace Interfaz
 			{
 				return false;
 			}
+		}
+
+		private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("Contacte al departamento de TI", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 	}
 }

@@ -8,24 +8,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Datos.Migrations
 {
     /// <inheritdoc />
-    public partial class sample : Migration
+    public partial class ejemplo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Clientes",
-                columns: table => new
-                {
-                    ClienteID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ClienteName = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Clientes", x => x.ClienteID);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
@@ -95,6 +82,7 @@ namespace Datos.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FechaOC = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Contacto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OfertaId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Monto = table.Column<float>(type: "real", nullable: false),
                     PorcentajeAnticipo = table.Column<int>(type: "int", nullable: false),
@@ -108,18 +96,11 @@ namespace Datos.Migrations
                     Autor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UltimaEdicion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UltimoEditor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UsuarioId = table.Column<int>(type: "int", nullable: false),
-                    ClienteID = table.Column<int>(type: "int", nullable: false)
+                    UsuarioId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Proyectos", x => x.ProyectoId);
-                    table.ForeignKey(
-                        name: "FK_Proyectos_Clientes_ClienteID",
-                        column: x => x.ClienteID,
-                        principalTable: "Clientes",
-                        principalColumn: "ClienteID",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Proyectos_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
@@ -155,11 +136,6 @@ namespace Datos.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Clientes",
-                columns: new[] { "ClienteID", "ClienteName" },
-                values: new object[] { 1, "Cliente Base" });
-
-            migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "RolId", "Nombre" },
                 values: new object[,]
@@ -176,12 +152,12 @@ namespace Datos.Migrations
             migrationBuilder.InsertData(
                 table: "Ofertas",
                 columns: new[] { "OfertaId", "Asfalto", "AutorPrespuesto", "Base", "Cliente", "Codigo", "Excavacion", "Fecha", "Monto", "Notas", "Observaciones", "Sellador", "SubBase", "UltimaModificacion", "UsuarioId" },
-                values: new object[] { 1, true, "Administrador", true, "Ejemplo", 1, true, new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Local), 100f, "", "", true, true, new DateTime(2023, 1, 17, 1, 0, 0, 0, DateTimeKind.Local), 1 });
+                values: new object[] { 1, true, "Administrador", true, "Ejemplo", 1, true, new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), 100f, "", "", true, true, new DateTime(2023, 1, 19, 1, 0, 0, 0, DateTimeKind.Local), 1 });
 
             migrationBuilder.InsertData(
                 table: "Proyectos",
-                columns: new[] { "ProyectoId", "Autor", "ClienteID", "Contacto", "Estado", "FacturaAnticipoId", "FacturaFinalId", "FechaFinal", "FechaInicio", "FechaOC", "Monto", "OfertaId", "PorcentajeAnticipo", "TareaId", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
-                values: new object[] { 1, "Administrador", 1, "Ejemplo", "Finalizado", "No existente", "No Existente", new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 17, 17, 19, 8, 74, DateTimeKind.Local).AddTicks(2550), 100f, "PS-00001", 50, 2000, "Grupo Mecsa", new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
+                columns: new[] { "ProyectoId", "Autor", "Cliente", "Contacto", "Estado", "FacturaAnticipoId", "FacturaFinalId", "FechaFinal", "FechaInicio", "FechaOC", "Monto", "OfertaId", "PorcentajeAnticipo", "TareaId", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
+                values: new object[] { 1, "Administrador", "Ejemplo de Cliente", "Ejemplo", "Finalizado", "No existente", "No Existente", new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 19, 9, 32, 40, 504, DateTimeKind.Local).AddTicks(5823), 100f, "PS-00001", 50, 2000, "Grupo Mecsa", new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
 
             migrationBuilder.InsertData(
                 table: "RolUsuarios",
@@ -192,11 +168,6 @@ namespace Datos.Migrations
                 name: "IX_Ofertas_UsuarioId",
                 table: "Ofertas",
                 column: "UsuarioId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Proyectos_ClienteID",
-                table: "Proyectos",
-                column: "ClienteID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Proyectos_UsuarioId",
@@ -225,9 +196,6 @@ namespace Datos.Migrations
 
             migrationBuilder.DropTable(
                 name: "RolUsuarios");
-
-            migrationBuilder.DropTable(
-                name: "Clientes");
 
             migrationBuilder.DropTable(
                 name: "Roles");

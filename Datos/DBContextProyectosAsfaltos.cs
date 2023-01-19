@@ -30,7 +30,7 @@ namespace Modelos
 		public DbSet<RolUsuario> RolUsuarios { get; set; }
 		public DbSet<Usuario> Usuarios { get; set; }
 		public DbSet<Oferta> Ofertas { get; set; }
-		public DbSet<Cliente> Clientes { get; set; }	
+		//public DbSet<Cliente> Clientes { get; set; }	
 		
 		#endregion
 
@@ -41,13 +41,13 @@ namespace Modelos
 		protected void GenerateSeedOfData(ModelBuilder model)
 		{
 
-			Cliente clienteBase = new Cliente()
+		/*	Cliente clienteBase = new Cliente()
 			{
 				ClienteID = 1,
 				ClienteName = "Cliente Base"
 			};
 			model.Entity<Cliente>().HasData(clienteBase);
-
+		*/
 
 			var contrasena = "admin123";
 			using (var md6Hash = MD5.Create())
@@ -95,6 +95,7 @@ namespace Modelos
 				ProyectoId = 1,
 				FechaOC = DateTime.Now,
 				Contacto = "Ejemplo",
+				Cliente = "Ejemplo de Cliente",
 				OfertaId = "PS-00001",
 				Monto = 100f,
 				PorcentajeAnticipo = 50,
@@ -109,7 +110,7 @@ namespace Modelos
 				UltimaEdicion = DateTime.Today,
 				UsuarioId= usuarioBase.UsuarioId,
 				UltimoEditor = usuarioBase.Nombre,
-				ClienteID = clienteBase.ClienteID
+				//ClienteID = clienteBase.ClienteID
 			};
 			model.Entity<Proyecto>().HasData(ProyectoBase);
 

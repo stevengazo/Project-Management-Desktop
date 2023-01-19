@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label11 = new System.Windows.Forms.Label();
+			this.txtCliente = new System.Windows.Forms.TextBox();
 			this.btnCancelar = new System.Windows.Forms.Button();
 			this.btnAgregar = new System.Windows.Forms.Button();
 			this.cbEncargado = new System.Windows.Forms.ComboBox();
@@ -43,7 +45,7 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.checkBoxSubbase = new System.Windows.Forms.CheckBox();
 			this.label5 = new System.Windows.Forms.Label();
-			this.checkBox = new System.Windows.Forms.CheckBox();
+			this.checkBoxBase = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.checkBoxAsfalto = new System.Windows.Forms.CheckBox();
 			this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +58,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.label11);
+			this.groupBox1.Controls.Add(this.txtCliente);
 			this.groupBox1.Controls.Add(this.btnCancelar);
 			this.groupBox1.Controls.Add(this.btnAgregar);
 			this.groupBox1.Controls.Add(this.cbEncargado);
@@ -70,7 +74,7 @@
 			this.groupBox1.Controls.Add(this.label6);
 			this.groupBox1.Controls.Add(this.checkBoxSubbase);
 			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Controls.Add(this.checkBox);
+			this.groupBox1.Controls.Add(this.checkBoxBase);
 			this.groupBox1.Controls.Add(this.label4);
 			this.groupBox1.Controls.Add(this.checkBoxAsfalto);
 			this.groupBox1.Controls.Add(this.label3);
@@ -80,14 +84,30 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(12, 12);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(309, 421);
+			this.groupBox1.Size = new System.Drawing.Size(309, 482);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Información de Ofeta";
 			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(13, 173);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(44, 15);
+			this.label11.TabIndex = 24;
+			this.label11.Text = "Cliente";
+			// 
+			// txtCliente
+			// 
+			this.txtCliente.Location = new System.Drawing.Point(103, 176);
+			this.txtCliente.Name = "txtCliente";
+			this.txtCliente.Size = new System.Drawing.Size(184, 23);
+			this.txtCliente.TabIndex = 23;
+			// 
 			// btnCancelar
 			// 
-			this.btnCancelar.Location = new System.Drawing.Point(161, 371);
+			this.btnCancelar.Location = new System.Drawing.Point(161, 408);
 			this.btnCancelar.Name = "btnCancelar";
 			this.btnCancelar.Size = new System.Drawing.Size(75, 23);
 			this.btnCancelar.TabIndex = 22;
@@ -96,17 +116,18 @@
 			// 
 			// btnAgregar
 			// 
-			this.btnAgregar.Location = new System.Drawing.Point(56, 371);
+			this.btnAgregar.Location = new System.Drawing.Point(56, 408);
 			this.btnAgregar.Name = "btnAgregar";
 			this.btnAgregar.Size = new System.Drawing.Size(75, 23);
 			this.btnAgregar.TabIndex = 21;
 			this.btnAgregar.Text = "Agregar";
 			this.btnAgregar.UseVisualStyleBackColor = true;
+			this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
 			// 
 			// cbEncargado
 			// 
 			this.cbEncargado.FormattingEnabled = true;
-			this.cbEncargado.Location = new System.Drawing.Point(103, 331);
+			this.cbEncargado.Location = new System.Drawing.Point(103, 368);
 			this.cbEncargado.Name = "cbEncargado";
 			this.cbEncargado.Size = new System.Drawing.Size(184, 23);
 			this.cbEncargado.TabIndex = 20;
@@ -114,7 +135,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(19, 334);
+			this.label10.Location = new System.Drawing.Point(19, 371);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(63, 15);
 			this.label10.TabIndex = 19;
@@ -123,15 +144,15 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(13, 270);
+			this.label9.Location = new System.Drawing.Point(13, 307);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(84, 15);
+			this.label9.Size = new System.Drawing.Size(69, 15);
 			this.label9.TabIndex = 17;
-			this.label9.Text = "Observaciones";
+			this.label9.Text = "Descripcion";
 			// 
 			// txtObservaciones
 			// 
-			this.txtObservaciones.Location = new System.Drawing.Point(103, 267);
+			this.txtObservaciones.Location = new System.Drawing.Point(103, 304);
 			this.txtObservaciones.Multiline = true;
 			this.txtObservaciones.Name = "txtObservaciones";
 			this.txtObservaciones.Size = new System.Drawing.Size(184, 53);
@@ -140,7 +161,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(13, 202);
+			this.label8.Location = new System.Drawing.Point(13, 239);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(38, 15);
 			this.label8.TabIndex = 15;
@@ -148,7 +169,7 @@
 			// 
 			// txtNotas
 			// 
-			this.txtNotas.Location = new System.Drawing.Point(103, 205);
+			this.txtNotas.Location = new System.Drawing.Point(103, 242);
 			this.txtNotas.Multiline = true;
 			this.txtNotas.Name = "txtNotas";
 			this.txtNotas.Size = new System.Drawing.Size(184, 53);
@@ -157,7 +178,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(13, 173);
+			this.label7.Location = new System.Drawing.Point(13, 210);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(43, 15);
 			this.label7.TabIndex = 13;
@@ -165,7 +186,7 @@
 			// 
 			// txtMonto
 			// 
-			this.txtMonto.Location = new System.Drawing.Point(103, 176);
+			this.txtMonto.Location = new System.Drawing.Point(103, 213);
 			this.txtMonto.Name = "txtMonto";
 			this.txtMonto.Size = new System.Drawing.Size(184, 23);
 			this.txtMonto.TabIndex = 12;
@@ -208,15 +229,15 @@
 			this.label5.TabIndex = 8;
 			this.label5.Text = "Subbase";
 			// 
-			// checkBox
+			// checkBoxBase
 			// 
-			this.checkBox.AutoSize = true;
-			this.checkBox.Location = new System.Drawing.Point(103, 101);
-			this.checkBox.Name = "checkBox";
-			this.checkBox.Size = new System.Drawing.Size(90, 19);
-			this.checkBox.TabIndex = 7;
-			this.checkBox.Text = "Aplicar Base";
-			this.checkBox.UseVisualStyleBackColor = true;
+			this.checkBoxBase.AutoSize = true;
+			this.checkBoxBase.Location = new System.Drawing.Point(103, 101);
+			this.checkBoxBase.Name = "checkBoxBase";
+			this.checkBoxBase.Size = new System.Drawing.Size(90, 19);
+			this.checkBoxBase.TabIndex = 7;
+			this.checkBoxBase.Text = "Aplicar Base";
+			this.checkBoxBase.UseVisualStyleBackColor = true;
 			// 
 			// label4
 			// 
@@ -286,7 +307,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(333, 445);
+			this.ClientSize = new System.Drawing.Size(333, 499);
 			this.Controls.Add(this.groupBox1);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -320,11 +341,13 @@
 		private Label label6;
 		private CheckBox checkBoxSubbase;
 		private Label label5;
-		private CheckBox checkBox;
+		private CheckBox checkBoxBase;
 		private Label label4;
 		private CheckBox checkBoxAsfalto;
 		private Label label3;
 		private CheckBox checkBoxSellador;
 		private Label label2;
+		private Label label11;
+		private TextBox txtCliente;
 	}
 }

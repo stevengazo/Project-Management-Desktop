@@ -38,30 +38,38 @@ namespace Interfaz
 		}
 		private void CargarProyectoDetallado()
 		{
-			if (idProyecto == 0)
+			try
 			{
-				MessageBox.Show("Error interno, no hay un proyecto especificado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			else
+				if (idProyecto == 0)
+				{
+					MessageBox.Show("Error interno, no hay un proyecto especificado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				else
+				{
+					ProyectoNegocios proyectoNegocios = new();
+					Proyecto proyectoTemporal = proyectoNegocios.ObtenerProyecto(idProyecto);
+					txtNumeroProyecto.Text = proyectoTemporal.ProyectoId.ToString();
+					txtEstado.Text = proyectoTemporal.Estado;
+					txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
+					txtRazonSocial.Text = proyectoTemporal.Cliente;
+					txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
+					txtContacto.Text = proyectoTemporal.Contacto;
+					txtOferta.Text = proyectoTemporal.OfertaId;
+					txtMontoProyecto.Text = proyectoTemporal.Monto.ToString();
+					txtPorcentaje.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
+					txtNumeroFacturaAnticipo.Text = proyectoTemporal.FacturaAnticipoId;
+					txtNumeroTarea.Text = proyectoTemporal.TareaId.ToString();
+					txtUbicacion.Text = proyectoTemporal.Ubicacion;
+					txtFechaInicio.Text = proyectoTemporal.FechaInicio.ToLongDateString();
+					txtFechaFinal.Text = proyectoTemporal.FechaFinal.ToLongDateString();
+
+				}
+			}catch (Exception f)
 			{
-				ProyectoNegocios proyectoNegocios = new();
-				Proyecto proyectoTemporal = proyectoNegocios.ObtenerProyecto(idProyecto);
-				txtNumeroProyecto.Text = proyectoTemporal.ProyectoId.ToString();
-				txtEstado.Text = proyectoTemporal.Estado;
-				txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
-				txtRazonSocial.Text = proyectoTemporal.Cliente.ClienteName;
-				txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
-				txtContacto.Text = proyectoTemporal.Contacto;
-				txtOferta.Text = proyectoTemporal.OfertaId;
-				txtMontoProyecto.Text = proyectoTemporal.Monto.ToString();
-				txtPorcentaje.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
-				txtNumeroFacturaAnticipo.Text = proyectoTemporal.FacturaAnticipoId;
-				txtNumeroTarea.Text = proyectoTemporal.TareaId.ToString();
-				txtUbicacion.Text = proyectoTemporal.Ubicacion;
-				txtFechaInicio.Text = proyectoTemporal.FechaInicio.ToLongDateString() ;
-				txtFechaFinal.Text = proyectoTemporal.FechaFinal.ToLongDateString();
-				
+				MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
 			}
+
 
 		}
 	}

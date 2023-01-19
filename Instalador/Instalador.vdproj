@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_18ED159733FA4E95AF31D0A1DDD4EDB7"
+        "MsmKey" = "8:_C4CD951F079B4E31912F1BFC7D4D693C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -127,10 +127,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_18ED159733FA4E95AF31D0A1DDD4EDB7"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4CD951F079B4E31912F1BFC7D4D693C"
             {
-            "SourcePath" = "8:..\\favicon.ico"
-            "TargetName" = "8:favicon.ico"
+            "SourcePath" = "8:..\\Logo.ico"
+            "TargetName" = "8:Logo.ico"
             "Tag" = "8:"
             "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
             "Condition" = "8:"
@@ -215,7 +215,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Proyectos - Asfaltos Mecsa"
         "ProductCode" = "8:{C0FEB977-51D5-4C21-B8B2-0C182CF99C4A}"
-        "PackageCode" = "8:{15D5B768-34C6-44DA-A146-E56A5ABBEF61}"
+        "PackageCode" = "8:{98BF81EB-6670-4B04-A384-566C948536BE}"
         "UpgradeCode" = "8:{F8A6C2A5-B240-4255-9B6F-63737EB70309}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -232,7 +232,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:App para registro de proyectos de asfaltos de mecsa service"
         "ARPURLINFOABOUT" = "8:https://grupomecsa.net/"
-        "ARPPRODUCTICON" = "8:_18ED159733FA4E95AF31D0A1DDD4EDB7"
+        "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -335,23 +335,9 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2956600CAE9544A68971997137E76B95"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0165963BEB56471A8404D99446307B08"
             {
-            "Name" = "8:Proyectos Asfaltos"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_F251D8DEBF3B4F4ABB7E34E13AD04101"
-            "Folder" = "8:_275CC77564F44C8A820FF16E42239868"
-            "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
-            "Icon" = "8:_18ED159733FA4E95AF31D0A1DDD4EDB7"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3B129F17432C4CBFAD954DA954B2327C"
-            {
-            "Name" = "8:Proyectos de Asfaltos"
+            "Name" = "8:Proyectos Ofertas - Asfaltos"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -360,7 +346,21 @@
             "Target" = "8:_F251D8DEBF3B4F4ABB7E34E13AD04101"
             "Folder" = "8:_C0D0EB7C3A724ABBA7B8AB758DE0D339"
             "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
-            "Icon" = "8:_18ED159733FA4E95AF31D0A1DDD4EDB7"
+            "Icon" = "8:_C4CD951F079B4E31912F1BFC7D4D693C"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_56B22800AC044F68A1C6255BA1E0DA4C"
+            {
+            "Name" = "8:Proyectos Ofertas - Asfaltos"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_F251D8DEBF3B4F4ABB7E34E13AD04101"
+            "Folder" = "8:_275CC77564F44C8A820FF16E42239868"
+            "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
+            "Icon" = "8:_C4CD951F079B4E31912F1BFC7D4D693C"
             "Feature" = "8:"
             }
         }

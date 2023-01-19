@@ -11,6 +11,5 @@ namespace Modelos
 		public int ClienteID { get; set; }	
 		public string ClienteName { get;set; }
 
-		public ICollection<Proyecto> Proyectos { get; set; }
 	}
 }
