@@ -29,12 +29,48 @@ namespace Interfaz
 			{
 				CargarTablaVendedores();
 			}
-		
+
 		}
 
 		private void CargarTablaVendedores()
 		{
-			int IdUsuario = Temporal.UsuarioActivo.UsuarioId;
+			try
+			{
+				int IdUsuario = Temporal.UsuarioActivo.UsuarioId;
+				OfertaNegocio ofertaNegocio = new();
+				var ofertas = ofertaNegocio.ListaOfertasPorAño(DateTime.Today.Year);
+				if (ofertas.Count > 0)
+				{
+					DataTable _tabla = new();
+					_tabla.Columns.Add("Oferta Id");
+					_tabla.Columns.Add("Fecha");
+					_tabla.Columns.Add("Codigo");
+					_tabla.Columns.Add("Sellador");
+					_tabla.Columns.Add("Asfalto");
+					_tabla.Columns.Add("SubBase");
+					_tabla.Columns.Add("Excavacion");
+					_tabla.Columns.Add("Monto");
+					
+
+					foreach (Oferta item in ofertas)
+					{
+						_tabla.Rows.Add(
+							item.OfertaId.ToString(),
+							item.Fecha.ToLongDateString(),
+							item.Codigo,
+							item.Sellador,
+							item.Asfalto,
+							item.SubBase,
+							item.Excavacion,
+							item.Monto
+							);
+					}
+					dgvOfertas.DataSource = _tabla;
+				}
+			}catch (Exception f)
+			{
+				MessageBox.Show("Error interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			
 
 		}
@@ -42,7 +78,7 @@ namespace Interfaz
 		{
 			OfertaNegocio ofertaNegocio = new();
 			var listaOfertas = ofertaNegocio.ListaOfertas();
-			if(listaOfertas.Count > 0)
+			if (listaOfertas.Count > 0)
 			{
 				DataTable _tabla = new();
 				_tabla.Columns.Add("Oferta Id");
@@ -67,9 +103,9 @@ namespace Interfaz
 						item.Excavacion,
 						item.Monto,
 						item.Encargado.Nombre
-						) ;
+						);
 				}
-				dgvOfertas.DataSource= _tabla;
+				dgvOfertas.DataSource = _tabla;
 			}
 			else
 			{
@@ -86,6 +122,15 @@ namespace Interfaz
 		{
 			AgregarOferta agregarOferta = new();
 			agregarOferta.ShowDialog();
+			if (Temporal.TipoLogin.Equals("Administrador"))
+			{
+				CargarTablaAdministradores();
+			}
+			else
+			{
+				CargarTablaVendedores();
+			}
+
 		}
 	}
 }

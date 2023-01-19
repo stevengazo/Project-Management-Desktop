@@ -263,6 +263,7 @@ namespace Interfaz
 				proyectoTemporal.FacturaFinalId = string.Empty;
 				proyectoTemporal.UltimaEdicion = DateTime.Today;
 				proyectoTemporal.Cliente = txtNombreCliente.Text;
+				proyectoTemporal.Enable = true;
 				var resultado = proyectoNegocios.CrearProyecto(proyectoTemporal,out int idProyecto);
 				if (resultado)
 				{

@@ -12,8 +12,8 @@ using Modelos;
 namespace Datos.Migrations
 {
     [DbContext(typeof(DBContextProyectosAsfaltos))]
-    [Migration("20230119153240_ejemplo")]
-    partial class ejemplo
+    [Migration("20230119214103_sample")]
+    partial class sample
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,6 +126,9 @@ namespace Datos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Enable")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -187,12 +190,13 @@ namespace Datos.Migrations
                             Autor = "Administrador",
                             Cliente = "Ejemplo de Cliente",
                             Contacto = "Ejemplo",
+                            Enable = true,
                             Estado = "Finalizado",
                             FacturaAnticipoId = "No existente",
                             FacturaFinalId = "No Existente",
                             FechaFinal = new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Local),
                             FechaInicio = new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2023, 1, 19, 9, 32, 40, 504, DateTimeKind.Local).AddTicks(5823),
+                            FechaOC = new DateTime(2023, 1, 19, 15, 41, 3, 264, DateTimeKind.Local).AddTicks(5187),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,

@@ -2,6 +2,7 @@ using Modelos;
 using Negocios;
 using System.Data;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Interfaz
 {
@@ -78,9 +79,7 @@ namespace Interfaz
 						i.Estado
 						);
 				}
-
 				dgvProyectos.DataSource = _tabla;
-
 				DataGridViewButtonColumn botonVer = new();
 				botonVer.HeaderText = "Ver";
 				botonVer.Text = "Ver";
@@ -107,6 +106,33 @@ namespace Interfaz
 					saveFileDialog.Filter = "Hoja de Calculo|*.xlsx";
 					if (saveFileDialog.ShowDialog() == DialogResult.OK)
 					{
+
+						string URLArchivo = saveFileDialog.FileName;
+						var ExcelApp = new Excel.Application();
+						ExcelApp.Workbooks.Add();
+						Excel._Worksheet worksheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
+						worksheet.Cells[1, "A"] = "Numero Proyecto";
+						worksheet.Cells[1, "B"] = "Vendedor";
+						worksheet.Cells[1, "C"] = "Fecha OC";
+						worksheet.Cells[1, "D"] = "Oferta";
+						worksheet.Cells[1, "E"] = "Fecha Inicio";
+						worksheet.Cells[1, "F"] = "Fecha Final";
+						worksheet.Cells[1, "G"] = "Monto";
+						int contador = 2;
+						foreach (Proyecto item in proyectos)
+						{
+							worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
+							worksheet.Cells[contador, 2] = item.Vendedor.Nombre;
+							worksheet.Cells[contador, 3] = item.FechaOC.ToLongDateString();
+							worksheet.Cells[contador, 4] = item.OfertaId.ToString();
+							worksheet.Cells[contador, 5] = item.FechaInicio.ToLongDateString();
+							worksheet.Cells[contador, 6] = item.FechaFinal.ToLongDateString();
+							worksheet.Cells[contador, 7] = item.Monto.ToString();
+							contador++;
+						}
+						ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
+						ExcelApp.ActiveWorkbook.Close();
+						ExcelApp.Quit();
 
 					}
 				}
@@ -154,6 +180,7 @@ namespace Interfaz
 		{
 			ListarOferta listarOferta = new();
 			listarOferta.ShowDialog();
+			
 		}
 
 		private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -165,6 +192,12 @@ namespace Interfaz
 				verProyecto.idProyecto = id;
 				verProyecto.ShowDialog();
 			}
+		}
+
+		private void agregarCotizaciónToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			AgregarOferta agregarOferta = new();
+			agregarOferta.ShowDialog();
 		}
 	}
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Datos.Migrations
 {
     /// <inheritdoc />
-    public partial class ejemplo : Migration
+    public partial class sample : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -96,7 +96,8 @@ namespace Datos.Migrations
                     Autor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UltimaEdicion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UltimoEditor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UsuarioId = table.Column<int>(type: "int", nullable: false)
+                    UsuarioId = table.Column<int>(type: "int", nullable: false),
+                    Enable = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -156,8 +157,8 @@ namespace Datos.Migrations
 
             migrationBuilder.InsertData(
                 table: "Proyectos",
-                columns: new[] { "ProyectoId", "Autor", "Cliente", "Contacto", "Estado", "FacturaAnticipoId", "FacturaFinalId", "FechaFinal", "FechaInicio", "FechaOC", "Monto", "OfertaId", "PorcentajeAnticipo", "TareaId", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
-                values: new object[] { 1, "Administrador", "Ejemplo de Cliente", "Ejemplo", "Finalizado", "No existente", "No Existente", new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 19, 9, 32, 40, 504, DateTimeKind.Local).AddTicks(5823), 100f, "PS-00001", 50, 2000, "Grupo Mecsa", new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
+                columns: new[] { "ProyectoId", "Autor", "Cliente", "Contacto", "Enable", "Estado", "FacturaAnticipoId", "FacturaFinalId", "FechaFinal", "FechaInicio", "FechaOC", "Monto", "OfertaId", "PorcentajeAnticipo", "TareaId", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
+                values: new object[] { 1, "Administrador", "Ejemplo de Cliente", "Ejemplo", true, "Finalizado", "No existente", "No Existente", new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2023, 1, 19, 15, 41, 3, 264, DateTimeKind.Local).AddTicks(5187), 100f, "PS-00001", 50, 2000, "Grupo Mecsa", new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
 
             migrationBuilder.InsertData(
                 table: "RolUsuarios",

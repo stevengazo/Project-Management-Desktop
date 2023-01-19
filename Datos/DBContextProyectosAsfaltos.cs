@@ -108,8 +108,9 @@ namespace Modelos
 				Estado = "Finalizado",
 				Autor = usuarioBase.Nombre,
 				UltimaEdicion = DateTime.Today,
-				UsuarioId= usuarioBase.UsuarioId,
+				UsuarioId = usuarioBase.UsuarioId,
 				UltimoEditor = usuarioBase.Nombre,
+				Enable = true
 				//ClienteID = clienteBase.ClienteID
 			};
 			model.Entity<Proyecto>().HasData(ProyectoBase);

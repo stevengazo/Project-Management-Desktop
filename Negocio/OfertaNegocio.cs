@@ -53,6 +53,8 @@ namespace Negocio
 			}
 
 		}
+
+
 		public List<Oferta> ListaOfertasPorAño(int ano = 0)
 		{
 			try
@@ -64,6 +66,7 @@ namespace Negocio
 					{
 						lista = (from i in db.Ofertas
 								 where i.Fecha.Year == ano
+								 orderby i.OfertaId descending
 								 select i).ToList();
 					}
 				}

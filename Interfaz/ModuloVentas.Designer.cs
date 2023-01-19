@@ -110,7 +110,7 @@
 			this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.excelToolStripMenuItem});
 			this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.exportarToolStripMenuItem.Text = "Exportar";
 			// 
 			// excelToolStripMenuItem
@@ -123,12 +123,12 @@
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.salirToolStripMenuItem.Text = "Salir";
 			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
 			// 
@@ -144,13 +144,14 @@
 			// agregarCotizaciónToolStripMenuItem
 			// 
 			this.agregarCotizaciónToolStripMenuItem.Name = "agregarCotizaciónToolStripMenuItem";
-			this.agregarCotizaciónToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.agregarCotizaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.agregarCotizaciónToolStripMenuItem.Text = "Agregar Cotización";
+			this.agregarCotizaciónToolStripMenuItem.Click += new System.EventHandler(this.agregarCotizaciónToolStripMenuItem_Click);
 			// 
 			// verCotizacionesToolStripMenuItem
 			// 
 			this.verCotizacionesToolStripMenuItem.Name = "verCotizacionesToolStripMenuItem";
-			this.verCotizacionesToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.verCotizacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.verCotizacionesToolStripMenuItem.Text = "Ver Cotizaciones";
 			this.verCotizacionesToolStripMenuItem.Click += new System.EventHandler(this.verCotizacionesToolStripMenuItem_Click);
 			// 

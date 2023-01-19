@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_C4CD951F079B4E31912F1BFC7D4D693C"
+        "MsmKey" = "8:_8C53BE871A67443EAA9AF84B422AD2D3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F251D8DEBF3B4F4ABB7E34E13AD04101"
+        "MsmKey" = "8:_AC3890D126A44EC3A4E37C491C9CD34D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -127,7 +127,7 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4CD951F079B4E31912F1BFC7D4D693C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C53BE871A67443EAA9AF84B422AD2D3"
             {
             "SourcePath" = "8:..\\Logo.ico"
             "TargetName" = "8:Logo.ico"
@@ -213,7 +213,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Proyectos - Asfaltos Mecsa"
+        "ProductName" = "8:Asfaltos Mecsa"
         "ProductCode" = "8:{C0FEB977-51D5-4C21-B8B2-0C182CF99C4A}"
         "PackageCode" = "8:{98BF81EB-6670-4B04-A384-566C948536BE}"
         "UpgradeCode" = "8:{F8A6C2A5-B240-4255-9B6F-63737EB70309}"
@@ -226,7 +226,7 @@
         "Manufacturer" = "8:Mecsa Service"
         "ARPHELPTELEPHONE" = "8:40000646"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Proyectos Asfaltos"
+        "Title" = "8:Asfaltos"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Steven Gazo"
         "Keywords" = "8:"
@@ -335,32 +335,18 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0165963BEB56471A8404D99446307B08"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B81BB42636084E7BA03D101189ED591B"
             {
-            "Name" = "8:Proyectos Ofertas - Asfaltos"
+            "Name" = "8:Asfaltos"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_F251D8DEBF3B4F4ABB7E34E13AD04101"
-            "Folder" = "8:_C0D0EB7C3A724ABBA7B8AB758DE0D339"
-            "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
-            "Icon" = "8:_C4CD951F079B4E31912F1BFC7D4D693C"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_56B22800AC044F68A1C6255BA1E0DA4C"
-            {
-            "Name" = "8:Proyectos Ofertas - Asfaltos"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_F251D8DEBF3B4F4ABB7E34E13AD04101"
+            "Target" = "8:_AC3890D126A44EC3A4E37C491C9CD34D"
             "Folder" = "8:_275CC77564F44C8A820FF16E42239868"
             "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
-            "Icon" = "8:_C4CD951F079B4E31912F1BFC7D4D693C"
+            "Icon" = "8:_8C53BE871A67443EAA9AF84B422AD2D3"
             "Feature" = "8:"
             }
         }
@@ -762,35 +748,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_38E76917B91B41E9B99538F3B72A3E64"
-            {
-            "SourcePath" = "8:"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:PublishItems"
-            "OutputProjectGuid" = "8:{04185FA5-127A-49FA-ACF9-6E5CF57EF0A0}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_70932FEE8FA845AEA7F21515C45D6C7A"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_03846772377B48E3B11CEC29BFC6AA60"
             {
             "SourcePath" = "8:"
             "TargetName" = "8:"
@@ -818,7 +776,7 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_8186460037AA48B5B6E813F5318E4141"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_4D492A8E397A43E7ADEE9C3AA89E91CF"
             {
             "SourcePath" = "8:"
             "TargetName" = "8:"
@@ -846,7 +804,35 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F251D8DEBF3B4F4ABB7E34E13AD04101"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A68D2612D89C45B2AA7C68734383227B"
+            {
+            "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:PublishItems"
+            "OutputProjectGuid" = "8:{04185FA5-127A-49FA-ACF9-6E5CF57EF0A0}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AC3890D126A44EC3A4E37C491C9CD34D"
             {
             "SourcePath" = "8:..\\Interfaz\\obj\\Release\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"

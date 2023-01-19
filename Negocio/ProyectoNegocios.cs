@@ -42,7 +42,7 @@ namespace Negocios
 				using (var db = dBContext)
 				{
 					proyectos = (from proye in db.Proyectos
-								 where proye.UsuarioId == idEncargado
+								 where proye.UsuarioId == idEncargado && proye.Enable == true
 								 orderby proye.ProyectoId descending
 								 select proye).Include(P => P.Vendedor).ToList();
 				}
