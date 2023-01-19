@@ -33,35 +33,35 @@
 			this.txtRazonSocial = new System.Windows.Forms.TextBox();
 			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
-			this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+			this.dtpOC = new System.Windows.Forms.DateTimePicker();
 			this.cbVendedores = new System.Windows.Forms.ComboBox();
-			this.comboBox2 = new System.Windows.Forms.ComboBox();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.cbEstado = new System.Windows.Forms.ComboBox();
+			this.numericUpDownPorcentaje = new System.Windows.Forms.NumericUpDown();
+			this.dtpFinalizacion = new System.Windows.Forms.DateTimePicker();
+			this.dtpInicio = new System.Windows.Forms.DateTimePicker();
 			this.btnAgregar = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.label17 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
-			this.textBox14 = new System.Windows.Forms.TextBox();
+			this.txtUbicacion = new System.Windows.Forms.TextBox();
 			this.label14 = new System.Windows.Forms.Label();
-			this.textBox13 = new System.Windows.Forms.TextBox();
+			this.txtTarea = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
-			this.textBox11 = new System.Windows.Forms.TextBox();
+			this.txtNumeroFactura = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
-			this.textBox10 = new System.Windows.Forms.TextBox();
+			this.txtMonto = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.textBox8 = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
-			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.txtContacto = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorcentaje)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
@@ -70,29 +70,29 @@
 			this.groupBox1.Controls.Add(this.txtRazonSocial);
 			this.groupBox1.Controls.Add(this.txtNumeroProyecto);
 			this.groupBox1.Controls.Add(this.label6);
-			this.groupBox1.Controls.Add(this.dateTimePicker3);
+			this.groupBox1.Controls.Add(this.dtpOC);
 			this.groupBox1.Controls.Add(this.cbVendedores);
-			this.groupBox1.Controls.Add(this.comboBox2);
-			this.groupBox1.Controls.Add(this.numericUpDown1);
-			this.groupBox1.Controls.Add(this.dateTimePicker2);
-			this.groupBox1.Controls.Add(this.dateTimePicker1);
+			this.groupBox1.Controls.Add(this.cbEstado);
+			this.groupBox1.Controls.Add(this.numericUpDownPorcentaje);
+			this.groupBox1.Controls.Add(this.dtpFinalizacion);
+			this.groupBox1.Controls.Add(this.dtpInicio);
 			this.groupBox1.Controls.Add(this.btnAgregar);
 			this.groupBox1.Controls.Add(this.button2);
 			this.groupBox1.Controls.Add(this.label17);
 			this.groupBox1.Controls.Add(this.label16);
 			this.groupBox1.Controls.Add(this.label15);
-			this.groupBox1.Controls.Add(this.textBox14);
+			this.groupBox1.Controls.Add(this.txtUbicacion);
 			this.groupBox1.Controls.Add(this.label14);
-			this.groupBox1.Controls.Add(this.textBox13);
+			this.groupBox1.Controls.Add(this.txtTarea);
 			this.groupBox1.Controls.Add(this.label13);
-			this.groupBox1.Controls.Add(this.textBox11);
+			this.groupBox1.Controls.Add(this.txtNumeroFactura);
 			this.groupBox1.Controls.Add(this.label11);
-			this.groupBox1.Controls.Add(this.textBox10);
+			this.groupBox1.Controls.Add(this.txtMonto);
 			this.groupBox1.Controls.Add(this.label10);
 			this.groupBox1.Controls.Add(this.label9);
 			this.groupBox1.Controls.Add(this.textBox8);
 			this.groupBox1.Controls.Add(this.label8);
-			this.groupBox1.Controls.Add(this.textBox7);
+			this.groupBox1.Controls.Add(this.txtContacto);
 			this.groupBox1.Controls.Add(this.label7);
 			this.groupBox1.Controls.Add(this.label5);
 			this.groupBox1.Controls.Add(this.label4);
@@ -139,12 +139,12 @@
 			this.label6.TabIndex = 39;
 			this.label6.Text = "Numero de Proyecto";
 			// 
-			// dateTimePicker3
+			// dtpOC
 			// 
-			this.dateTimePicker3.Location = new System.Drawing.Point(181, 130);
-			this.dateTimePicker3.Name = "dateTimePicker3";
-			this.dateTimePicker3.Size = new System.Drawing.Size(225, 23);
-			this.dateTimePicker3.TabIndex = 38;
+			this.dtpOC.Location = new System.Drawing.Point(181, 130);
+			this.dtpOC.Name = "dtpOC";
+			this.dtpOC.Size = new System.Drawing.Size(225, 23);
+			this.dtpOC.TabIndex = 38;
 			// 
 			// cbVendedores
 			// 
@@ -154,40 +154,40 @@
 			this.cbVendedores.Size = new System.Drawing.Size(225, 23);
 			this.cbVendedores.TabIndex = 37;
 			// 
-			// comboBox2
+			// cbEstado
 			// 
-			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Items.AddRange(new object[] {
+			this.cbEstado.FormattingEnabled = true;
+			this.cbEstado.Items.AddRange(new object[] {
             "Pendiente de Ejecución",
             "En ejecución",
             "Finalizado con cobro",
             "Finalizado sin cobro"});
-			this.comboBox2.Location = new System.Drawing.Point(181, 472);
-			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(225, 23);
-			this.comboBox2.TabIndex = 36;
-			this.comboBox2.Text = "Pendiente de Ejecución";
+			this.cbEstado.Location = new System.Drawing.Point(181, 472);
+			this.cbEstado.Name = "cbEstado";
+			this.cbEstado.Size = new System.Drawing.Size(225, 23);
+			this.cbEstado.TabIndex = 36;
+			this.cbEstado.Text = "Pendiente de Ejecución";
 			// 
-			// numericUpDown1
+			// numericUpDownPorcentaje
 			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(181, 249);
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(225, 23);
-			this.numericUpDown1.TabIndex = 35;
+			this.numericUpDownPorcentaje.Location = new System.Drawing.Point(181, 249);
+			this.numericUpDownPorcentaje.Name = "numericUpDownPorcentaje";
+			this.numericUpDownPorcentaje.Size = new System.Drawing.Size(225, 23);
+			this.numericUpDownPorcentaje.TabIndex = 35;
 			// 
-			// dateTimePicker2
+			// dtpFinalizacion
 			// 
-			this.dateTimePicker2.Location = new System.Drawing.Point(181, 443);
-			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.Size = new System.Drawing.Size(225, 23);
-			this.dateTimePicker2.TabIndex = 34;
+			this.dtpFinalizacion.Location = new System.Drawing.Point(181, 443);
+			this.dtpFinalizacion.Name = "dtpFinalizacion";
+			this.dtpFinalizacion.Size = new System.Drawing.Size(225, 23);
+			this.dtpFinalizacion.TabIndex = 34;
 			// 
-			// dateTimePicker1
+			// dtpInicio
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(181, 414);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(225, 23);
-			this.dateTimePicker1.TabIndex = 33;
+			this.dtpInicio.Location = new System.Drawing.Point(181, 414);
+			this.dtpInicio.Name = "dtpInicio";
+			this.dtpInicio.Size = new System.Drawing.Size(225, 23);
+			this.dtpInicio.TabIndex = 33;
 			// 
 			// btnAgregar
 			// 
@@ -235,13 +235,13 @@
 			this.label15.TabIndex = 24;
 			this.label15.Text = "Fecha Inicio";
 			// 
-			// textBox14
+			// txtUbicacion
 			// 
-			this.textBox14.Location = new System.Drawing.Point(181, 333);
-			this.textBox14.Multiline = true;
-			this.textBox14.Name = "textBox14";
-			this.textBox14.Size = new System.Drawing.Size(225, 75);
-			this.textBox14.TabIndex = 23;
+			this.txtUbicacion.Location = new System.Drawing.Point(181, 333);
+			this.txtUbicacion.Multiline = true;
+			this.txtUbicacion.Name = "txtUbicacion";
+			this.txtUbicacion.Size = new System.Drawing.Size(225, 75);
+			this.txtUbicacion.TabIndex = 23;
 			// 
 			// label14
 			// 
@@ -252,12 +252,12 @@
 			this.label14.TabIndex = 22;
 			this.label14.Text = "Ubicación";
 			// 
-			// textBox13
+			// txtTarea
 			// 
-			this.textBox13.Location = new System.Drawing.Point(181, 304);
-			this.textBox13.Name = "textBox13";
-			this.textBox13.Size = new System.Drawing.Size(225, 23);
-			this.textBox13.TabIndex = 21;
+			this.txtTarea.Location = new System.Drawing.Point(181, 304);
+			this.txtTarea.Name = "txtTarea";
+			this.txtTarea.Size = new System.Drawing.Size(225, 23);
+			this.txtTarea.TabIndex = 21;
 			// 
 			// label13
 			// 
@@ -268,12 +268,12 @@
 			this.label13.TabIndex = 20;
 			this.label13.Text = "Tarea Bitrix";
 			// 
-			// textBox11
+			// txtNumeroFactura
 			// 
-			this.textBox11.Location = new System.Drawing.Point(181, 275);
-			this.textBox11.Name = "textBox11";
-			this.textBox11.Size = new System.Drawing.Size(225, 23);
-			this.textBox11.TabIndex = 17;
+			this.txtNumeroFactura.Location = new System.Drawing.Point(181, 275);
+			this.txtNumeroFactura.Name = "txtNumeroFactura";
+			this.txtNumeroFactura.Size = new System.Drawing.Size(225, 23);
+			this.txtNumeroFactura.TabIndex = 17;
 			// 
 			// label11
 			// 
@@ -284,12 +284,12 @@
 			this.label11.TabIndex = 16;
 			this.label11.Text = "Número Factura";
 			// 
-			// textBox10
+			// txtMonto
 			// 
-			this.textBox10.Location = new System.Drawing.Point(181, 220);
-			this.textBox10.Name = "textBox10";
-			this.textBox10.Size = new System.Drawing.Size(225, 23);
-			this.textBox10.TabIndex = 15;
+			this.txtMonto.Location = new System.Drawing.Point(181, 220);
+			this.txtMonto.Name = "txtMonto";
+			this.txtMonto.Size = new System.Drawing.Size(225, 23);
+			this.txtMonto.TabIndex = 15;
 			// 
 			// label10
 			// 
@@ -325,12 +325,12 @@
 			this.label8.TabIndex = 10;
 			this.label8.Text = "Oferta Mecsa";
 			// 
-			// textBox7
+			// txtContacto
 			// 
-			this.textBox7.Location = new System.Drawing.Point(181, 159);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(225, 23);
-			this.textBox7.TabIndex = 9;
+			this.txtContacto.Location = new System.Drawing.Point(181, 159);
+			this.txtContacto.Name = "txtContacto";
+			this.txtContacto.Size = new System.Drawing.Size(225, 23);
+			this.txtContacto.TabIndex = 9;
 			// 
 			// label7
 			// 
@@ -380,9 +380,10 @@
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Editar Proyecto";
+			this.Load += new System.EventHandler(this.EditarProyecto_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorcentaje)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -393,29 +394,29 @@
 		private TextBox txtRazonSocial;
 		private TextBox txtNumeroProyecto;
 		private Label label6;
-		private DateTimePicker dateTimePicker3;
+		private DateTimePicker dtpOC;
 		private ComboBox cbVendedores;
-		private ComboBox comboBox2;
-		private NumericUpDown numericUpDown1;
-		private DateTimePicker dateTimePicker2;
-		private DateTimePicker dateTimePicker1;
+		private ComboBox cbEstado;
+		private NumericUpDown numericUpDownPorcentaje;
+		private DateTimePicker dtpFinalizacion;
+		private DateTimePicker dtpInicio;
 		private Button btnAgregar;
 		private Button button2;
 		private Label label17;
 		private Label label16;
 		private Label label15;
-		private TextBox textBox14;
+		private TextBox txtUbicacion;
 		private Label label14;
-		private TextBox textBox13;
+		private TextBox txtTarea;
 		private Label label13;
-		private TextBox textBox11;
+		private TextBox txtNumeroFactura;
 		private Label label11;
-		private TextBox textBox10;
+		private TextBox txtMonto;
 		private Label label10;
 		private Label label9;
 		private TextBox textBox8;
 		private Label label8;
-		private TextBox textBox7;
+		private TextBox txtContacto;
 		private Label label7;
 		private Label label5;
 		private Label label4;

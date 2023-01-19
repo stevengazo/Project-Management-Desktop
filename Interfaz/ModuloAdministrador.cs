@@ -156,7 +156,9 @@ namespace Interfaz
 			}
 			else if (e.ColumnIndex == 1)
 			{
+				var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[2].Value.ToString());
 				EditarProyecto editarProyecto = new();
+				editarProyecto.ProyectoId = id;
 				editarProyecto.ShowDialog();
 			}
 		}
