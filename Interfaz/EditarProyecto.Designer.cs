@@ -53,19 +53,20 @@
 			this.txtMonto = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
-			this.textBox8 = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.txtContacto = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.comboBoxOfertas = new System.Windows.Forms.ComboBox();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorcentaje)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.comboBoxOfertas);
 			this.groupBox1.Controls.Add(this.btnBorrar);
 			this.groupBox1.Controls.Add(this.txtRazonSocial);
 			this.groupBox1.Controls.Add(this.txtNumeroProyecto);
@@ -90,7 +91,6 @@
 			this.groupBox1.Controls.Add(this.txtMonto);
 			this.groupBox1.Controls.Add(this.label10);
 			this.groupBox1.Controls.Add(this.label9);
-			this.groupBox1.Controls.Add(this.textBox8);
 			this.groupBox1.Controls.Add(this.label8);
 			this.groupBox1.Controls.Add(this.txtContacto);
 			this.groupBox1.Controls.Add(this.label7);
@@ -309,13 +309,6 @@
 			this.label9.TabIndex = 12;
 			this.label9.Text = "Monto";
 			// 
-			// textBox8
-			// 
-			this.textBox8.Location = new System.Drawing.Point(181, 188);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.Size = new System.Drawing.Size(225, 23);
-			this.textBox8.TabIndex = 11;
-			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
@@ -368,6 +361,14 @@
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Vendedor";
 			// 
+			// comboBoxOfertas
+			// 
+			this.comboBoxOfertas.FormattingEnabled = true;
+			this.comboBoxOfertas.Location = new System.Drawing.Point(181, 191);
+			this.comboBoxOfertas.Name = "comboBoxOfertas";
+			this.comboBoxOfertas.Size = new System.Drawing.Size(225, 23);
+			this.comboBoxOfertas.TabIndex = 42;
+			// 
 			// EditarProyecto
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -414,7 +415,6 @@
 		private TextBox txtMonto;
 		private Label label10;
 		private Label label9;
-		private TextBox textBox8;
 		private Label label8;
 		private TextBox txtContacto;
 		private Label label7;
@@ -422,5 +422,6 @@
 		private Label label4;
 		private Label label3;
 		private Button btnBorrar;
+		private ComboBox comboBoxOfertas;
 	}
 }

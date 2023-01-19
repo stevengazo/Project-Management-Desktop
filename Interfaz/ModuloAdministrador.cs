@@ -75,6 +75,7 @@ namespace Interfaz
 		{
 			AgregarUsuario agregarUsuario = new();
 			agregarUsuario.ShowDialog();
+			CargarVendedores();
 		}
 
 		private void CargarVendedores()

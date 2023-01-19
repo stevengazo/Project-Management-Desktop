@@ -215,7 +215,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Asfaltos Mecsa"
         "ProductCode" = "8:{C0FEB977-51D5-4C21-B8B2-0C182CF99C4A}"
-        "PackageCode" = "8:{98BF81EB-6670-4B04-A384-566C948536BE}"
+        "PackageCode" = "8:{2D4A47BE-4C2D-4682-83CA-8551A33F0DCB}"
         "UpgradeCode" = "8:{F8A6C2A5-B240-4255-9B6F-63737EB70309}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -345,6 +345,20 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_AC3890D126A44EC3A4E37C491C9CD34D"
             "Folder" = "8:_275CC77564F44C8A820FF16E42239868"
+            "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
+            "Icon" = "8:_8C53BE871A67443EAA9AF84B422AD2D3"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FE4757BEFF9D47C58B4685341D53BCC6"
+            {
+            "Name" = "8:Asfaltos"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_AC3890D126A44EC3A4E37C491C9CD34D"
+            "Folder" = "8:_C0D0EB7C3A724ABBA7B8AB758DE0D339"
             "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
             "Icon" = "8:_8C53BE871A67443EAA9AF84B422AD2D3"
             "Feature" = "8:"
@@ -834,7 +848,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AC3890D126A44EC3A4E37C491C9CD34D"
             {
-            "SourcePath" = "8:..\\Interfaz\\obj\\Release\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Interfaz\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"

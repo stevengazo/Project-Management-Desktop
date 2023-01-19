@@ -1,4 +1,6 @@
-﻿using Negocios;
+﻿using Modelos;
+using Negocio;
+using Negocios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,20 +15,64 @@ namespace Interfaz
 {
 	public partial class EditarProyecto : Form
 	{
+		private List<Usuario> Vendedores = new();
+		private Dictionary<int, string> Ofertas = new();
+
 		public int ProyectoId { get; set; } = 0;
 		public EditarProyecto()
 		{
 			InitializeComponent();
 		}
 
+
+		private void CargarVendedores()
+		{
+			UsuarioNegocio usuarioNegocio = new();
+			Vendedores = usuarioNegocio.ListarVendedores();
+			if (Vendedores.Count > 0)
+			{
+				cbVendedores.Items.Clear();
+				foreach (var item in Vendedores)
+				{
+					cbVendedores.Items.Add(item.Nombre);
+				}
+			}
+		}
+
+		private void cargarOfertas()
+		{
+			try
+			{
+				OfertaNegocio ofertaNegocio = new();
+				Ofertas = ofertaNegocio.DiccionarioOfertas();
+				if (Ofertas != null)
+				{
+				 comboBoxOfertas.Items.Clear();
+					foreach (var item in Ofertas)
+					{
+						comboBoxOfertas.Items.Add($"{item.Key}-{item.Value}");
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
 		private void btnBorrar_Click(object sender, EventArgs e)
 		{
 			var Resultado = MessageBox.Show("¿Deseas borrar este proyecto?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+			if(Resultado == DialogResult.Yes)
+			{
+				ProyectoNegocios proyectoNegocios = new ProyectoNegocios();
+				throw new NotImplementedException();
+			}
 		}
 
 		private void EditarProyecto_Load(object sender, EventArgs e)
 		{
+			cargarOfertas();
+			CargarVendedores();
 			if(ProyectoId!=0)
 			{
 				ProyectoNegocios proyectoNegocios = new();
