@@ -30,10 +30,11 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModuloAdministrador));
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
+			this.btnBuscar = new System.Windows.Forms.Button();
+			this.txtNumeroProyectoBuscar = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtNombreBuscar = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgvProyectos = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -91,10 +92,11 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.button1);
-			this.groupBox2.Controls.Add(this.textBox2);
+			this.groupBox2.Controls.Add(this.btnLimpiarBusqueda);
+			this.groupBox2.Controls.Add(this.btnBuscar);
+			this.groupBox2.Controls.Add(this.txtNumeroProyectoBuscar);
 			this.groupBox2.Controls.Add(this.label2);
-			this.groupBox2.Controls.Add(this.textBox1);
+			this.groupBox2.Controls.Add(this.txtNombreBuscar);
 			this.groupBox2.Controls.Add(this.label1);
 			this.groupBox2.Controls.Add(this.dgvProyectos);
 			this.groupBox2.Location = new System.Drawing.Point(447, 27);
@@ -104,21 +106,32 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Proyectos";
 			// 
-			// button1
+			// btnLimpiarBusqueda
 			// 
-			this.button1.Location = new System.Drawing.Point(473, 28);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(141, 23);
-			this.button1.TabIndex = 5;
-			this.button1.Text = "Buscar";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnLimpiarBusqueda.Location = new System.Drawing.Point(620, 28);
+			this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
+			this.btnLimpiarBusqueda.Size = new System.Drawing.Size(141, 23);
+			this.btnLimpiarBusqueda.TabIndex = 6;
+			this.btnLimpiarBusqueda.Text = "Limpiar";
+			this.btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+			this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
 			// 
-			// textBox2
+			// btnBuscar
 			// 
-			this.textBox2.Location = new System.Drawing.Point(365, 29);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(102, 23);
-			this.textBox2.TabIndex = 4;
+			this.btnBuscar.Location = new System.Drawing.Point(473, 28);
+			this.btnBuscar.Name = "btnBuscar";
+			this.btnBuscar.Size = new System.Drawing.Size(141, 23);
+			this.btnBuscar.TabIndex = 5;
+			this.btnBuscar.Text = "Buscar";
+			this.btnBuscar.UseVisualStyleBackColor = true;
+			this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+			// 
+			// txtNumeroProyectoBuscar
+			// 
+			this.txtNumeroProyectoBuscar.Location = new System.Drawing.Point(365, 29);
+			this.txtNumeroProyectoBuscar.Name = "txtNumeroProyectoBuscar";
+			this.txtNumeroProyectoBuscar.Size = new System.Drawing.Size(102, 23);
+			this.txtNumeroProyectoBuscar.TabIndex = 4;
 			// 
 			// label2
 			// 
@@ -129,12 +142,12 @@
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Numero de Proyecto";
 			// 
-			// textBox1
+			// txtNombreBuscar
 			// 
-			this.textBox1.Location = new System.Drawing.Point(56, 29);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(163, 23);
-			this.textBox1.TabIndex = 2;
+			this.txtNombreBuscar.Location = new System.Drawing.Point(56, 29);
+			this.txtNombreBuscar.Name = "txtNombreBuscar";
+			this.txtNombreBuscar.Size = new System.Drawing.Size(163, 23);
+			this.txtNombreBuscar.TabIndex = 2;
 			// 
 			// label1
 			// 
@@ -201,6 +214,7 @@
 			// 
 			this.txtNombreCliente.Location = new System.Drawing.Point(181, 98);
 			this.txtNombreCliente.Name = "txtNombreCliente";
+			this.txtNombreCliente.PlaceholderText = "Ejemplo S.A";
 			this.txtNombreCliente.Size = new System.Drawing.Size(225, 23);
 			this.txtNombreCliente.TabIndex = 42;
 			// 
@@ -331,6 +345,7 @@
 			this.txtUbicacion.Location = new System.Drawing.Point(181, 333);
 			this.txtUbicacion.Multiline = true;
 			this.txtUbicacion.Name = "txtUbicacion";
+			this.txtUbicacion.PlaceholderText = "Provincia, Canton, Distrito, Direcciones";
 			this.txtUbicacion.Size = new System.Drawing.Size(225, 75);
 			this.txtUbicacion.TabIndex = 23;
 			// 
@@ -347,6 +362,7 @@
 			// 
 			this.txtNumeroTarea.Location = new System.Drawing.Point(181, 304);
 			this.txtNumeroTarea.Name = "txtNumeroTarea";
+			this.txtNumeroTarea.PlaceholderText = "4582";
 			this.txtNumeroTarea.Size = new System.Drawing.Size(225, 23);
 			this.txtNumeroTarea.TabIndex = 21;
 			// 
@@ -363,8 +379,10 @@
 			// 
 			this.txtNumeroFactura.Location = new System.Drawing.Point(181, 275);
 			this.txtNumeroFactura.Name = "txtNumeroFactura";
+			this.txtNumeroFactura.PlaceholderText = "15632";
 			this.txtNumeroFactura.Size = new System.Drawing.Size(225, 23);
 			this.txtNumeroFactura.TabIndex = 17;
+			this.txtNumeroFactura.Text = "12588";
 			// 
 			// label11
 			// 
@@ -379,6 +397,7 @@
 			// 
 			this.txtMonto.Location = new System.Drawing.Point(181, 220);
 			this.txtMonto.Name = "txtMonto";
+			this.txtMonto.PlaceholderText = "125000";
 			this.txtMonto.Size = new System.Drawing.Size(225, 23);
 			this.txtMonto.TabIndex = 15;
 			// 
@@ -413,6 +432,7 @@
 			// 
 			this.txtContacto.Location = new System.Drawing.Point(181, 159);
 			this.txtContacto.Name = "txtContacto";
+			this.txtContacto.PlaceholderText = "Pepe";
 			this.txtContacto.Size = new System.Drawing.Size(225, 23);
 			this.txtContacto.TabIndex = 9;
 			// 
@@ -594,10 +614,6 @@
 		#endregion
 
 		private GroupBox groupBox2;
-		private Button button1;
-		private TextBox textBox2;
-		private Label label2;
-		private TextBox textBox1;
 		private Label label1;
 		private DataGridView dgvProyectos;
 		private GroupBox groupBox1;
@@ -646,5 +662,10 @@
 		private SaveFileDialog saveFileDialog1;
 		private ComboBox cbOfertas;
 		private TextBox txtNombreCliente;
+		private Button btnLimpiarBusqueda;
+		private Button btnBuscar;
+		private TextBox txtNumeroProyectoBuscar;
+		private Label label2;
+		private TextBox txtNombreBuscar;
 	}
 }

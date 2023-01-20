@@ -23,14 +23,14 @@ namespace Interfaz
 		private List<Usuario> Vendedores = new();
 		private List<Proyecto> proyectos = new();
 		private List<Cliente> clientes = new();
-		private Dictionary<int,string> Ofertas = new();
+		private Dictionary<int, string> Ofertas = new();
 		public ModuloAdministrador()
 		{
 			InitializeComponent();
 			CargarVendedores();
 			CargarTabla();
 			cargarOfertas();
-			
+
 		}
 
 		private void CargarClientes()
@@ -92,17 +92,21 @@ namespace Interfaz
 				}
 			}
 		}
-		private void CargarTabla()
+		private void CargarTabla(List<Proyecto> proyectosFiltrados = null)
 		{
+			if (proyectosFiltrados != null)
+			{
+				proyectos = proyectosFiltrados;
+			}
+			else
+			{
+				var proyectosNegocio = new ProyectoNegocios();
+				proyectos = proyectosNegocio.ListaProyectos();
+			}
 
-			var proyectosNegocio = new ProyectoNegocios();
-			proyectos = proyectosNegocio.ListaProyectos();
 			if (proyectos.Count > 0)
 			{
 				dgvProyectos.Columns.Clear();
-
-
-
 				DataTable _tabla = new();
 				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
@@ -242,7 +246,8 @@ namespace Interfaz
 
 		private void btnAgregar_Click(object sender, EventArgs e)
 		{
-			try{
+			try
+			{
 				ProyectoNegocios proyectoNegocios = new ProyectoNegocios();
 				bool Resultado = ValidarCampos();
 				if (Resultado)
@@ -297,7 +302,7 @@ namespace Interfaz
 				var clienteSeleccionado = txtNombreCliente.Text;
 				if (string.IsNullOrEmpty(vendedorSeleccionado) || string.IsNullOrEmpty(ofertaSeleccionada) || string.IsNullOrEmpty(clienteSeleccionado))
 				{
-					MessageBox.Show("Verifique los desplegables ","",MessageBoxButtons.OK);
+					MessageBox.Show("Verifique los desplegables ", "", MessageBoxButtons.OK);
 					return false;
 				}
 				int.TryParse(txtMonto.Text, out int resultado);
@@ -317,7 +322,7 @@ namespace Interfaz
 					MessageBox.Show("Indique el nombre del contacto");
 					return false;
 				}
-				if (numericUpDownPorcentaje.Value== 0)
+				if (numericUpDownPorcentaje.Value == 0)
 				{
 					MessageBox.Show("Indique un porcentaje mayor a 0");
 					return false;
@@ -353,18 +358,73 @@ namespace Interfaz
 		{
 			cbVendedores.Text = string
 				.Empty;
-			txtNombreCliente.Text	= string .Empty;
+			txtNombreCliente.Text = string.Empty;
 			dtpOrdenCompra.Value = DateTime.Now;
-			txtContacto.Text = string .Empty;	
-			cbOfertas.Text = string .Empty;
-			txtMonto.Text = string .Empty;
+			txtContacto.Text = string.Empty;
+			cbOfertas.Text = string.Empty;
+			txtMonto.Text = string.Empty;
 			numericUpDownPorcentaje.Value = 0;
-		txtNumeroFactura.Text = string .Empty;
-			txtNumeroTarea.Text = string .Empty;
-			txtUbicacion.Text = string .Empty;
+			txtNumeroFactura.Text = string.Empty;
+			txtNumeroTarea.Text = string.Empty;
+			txtUbicacion.Text = string.Empty;
 			dtpFechaInicio.Value = DateTime.Now;
-			dtpFechaFinal.Value= DateTime.Now;
-			cbEstado.Text = string .Empty;
+			dtpFechaFinal.Value = DateTime.Now;
+			cbEstado.Text = string.Empty;
+		}
+
+		private void btnBuscar_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrEmpty(txtNombreBuscar.Text) && !string.IsNullOrEmpty(txtNumeroProyectoBuscar.Text))
+			{
+				int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
+				var proyectosFiltrados = (from p in proyectos
+										  where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper()) && p.ProyectoId== idProyecto
+										  select p).ToList();
+				if (proyectosFiltrados.Count > 0)
+				{
+					CargarTabla(proyectosFiltrados);
+				}
+				else
+				{
+					MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+			}
+			else if (!string.IsNullOrEmpty(txtNombreBuscar.Text))
+			{
+				var proyectosFiltrados = (from p in proyectos
+										  where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper())
+										  select p).ToList();
+				if (proyectosFiltrados.Count > 0)
+				{
+					CargarTabla(proyectosFiltrados);
+				}
+				else
+				{
+					MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+			}
+			else if (!string.IsNullOrEmpty(txtNumeroProyectoBuscar.Text))
+			{
+				int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
+				var proyectosFiltrados = (from p in proyectos
+										  where p.ProyectoId==idProyecto
+										  select p).ToList();
+				if (proyectosFiltrados.Count > 0)
+				{
+					CargarTabla(proyectosFiltrados);
+				}
+				else
+				{
+					MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+			}
+		}
+
+		private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
+		{
+			txtNombreBuscar.Text = string.Empty;
+			txtNumeroProyectoBuscar.Text = string.Empty;
+			CargarTabla();
 		}
 	}
 }

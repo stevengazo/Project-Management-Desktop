@@ -70,10 +70,11 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.limpar = new System.Windows.Forms.Button();
+			this.btnBuscar = new System.Windows.Forms.Button();
+			this.txtNumeroPBuscar = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtClienteBuscar = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgvProyectos = new System.Windows.Forms.DataGridView();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -457,10 +458,11 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.button1);
-			this.groupBox2.Controls.Add(this.textBox2);
+			this.groupBox2.Controls.Add(this.limpar);
+			this.groupBox2.Controls.Add(this.btnBuscar);
+			this.groupBox2.Controls.Add(this.txtNumeroPBuscar);
 			this.groupBox2.Controls.Add(this.label2);
-			this.groupBox2.Controls.Add(this.textBox1);
+			this.groupBox2.Controls.Add(this.txtClienteBuscar);
 			this.groupBox2.Controls.Add(this.label1);
 			this.groupBox2.Controls.Add(this.dgvProyectos);
 			this.groupBox2.Location = new System.Drawing.Point(447, 27);
@@ -470,21 +472,32 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Proyectos";
 			// 
-			// button1
+			// limpar
 			// 
-			this.button1.Location = new System.Drawing.Point(473, 28);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(141, 23);
-			this.button1.TabIndex = 5;
-			this.button1.Text = "Buscar";
-			this.button1.UseVisualStyleBackColor = true;
+			this.limpar.Location = new System.Drawing.Point(620, 29);
+			this.limpar.Name = "limpar";
+			this.limpar.Size = new System.Drawing.Size(141, 23);
+			this.limpar.TabIndex = 6;
+			this.limpar.Text = "Limpiar ";
+			this.limpar.UseVisualStyleBackColor = true;
+			this.limpar.Click += new System.EventHandler(this.limpar_Click);
 			// 
-			// textBox2
+			// btnBuscar
 			// 
-			this.textBox2.Location = new System.Drawing.Point(365, 29);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(102, 23);
-			this.textBox2.TabIndex = 4;
+			this.btnBuscar.Location = new System.Drawing.Point(473, 28);
+			this.btnBuscar.Name = "btnBuscar";
+			this.btnBuscar.Size = new System.Drawing.Size(141, 23);
+			this.btnBuscar.TabIndex = 5;
+			this.btnBuscar.Text = "Buscar";
+			this.btnBuscar.UseVisualStyleBackColor = true;
+			this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+			// 
+			// txtNumeroPBuscar
+			// 
+			this.txtNumeroPBuscar.Location = new System.Drawing.Point(365, 29);
+			this.txtNumeroPBuscar.Name = "txtNumeroPBuscar";
+			this.txtNumeroPBuscar.Size = new System.Drawing.Size(102, 23);
+			this.txtNumeroPBuscar.TabIndex = 4;
 			// 
 			// label2
 			// 
@@ -495,12 +508,12 @@
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Numero de Proyecto";
 			// 
-			// textBox1
+			// txtClienteBuscar
 			// 
-			this.textBox1.Location = new System.Drawing.Point(56, 29);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(163, 23);
-			this.textBox1.TabIndex = 2;
+			this.txtClienteBuscar.Location = new System.Drawing.Point(56, 29);
+			this.txtClienteBuscar.Name = "txtClienteBuscar";
+			this.txtClienteBuscar.Size = new System.Drawing.Size(163, 23);
+			this.txtClienteBuscar.TabIndex = 2;
 			// 
 			// label1
 			// 
@@ -582,8 +595,8 @@
 		private Label label4;
 		private Label label3;
 		private GroupBox groupBox2;
-		private Button button1;
-		private TextBox textBox2;
+		private Button btnBuscar;
+		private TextBox txtNumeroPBuscar;
 		private Label label2;
 		private Label label1;
 		private DataGridView dgvProyectos;
@@ -600,7 +613,8 @@
 		private ToolStripMenuItem verCotizacionesToolStripMenuItem;
 		private TextBox txtRazonSocial;
 		private ComboBox cbVendedores;
-		private TextBox textBox1;
+		private TextBox txtClienteBuscar;
 		private ComboBox comboBoxOfertas;
+		private Button limpar;
 	}
 }

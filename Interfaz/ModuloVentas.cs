@@ -71,19 +71,28 @@ namespace Interfaz
 				}
 			}
 		}
-		private void CargarTabla()
+		private void CargarTabla(List<Proyecto> proyectosListados = null)
 		{
 			var proyectosNegocio = new ProyectoNegocios();
-			proyectos = proyectosNegocio.ListaProyectos(Temporal.UsuarioActivo.UsuarioId);
+			if (proyectosListados != null)
+			{
+				proyectos = proyectosListados;
+			}
+			else
+			{
+				proyectos = proyectosNegocio.ListaProyectos(Temporal.UsuarioActivo.UsuarioId);
+			}			
 			if (proyectos.Count > 0)
 			{
 				DataTable _tabla = new();
 
 				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
-				_tabla.Columns.Add("Raz[on Social");
+				_tabla.Columns.Add("Razon Social");
 				_tabla.Columns.Add("Fecha OC");
 				_tabla.Columns.Add("Oferta");
+				_tabla.Columns.Add("Porcentaje");
+				_tabla.Columns.Add("Id Factura Anticipo");
 				_tabla.Columns.Add("Fecha Inicio");
 				_tabla.Columns.Add("Fecha Final");
 				_tabla.Columns.Add("Monto");
@@ -95,8 +104,11 @@ namespace Interfaz
 					_tabla.Rows.Add(
 						i.ProyectoId,
 						i.Vendedor.Nombre,
-						i.FechaOC,
+						i.Cliente,
+						i.FechaOC.ToLongDateString(),
 						i.OfertaId,
+						$"{i.PorcentajeAnticipo}%",
+						i.FacturaAnticipoId,
 						i.FechaInicio.ToLongDateString(),
 						i.FechaFinal.ToLongDateString(),
 						i.Monto,
@@ -154,6 +166,7 @@ namespace Interfaz
 						Excel._Worksheet worksheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
 						worksheet.Cells[1, "A"] = "Numero Proyecto";
 						worksheet.Cells[1, "B"] = "Vendedor";
+						worksheet.Cells[1, "B"] = "Cliente";
 						worksheet.Cells[1, "C"] = "Fecha OC";
 						worksheet.Cells[1, "D"] = "Oferta";
 						worksheet.Cells[1, "E"] = "Fecha Inicio";
@@ -164,11 +177,12 @@ namespace Interfaz
 						{
 							worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
 							worksheet.Cells[contador, 2] = item.Vendedor.Nombre;
-							worksheet.Cells[contador, 3] = item.FechaOC.ToLongDateString();
-							worksheet.Cells[contador, 4] = item.OfertaId.ToString();
-							worksheet.Cells[contador, 5] = item.FechaInicio.ToLongDateString();
-							worksheet.Cells[contador, 6] = item.FechaFinal.ToLongDateString();
-							worksheet.Cells[contador, 7] = item.Monto.ToString();
+							worksheet.Cells[contador, 3] = item.Cliente;
+							worksheet.Cells[contador, 4] = item.FechaOC.ToLongDateString();
+							worksheet.Cells[contador, 5] = item.OfertaId.ToString();
+							worksheet.Cells[contador, 6] = item.FechaInicio.ToLongDateString();
+							worksheet.Cells[contador, 7] = item.FechaFinal.ToLongDateString();
+							worksheet.Cells[contador, 8] = item.Monto.ToString();
 							contador++;
 						}
 						ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
@@ -357,6 +371,70 @@ namespace Interfaz
 		private void btnLimpiar_Click_1(object sender, EventArgs e)
 		{
 			LimpiarDatos();
+		}
+
+		private void btnBuscar_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (!string.IsNullOrEmpty(txtClienteBuscar.Text) && !string.IsNullOrEmpty(txtNumeroPBuscar.Text))
+				{
+					int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
+					var proyectosFiltrados = (from p in proyectos
+											  where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper()) && p.ProyectoId == idProyecto
+											  select p).ToList();
+					if (proyectosFiltrados.Count > 0)
+					{
+						CargarTabla(proyectosFiltrados);
+					}
+					else
+					{
+						MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					}
+				}
+				else if (!string.IsNullOrEmpty(txtClienteBuscar.Text))
+				{
+					var proyectosFiltrados = (from p in proyectos
+											  where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper())
+											  select p).ToList();
+					if (proyectosFiltrados.Count > 0)
+					{
+						CargarTabla(proyectosFiltrados);
+					}
+					else
+					{
+						MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					}
+				}
+				else if (!string.IsNullOrEmpty(txtNumeroPBuscar.Text))
+				{
+					int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
+					var proyectosFiltrados = (from p in proyectos
+											  where p.ProyectoId == idProyecto
+											  select p).ToList();
+					if (proyectosFiltrados.Count > 0)
+					{
+						CargarTabla(proyectosFiltrados);
+					}
+					else
+					{
+						MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					}
+				}
+				txtNumeroPBuscar.Text = string.Empty;
+				txtClienteBuscar.Text = string.Empty;
+			}
+			catch (Exception f)
+			{
+
+			}
+		}
+
+		private void limpar_Click(object sender, EventArgs e)
+		{
+			txtNumeroPBuscar.Text = string.Empty;
+			txtClienteBuscar.Text = string.Empty;
+			CargarTabla();
 		}
 	}
 }
