@@ -29,6 +29,9 @@
 		private void InitializeComponent()
 		{
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.txtFacturalFinalId = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.comboBoxOfertas = new System.Windows.Forms.ComboBox();
 			this.btnBorrar = new System.Windows.Forms.Button();
 			this.txtRazonSocial = new System.Windows.Forms.TextBox();
 			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
@@ -48,7 +51,7 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.txtTarea = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
-			this.txtNumeroFactura = new System.Windows.Forms.TextBox();
+			this.txtNumeroFacturaAnticipo = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.txtMonto = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
@@ -59,13 +62,14 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.comboBoxOfertas = new System.Windows.Forms.ComboBox();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorcentaje)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.txtFacturalFinalId);
+			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.comboBoxOfertas);
 			this.groupBox1.Controls.Add(this.btnBorrar);
 			this.groupBox1.Controls.Add(this.txtRazonSocial);
@@ -86,7 +90,7 @@
 			this.groupBox1.Controls.Add(this.label14);
 			this.groupBox1.Controls.Add(this.txtTarea);
 			this.groupBox1.Controls.Add(this.label13);
-			this.groupBox1.Controls.Add(this.txtNumeroFactura);
+			this.groupBox1.Controls.Add(this.txtNumeroFacturaAnticipo);
 			this.groupBox1.Controls.Add(this.label11);
 			this.groupBox1.Controls.Add(this.txtMonto);
 			this.groupBox1.Controls.Add(this.label10);
@@ -104,10 +108,34 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Información del Proyecto";
 			// 
+			// txtFacturalFinalId
+			// 
+			this.txtFacturalFinalId.Location = new System.Drawing.Point(181, 304);
+			this.txtFacturalFinalId.Name = "txtFacturalFinalId";
+			this.txtFacturalFinalId.Size = new System.Drawing.Size(225, 23);
+			this.txtFacturalFinalId.TabIndex = 44;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(7, 307);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(124, 15);
+			this.label1.TabIndex = 43;
+			this.label1.Text = "Numero Factural Final";
+			// 
+			// comboBoxOfertas
+			// 
+			this.comboBoxOfertas.FormattingEnabled = true;
+			this.comboBoxOfertas.Location = new System.Drawing.Point(181, 191);
+			this.comboBoxOfertas.Name = "comboBoxOfertas";
+			this.comboBoxOfertas.Size = new System.Drawing.Size(225, 23);
+			this.comboBoxOfertas.TabIndex = 42;
+			// 
 			// btnBorrar
 			// 
 			this.btnBorrar.BackColor = System.Drawing.Color.LightCoral;
-			this.btnBorrar.Location = new System.Drawing.Point(33, 511);
+			this.btnBorrar.Location = new System.Drawing.Point(33, 540);
 			this.btnBorrar.Name = "btnBorrar";
 			this.btnBorrar.Size = new System.Drawing.Size(106, 23);
 			this.btnBorrar.TabIndex = 41;
@@ -162,7 +190,7 @@
             "En ejecución",
             "Finalizado con cobro",
             "Finalizado sin cobro"});
-			this.cbEstado.Location = new System.Drawing.Point(181, 472);
+			this.cbEstado.Location = new System.Drawing.Point(181, 501);
 			this.cbEstado.Name = "cbEstado";
 			this.cbEstado.Size = new System.Drawing.Size(225, 23);
 			this.cbEstado.TabIndex = 36;
@@ -177,14 +205,14 @@
 			// 
 			// dtpFinalizacion
 			// 
-			this.dtpFinalizacion.Location = new System.Drawing.Point(181, 443);
+			this.dtpFinalizacion.Location = new System.Drawing.Point(181, 472);
 			this.dtpFinalizacion.Name = "dtpFinalizacion";
 			this.dtpFinalizacion.Size = new System.Drawing.Size(225, 23);
 			this.dtpFinalizacion.TabIndex = 34;
 			// 
 			// dtpInicio
 			// 
-			this.dtpInicio.Location = new System.Drawing.Point(181, 414);
+			this.dtpInicio.Location = new System.Drawing.Point(181, 443);
 			this.dtpInicio.Name = "dtpInicio";
 			this.dtpInicio.Size = new System.Drawing.Size(225, 23);
 			this.dtpInicio.TabIndex = 33;
@@ -192,16 +220,17 @@
 			// btnAgregar
 			// 
 			this.btnAgregar.BackColor = System.Drawing.Color.SkyBlue;
-			this.btnAgregar.Location = new System.Drawing.Point(270, 511);
+			this.btnAgregar.Location = new System.Drawing.Point(270, 540);
 			this.btnAgregar.Name = "btnAgregar";
 			this.btnAgregar.Size = new System.Drawing.Size(123, 23);
 			this.btnAgregar.TabIndex = 31;
 			this.btnAgregar.Text = "Actualizar Proyecto";
 			this.btnAgregar.UseVisualStyleBackColor = false;
+			this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(168, 511);
+			this.button2.Location = new System.Drawing.Point(168, 540);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
 			this.button2.TabIndex = 30;
@@ -211,7 +240,7 @@
 			// label17
 			// 
 			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(7, 472);
+			this.label17.Location = new System.Drawing.Point(7, 501);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(42, 15);
 			this.label17.TabIndex = 28;
@@ -220,7 +249,7 @@
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(7, 443);
+			this.label16.Location = new System.Drawing.Point(7, 472);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(103, 15);
 			this.label16.TabIndex = 26;
@@ -229,7 +258,7 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(7, 414);
+			this.label15.Location = new System.Drawing.Point(7, 443);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(70, 15);
 			this.label15.TabIndex = 24;
@@ -237,7 +266,7 @@
 			// 
 			// txtUbicacion
 			// 
-			this.txtUbicacion.Location = new System.Drawing.Point(181, 333);
+			this.txtUbicacion.Location = new System.Drawing.Point(181, 362);
 			this.txtUbicacion.Multiline = true;
 			this.txtUbicacion.Name = "txtUbicacion";
 			this.txtUbicacion.Size = new System.Drawing.Size(225, 75);
@@ -246,7 +275,7 @@
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(7, 336);
+			this.label14.Location = new System.Drawing.Point(7, 365);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(60, 15);
 			this.label14.TabIndex = 22;
@@ -254,7 +283,7 @@
 			// 
 			// txtTarea
 			// 
-			this.txtTarea.Location = new System.Drawing.Point(181, 304);
+			this.txtTarea.Location = new System.Drawing.Point(181, 333);
 			this.txtTarea.Name = "txtTarea";
 			this.txtTarea.Size = new System.Drawing.Size(225, 23);
 			this.txtTarea.TabIndex = 21;
@@ -262,27 +291,27 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(7, 307);
+			this.label13.Location = new System.Drawing.Point(7, 336);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(64, 15);
 			this.label13.TabIndex = 20;
 			this.label13.Text = "Tarea Bitrix";
 			// 
-			// txtNumeroFactura
+			// txtNumeroFacturaAnticipo
 			// 
-			this.txtNumeroFactura.Location = new System.Drawing.Point(181, 275);
-			this.txtNumeroFactura.Name = "txtNumeroFactura";
-			this.txtNumeroFactura.Size = new System.Drawing.Size(225, 23);
-			this.txtNumeroFactura.TabIndex = 17;
+			this.txtNumeroFacturaAnticipo.Location = new System.Drawing.Point(181, 275);
+			this.txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
+			this.txtNumeroFacturaAnticipo.Size = new System.Drawing.Size(225, 23);
+			this.txtNumeroFacturaAnticipo.TabIndex = 17;
 			// 
 			// label11
 			// 
 			this.label11.AutoSize = true;
 			this.label11.Location = new System.Drawing.Point(7, 278);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(93, 15);
+			this.label11.Size = new System.Drawing.Size(141, 15);
 			this.label11.TabIndex = 16;
-			this.label11.Text = "Número Factura";
+			this.label11.Text = "Número Factura Anticipo";
 			// 
 			// txtMonto
 			// 
@@ -361,14 +390,6 @@
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Vendedor";
 			// 
-			// comboBoxOfertas
-			// 
-			this.comboBoxOfertas.FormattingEnabled = true;
-			this.comboBoxOfertas.Location = new System.Drawing.Point(181, 191);
-			this.comboBoxOfertas.Name = "comboBoxOfertas";
-			this.comboBoxOfertas.Size = new System.Drawing.Size(225, 23);
-			this.comboBoxOfertas.TabIndex = 42;
-			// 
 			// EditarProyecto
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -410,7 +431,7 @@
 		private Label label14;
 		private TextBox txtTarea;
 		private Label label13;
-		private TextBox txtNumeroFactura;
+		private TextBox txtNumeroFacturaAnticipo;
 		private Label label11;
 		private TextBox txtMonto;
 		private Label label10;
@@ -423,5 +444,7 @@
 		private Label label3;
 		private Button btnBorrar;
 		private ComboBox comboBoxOfertas;
+		private TextBox txtFacturalFinalId;
+		private Label label1;
 	}
 }

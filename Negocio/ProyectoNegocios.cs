@@ -12,7 +12,48 @@ namespace Negocios
 	{
 		private  DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
 
+		public bool DesactivarProyecto(int ProyectoId)
+		{
+			try
+			{
+				var Proyecto = ObtenerProyecto(ProyectoId);
+				if (Proyecto != null)
+				{
+					Proyecto.Enable = false;
+					using (var db = new DBContextProyectosAsfaltos())
+					{
+						db.Proyectos.Update(Proyecto);
+						db.SaveChanges();
+					}
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			catch(Exception f)
+			{
+				return false;
+			}
+		}
 
+		public bool ActualizarProyecto(Proyecto proyecto)
+		{
+			try
+			{
+				using(var db = new DBContextProyectosAsfaltos())
+				{
+					db.Proyectos.Update(proyecto);
+					db.SaveChanges();
+				}
+				return true;
+			}catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				return false;
+			}
+		}
 
 		public bool CrearProyecto(Proyecto proyecto, out int idProyecto)
 		{

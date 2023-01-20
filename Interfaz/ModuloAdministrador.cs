@@ -161,6 +161,7 @@ namespace Interfaz
 				EditarProyecto editarProyecto = new();
 				editarProyecto.ProyectoId = id;
 				editarProyecto.ShowDialog();
+				CargarTabla();
 			}
 		}
 
