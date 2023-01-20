@@ -10,6 +10,7 @@ using Modelos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Extensions.Configuration;
+using Datos;
 
 namespace Modelos
 
@@ -149,9 +150,9 @@ namespace Modelos
 				optionsBuilder.UseSqlServer(CadenaDeConexion);
 			}
 		}
-		private void GetConnectionString(string connectionStringName = "")
+		private void GetConnectionString(string connectionStringName = "DBAsfaltos")
 		{
-			CadenaDeConexion = "Data Source=192.168.1.15;Initial Catalog=ProyectosAsfaltos;User ID=sa;Password=Password123;encrypt=false";
+			CadenaDeConexion = XMLConfiguraciones.LeerCadenaDeConexion();
 		}
 	}
 }
