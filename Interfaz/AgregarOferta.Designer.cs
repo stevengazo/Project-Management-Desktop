@@ -102,6 +102,7 @@
 			// 
 			this.txtCliente.Location = new System.Drawing.Point(103, 176);
 			this.txtCliente.Name = "txtCliente";
+			this.txtCliente.PlaceholderText = "Pepe";
 			this.txtCliente.Size = new System.Drawing.Size(184, 23);
 			this.txtCliente.TabIndex = 23;
 			// 
@@ -155,6 +156,7 @@
 			this.txtObservaciones.Location = new System.Drawing.Point(103, 304);
 			this.txtObservaciones.Multiline = true;
 			this.txtObservaciones.Name = "txtObservaciones";
+			this.txtObservaciones.PlaceholderText = "Descripción breve del trabajo";
 			this.txtObservaciones.Size = new System.Drawing.Size(184, 53);
 			this.txtObservaciones.TabIndex = 16;
 			// 
@@ -172,6 +174,7 @@
 			this.txtNotas.Location = new System.Drawing.Point(103, 242);
 			this.txtNotas.Multiline = true;
 			this.txtNotas.Name = "txtNotas";
+			this.txtNotas.PlaceholderText = "Notas de relevancia, sobre la tarea";
 			this.txtNotas.Size = new System.Drawing.Size(184, 53);
 			this.txtNotas.TabIndex = 14;
 			// 
@@ -188,6 +191,7 @@
 			// 
 			this.txtMonto.Location = new System.Drawing.Point(103, 213);
 			this.txtMonto.Name = "txtMonto";
+			this.txtMonto.PlaceholderText = "150000";
 			this.txtMonto.Size = new System.Drawing.Size(184, 23);
 			this.txtMonto.TabIndex = 12;
 			// 

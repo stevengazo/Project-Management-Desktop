@@ -30,14 +30,25 @@ namespace Interfaz
 					DataTable data = new DataTable();
 					data.Columns.Add("Id");
 					data.Columns.Add("Nombre");
+					data.Columns.Add("Estado");
 
 
 					foreach (Usuario item in usuarios)
 					{
-						
+						string estado = "";
+						if (item.Activo)
+						{
+							estado = "Usuario Activo";
+						}
+						else
+						{
+							estado = "Usuario inactivo";
+						}
+
 						data.Rows.Add(
 							item.UsuarioId,
-							item.Nombre
+							item.Nombre,
+							estado
 							);
 					}
 					dgvUsuarios.DataSource = data;
@@ -76,13 +87,19 @@ namespace Interfaz
 		{
 			try
 			{
-				if(e.ColumnIndex== 3)
+				if(e.ColumnIndex== 4)
 				{
 					// Obtener el id
 					CambiarContrasena cambiarContrasena = new();
 					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
 					cambiarContrasena.idUsuario= id;
 					cambiarContrasena.ShowDialog();	
+				}
+				else if(e.ColumnIndex == 3)
+				{
+					EditarUsuario editarUsuario = new();
+					editarUsuario.ShowDialog();
+					CargarUsuarios();
 				}
 
 			}catch (Exception ex) {

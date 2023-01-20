@@ -107,6 +107,7 @@ namespace Interfaz
 				_tabla.Columns.Add("Vendedor");
 				_tabla.Columns.Add("Cliente");
 				_tabla.Columns.Add("Fecha OC");
+				_tabla.Columns.Add("Factura Anticipo");
 				_tabla.Columns.Add("Oferta");
 				_tabla.Columns.Add("Fecha Inicio");
 				_tabla.Columns.Add("Fecha Final");
@@ -118,10 +119,11 @@ namespace Interfaz
 						i.ProyectoId,
 						i.Vendedor.Nombre,
 						i.Cliente,
-						i.FechaOC.ToShortTimeString(),
+						i.FechaOC.ToLongDateString(),
+						i.FacturaAnticipoId.ToString(),
 						i.OfertaId,
-						i.FechaInicio.ToShortTimeString(),
-						i.FechaFinal.ToShortTimeString(),
+						i.FechaInicio.ToLongDateString(),
+						i.FechaFinal.ToLongDateString(),
 						i.Monto,
 						i.Estado
 						);

@@ -41,7 +41,7 @@
 			this.dgvUsuarios.Name = "dgvUsuarios";
 			this.dgvUsuarios.ReadOnly = true;
 			this.dgvUsuarios.RowTemplate.Height = 25;
-			this.dgvUsuarios.Size = new System.Drawing.Size(477, 392);
+			this.dgvUsuarios.Size = new System.Drawing.Size(591, 392);
 			this.dgvUsuarios.TabIndex = 0;
 			this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
 			// 
@@ -49,7 +49,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(501, 416);
+			this.ClientSize = new System.Drawing.Size(615, 416);
 			this.Controls.Add(this.dgvUsuarios);
 			this.MinimizeBox = false;
 			this.Name = "ListarUsuario";

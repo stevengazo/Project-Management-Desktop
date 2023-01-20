@@ -116,7 +116,7 @@
 			// excelToolStripMenuItem
 			// 
 			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+			this.excelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.excelToolStripMenuItem.Text = "Excel";
 			this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
 			// 
@@ -198,6 +198,7 @@
 			// 
 			this.txtRazonSocial.Location = new System.Drawing.Point(181, 98);
 			this.txtRazonSocial.Name = "txtRazonSocial";
+			this.txtRazonSocial.PlaceholderText = "Ejemplo S.A";
 			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
 			this.txtRazonSocial.TabIndex = 6;
 			// 
@@ -319,6 +320,7 @@
 			this.textBox14.Location = new System.Drawing.Point(181, 333);
 			this.textBox14.Multiline = true;
 			this.textBox14.Name = "textBox14";
+			this.textBox14.PlaceholderText = "Provincia, Canton, Distrito, Indicaciones";
 			this.textBox14.Size = new System.Drawing.Size(225, 75);
 			this.textBox14.TabIndex = 23;
 			// 
@@ -335,6 +337,7 @@
 			// 
 			this.textBox13.Location = new System.Drawing.Point(181, 304);
 			this.textBox13.Name = "textBox13";
+			this.textBox13.PlaceholderText = "2155465";
 			this.textBox13.Size = new System.Drawing.Size(225, 23);
 			this.textBox13.TabIndex = 21;
 			// 
@@ -351,6 +354,7 @@
 			// 
 			this.textBox11.Location = new System.Drawing.Point(181, 275);
 			this.textBox11.Name = "textBox11";
+			this.textBox11.PlaceholderText = "136548";
 			this.textBox11.Size = new System.Drawing.Size(225, 23);
 			this.textBox11.TabIndex = 17;
 			// 
@@ -367,6 +371,7 @@
 			// 
 			this.textBox10.Location = new System.Drawing.Point(181, 220);
 			this.textBox10.Name = "textBox10";
+			this.textBox10.PlaceholderText = "150000";
 			this.textBox10.Size = new System.Drawing.Size(225, 23);
 			this.textBox10.TabIndex = 15;
 			// 
@@ -408,6 +413,7 @@
 			// 
 			this.textBox7.Location = new System.Drawing.Point(181, 159);
 			this.textBox7.Name = "textBox7";
+			this.textBox7.PlaceholderText = "Pepe";
 			this.textBox7.Size = new System.Drawing.Size(225, 23);
 			this.textBox7.TabIndex = 9;
 			// 

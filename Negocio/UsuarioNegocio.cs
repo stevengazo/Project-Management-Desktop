@@ -208,6 +208,7 @@ namespace Negocios
 				using (var db = new DBContextProyectosAsfaltos())
 				{
 					usuarios = (from usuario in db.Usuarios
+								orderby usuario.Activo ascending
 								select usuario).ToList();
 					foreach (var item in usuarios)
 					{
