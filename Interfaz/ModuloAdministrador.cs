@@ -237,50 +237,54 @@ namespace Interfaz
 			catch (Exception ex)
 			{
 				MessageBox.Show("Ocurrió un problema. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
 			}
 		}
 
 		private void btnAgregar_Click(object sender, EventArgs e)
 		{
-			ProyectoNegocios proyectoNegocios = new ProyectoNegocios();
-			bool Resultado = ValidarCampos();
-			if (Resultado)
+			try{
+				ProyectoNegocios proyectoNegocios = new ProyectoNegocios();
+				bool Resultado = ValidarCampos();
+				if (Resultado)
+				{
+					Proyecto proyectoTemporal = new Proyecto();
+					proyectoTemporal.Contacto = txtContacto.Text;
+					proyectoTemporal.FechaOC = dtpOrdenCompra.Value;
+					proyectoTemporal.FechaInicio = dtpFechaInicio.Value;
+					proyectoTemporal.FechaFinal = dtpFechaFinal.Value;
+					proyectoTemporal.Monto = int.Parse(txtMonto.Text);
+					proyectoTemporal.Ubicacion = txtUbicacion.Text;
+					proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
+					proyectoTemporal.Estado = cbEstado.Text;
+					proyectoTemporal.FacturaAnticipoId = txtNumeroFactura.Text;
+					proyectoTemporal.UsuarioId = (from i in Vendedores
+												  where i.Nombre == cbVendedores.Text
+												  select i.UsuarioId).FirstOrDefault();
+					var ofertatmp = cbOfertas.Text.Split('-');
+					proyectoTemporal.OfertaId = ofertatmp[0];
+					proyectoTemporal.UltimoEditor = Temporal.UsuarioActivo.Nombre;
+					proyectoTemporal.Autor = Temporal.UsuarioActivo.Nombre;
+					proyectoTemporal.FacturaFinalId = string.Empty;
+					proyectoTemporal.UltimaEdicion = DateTime.Today;
+					proyectoTemporal.Cliente = txtNombreCliente.Text;
+					proyectoTemporal.Enable = true;
+					var resultado = proyectoNegocios.CrearProyecto(proyectoTemporal, out int idProyecto);
+					if (resultado)
+					{
+						MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						CargarTabla();
+						Limpiar();
+					}
+					else
+					{
+						MessageBox.Show($"Error Interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+
+				}
+			}
+			catch (Exception ex)
 			{
-				Proyecto proyectoTemporal = new Proyecto();
-				proyectoTemporal.Contacto = txtContacto.Text;
-				proyectoTemporal.FechaOC = dtpOrdenCompra.Value;
-				proyectoTemporal.FechaInicio = dtpFechaInicio.Value;
-				proyectoTemporal.FechaFinal = dtpFechaFinal.Value;
-				proyectoTemporal.Monto = int.Parse(txtMonto.Text);
-				proyectoTemporal.Ubicacion= txtUbicacion.Text;
-				proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
-				proyectoTemporal.Estado = cbEstado.Text;
-				proyectoTemporal.FacturaAnticipoId = txtNumeroFactura.Text;
-				proyectoTemporal.UsuarioId = (from i in Vendedores
-											 where i.Nombre == cbVendedores.Text
-											 select i.UsuarioId).FirstOrDefault();
-				var ofertatmp = cbOfertas.Text.Split('-');
-				proyectoTemporal.OfertaId =ofertatmp[0];
-				proyectoTemporal.UltimoEditor = Temporal.UsuarioActivo.Nombre;
-				proyectoTemporal.Autor = Temporal.UsuarioActivo.Nombre;
-				proyectoTemporal.FacturaFinalId = string.Empty;
-				proyectoTemporal.UltimaEdicion = DateTime.Today;
-				proyectoTemporal.Cliente = txtNombreCliente.Text;
-				proyectoTemporal.Enable = true;
-				var resultado = proyectoNegocios.CrearProyecto(proyectoTemporal,out int idProyecto);
-				if (resultado)
-				{
-					MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					CargarTabla();
-					Limpiar();
-				}
-				else
-				{
-					MessageBox.Show($"Error Interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				}
-				
+				MessageBox.Show("Ocurrió un problema. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 

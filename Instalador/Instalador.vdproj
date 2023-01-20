@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_8C53BE871A67443EAA9AF84B422AD2D3"
+        "MsmKey" = "8:_67D4BDED1F6A4B1691CB4EBFB704A120"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_AC3890D126A44EC3A4E37C491C9CD34D"
+        "MsmKey" = "8:_75D8D452115D4942BDA9ED25E604E455"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -127,7 +127,7 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C53BE871A67443EAA9AF84B422AD2D3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_67D4BDED1F6A4B1691CB4EBFB704A120"
             {
             "SourcePath" = "8:..\\Logo.ico"
             "TargetName" = "8:Logo.ico"
@@ -215,7 +215,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Asfaltos Mecsa"
         "ProductCode" = "8:{C0FEB977-51D5-4C21-B8B2-0C182CF99C4A}"
-        "PackageCode" = "8:{0F1DFE96-4E37-49CD-BB32-1998D2CF1A4A}"
+        "PackageCode" = "8:{0827D418-7750-4D83-B253-9A05B413BB9D}"
         "UpgradeCode" = "8:{F8A6C2A5-B240-4255-9B6F-63737EB70309}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -232,7 +232,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:App para registro de proyectos de asfaltos de mecsa service"
         "ARPURLINFOABOUT" = "8:https://grupomecsa.net/"
-        "ARPPRODUCTICON" = "8:_8C53BE871A67443EAA9AF84B422AD2D3"
+        "ARPPRODUCTICON" = "8:_67D4BDED1F6A4B1691CB4EBFB704A120"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -335,32 +335,32 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B81BB42636084E7BA03D101189ED591B"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_097EF34F0FA34630BB75C702A8D70D32"
             {
-            "Name" = "8:Asfaltos"
+            "Name" = "8:Proyectos y Ofertas - Mecsa Asfaltos"
             "Arguments" = "8:"
-            "Description" = "8:"
+            "Description" = "8:Aplicación para regenerar proyectos y ofertas"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_AC3890D126A44EC3A4E37C491C9CD34D"
-            "Folder" = "8:_275CC77564F44C8A820FF16E42239868"
-            "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
-            "Icon" = "8:_8C53BE871A67443EAA9AF84B422AD2D3"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FE4757BEFF9D47C58B4685341D53BCC6"
-            {
-            "Name" = "8:Asfaltos"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_AC3890D126A44EC3A4E37C491C9CD34D"
+            "Target" = "8:_75D8D452115D4942BDA9ED25E604E455"
             "Folder" = "8:_C0D0EB7C3A724ABBA7B8AB758DE0D339"
             "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
-            "Icon" = "8:_8C53BE871A67443EAA9AF84B422AD2D3"
+            "Icon" = "8:_67D4BDED1F6A4B1691CB4EBFB704A120"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D22C3201D7A349808E65051356BFEF7D"
+            {
+            "Name" = "8:Proyectos y Ofertas - Mecsa Asfaltos"
+            "Arguments" = "8:"
+            "Description" = "8:Aplicación para regenerar proyectos y ofertas"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_75D8D452115D4942BDA9ED25E604E455"
+            "Folder" = "8:_275CC77564F44C8A820FF16E42239868"
+            "WorkingFolder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
+            "Icon" = "8:_67D4BDED1F6A4B1691CB4EBFB704A120"
             "Feature" = "8:"
             }
         }
@@ -762,63 +762,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_03846772377B48E3B11CEC29BFC6AA60"
-            {
-            "SourcePath" = "8:"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:PublishItems"
-            "OutputProjectGuid" = "8:{7FDB469A-B64E-4517-BF9D-A158E73D3655}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_4D492A8E397A43E7ADEE9C3AA89E91CF"
-            {
-            "SourcePath" = "8:"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:PublishItems"
-            "OutputProjectGuid" = "8:{BB233CB0-3FE4-4288-ABF7-7AB18945C8EF}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A68D2612D89C45B2AA7C68734383227B"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_028F7C7955E7450681B5D0F94586CA3A"
             {
             "SourcePath" = "8:"
             "TargetName" = "8:"
@@ -846,9 +790,9 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AC3890D126A44EC3A4E37C491C9CD34D"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_75D8D452115D4942BDA9ED25E604E455"
             {
-            "SourcePath" = "8:..\\Interfaz\\obj\\Release\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Interfaz\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
@@ -869,6 +813,62 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{E2AD563C-79FF-4703-8E77-00797C0C9B3C}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A2948EA66ED645CA8386D964D4B0A5A0"
+            {
+            "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:PublishItems"
+            "OutputProjectGuid" = "8:{7FDB469A-B64E-4517-BF9D-A158E73D3655}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B800EAA282A945139E2F079C77400049"
+            {
+            "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9DDC05EB0698460384A1EF218E9AABE9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:PublishItems"
+            "OutputProjectGuid" = "8:{BB233CB0-3FE4-4288-ABF7-7AB18945C8EF}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
