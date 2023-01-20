@@ -22,11 +22,12 @@ namespace Interfaz
 		public void CargarUsuarios()
 		{
 			try
-			{
+			{	
 				UsuarioNegocio tmp = new UsuarioNegocio();
 				usuarios = tmp.ListarUsuarios();
 				if (usuarios.Count > 0)
 				{
+					dgvUsuarios.Columns.Clear();
 					DataTable data = new DataTable();
 					data.Columns.Add("Id");
 					data.Columns.Add("Nombre");
@@ -53,9 +54,9 @@ namespace Interfaz
 					}
 					dgvUsuarios.DataSource = data;
 					DataGridViewButtonColumn botonEditar = new();
-					botonEditar.HeaderText = "Editar";
-					botonEditar.Text = "Editar";
-					botonEditar.Name = "btnEditar";
+					botonEditar.HeaderText = "Cambiar Estado";
+					botonEditar.Text = "Cambiar Estado";
+					botonEditar.Name = "Cambiar";
 					botonEditar.UseColumnTextForButtonValue = true;
 					dgvUsuarios.Columns.Add(botonEditar);
 					dgvUsuarios.DataSource = data;
@@ -97,8 +98,23 @@ namespace Interfaz
 				}
 				else if(e.ColumnIndex == 3)
 				{
-					EditarUsuario editarUsuario = new();
-					editarUsuario.ShowDialog();
+					UsuarioNegocio usuarioNegocio = new();
+					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
+					var usuario = usuarioNegocio.ObtenerUsuario(id);
+					if(usuario != null)
+					{
+						var estado = (usuario.Activo) ? "Activo" : "Inactivo";
+						var resultado = MessageBox.Show($"El usuario {usuario.Nombre} se encuentra {estado}\n¿Deseas cambiar su estado? ","Consulta",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+						if(resultado == DialogResult.Yes)
+						{
+							usuario.Activo = !usuario.Activo;
+							var resultado1 = usuarioNegocio.ActualizarUsuario(usuario);
+							if (resultado1)
+							{
+								MessageBox.Show("Usuario actualizado", "Informaicon", MessageBoxButtons.OK);
+							}
+						}
+					}
 					CargarUsuarios();
 				}
 

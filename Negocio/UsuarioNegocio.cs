@@ -21,7 +21,7 @@ namespace Negocios
 				{
 					Vendedores = (from usuario in db.Usuarios
 								  join rolesUsuario in db.RolUsuarios on usuario.UsuarioId equals rolesUsuario.UsuarioId
-								  where rolesUsuario.RolId == 2
+								  where rolesUsuario.RolId == 2 && usuario.Activo == true
 								  select usuario
 								  ).ToList();
 				}
@@ -29,6 +29,22 @@ namespace Negocios
 			}catch (Exception f)
 			{
 				return null;
+			}
+		}
+
+		public bool ActualizarUsuario(Usuario usuario)
+		{
+			try
+			{
+				using (var db = new DBContextProyectosAsfaltos())
+				{
+					db.Usuarios.Update(usuario);
+					db.SaveChanges();
+				}
+				return true;	
+			}catch (Exception f)
+			{
+				return false;
 			}
 		}
 
@@ -181,7 +197,7 @@ namespace Negocios
 				{
 					cuenta = (
 							from i in db.Usuarios
-							where i.Login.ToUpper() == login.ToUpper() && i.HashContraseña == contrasena
+							where i.Login.ToUpper() == login.ToUpper() && i.HashContraseña == contrasena && i.Activo == true
 							select i
 						).Count();
 
@@ -208,7 +224,7 @@ namespace Negocios
 				using (var db = new DBContextProyectosAsfaltos())
 				{
 					usuarios = (from usuario in db.Usuarios
-								orderby usuario.Activo ascending
+								orderby usuario.Activo descending
 								select usuario).ToList();
 					foreach (var item in usuarios)
 					{
