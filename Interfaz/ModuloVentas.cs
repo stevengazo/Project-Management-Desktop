@@ -1,4 +1,5 @@
 using Modelos;
+using Negocio;
 using Negocios;
 using System.Data;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace Interfaz
 {
 	public partial class ModuloVentas : Form
 	{
+		private Dictionary<int, string> Ofertas = new();
 		private List<Proyecto> proyectos = new();
 		private Proyecto ProyectoTemporal = new();
 		private List<Usuario> Vendedores = new();
@@ -31,7 +33,29 @@ namespace Interfaz
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			CargarTabla();
+			cargarOfertas();
 			CargarVendedores();
+		}
+
+		private void cargarOfertas()
+		{
+			try
+			{
+				OfertaNegocio ofertaNegocio = new();
+				Ofertas = ofertaNegocio.DiccionarioOfertas();
+				if (Ofertas != null)
+				{
+					comboBoxOfertas.Items.Clear();
+					foreach (var item in Ofertas)
+					{
+						comboBoxOfertas.Items.Add($"{item.Key}-{item.Value}");
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 
@@ -39,7 +63,7 @@ namespace Interfaz
 		{
 			UsuarioNegocio usuarioNegocio = new();
 			Vendedores = usuarioNegocio.ListarVendedores();
-			if(Vendedores.Count > 0)
+			if (Vendedores.Count > 0)
 			{
 				foreach (var item in Vendedores)
 				{
@@ -89,6 +113,23 @@ namespace Interfaz
 			}
 		}
 
+
+		private void LimpiarDatos()
+		{
+			cbVendedores.Text = string.Empty;
+			txtRazonSocial.Text = string.Empty;
+			dtpFechaOC.Value = DateTime.Now;
+			txtContacto.Text = string.Empty;
+			comboBoxOfertas.Text = string.Empty;
+			txtMonto.Text = string.Empty;
+			numericUpDownPorcentaje.Value = 0;	
+			txtNumeroFacturaAnticipo.Text = string.Empty;
+			txtTareaBitrix.Text = string.Empty;
+			textBoxUbicacion.Text = string.Empty;
+			dateTimePickerInicio.Value= DateTime.Now;
+			dateTimePickerFinal.Value= DateTime.Now;
+			comboBoxEstado.Text = string.Empty;
+		}
 
 		private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -151,11 +192,119 @@ namespace Interfaz
 		{
 			try
 			{
+				bool estado = ValidarCampos();
+				if (estado)
+				{
+					Proyecto proyectoNuevo = new Proyecto();
 
+					// Seguridad y edicion
+					proyectoNuevo.Autor = Temporal.UsuarioActivo.Nombre;
+					proyectoNuevo.UltimaEdicion = DateTime.Now;
+					proyectoNuevo.UltimoEditor = Temporal.UsuarioActivo.Nombre;
+
+					// No viisble
+					proyectoNuevo.FacturaFinalId = string.Empty;
+					proyectoNuevo.Enable = true;
+
+					var vendedor = (from v in Vendedores
+									where v.Nombre == cbVendedores.Text
+									select v.UsuarioId).FirstOrDefault();
+					proyectoNuevo.UsuarioId = vendedor;
+					proyectoNuevo.Cliente = txtRazonSocial.Text;
+					proyectoNuevo.FechaOC = dtpFechaOC.Value;
+					proyectoNuevo.Contacto = txtContacto.Text;
+					var oferta = comboBoxOfertas.Text.Split('-');
+					proyectoNuevo.OfertaId = oferta[0];
+					proyectoNuevo.Monto = float.Parse(txtMonto.Text);
+					proyectoNuevo.PorcentajeAnticipo = (int)numericUpDownPorcentaje.Value;
+					proyectoNuevo.FacturaAnticipoId = txtNumeroFacturaAnticipo.Text;
+					proyectoNuevo.TareaId = int.Parse(txtTareaBitrix.Text);
+					if (string.IsNullOrEmpty(textBoxUbicacion.Text))
+					{
+						proyectoNuevo.Ubicacion = string.Empty;
+					}
+					else
+					{
+						proyectoNuevo.Ubicacion = textBoxUbicacion.Text;
+					}
+					proyectoNuevo.FechaInicio = dateTimePickerInicio.Value;
+					proyectoNuevo.FechaFinal = dateTimePickerFinal.Value;
+					proyectoNuevo.Estado = comboBoxEstado.Text;
+
+					ProyectoNegocios proyectoNegocios = new();
+					var resultado = proyectoNegocios.CrearProyecto(proyectoNuevo, out int idProyecto);
+					if (resultado)
+					{
+						MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						CargarTabla();
+						LimpiarDatos();
+					}
+					else
+					{
+						MessageBox.Show($"Error Interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
 			}
 			catch (Exception r)
 			{
 				MessageBox.Show(r.Message);
+			}
+		}
+
+		private bool ValidarCampos()
+		{
+			try
+			{
+				var VendedorSeleccionado = cbVendedores.Text;
+				if (string.IsNullOrEmpty(VendedorSeleccionado))
+				{
+					MessageBox.Show(" ", "", MessageBoxButtons.OK);
+					return false;
+				}
+				if (string.IsNullOrEmpty(txtRazonSocial.Text))
+				{
+					MessageBox.Show("", "", MessageBoxButtons.OK);
+					return false;
+				}
+				if (string.IsNullOrEmpty(txtContacto.Text))
+				{
+					MessageBox.Show("", "", MessageBoxButtons.OK);
+					return false;
+				}
+				var Oferta = comboBoxOfertas.Text;
+				if (string.IsNullOrEmpty(Oferta))
+				{
+					MessageBox.Show("", "", MessageBoxButtons.OK);
+					return false;
+				}
+				float.TryParse(txtMonto.Text, out float monto);
+				if (monto == 0)
+				{
+					MessageBox.Show("", "", MessageBoxButtons.OK);
+					return false;
+				}
+				int.TryParse(txtNumeroFacturaAnticipo.Text, out int facturaanticipo);
+				if (facturaanticipo == 0)
+				{
+					MessageBox.Show("", "", MessageBoxButtons.OK);
+					return false;
+				}
+				int.TryParse(txtTareaBitrix.Text, out int tarea);
+				if (tarea == 0)
+				{
+					MessageBox.Show("", "", MessageBoxButtons.OK);
+					return false;
+				}
+				if (string.IsNullOrEmpty(comboBoxEstado.Text))
+				{
+					MessageBox.Show("", "", MessageBoxButtons.OK);
+					return false;
+				}
+				return true;
+			}
+			catch (Exception f)
+			{
+				return false;
 			}
 		}
 
@@ -180,12 +329,12 @@ namespace Interfaz
 		{
 			ListarOferta listarOferta = new();
 			listarOferta.ShowDialog();
-			
+
 		}
 
 		private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if(e.ColumnIndex == 9)
+			if (e.ColumnIndex == 9)
 			{
 				VerProyecto verProyecto = new();
 				var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -198,6 +347,16 @@ namespace Interfaz
 		{
 			AgregarOferta agregarOferta = new();
 			agregarOferta.ShowDialog();
+		}
+
+		private void btnLimpiar_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnLimpiar_Click_1(object sender, EventArgs e)
+		{
+			LimpiarDatos();
 		}
 	}
 }

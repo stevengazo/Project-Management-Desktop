@@ -39,32 +39,32 @@
 			this.agregarCotizaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.verCotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.comboBoxOfertas = new System.Windows.Forms.ComboBox();
 			this.txtRazonSocial = new System.Windows.Forms.TextBox();
 			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
-			this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+			this.dtpFechaOC = new System.Windows.Forms.DateTimePicker();
 			this.cbVendedores = new System.Windows.Forms.ComboBox();
-			this.comboBox2 = new System.Windows.Forms.ComboBox();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.comboBoxEstado = new System.Windows.Forms.ComboBox();
+			this.numericUpDownPorcentaje = new System.Windows.Forms.NumericUpDown();
+			this.dateTimePickerFinal = new System.Windows.Forms.DateTimePicker();
+			this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
 			this.btnAgregar = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.btnLimpiar = new System.Windows.Forms.Button();
 			this.label17 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
-			this.textBox14 = new System.Windows.Forms.TextBox();
+			this.textBoxUbicacion = new System.Windows.Forms.TextBox();
 			this.label14 = new System.Windows.Forms.Label();
-			this.textBox13 = new System.Windows.Forms.TextBox();
+			this.txtTareaBitrix = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
-			this.textBox11 = new System.Windows.Forms.TextBox();
+			this.txtNumeroFacturaAnticipo = new System.Windows.Forms.TextBox();
 			this.label11 = new System.Windows.Forms.Label();
-			this.textBox10 = new System.Windows.Forms.TextBox();
+			this.txtMonto = new System.Windows.Forms.TextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
-			this.textBox8 = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
-			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.txtContacto = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.menuStrip1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorcentaje)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
 			this.SuspendLayout();
@@ -110,25 +110,25 @@
 			this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.excelToolStripMenuItem});
 			this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
 			this.exportarToolStripMenuItem.Text = "Exportar";
 			// 
 			// excelToolStripMenuItem
 			// 
 			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.excelToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
 			this.excelToolStripMenuItem.Text = "Excel";
 			this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
 			this.salirToolStripMenuItem.Text = "Salir";
 			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
 			// 
@@ -144,45 +144,45 @@
 			// agregarCotizaciónToolStripMenuItem
 			// 
 			this.agregarCotizaciónToolStripMenuItem.Name = "agregarCotizaciónToolStripMenuItem";
-			this.agregarCotizaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.agregarCotizaciónToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
 			this.agregarCotizaciónToolStripMenuItem.Text = "Agregar Cotización";
 			this.agregarCotizaciónToolStripMenuItem.Click += new System.EventHandler(this.agregarCotizaciónToolStripMenuItem_Click);
 			// 
 			// verCotizacionesToolStripMenuItem
 			// 
 			this.verCotizacionesToolStripMenuItem.Name = "verCotizacionesToolStripMenuItem";
-			this.verCotizacionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.verCotizacionesToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
 			this.verCotizacionesToolStripMenuItem.Text = "Ver Cotizaciones";
 			this.verCotizacionesToolStripMenuItem.Click += new System.EventHandler(this.verCotizacionesToolStripMenuItem_Click);
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.comboBoxOfertas);
 			this.groupBox1.Controls.Add(this.txtRazonSocial);
 			this.groupBox1.Controls.Add(this.txtNumeroProyecto);
 			this.groupBox1.Controls.Add(this.label6);
-			this.groupBox1.Controls.Add(this.dateTimePicker3);
+			this.groupBox1.Controls.Add(this.dtpFechaOC);
 			this.groupBox1.Controls.Add(this.cbVendedores);
-			this.groupBox1.Controls.Add(this.comboBox2);
-			this.groupBox1.Controls.Add(this.numericUpDown1);
-			this.groupBox1.Controls.Add(this.dateTimePicker2);
-			this.groupBox1.Controls.Add(this.dateTimePicker1);
+			this.groupBox1.Controls.Add(this.comboBoxEstado);
+			this.groupBox1.Controls.Add(this.numericUpDownPorcentaje);
+			this.groupBox1.Controls.Add(this.dateTimePickerFinal);
+			this.groupBox1.Controls.Add(this.dateTimePickerInicio);
 			this.groupBox1.Controls.Add(this.btnAgregar);
-			this.groupBox1.Controls.Add(this.button2);
+			this.groupBox1.Controls.Add(this.btnLimpiar);
 			this.groupBox1.Controls.Add(this.label17);
 			this.groupBox1.Controls.Add(this.label16);
 			this.groupBox1.Controls.Add(this.label15);
-			this.groupBox1.Controls.Add(this.textBox14);
+			this.groupBox1.Controls.Add(this.textBoxUbicacion);
 			this.groupBox1.Controls.Add(this.label14);
-			this.groupBox1.Controls.Add(this.textBox13);
+			this.groupBox1.Controls.Add(this.txtTareaBitrix);
 			this.groupBox1.Controls.Add(this.label13);
-			this.groupBox1.Controls.Add(this.textBox11);
+			this.groupBox1.Controls.Add(this.txtNumeroFacturaAnticipo);
 			this.groupBox1.Controls.Add(this.label11);
-			this.groupBox1.Controls.Add(this.textBox10);
+			this.groupBox1.Controls.Add(this.txtMonto);
 			this.groupBox1.Controls.Add(this.label10);
 			this.groupBox1.Controls.Add(this.label9);
-			this.groupBox1.Controls.Add(this.textBox8);
 			this.groupBox1.Controls.Add(this.label8);
-			this.groupBox1.Controls.Add(this.textBox7);
+			this.groupBox1.Controls.Add(this.txtContacto);
 			this.groupBox1.Controls.Add(this.label7);
 			this.groupBox1.Controls.Add(this.label5);
 			this.groupBox1.Controls.Add(this.label4);
@@ -193,6 +193,14 @@
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Agregar Proyecto";
+			// 
+			// comboBoxOfertas
+			// 
+			this.comboBoxOfertas.FormattingEnabled = true;
+			this.comboBoxOfertas.Location = new System.Drawing.Point(181, 191);
+			this.comboBoxOfertas.Name = "comboBoxOfertas";
+			this.comboBoxOfertas.Size = new System.Drawing.Size(225, 23);
+			this.comboBoxOfertas.TabIndex = 41;
 			// 
 			// txtRazonSocial
 			// 
@@ -219,12 +227,12 @@
 			this.label6.TabIndex = 39;
 			this.label6.Text = "Numero de Proyecto";
 			// 
-			// dateTimePicker3
+			// dtpFechaOC
 			// 
-			this.dateTimePicker3.Location = new System.Drawing.Point(181, 130);
-			this.dateTimePicker3.Name = "dateTimePicker3";
-			this.dateTimePicker3.Size = new System.Drawing.Size(225, 23);
-			this.dateTimePicker3.TabIndex = 38;
+			this.dtpFechaOC.Location = new System.Drawing.Point(181, 130);
+			this.dtpFechaOC.Name = "dtpFechaOC";
+			this.dtpFechaOC.Size = new System.Drawing.Size(225, 23);
+			this.dtpFechaOC.TabIndex = 38;
 			// 
 			// cbVendedores
 			// 
@@ -234,40 +242,40 @@
 			this.cbVendedores.Size = new System.Drawing.Size(225, 23);
 			this.cbVendedores.TabIndex = 37;
 			// 
-			// comboBox2
+			// comboBoxEstado
 			// 
-			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Items.AddRange(new object[] {
+			this.comboBoxEstado.FormattingEnabled = true;
+			this.comboBoxEstado.Items.AddRange(new object[] {
             "Pendiente de Ejecución",
             "En ejecución",
             "Finalizado con cobro",
             "Finalizado sin cobro"});
-			this.comboBox2.Location = new System.Drawing.Point(181, 472);
-			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(225, 23);
-			this.comboBox2.TabIndex = 36;
-			this.comboBox2.Text = "Pendiente de Ejecución";
+			this.comboBoxEstado.Location = new System.Drawing.Point(181, 472);
+			this.comboBoxEstado.Name = "comboBoxEstado";
+			this.comboBoxEstado.Size = new System.Drawing.Size(225, 23);
+			this.comboBoxEstado.TabIndex = 36;
+			this.comboBoxEstado.Text = "Pendiente de Ejecución";
 			// 
-			// numericUpDown1
+			// numericUpDownPorcentaje
 			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(181, 249);
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(225, 23);
-			this.numericUpDown1.TabIndex = 35;
+			this.numericUpDownPorcentaje.Location = new System.Drawing.Point(181, 249);
+			this.numericUpDownPorcentaje.Name = "numericUpDownPorcentaje";
+			this.numericUpDownPorcentaje.Size = new System.Drawing.Size(225, 23);
+			this.numericUpDownPorcentaje.TabIndex = 35;
 			// 
-			// dateTimePicker2
+			// dateTimePickerFinal
 			// 
-			this.dateTimePicker2.Location = new System.Drawing.Point(181, 443);
-			this.dateTimePicker2.Name = "dateTimePicker2";
-			this.dateTimePicker2.Size = new System.Drawing.Size(225, 23);
-			this.dateTimePicker2.TabIndex = 34;
+			this.dateTimePickerFinal.Location = new System.Drawing.Point(181, 443);
+			this.dateTimePickerFinal.Name = "dateTimePickerFinal";
+			this.dateTimePickerFinal.Size = new System.Drawing.Size(225, 23);
+			this.dateTimePickerFinal.TabIndex = 34;
 			// 
-			// dateTimePicker1
+			// dateTimePickerInicio
 			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(181, 414);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(225, 23);
-			this.dateTimePicker1.TabIndex = 33;
+			this.dateTimePickerInicio.Location = new System.Drawing.Point(181, 414);
+			this.dateTimePickerInicio.Name = "dateTimePickerInicio";
+			this.dateTimePickerInicio.Size = new System.Drawing.Size(225, 23);
+			this.dateTimePickerInicio.TabIndex = 33;
 			// 
 			// btnAgregar
 			// 
@@ -279,14 +287,15 @@
 			this.btnAgregar.UseVisualStyleBackColor = true;
 			this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
 			// 
-			// button2
+			// btnLimpiar
 			// 
-			this.button2.Location = new System.Drawing.Point(181, 507);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 23);
-			this.button2.TabIndex = 30;
-			this.button2.Text = "Limpiar";
-			this.button2.UseVisualStyleBackColor = true;
+			this.btnLimpiar.Location = new System.Drawing.Point(181, 507);
+			this.btnLimpiar.Name = "btnLimpiar";
+			this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+			this.btnLimpiar.TabIndex = 30;
+			this.btnLimpiar.Text = "Limpiar";
+			this.btnLimpiar.UseVisualStyleBackColor = true;
+			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
 			// 
 			// label17
 			// 
@@ -315,14 +324,14 @@
 			this.label15.TabIndex = 24;
 			this.label15.Text = "Fecha Inicio";
 			// 
-			// textBox14
+			// textBoxUbicacion
 			// 
-			this.textBox14.Location = new System.Drawing.Point(181, 333);
-			this.textBox14.Multiline = true;
-			this.textBox14.Name = "textBox14";
-			this.textBox14.PlaceholderText = "Provincia, Canton, Distrito, Indicaciones";
-			this.textBox14.Size = new System.Drawing.Size(225, 75);
-			this.textBox14.TabIndex = 23;
+			this.textBoxUbicacion.Location = new System.Drawing.Point(181, 333);
+			this.textBoxUbicacion.Multiline = true;
+			this.textBoxUbicacion.Name = "textBoxUbicacion";
+			this.textBoxUbicacion.PlaceholderText = "Provincia, Canton, Distrito, Indicaciones";
+			this.textBoxUbicacion.Size = new System.Drawing.Size(225, 75);
+			this.textBoxUbicacion.TabIndex = 23;
 			// 
 			// label14
 			// 
@@ -333,13 +342,13 @@
 			this.label14.TabIndex = 22;
 			this.label14.Text = "Ubicación";
 			// 
-			// textBox13
+			// txtTareaBitrix
 			// 
-			this.textBox13.Location = new System.Drawing.Point(181, 304);
-			this.textBox13.Name = "textBox13";
-			this.textBox13.PlaceholderText = "2155465";
-			this.textBox13.Size = new System.Drawing.Size(225, 23);
-			this.textBox13.TabIndex = 21;
+			this.txtTareaBitrix.Location = new System.Drawing.Point(181, 304);
+			this.txtTareaBitrix.Name = "txtTareaBitrix";
+			this.txtTareaBitrix.PlaceholderText = "2155465";
+			this.txtTareaBitrix.Size = new System.Drawing.Size(225, 23);
+			this.txtTareaBitrix.TabIndex = 21;
 			// 
 			// label13
 			// 
@@ -350,30 +359,30 @@
 			this.label13.TabIndex = 20;
 			this.label13.Text = "Tarea Bitrix";
 			// 
-			// textBox11
+			// txtNumeroFacturaAnticipo
 			// 
-			this.textBox11.Location = new System.Drawing.Point(181, 275);
-			this.textBox11.Name = "textBox11";
-			this.textBox11.PlaceholderText = "136548";
-			this.textBox11.Size = new System.Drawing.Size(225, 23);
-			this.textBox11.TabIndex = 17;
+			this.txtNumeroFacturaAnticipo.Location = new System.Drawing.Point(181, 275);
+			this.txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
+			this.txtNumeroFacturaAnticipo.PlaceholderText = "136548";
+			this.txtNumeroFacturaAnticipo.Size = new System.Drawing.Size(225, 23);
+			this.txtNumeroFacturaAnticipo.TabIndex = 17;
 			// 
 			// label11
 			// 
 			this.label11.AutoSize = true;
 			this.label11.Location = new System.Drawing.Point(7, 278);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(93, 15);
+			this.label11.Size = new System.Drawing.Size(141, 15);
 			this.label11.TabIndex = 16;
-			this.label11.Text = "Número Factura";
+			this.label11.Text = "Número Factura Anticipo";
 			// 
-			// textBox10
+			// txtMonto
 			// 
-			this.textBox10.Location = new System.Drawing.Point(181, 220);
-			this.textBox10.Name = "textBox10";
-			this.textBox10.PlaceholderText = "150000";
-			this.textBox10.Size = new System.Drawing.Size(225, 23);
-			this.textBox10.TabIndex = 15;
+			this.txtMonto.Location = new System.Drawing.Point(181, 220);
+			this.txtMonto.Name = "txtMonto";
+			this.txtMonto.PlaceholderText = "150000";
+			this.txtMonto.Size = new System.Drawing.Size(225, 23);
+			this.txtMonto.TabIndex = 15;
 			// 
 			// label10
 			// 
@@ -393,13 +402,6 @@
 			this.label9.TabIndex = 12;
 			this.label9.Text = "Monto";
 			// 
-			// textBox8
-			// 
-			this.textBox8.Location = new System.Drawing.Point(181, 188);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.Size = new System.Drawing.Size(225, 23);
-			this.textBox8.TabIndex = 11;
-			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
@@ -409,13 +411,13 @@
 			this.label8.TabIndex = 10;
 			this.label8.Text = "Oferta Mecsa";
 			// 
-			// textBox7
+			// txtContacto
 			// 
-			this.textBox7.Location = new System.Drawing.Point(181, 159);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.PlaceholderText = "Pepe";
-			this.textBox7.Size = new System.Drawing.Size(225, 23);
-			this.textBox7.TabIndex = 9;
+			this.txtContacto.Location = new System.Drawing.Point(181, 159);
+			this.txtContacto.Name = "txtContacto";
+			this.txtContacto.PlaceholderText = "Pepe";
+			this.txtContacto.Size = new System.Drawing.Size(225, 23);
+			this.txtContacto.TabIndex = 9;
 			// 
 			// label7
 			// 
@@ -541,7 +543,7 @@
 			this.menuStrip1.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorcentaje)).EndInit();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
@@ -560,22 +562,21 @@
 		private ToolStripMenuItem salirToolStripMenuItem;
 		private GroupBox groupBox1;
 		private Button btnAgregar;
-		private Button button2;
+		private Button btnLimpiar;
 		private Label label17;
 		private Label label16;
 		private Label label15;
-		private TextBox textBox14;
+		private TextBox textBoxUbicacion;
 		private Label label14;
-		private TextBox textBox13;
+		private TextBox txtTareaBitrix;
 		private Label label13;
-		private TextBox textBox11;
+		private TextBox txtNumeroFacturaAnticipo;
 		private Label label11;
-		private TextBox textBox10;
+		private TextBox txtMonto;
 		private Label label10;
 		private Label label9;
-		private TextBox textBox8;
 		private Label label8;
-		private TextBox textBox7;
+		private TextBox txtContacto;
 		private Label label7;
 		private Label label5;
 		private Label label4;
@@ -586,12 +587,12 @@
 		private Label label2;
 		private Label label1;
 		private DataGridView dgvProyectos;
-		private ComboBox comboBox2;
-		private NumericUpDown numericUpDown1;
-		private DateTimePicker dateTimePicker2;
-		private DateTimePicker dateTimePicker1;
+		private ComboBox comboBoxEstado;
+		private NumericUpDown numericUpDownPorcentaje;
+		private DateTimePicker dateTimePickerFinal;
+		private DateTimePicker dateTimePickerInicio;
 		private SaveFileDialog saveFileDialog;
-		private DateTimePicker dateTimePicker3;
+		private DateTimePicker dtpFechaOC;
 		private TextBox txtNumeroProyecto;
 		private Label label6;
 		private ToolStripMenuItem ofertasToolStripMenuItem;
@@ -600,5 +601,6 @@
 		private TextBox txtRazonSocial;
 		private ComboBox cbVendedores;
 		private TextBox textBox1;
+		private ComboBox comboBoxOfertas;
 	}
 }

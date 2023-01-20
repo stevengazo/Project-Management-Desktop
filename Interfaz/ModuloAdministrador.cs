@@ -14,6 +14,7 @@ using System.Reflection;
 using DataTable = System.Data.DataTable;
 using Negocio;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Security.Cryptography;
 
 namespace Interfaz
 {
@@ -273,6 +274,7 @@ namespace Interfaz
 				{
 					MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					CargarTabla();
+					Limpiar();
 				}
 				else
 				{
@@ -291,7 +293,7 @@ namespace Interfaz
 				var clienteSeleccionado = txtNombreCliente.Text;
 				if (string.IsNullOrEmpty(vendedorSeleccionado) || string.IsNullOrEmpty(ofertaSeleccionada) || string.IsNullOrEmpty(clienteSeleccionado))
 				{
-					MessageBox.Show("Verifique los desplegables ");
+					MessageBox.Show("Verifique los desplegables ","",MessageBoxButtons.OK);
 					return false;
 				}
 				int.TryParse(txtMonto.Text, out int resultado);
@@ -337,6 +339,28 @@ namespace Interfaz
 		private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			MessageBox.Show("Contacte al departamento de TI", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void Limpiar()
+		{
+			cbVendedores.Text = string
+				.Empty;
+			txtNombreCliente.Text	= string .Empty;
+			dtpOrdenCompra.Value = DateTime.Now;
+			txtContacto.Text = string .Empty;	
+			cbOfertas.Text = string .Empty;
+			txtMonto.Text = string .Empty;
+			numericUpDownPorcentaje.Value = 0;
+		txtNumeroFactura.Text = string .Empty;
+			txtNumeroTarea.Text = string .Empty;
+			txtUbicacion.Text = string .Empty;
+			dtpFechaInicio.Value = DateTime.Now;
+			dtpFechaFinal.Value= DateTime.Now;
+			cbEstado.Text = string .Empty;
 		}
 	}
 }
