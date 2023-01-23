@@ -1,15 +1,7 @@
 ﻿using Modelos;
 using Negocio;
 using Negocios;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Interfaz
 {
@@ -74,10 +66,10 @@ namespace Interfaz
 			}
 		}
 
-		private void EditarProyecto_Load(object sender, EventArgs e)
+		private async void EditarProyecto_Load(object sender, EventArgs e)
 		{
-			cargarOfertas();
-			CargarVendedores();
+			await cargarOfertas();
+			await CargarVendedores();
 			if (ProyectoId != 0)
 			{
 				ProyectoNegocios proyectoNegocios = new();
@@ -90,9 +82,9 @@ namespace Interfaz
 				txtContacto.Text = ProyectoActual.Cliente;
 				// oferta
 				var ofertaIdTemporal = int.Parse(ProyectoActual.OfertaId);
-				var oferta = (from O in Ofertas
-							  where O.Key == ofertaIdTemporal
-							  select O).FirstOrDefault();
+				var oferta =  (from O in Ofertas
+									where O.Key == ofertaIdTemporal
+									select O).FirstOrDefault();
 				comboBoxOfertas.Text = $"{oferta.Key}-{oferta.Value}";
 
 				txtMonto.Text = ProyectoActual.Monto.ToString();
