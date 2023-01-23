@@ -4,13 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using Modelos;
 
 namespace Negocios
 {
-	public  class ProyectoNegocios
+	public class ProyectoNegocios
 	{
-		private  DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
+		private DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
+
+
+		public async Task<bool> DesactivarProyectoAsync(int ProyectoId)
+		{
+			try
+			{
+				var Proyecto = ObtenerProyecto(ProyectoId);
+				if (Proyecto != null)
+				{
+					Proyecto.Enable = false;
+					using (var db = new DBContextProyectosAsfaltos())
+					{
+						db.Proyectos.Update(Proyecto);
+						db.SaveChangesAsync();
+					}
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			catch (Exception f)
+			{
+				return false;
+			}
+		}
 
 		public bool DesactivarProyecto(int ProyectoId)
 		{
@@ -32,23 +60,25 @@ namespace Negocios
 					return false;
 				}
 			}
-			catch(Exception f)
+			catch (Exception f)
 			{
 				return false;
 			}
 		}
 
+
 		public bool ActualizarProyecto(Proyecto proyecto)
 		{
 			try
 			{
-				using(var db = new DBContextProyectosAsfaltos())
+				using (var db = new DBContextProyectosAsfaltos())
 				{
 					db.Proyectos.Update(proyecto);
 					db.SaveChanges();
 				}
 				return true;
-			}catch (Exception ex)
+			}
+			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
 				return false;
@@ -59,7 +89,7 @@ namespace Negocios
 		{
 			try
 			{
-				using(var db = new DBContextProyectosAsfaltos())
+				using (var db = new DBContextProyectosAsfaltos())
 				{
 					db.Proyectos.Add(proyecto);
 					db.SaveChanges();
@@ -69,23 +99,25 @@ namespace Negocios
 								  select pro.ProyectoId).FirstOrDefault();
 				}
 				return true;
-			}catch (Exception ex)
+			}
+			catch (Exception ex)
 			{
 				idProyecto = -1;
 				return false;
 			}
 		}
-		public List<Proyecto> ListaProyectos(int idEncargado)
+
+		public async Task<List<Proyecto>> ListaProyectos(int idEncargado)
 		{
 			try
 			{
 				List<Proyecto> proyectos = new List<Proyecto>();
 				using (var db = dBContext)
 				{
-					proyectos = (from proye in db.Proyectos
-								 where proye.UsuarioId == idEncargado && proye.Enable == true
-								 orderby proye.ProyectoId descending
-								 select proye).Include(P => P.Vendedor).ToList();
+					proyectos = await (from proye in db.Proyectos
+									   where proye.UsuarioId == idEncargado && proye.Enable == true
+									   orderby proye.ProyectoId descending
+									   select proye).Include(P => P.Vendedor).ToListAsync();
 				}
 				return proyectos;
 			}
@@ -94,19 +126,41 @@ namespace Negocios
 				return null;
 			}
 		}
+
+		
+		public async Task<List<Proyecto>> ListarProyectoAsync()
+		{
+			try
+			{
+				List<Proyecto> proyectos = new List<Proyecto>();
+				using (var db = dBContext)
+				{
+					proyectos = await (from proye in db.Proyectos
+								 orderby proye.ProyectoId descending
+								 select proye).Include(P => P.Vendedor).ToListAsync();
+				}
+				return proyectos;
+			}
+			catch (Exception f)
+			{
+				return null;
+			}
+		}
+
 		public List<Proyecto> ListaProyectos()
 		{
 			try
 			{
 				List<Proyecto> proyectos = new List<Proyecto>();
-				using( var db = dBContext)
+				using (var db = dBContext)
 				{
 					proyectos = (from proye in db.Proyectos
 								 orderby proye.ProyectoId descending
-								 select proye).Include(P=>P.Vendedor).ToList();
+								 select proye).Include(P => P.Vendedor).ToList();
 				}
 				return proyectos;
-			}catch (Exception f)
+			}
+			catch (Exception f)
 			{
 				return null;
 			}

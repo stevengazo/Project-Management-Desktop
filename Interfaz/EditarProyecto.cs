@@ -25,7 +25,7 @@ namespace Interfaz
 			InitializeComponent();
 		}
 
-		private void CargarVendedores()
+		private async Task CargarVendedores()
 		{
 			UsuarioNegocio usuarioNegocio = new();
 			Vendedores = usuarioNegocio.ListarVendedores();
@@ -39,12 +39,12 @@ namespace Interfaz
 			}
 		}
 
-		private void cargarOfertas()
+		private async Task cargarOfertas()
 		{
 			try
 			{
 				OfertaNegocio ofertaNegocio = new();
-				Ofertas = ofertaNegocio.DiccionarioOfertas();
+				Ofertas = await ofertaNegocio.DiccionarioOfertasAsync();
 				if (Ofertas != null)
 				{
 					comboBoxOfertas.Items.Clear();

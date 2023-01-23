@@ -4,6 +4,7 @@ using Negocios;
 using System.Data;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Threading;
 
 namespace Interfaz
 {
@@ -71,7 +72,7 @@ namespace Interfaz
 				}
 			}
 		}
-		private void CargarTabla(List<Proyecto> proyectosListados = null)
+		private async Task CargarTabla(List<Proyecto> proyectosListados = null)
 		{
 			var proyectosNegocio = new ProyectoNegocios();
 			if (proyectosListados != null)
@@ -80,7 +81,7 @@ namespace Interfaz
 			}
 			else
 			{
-				proyectos = proyectosNegocio.ListaProyectos(Temporal.UsuarioActivo.UsuarioId);
+				proyectos = await proyectosNegocio.ListaProyectos(Temporal.UsuarioActivo.UsuarioId);
 			}			
 			if (proyectos.Count > 0)
 			{

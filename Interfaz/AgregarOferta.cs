@@ -30,12 +30,12 @@ namespace Interfaz
 		{
 			CargarEncargados();
 		}
-		private void CargarEncargados()
+		private async Task CargarEncargados()
 		{
 			try
 			{
 				UsuarioNegocio UsuarioNegocio = new UsuarioNegocio();
-				usuarios = UsuarioNegocio.ListarVendedores();
+				usuarios = await UsuarioNegocio.ListarVendedoresAsync();
 				foreach (var item in usuarios)
 				{
 					cbEncargado.Items.Add(item.Nombre);
@@ -89,7 +89,7 @@ namespace Interfaz
 				if (string.IsNullOrEmpty(txtCliente.Text))
 				{
 					MessageBox.Show($"Nombre del Cliente no digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-					return false;
+					return  false;
 				}
 				int.TryParse(txtMonto.Text,out int val);
 				if(val == 0)

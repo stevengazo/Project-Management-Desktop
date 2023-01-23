@@ -12,6 +12,29 @@ namespace Negocios
 {
 	public class UsuarioNegocio
 	{
+		
+
+		public async Task<List<Usuario>> ListarVendedoresAsync()
+		{
+			try
+			{
+				List<Usuario> Vendedores = new();
+				using (var db = new DBContextProyectosAsfaltos())
+				{
+					Vendedores =await (from usuario in db.Usuarios
+								  join rolesUsuario in db.RolUsuarios on usuario.UsuarioId equals rolesUsuario.UsuarioId
+								  where rolesUsuario.RolId == 2 && usuario.Activo == true
+								  select usuario
+								  ).ToListAsync();
+				}
+				return Vendedores;
+			}
+			catch (Exception f)
+			{
+				return null;
+			}
+		}
+
 		public List<Usuario> ListarVendedores()
 		{
 			try
@@ -31,6 +54,7 @@ namespace Negocios
 				return null;
 			}
 		}
+
 
 		public bool ActualizarUsuario(Usuario usuario)
 		{
@@ -239,5 +263,30 @@ namespace Negocios
 				return null;
 			}
 		}
+
+		public async Task<List<Usuario>> ListarUsuariosAsync()
+		{
+			try
+			{
+				List<Usuario> usuarios = new List<Usuario>();
+				using (var db = new DBContextProyectosAsfaltos())
+				{
+					usuarios = await (from usuario in db.Usuarios
+								orderby usuario.Activo descending
+								select usuario).ToListAsync();
+					foreach (var item in usuarios)
+					{
+						item.HashContraseña = string.Empty;
+					}
+				}
+				return usuarios;
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+				return null;
+			}
+		}
+
 	}
 }

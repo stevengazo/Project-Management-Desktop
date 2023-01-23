@@ -19,12 +19,12 @@ namespace Interfaz
 		{
 			InitializeComponent();
 		}
-		public void CargarUsuarios()
+		public async Task CargarUsuarios()
 		{
 			try
 			{	
 				UsuarioNegocio tmp = new UsuarioNegocio();
-				usuarios = tmp.ListarUsuarios();
+				usuarios = await tmp.ListarUsuariosAsync();
 				if (usuarios.Count > 0)
 				{
 					dgvUsuarios.Columns.Clear();

@@ -27,8 +27,8 @@ namespace Interfaz
 		public ModuloAdministrador()
 		{
 			InitializeComponent();
-			CargarVendedores();
-			CargarTabla();
+			CargarVendedoresAsync();
+			CargarTablaAsync();
 			cargarOfertas();
 
 		}
@@ -44,12 +44,12 @@ namespace Interfaz
 			}
 		}
 
-		private void cargarOfertas()
+		private async Task cargarOfertas()
 		{
 			try
 			{
 				OfertaNegocio ofertaNegocio = new();
-				Ofertas = ofertaNegocio.DiccionarioOfertas();
+				Ofertas =await ofertaNegocio.DiccionarioOfertasAsync();
 				if (Ofertas != null)
 				{
 					cbOfertas.Items.Clear();
@@ -69,20 +69,20 @@ namespace Interfaz
 		{
 			ListarUsuario listarUsuario = new();
 			listarUsuario.ShowDialog();
-			CargarVendedores();
+			CargarVendedoresAsync();
 		}
 
 		private void agregarUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			AgregarUsuario agregarUsuario = new();
 			agregarUsuario.ShowDialog();
-			CargarVendedores();
+			CargarVendedoresAsync();
 		}
 
-		private void CargarVendedores()
+		private async Task CargarVendedoresAsync()
 		{
 			UsuarioNegocio usuarioNegocio = new();
-			Vendedores = usuarioNegocio.ListarVendedores();
+			Vendedores = await usuarioNegocio.ListarVendedoresAsync();
 			if (Vendedores.Count > 0)
 			{
 				cbVendedores.Items.Clear();
@@ -92,7 +92,7 @@ namespace Interfaz
 				}
 			}
 		}
-		private void CargarTabla(List<Proyecto> proyectosFiltrados = null)
+		private async Task CargarTablaAsync(List<Proyecto> proyectosFiltrados = null)
 		{
 			if (proyectosFiltrados != null)
 			{
@@ -101,7 +101,7 @@ namespace Interfaz
 			else
 			{
 				var proyectosNegocio = new ProyectoNegocios();
-				proyectos = proyectosNegocio.ListaProyectos();
+				proyectos =await proyectosNegocio.ListarProyectoAsync();
 			}
 
 			if (proyectos.Count > 0)
@@ -168,7 +168,7 @@ namespace Interfaz
 				EditarProyecto editarProyecto = new();
 				editarProyecto.ProyectoId = id;
 				editarProyecto.ShowDialog();
-				CargarTabla();
+				CargarTablaAsync();
 			}
 		}
 
@@ -277,7 +277,7 @@ namespace Interfaz
 					if (resultado)
 					{
 						MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-						CargarTabla();
+						CargarTablaAsync();
 						Limpiar();
 					}
 					else
@@ -382,7 +382,7 @@ namespace Interfaz
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{
-					CargarTabla(proyectosFiltrados);
+					CargarTablaAsync(proyectosFiltrados);
 				}
 				else
 				{
@@ -396,7 +396,7 @@ namespace Interfaz
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{
-					CargarTabla(proyectosFiltrados);
+					CargarTablaAsync(proyectosFiltrados);
 				}
 				else
 				{
@@ -411,7 +411,7 @@ namespace Interfaz
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{
-					CargarTabla(proyectosFiltrados);
+					CargarTablaAsync(proyectosFiltrados);
 				}
 				else
 				{
@@ -424,7 +424,7 @@ namespace Interfaz
 		{
 			txtNombreBuscar.Text = string.Empty;
 			txtNumeroProyectoBuscar.Text = string.Empty;
-			CargarTabla();
+			CargarTablaAsync();
 		}
 	}
 }

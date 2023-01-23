@@ -32,13 +32,13 @@ namespace Interfaz
 
 		}
 
-		private void CargarTablaVendedores()
+		private async Task CargarTablaVendedores()
 		{
 			try
 			{
 				int IdUsuario = Temporal.UsuarioActivo.UsuarioId;
 				OfertaNegocio ofertaNegocio = new();
-				var ofertas = ofertaNegocio.ListaOfertasPorAño(DateTime.Today.Year);
+				var ofertas = await ofertaNegocio.ListaOfertasPorAñoAsync(DateTime.Now.Year);
 				if (ofertas.Count > 0)
 				{
 					DataTable _tabla = new();
@@ -74,10 +74,10 @@ namespace Interfaz
 			
 
 		}
-		private void CargarTablaAdministradores()
+		private async Task CargarTablaAdministradores()
 		{
 			OfertaNegocio ofertaNegocio = new();
-			var listaOfertas = ofertaNegocio.ListaOfertas();
+			var listaOfertas =await ofertaNegocio.ListaOfertasAsync();
 			if (listaOfertas.Count > 0)
 			{
 				DataTable _tabla = new();

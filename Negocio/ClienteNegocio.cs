@@ -9,6 +9,27 @@ namespace Negocio
 {
 	public class ClienteNegocio
 	{
+		/// <summary>
+		/// Lista los clientes existentes en la DB de forma asincrona
+		/// </summary>
+		/// <returns>Lista de clientes</returns>
+		public Task<Cliente> ListaClientesAsync()
+		{
+			try
+			{
+				List<Cliente> clientes = new List<Cliente>();
+				throw new NotImplementedException();
+			}
+			catch (Exception ex)
+			{
+				return null;
+			}
+		}
+
+		/// <summary>
+		/// Lista los clientes registrados en la DB
+		/// </summary>
+		/// <returns></returns>
 		public List<Cliente> ListaClientes()
 		{
 			try
@@ -23,11 +44,12 @@ namespace Negocio
 				}*/
 				throw new NotImplementedException();
 				return clientes;
-			}catch(Exception ex)
+			}
+			catch (Exception ex)
 			{
 				return null;
 			}
 		}
-		
+
 	}
 }
