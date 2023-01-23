@@ -104,9 +104,20 @@ namespace Interfaz
 			}
 		}
 
-		private void Login_Load(object sender, EventArgs e)
+		private async void Login_Load(object sender, EventArgs e)
 		{
-			CargarRoles();
+			var conexion =  Negocio.ComunNegocios.VerificarConexion();
+			if (conexion)
+			{
+				CargarRoles();
+			}
+			else
+			{
+				MessageBox.Show("No se puede conectar con la Base de Datos...\nVerifica tu conexion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+			}
+			
+			
 		}
 
 		private void CargarRoles()
