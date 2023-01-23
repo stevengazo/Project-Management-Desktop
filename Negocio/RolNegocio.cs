@@ -3,12 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Datos;
 using Modelos;
 
 namespace Negocios
 {
-	internal class RolNegocio
+
+	public class RolNegocio
 	{
+		private DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
+
+		public List<Rol> ListaDeRoles()
+		{
+			try
+			{
+				using(var db = dBContext)
+				{
+					return db.Roles.ToList();
+				}
+			}catch(Exception ex) {
+				Console.Write(ex.ToString());
+				return null;
+			}
+		}
 	}
 }

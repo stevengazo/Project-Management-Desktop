@@ -22,34 +22,84 @@ namespace Datos.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Modelos.Cliente", b =>
+            modelBuilder.Entity("Modelos.Oferta", b =>
                 {
-                    b.Property<int>("ClienteId")
+                    b.Property<int>("OfertaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClienteId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OfertaId"));
 
-                    b.Property<int>("Cedula")
+                    b.Property<bool>("Asfalto")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("AutorPrespuesto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Base")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Cliente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Codigo")
                         .HasColumnType("int");
 
-                    b.Property<string>("NombreComercial")
+                    b.Property<bool>("Excavacion")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<float>("Monto")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Notas")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RazonSocial")
+                    b.Property<string>("Observaciones")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ClienteId");
+                    b.Property<bool>("Sellador")
+                        .HasColumnType("bit");
 
-                    b.ToTable("Clientes");
+                    b.Property<bool>("SubBase")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("UltimaModificacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OfertaId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Ofertas");
 
                     b.HasData(
                         new
                         {
-                            ClienteId = 1,
-                            Cedula = 1,
-                            NombreComercial = "Ejemplo",
-                            RazonSocial = "Ejemplo S.A"
+                            OfertaId = 1,
+                            Asfalto = true,
+                            AutorPrespuesto = "Administrador",
+                            Base = true,
+                            Cliente = "Ejemplo",
+                            Codigo = 1,
+                            Excavacion = true,
+                            Fecha = new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            Monto = 100f,
+                            Notas = "",
+                            Observaciones = "",
+                            Sellador = true,
+                            SubBase = true,
+                            UltimaModificacion = new DateTime(2023, 1, 19, 1, 0, 0, 0, DateTimeKind.Local),
+                            UsuarioId = 1
                         });
                 });
 
@@ -65,12 +115,16 @@ namespace Datos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ClienteId")
-                        .HasColumnType("int");
+                    b.Property<string>("Cliente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Contacto")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Enable")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Estado")
                         .IsRequired()
@@ -113,14 +167,16 @@ namespace Datos.Migrations
                     b.Property<DateTime>("UltimaEdicion")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("VendedorId")
+                    b.Property<string>("UltimoEditor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
                     b.HasKey("ProyectoId");
 
-                    b.HasIndex("ClienteId");
-
-                    b.HasIndex("VendedorId");
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Proyectos");
 
@@ -128,22 +184,24 @@ namespace Datos.Migrations
                         new
                         {
                             ProyectoId = 1,
-                            Autor = "Ejemplo",
-                            ClienteId = 1,
+                            Autor = "Administrador",
+                            Cliente = "Ejemplo de Cliente",
                             Contacto = "Ejemplo",
+                            Enable = true,
                             Estado = "Finalizado",
                             FacturaAnticipoId = "No existente",
                             FacturaFinalId = "No Existente",
-                            FechaFinal = new DateTime(2023, 1, 13, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2023, 1, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2023, 1, 11, 10, 20, 0, 22, DateTimeKind.Local).AddTicks(8995),
+                            FechaFinal = new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaInicio = new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaOC = new DateTime(2023, 1, 19, 15, 41, 3, 264, DateTimeKind.Local).AddTicks(5187),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,
                             TareaId = 2000,
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2023, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
-                            VendedorId = 1
+                            UltimaEdicion = new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimoEditor = "Administrador",
+                            UsuarioId = 1
                         });
                 });
 
@@ -167,7 +225,12 @@ namespace Datos.Migrations
                         new
                         {
                             RolId = 1,
-                            Nombre = "Editor"
+                            Nombre = "Admin"
+                        },
+                        new
+                        {
+                            RolId = 2,
+                            Nombre = "Vendedor"
                         });
                 });
 
@@ -210,7 +273,14 @@ namespace Datos.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioId"));
 
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
+
                     b.Property<string>("HashContraseña")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Login")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -226,50 +296,31 @@ namespace Datos.Migrations
                         new
                         {
                             UsuarioId = 1,
+                            Activo = true,
                             HashContraseña = "0192023A7BBD73250516F069DF18B500",
-                            Nombre = "admin"
+                            Login = "admin",
+                            Nombre = "Administrador"
                         });
                 });
 
-            modelBuilder.Entity("Modelos.Vendedor", b =>
+            modelBuilder.Entity("Modelos.Oferta", b =>
                 {
-                    b.Property<int>("VendedorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.HasOne("Modelos.Usuario", "Encargado")
+                        .WithMany("Ofertas")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VendedorId"));
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("VendedorId");
-
-                    b.ToTable("Vendedores");
-
-                    b.HasData(
-                        new
-                        {
-                            VendedorId = 1,
-                            Nombre = "Ejemplo"
-                        });
+                    b.Navigation("Encargado");
                 });
 
             modelBuilder.Entity("Modelos.Proyecto", b =>
                 {
-                    b.HasOne("Modelos.Cliente", "Cliente")
+                    b.HasOne("Modelos.Usuario", "Vendedor")
                         .WithMany("Proyectos")
-                        .HasForeignKey("ClienteId")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Modelos.Vendedor", "Vendedor")
-                        .WithMany("Proyectos")
-                        .HasForeignKey("VendedorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
 
                     b.Navigation("Vendedor");
                 });
@@ -293,11 +344,6 @@ namespace Datos.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("Modelos.Cliente", b =>
-                {
-                    b.Navigation("Proyectos");
-                });
-
             modelBuilder.Entity("Modelos.Rol", b =>
                 {
                     b.Navigation("RolUsuarios");
@@ -305,12 +351,11 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Modelos.Usuario", b =>
                 {
-                    b.Navigation("RolUsuarios");
-                });
+                    b.Navigation("Ofertas");
 
-            modelBuilder.Entity("Modelos.Vendedor", b =>
-                {
                     b.Navigation("Proyectos");
+
+                    b.Navigation("RolUsuarios");
                 });
 #pragma warning restore 612, 618
         }

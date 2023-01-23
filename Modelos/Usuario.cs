@@ -14,13 +14,16 @@ namespace Modelos
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int UsuarioId { get; set; }
 		public string Nombre { get; set; }
+		public string Login { get; set; }
+		public bool Activo { get; set; }
 		public string HashContraseña { get; set; }
 
 		// Relaciones
 
 		// RolUsuario
 		public ICollection<RolUsuario> RolUsuarios { get; set; }
-
+		public ICollection<Oferta> Ofertas { get; set; }
+		public ICollection<Proyecto> Proyectos { get; set;}
 
 	}
 }

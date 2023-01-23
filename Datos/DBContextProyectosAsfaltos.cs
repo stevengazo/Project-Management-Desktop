@@ -10,6 +10,7 @@ using Modelos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Extensions.Configuration;
+using Datos;
 
 namespace Modelos
 
@@ -26,11 +27,12 @@ namespace Modelos
 
 		#region Atributos Publicos
 		public DbSet<Proyecto> Proyectos { get; set; }
-		public DbSet<Cliente> Clientes { get; set; }
 		public DbSet<Rol> Roles { get; set; }
 		public DbSet<RolUsuario> RolUsuarios { get; set; }
 		public DbSet<Usuario> Usuarios { get; set; }
-		public DbSet<Vendedor> Vendedores { get; set; }
+		public DbSet<Oferta> Ofertas { get; set; }
+		//public DbSet<Cliente> Clientes { get; set; }	
+		
 		#endregion
 
 		/// <summary>
@@ -40,41 +42,14 @@ namespace Modelos
 		protected void GenerateSeedOfData(ModelBuilder model)
 		{
 
-			Cliente ClienteBase = new()
+		/*	Cliente clienteBase = new Cliente()
 			{
-				ClienteId = 1,
-				Cedula = 1,
-				RazonSocial = "Ejemplo S.A",
-				NombreComercial = "Ejemplo"
+				ClienteID = 1,
+				ClienteName = "Cliente Base"
 			};
-			model.Entity<Cliente>().HasData(ClienteBase);
-			Vendedor VendedorBase = new()
-			{
-				VendedorId = 1,
-				Nombre = "Ejemplo"
-			};
-			model.Entity<Vendedor>().HasData(VendedorBase);
-			Proyecto ProyectoBase = new()
-			{
-				ProyectoId = 1,
-				FechaOC = DateTime.Now,
-				Contacto = "Ejemplo",
-				OfertaId = "PS-00001",
-				Monto = 100f,
-				PorcentajeAnticipo = 50,
-				FacturaAnticipoId = "No existente",
-				FacturaFinalId = "No Existente",
-				TareaId = 2000,
-				Ubicacion = "Grupo Mecsa",
-				FechaInicio = DateTime.Today.AddDays(-1),
-				FechaFinal = DateTime.Today.AddDays(2),
-				Estado = "Finalizado",
-				Autor = "Ejemplo",
-				UltimaEdicion = DateTime.Today,
-				VendedorId = VendedorBase.VendedorId,
-				ClienteId = ClienteBase.ClienteId
-			};
-			model.Entity<Proyecto>().HasData(ProyectoBase);
+			model.Entity<Cliente>().HasData(clienteBase);
+		*/
+
 			var contrasena = "admin123";
 			using (var md6Hash = MD5.Create())
 			{
@@ -86,23 +61,79 @@ namespace Modelos
 			Usuario usuarioBase = new()
 			{
 				UsuarioId = 1,
-				Nombre = "admin",
+				Login = "admin",
+				Nombre = "Administrador",
 				HashContraseña = contrasena,
+				Activo = true
 			};
 			model.Entity<Usuario>().HasData(usuarioBase);
-			Rol Editor = new()
+
+			Rol Admin = new()
 			{
 				RolId = 1,
-				Nombre = "Editor"
+				Nombre = "Admin"
 			};
-			model.Entity<Rol>().HasData(Editor);
+			model.Entity<Rol>().HasData(Admin);
+
+			Rol Vendedor = new()
+			{
+				RolId = 2,
+				Nombre = "Vendedor"
+			};
+			model.Entity<Rol>().HasData(Vendedor);
+
 			RolUsuario rolUsuarioBase = new()
 			{
-				RolUsuarioId=1,
-				RolId = Editor.RolId,
+				RolUsuarioId = 1,
+				RolId = Admin.RolId,
 				UsuarioId = usuarioBase.UsuarioId
 			};
 			model.Entity<RolUsuario>().HasData(rolUsuarioBase);
+
+
+			Proyecto ProyectoBase = new()
+			{
+				ProyectoId = 1,
+				FechaOC = DateTime.Now,
+				Contacto = "Ejemplo",
+				Cliente = "Ejemplo de Cliente",
+				OfertaId = "PS-00001",
+				Monto = 100f,
+				PorcentajeAnticipo = 50,
+				FacturaAnticipoId = "No existente",
+				FacturaFinalId = "No Existente",
+				TareaId = 2000,
+				Ubicacion = "Grupo Mecsa",
+				FechaInicio = DateTime.Today.AddDays(-1),
+				FechaFinal = DateTime.Today.AddDays(2),
+				Estado = "Finalizado",
+				Autor = usuarioBase.Nombre,
+				UltimaEdicion = DateTime.Today,
+				UsuarioId = usuarioBase.UsuarioId,
+				UltimoEditor = usuarioBase.Nombre,
+				Enable = true
+				//ClienteID = clienteBase.ClienteID
+			};
+			model.Entity<Proyecto>().HasData(ProyectoBase);
+
+			Oferta ofertaBase = new() {
+				OfertaId = 1,
+				Fecha = DateTime.Today,
+				Codigo = 1,
+				Sellador = true,
+				Asfalto = true,
+				Base = true,
+				SubBase = true,
+				Excavacion = true,
+				Monto = 100f,
+				Notas = string.Empty,
+				Observaciones = string.Empty,
+				AutorPrespuesto = usuarioBase.Nombre,
+				UltimaModificacion = DateTime.Today.AddHours(1),
+				UsuarioId = usuarioBase.UsuarioId,
+				Cliente = "Ejemplo"
+			};
+			model.Entity<Oferta>().HasData(ofertaBase);
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -119,10 +150,9 @@ namespace Modelos
 				optionsBuilder.UseSqlServer(CadenaDeConexion);
 			}
 		}
-
-		private void GetConnectionString(string connectionStringName = "RayosNoConnection")
+		private void GetConnectionString(string connectionStringName = "DBAsfaltos")
 		{
-			CadenaDeConexion = "Data Source=127.0.0.1;Initial Catalog=ProyectosAsfaltos;User ID=sa;Password=Password123;encrypt=false";
+			CadenaDeConexion = XMLConfiguraciones.LeerCadenaDeConexion();
 		}
 	}
 }

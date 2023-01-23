@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-	public partial class AgregarVendedor : Form
+	public partial class EditarUsuario : Form
 	{
-		public AgregarVendedor()
+		public EditarUsuario()
 		{
 			InitializeComponent();
-		}
-
-		private void button1_Click(object sender, EventArgs e)
-		{
-			this.Close();
 		}
 	}
 }
