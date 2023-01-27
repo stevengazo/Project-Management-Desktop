@@ -23,6 +23,7 @@ namespace Modelos
 		public float Monto { get; set; }
 		public string Notas { get; set; }
 		public string Observaciones { get; set; }
+		public string EncargadoCotizador { get; set; }
 		public string AutorPrespuesto { get; set; }
 		public string Cliente { get; set; }	
 

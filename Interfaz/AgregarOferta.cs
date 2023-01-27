@@ -67,6 +67,7 @@ namespace Interfaz
 				ofertaTemporal.UsuarioId = (from i in usuarios
 											where i.Nombre == cbEncargado.Text
 											select i.UsuarioId).FirstOrDefault();
+				ofertaTemporal.EncargadoCotizador = txtEncargado.Text;
 				OfertaNegocio negocioOferta = new();
 				bool Resultado = negocioOferta.CrearOferta(ofertaTemporal, out int idOferta);
 				if (Resultado)
@@ -108,6 +109,11 @@ namespace Interfaz
 				if (string.IsNullOrEmpty(cbEncargado.Text))
 				{
 					MessageBox.Show($"No selecciono un vendedor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					return false;
+				}
+				if (string.IsNullOrEmpty(txtEncargado.Text))
+				{
+					MessageBox.Show($"No ingreso un encargado de la realizacion de la cotizacion", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					return false;
 				}
 				return true;

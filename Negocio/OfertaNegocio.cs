@@ -103,7 +103,7 @@ namespace Negocio
 						lista = await (from i in db.Ofertas
 								 where i.Fecha.Year == ano
 								 orderby i.OfertaId descending
-								 select i).ToListAsync();
+								 select i).Include(O=>O.Encargado).ToListAsync();
 					}
 				}
 				else
@@ -113,7 +113,7 @@ namespace Negocio
 						lista = await (from i in db.Ofertas
 								 orderby i.OfertaId descending
 								 where i.Fecha.Year == DateTime.Today.Year
-								 select i).ToListAsync();
+								 select i).Include(O => O.Encargado).ToListAsync();
 					}
 				}
 				return lista;
@@ -157,6 +157,23 @@ namespace Negocio
 			}
 
 		}
+
+		public List<Oferta> BuscarOferta(string cliente = null, string NumeroOferta = null, string Vendedor= null)
+		{
+			if( cliente != null && NumeroOferta != null && Vendedor != null)
+			{
+
+			}else if (cliente == null && NumeroOferta != null && Vendedor != null)
+			{
+
+			}else if (cliente != null && NumeroOferta != null && Vendedor != null)
+			{
+
+			}
+
+				throw new NotImplementedException();
+		}
+
 		
 
 
@@ -167,7 +184,7 @@ namespace Negocio
 				List<Oferta> Ofertas = new List<Oferta>();
 				using (var db = new DBContextProyectosAsfaltos())
 				{
-					Ofertas = await db.Ofertas.OrderByDescending(O => O.OfertaId).Include(O => O.Encargado).ToListAsync();
+					Ofertas = await db.Ofertas.OrderByDescending(O => O.OfertaId).Include(O => O.Encargado).Take(100).ToListAsync();
 				}
 				return Ofertas;
 			}

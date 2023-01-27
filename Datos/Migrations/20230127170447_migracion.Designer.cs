@@ -12,8 +12,8 @@ using Modelos;
 namespace Datos.Migrations
 {
     [DbContext(typeof(DBContextProyectosAsfaltos))]
-    [Migration("20230119214103_sample")]
-    partial class sample
+    [Migration("20230127170447_migracion")]
+    partial class migracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,6 +49,10 @@ namespace Datos.Migrations
 
                     b.Property<int>("Codigo")
                         .HasColumnType("int");
+
+                    b.Property<string>("EncargadoCotizador")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Excavacion")
                         .HasColumnType("bit");
@@ -94,14 +98,15 @@ namespace Datos.Migrations
                             Base = true,
                             Cliente = "Ejemplo",
                             Codigo = 1,
+                            EncargadoCotizador = "Gabriel",
                             Excavacion = true,
-                            Fecha = new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            Fecha = new DateTime(2023, 1, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             Monto = 100f,
                             Notas = "",
                             Observaciones = "",
                             Sellador = true,
                             SubBase = true,
-                            UltimaModificacion = new DateTime(2023, 1, 19, 1, 0, 0, 0, DateTimeKind.Local),
+                            UltimaModificacion = new DateTime(2023, 1, 27, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
                 });
@@ -194,15 +199,15 @@ namespace Datos.Migrations
                             Estado = "Finalizado",
                             FacturaAnticipoId = "No existente",
                             FacturaFinalId = "No Existente",
-                            FechaFinal = new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2023, 1, 19, 15, 41, 3, 264, DateTimeKind.Local).AddTicks(5187),
+                            FechaFinal = new DateTime(2023, 1, 29, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaInicio = new DateTime(2023, 1, 26, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaOC = new DateTime(2023, 1, 27, 11, 4, 47, 613, DateTimeKind.Local).AddTicks(564),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,
                             TareaId = 2000,
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2023, 1, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });

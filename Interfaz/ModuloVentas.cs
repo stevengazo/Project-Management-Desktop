@@ -5,6 +5,7 @@ using System.Data;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Threading;
+using System.Globalization;
 
 namespace Interfaz
 {
@@ -36,6 +37,7 @@ namespace Interfaz
 			CargarTabla();
 			cargarOfertas();
 			CargarVendedores();
+			this.Text = $"Modulo Ventas - Asfaltos - Bienvenido {Temporal.UsuarioActivo.Nombre}";
 		}
 
 		private void cargarOfertas()
@@ -112,7 +114,7 @@ namespace Interfaz
 						i.FacturaAnticipoId,
 						i.FechaInicio.ToLongDateString(),
 						i.FechaFinal.ToLongDateString(),
-						i.Monto,
+						i.Monto.ToString("C",CultureInfo.CurrentCulture),
 						i.Estado
 						);
 				}

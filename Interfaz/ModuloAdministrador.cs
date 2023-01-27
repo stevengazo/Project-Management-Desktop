@@ -15,6 +15,7 @@ using DataTable = System.Data.DataTable;
 using Negocio;
 using Microsoft.EntityFrameworkCore.Storage;
 using System.Security.Cryptography;
+using System.Globalization;
 
 namespace Interfaz
 {
@@ -129,7 +130,7 @@ namespace Interfaz
 						i.OfertaId,
 						i.FechaInicio.ToLongDateString(),
 						i.FechaFinal.ToLongDateString(),
-						i.Monto,
+						i.Monto.ToString("C",CultureInfo.CurrentCulture),
 						i.Estado
 						);
 				}
@@ -216,26 +217,37 @@ namespace Interfaz
 					Excel._Worksheet worksheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
 					worksheet.Cells[1, "A"] = "Numero Proyecto";
 					worksheet.Cells[1, "B"] = "Vendedor";
-					worksheet.Cells[1, "C"] = "Fecha OC";
-					worksheet.Cells[1, "D"] = "Oferta";
-					worksheet.Cells[1, "E"] = "Fecha Inicio";
-					worksheet.Cells[1, "F"] = "Fecha Final";
-					worksheet.Cells[1, "G"] = "Monto";
+					worksheet.Cells[1, "C"] = "Cliente";
+					worksheet.Cells[1, "D"] = "Factura Anticipo";
+					worksheet.Cells[1, "E"] = "Factura Final";
+					worksheet.Cells[1, "F"] = "Porcentaje Anticipo";
+					worksheet.Cells[1, "G"] = "Tarea Bitrix";
+					worksheet.Cells[1, "H"] = "Fecha OC";
+					worksheet.Cells[1, "I"] = "Oferta";
+					worksheet.Cells[1, "J"] = "Fecha Inicio";
+					worksheet.Cells[1, "K"] = "Fecha Final";
+					worksheet.Cells[1, "L"] = "Monto";
 					int contador = 2;
 					foreach (Proyecto item in proyectos)
 					{
 						worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
 						worksheet.Cells[contador, 2] = item.Vendedor.Nombre;
-						worksheet.Cells[contador, 3] = item.FechaOC.ToLongDateString();
-						worksheet.Cells[contador, 4] = item.OfertaId.ToString();
-						worksheet.Cells[contador, 5] = item.FechaInicio.ToLongDateString();
-						worksheet.Cells[contador, 6] = item.FechaFinal.ToLongDateString();
-						worksheet.Cells[contador, 7] = item.Monto.ToString();
+						worksheet.Cells[contador, 3] = item.Cliente;
+						worksheet.Cells[contador, 4] = item.FacturaAnticipoId;
+						worksheet.Cells[contador, 5] = item.FacturaFinalId;
+						worksheet.Cells[contador, 6] = item.PorcentajeAnticipo;
+						worksheet.Cells[contador, 7] = item.TareaId;
+						worksheet.Cells[contador, 8] = item.FechaOC.ToLongDateString();
+						worksheet.Cells[contador, 9] = item.OfertaId.ToString();
+						worksheet.Cells[contador, 10] = item.FechaInicio.ToLongDateString();
+						worksheet.Cells[contador, 11] = item.FechaFinal.ToLongDateString();
+						worksheet.Cells[contador, 12] = item.Monto.ToString("C",CultureInfo.CurrentCulture);
 						contador++;
 					}
 					ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
 					ExcelApp.ActiveWorkbook.Close();
 					ExcelApp.Quit();
+					MessageBox.Show("Documento Generado", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
 			catch (Exception ex)
@@ -425,6 +437,11 @@ namespace Interfaz
 			txtNombreBuscar.Text = string.Empty;
 			txtNumeroProyectoBuscar.Text = string.Empty;
 			CargarTablaAsync();
+		}
+
+		private void txtMonto_Leave(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

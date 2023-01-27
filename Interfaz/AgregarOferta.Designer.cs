@@ -53,11 +53,15 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
 			this.label1 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.txtEncargado = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.label12);
+			this.groupBox1.Controls.Add(this.txtEncargado);
 			this.groupBox1.Controls.Add(this.label11);
 			this.groupBox1.Controls.Add(this.txtCliente);
 			this.groupBox1.Controls.Add(this.btnCancelar);
@@ -108,7 +112,7 @@
 			// 
 			// btnCancelar
 			// 
-			this.btnCancelar.Location = new System.Drawing.Point(161, 408);
+			this.btnCancelar.Location = new System.Drawing.Point(162, 452);
 			this.btnCancelar.Name = "btnCancelar";
 			this.btnCancelar.Size = new System.Drawing.Size(75, 23);
 			this.btnCancelar.TabIndex = 22;
@@ -117,7 +121,7 @@
 			// 
 			// btnAgregar
 			// 
-			this.btnAgregar.Location = new System.Drawing.Point(56, 408);
+			this.btnAgregar.Location = new System.Drawing.Point(57, 452);
 			this.btnAgregar.Name = "btnAgregar";
 			this.btnAgregar.Size = new System.Drawing.Size(75, 23);
 			this.btnAgregar.TabIndex = 21;
@@ -307,6 +311,23 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Fecha";
 			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(19, 400);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(58, 15);
+			this.label12.TabIndex = 26;
+			this.label12.Text = "Cotizador";
+			// 
+			// txtEncargado
+			// 
+			this.txtEncargado.Location = new System.Drawing.Point(103, 397);
+			this.txtEncargado.Name = "txtEncargado";
+			this.txtEncargado.PlaceholderText = "Adrian ";
+			this.txtEncargado.Size = new System.Drawing.Size(184, 23);
+			this.txtEncargado.TabIndex = 25;
+			// 
 			// AgregarOferta
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -353,5 +374,7 @@
 		private Label label2;
 		private Label label11;
 		private TextBox txtCliente;
+		private Label label12;
+		private TextBox txtEncargado;
 	}
 }

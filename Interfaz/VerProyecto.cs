@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelos;
+using System.Globalization;
+
 namespace Interfaz
 {
 	public partial class VerProyecto : Form
@@ -55,7 +57,7 @@ namespace Interfaz
 					txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
 					txtContacto.Text = proyectoTemporal.Contacto;
 					txtOferta.Text = proyectoTemporal.OfertaId;
-					txtMontoProyecto.Text = proyectoTemporal.Monto.ToString();
+					txtMontoProyecto.Text =    proyectoTemporal.Monto.ToString("C",CultureInfo.CurrentCulture);
 					txtPorcentaje.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
 					txtNumeroFacturaAnticipo.Text = proyectoTemporal.FacturaAnticipoId;
 					txtNumeroTarea.Text = proyectoTemporal.TareaId.ToString();

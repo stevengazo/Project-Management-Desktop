@@ -131,7 +131,8 @@ namespace Modelos
 				AutorPrespuesto = usuarioBase.Nombre,
 				UltimaModificacion = DateTime.Today.AddHours(1),
 				UsuarioId = usuarioBase.UsuarioId,
-				Cliente = "Ejemplo"
+				Cliente = "Ejemplo",
+				EncargadoCotizador = "Gabriel"
 			};
 			model.Entity<Oferta>().HasData(ofertaBase);
 		}

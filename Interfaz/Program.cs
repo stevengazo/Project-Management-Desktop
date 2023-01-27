@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace Interfaz
 {
 	internal static class Program
@@ -8,10 +10,19 @@ namespace Interfaz
 		[STAThread]
 		static void Main()
 		{
-			// To customize application configuration such as set high DPI settings or default font,
-			// see https://aka.ms/applicationconfiguration.
-			ApplicationConfiguration.Initialize();
-			Application.Run(new Login());
+			try
+			{
+
+				// To customize application configuration such as set high DPI settings or default font,
+				// see https://aka.ms/applicationconfiguration.
+				ApplicationConfiguration.Initialize();
+				Application.Run(new Login());
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Error interno, la aplicación se cerrará\nError {ex.Message}","Error interno",MessageBoxButtons.OK);			
+			}
+			
 		}
 	}
 }

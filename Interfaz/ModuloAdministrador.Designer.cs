@@ -400,6 +400,7 @@
 			this.txtMonto.PlaceholderText = "125000";
 			this.txtMonto.Size = new System.Drawing.Size(225, 23);
 			this.txtMonto.TabIndex = 15;
+			this.txtMonto.Leave += new System.EventHandler(this.txtMonto_Leave);
 			// 
 			// label10
 			// 

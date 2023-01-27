@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,25 +45,31 @@ namespace Interfaz
 					DataTable _tabla = new();
 					_tabla.Columns.Add("Oferta Id");
 					_tabla.Columns.Add("Fecha");
-					_tabla.Columns.Add("Codigo");
+					//_tabla.Columns.Add("Codigo");
 					_tabla.Columns.Add("Sellador");
 					_tabla.Columns.Add("Asfalto");
 					_tabla.Columns.Add("SubBase");
 					_tabla.Columns.Add("Excavacion");
 					_tabla.Columns.Add("Monto");
-					
+					_tabla.Columns.Add("Cliente");
+					_tabla.Columns.Add("Encargado");
+					_tabla.Columns.Add("Cotizado Por");
+
 
 					foreach (Oferta item in ofertas)
 					{
 						_tabla.Rows.Add(
-							item.OfertaId.ToString(),
+							$"CM-{item.OfertaId.ToString()}",
 							item.Fecha.ToLongDateString(),
-							item.Codigo,
+							//item.Codigo,
 							item.Sellador,
 							item.Asfalto,
 							item.SubBase,
 							item.Excavacion,
-							item.Monto
+							item.Monto.ToString("C",CultureInfo.CurrentCulture),
+							item.Cliente,
+							item.Encargado.Nombre,
+							item.EncargadoCotizador
 							);
 					}
 					dgvOfertas.DataSource = _tabla;
@@ -83,26 +90,30 @@ namespace Interfaz
 				DataTable _tabla = new();
 				_tabla.Columns.Add("Oferta Id");
 				_tabla.Columns.Add("Fecha");
-				_tabla.Columns.Add("Codigo");
+				//_tabla.Columns.Add("Codigo");
 				_tabla.Columns.Add("Sellador");
 				_tabla.Columns.Add("Asfalto");
 				_tabla.Columns.Add("SubBase");
 				_tabla.Columns.Add("Excavacion");
 				_tabla.Columns.Add("Monto");
 				_tabla.Columns.Add("Encargado");
+				_tabla.Columns.Add("Creado por");
+				_tabla.Columns.Add("Cotizado Por");
 
 				foreach (Oferta item in listaOfertas)
 				{
 					_tabla.Rows.Add(
-						item.OfertaId.ToString(),
+						$"CM-{item.OfertaId.ToString()}",
 						item.Fecha.ToLongDateString(),
-						item.Codigo,
+						//item.Codigo,
 						item.Sellador,
 						item.Asfalto,
 						item.SubBase,
 						item.Excavacion,
-						item.Monto,
-						item.Encargado.Nombre
+						item.Monto.ToString("C",CultureInfo.CurrentCulture),
+						item.Encargado.Nombre,
+						item.AutorPrespuesto,
+						item.EncargadoCotizador
 						);
 				}
 				dgvOfertas.DataSource = _tabla;
@@ -131,6 +142,26 @@ namespace Interfaz
 				CargarTablaVendedores();
 			}
 
+		}
+
+		private void btnAgregar_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void BtnLimpar_Click(object sender, EventArgs e)
+		{
+			txtCliente.Text = string.Empty;
+			txtNumeroProyecto.Text = string.Empty;
+			txtVendedor.Text = string.Empty;
+			if (Temporal.TipoLogin.Equals("Administrador"))
+			{
+				CargarTablaAdministradores();
+			}
+			else
+			{
+				CargarTablaVendedores();
+			}
 		}
 	}
 }
