@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datos", "Datos\Datos.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Negocio", "Negocio\Negocio.csproj", "{BB233CB0-3FE4-4288-ABF7-7AB18945C8EF}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador", "Instalador\Instalador.vdproj", "{79B49C07-33BC-45EB-B0F5-6D412A94880D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,8 +33,6 @@ Global
 		{BB233CB0-3FE4-4288-ABF7-7AB18945C8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB233CB0-3FE4-4288-ABF7-7AB18945C8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB233CB0-3FE4-4288-ABF7-7AB18945C8EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{79B49C07-33BC-45EB-B0F5-6D412A94880D}.Debug|Any CPU.ActiveCfg = Debug
-		{79B49C07-33BC-45EB-B0F5-6D412A94880D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
