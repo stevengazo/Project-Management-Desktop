@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Drawing;
-using System.Linq;
+﻿using Datos;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using Modelos;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
-using Microsoft.Extensions.Configuration;
-using Datos;
 
 namespace Modelos
 
@@ -32,7 +24,7 @@ namespace Modelos
 		public DbSet<Usuario> Usuarios { get; set; }
 		public DbSet<Oferta> Ofertas { get; set; }
 		//public DbSet<Cliente> Clientes { get; set; }	
-		
+
 		#endregion
 
 		/// <summary>
@@ -42,13 +34,13 @@ namespace Modelos
 		protected void GenerateSeedOfData(ModelBuilder model)
 		{
 
-		/*	Cliente clienteBase = new Cliente()
-			{
-				ClienteID = 1,
-				ClienteName = "Cliente Base"
-			};
-			model.Entity<Cliente>().HasData(clienteBase);
-		*/
+			/*	Cliente clienteBase = new Cliente()
+				{
+					ClienteID = 1,
+					ClienteName = "Cliente Base"
+				};
+				model.Entity<Cliente>().HasData(clienteBase);
+			*/
 
 			var contrasena = "admin123";
 			using (var md6Hash = MD5.Create())
@@ -116,7 +108,8 @@ namespace Modelos
 			};
 			model.Entity<Proyecto>().HasData(ProyectoBase);
 
-			Oferta ofertaBase = new() {
+			Oferta ofertaBase = new()
+			{
 				OfertaId = 1,
 				Fecha = DateTime.Today,
 				Codigo = 1,
@@ -138,7 +131,7 @@ namespace Modelos
 		}
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			
+
 			base.OnModelCreating(modelBuilder);
 			GenerateSeedOfData(modelBuilder);
 		}

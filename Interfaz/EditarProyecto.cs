@@ -82,9 +82,9 @@ namespace Interfaz
 				txtContacto.Text = ProyectoActual.Cliente;
 				// oferta
 				var ofertaIdTemporal = int.Parse(ProyectoActual.OfertaId);
-				var oferta =  (from O in Ofertas
-									where O.Key == ofertaIdTemporal
-									select O).FirstOrDefault();
+				var oferta = (from O in Ofertas
+							  where O.Key == ofertaIdTemporal
+							  select O).FirstOrDefault();
 				comboBoxOfertas.Text = $"{oferta.Key}-{oferta.Value}";
 
 				txtMonto.Text = ProyectoActual.Monto.ToString();

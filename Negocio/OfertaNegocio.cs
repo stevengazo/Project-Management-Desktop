@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Modelos;
 
 namespace Negocio
@@ -28,16 +22,17 @@ namespace Negocio
 				{
 					db.Ofertas.Add(ofertaNueva);
 					db.SaveChanges();
-					idOferta = (from o in db.Ofertas				
+					idOferta = (from o in db.Ofertas
 								where o.AutorPrespuesto == ofertaNueva.AutorPrespuesto && o.Monto == ofertaNueva.Monto
 								orderby o.OfertaId descending
 								select o.OfertaId).FirstOrDefault();
 
-				}				
+				}
 				return true;
-			}catch (Exception ex)
+			}
+			catch (Exception ex)
 			{
-				idOferta= 0;
+				idOferta = 0;
 				return false;
 			}
 		}
@@ -47,7 +42,7 @@ namespace Negocio
 		/// </summary>
 		/// <param name="año"></param>
 		/// <returns></returns>
-		public async Task<Dictionary<int,string>> DiccionarioOfertasAsync(int año = 0)
+		public async Task<Dictionary<int, string>> DiccionarioOfertasAsync(int año = 0)
 		{
 			try
 			{
@@ -55,9 +50,9 @@ namespace Negocio
 				using (var db = new DBContextProyectosAsfaltos())
 				{
 					keyValuePairs = await (from i in db.Ofertas
-									 where i.Fecha.Year == DateTime.Today.Year && (i.Fecha.Month == DateTime.Today.Month || i.Fecha.Month == DateTime.Today.AddMonths(-1).Month)
-									 orderby i.OfertaId descending
-									 select i).ToDictionaryAsync(O => O.OfertaId, O => O.Cliente);
+										   where i.Fecha.Year == DateTime.Today.Year && (i.Fecha.Month == DateTime.Today.Month || i.Fecha.Month == DateTime.Today.AddMonths(-1).Month)
+										   orderby i.OfertaId descending
+										   select i).ToDictionaryAsync(O => O.OfertaId, O => O.Cliente);
 				}
 				return keyValuePairs;
 			}
@@ -91,7 +86,7 @@ namespace Negocio
 		}
 
 
-	public async Task<List<Oferta>> ListaOfertasPorAñoAsync(int ano = 0)
+		public async Task<List<Oferta>> ListaOfertasPorAñoAsync(int ano = 0)
 		{
 			try
 			{
@@ -101,9 +96,9 @@ namespace Negocio
 					using (var db = new DBContextProyectosAsfaltos())
 					{
 						lista = await (from i in db.Ofertas
-								 where i.Fecha.Year == ano
-								 orderby i.OfertaId descending
-								 select i).Include(O=>O.Encargado).ToListAsync();
+									   where i.Fecha.Year == ano
+									   orderby i.OfertaId descending
+									   select i).Include(O => O.Encargado).ToListAsync();
 					}
 				}
 				else
@@ -111,9 +106,9 @@ namespace Negocio
 					using (var db = new DBContextProyectosAsfaltos())
 					{
 						lista = await (from i in db.Ofertas
-								 orderby i.OfertaId descending
-								 where i.Fecha.Year == DateTime.Today.Year
-								 select i).Include(O => O.Encargado).ToListAsync();
+									   orderby i.OfertaId descending
+									   where i.Fecha.Year == DateTime.Today.Year
+									   select i).Include(O => O.Encargado).ToListAsync();
 					}
 				}
 				return lista;
@@ -158,23 +153,25 @@ namespace Negocio
 
 		}
 
-		public List<Oferta> BuscarOferta(string cliente = null, string NumeroOferta = null, string Vendedor= null)
+		public List<Oferta> BuscarOferta(string cliente = null, string NumeroOferta = null, string Vendedor = null)
 		{
-			if( cliente != null && NumeroOferta != null && Vendedor != null)
+			if (cliente != null && NumeroOferta != null && Vendedor != null)
 			{
 
-			}else if (cliente == null && NumeroOferta != null && Vendedor != null)
+			}
+			else if (cliente == null && NumeroOferta != null && Vendedor != null)
 			{
 
-			}else if (cliente != null && NumeroOferta != null && Vendedor != null)
+			}
+			else if (cliente != null && NumeroOferta != null && Vendedor != null)
 			{
 
 			}
 
-				throw new NotImplementedException();
+			throw new NotImplementedException();
 		}
 
-		
+
 
 
 		public async Task<List<Oferta>> ListaOfertasAsync()

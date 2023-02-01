@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
+﻿using Microsoft.EntityFrameworkCore;
 using Modelos;
 
 namespace Negocios
@@ -127,7 +121,7 @@ namespace Negocios
 			}
 		}
 
-		
+
 		public async Task<List<Proyecto>> ListarProyectoAsync()
 		{
 			try
@@ -136,8 +130,8 @@ namespace Negocios
 				using (var db = dBContext)
 				{
 					proyectos = await (from proye in db.Proyectos
-								 orderby proye.ProyectoId descending
-								 select proye).Include(P => P.Vendedor).ToListAsync();
+									   orderby proye.ProyectoId descending
+									   select proye).Include(P => P.Vendedor).ToListAsync();
 				}
 				return proyectos;
 			}

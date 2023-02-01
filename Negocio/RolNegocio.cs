@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Modelos;
+﻿using Modelos;
 
 namespace Negocios
 {
@@ -16,11 +11,13 @@ namespace Negocios
 		{
 			try
 			{
-				using(var db = dBContext)
+				using (var db = dBContext)
 				{
 					return db.Roles.ToList();
 				}
-			}catch(Exception ex) {
+			}
+			catch (Exception ex)
+			{
 				Console.Write(ex.ToString());
 				return null;
 			}

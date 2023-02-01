@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Modelos;
 using Negocios;
-using Modelos;
+using System.Data;
 
 namespace Interfaz
 {
@@ -22,7 +14,7 @@ namespace Interfaz
 		public async Task CargarUsuarios()
 		{
 			try
-			{	
+			{
 				UsuarioNegocio tmp = new UsuarioNegocio();
 				usuarios = await tmp.ListarUsuariosAsync();
 				if (usuarios.Count > 0)
@@ -67,14 +59,15 @@ namespace Interfaz
 					botonContrasena.Name = "btnContrasena";
 					botonContrasena.UseColumnTextForButtonValue = true;
 					dgvUsuarios.Columns.Add(botonContrasena);
-					
+
 				}
 				else
 				{
 					MessageBox.Show("No se lograron obtener datos", "Informaci");
 				}
 			}
-			catch (Exception ex) {
+			catch (Exception ex)
+			{
 				MessageBox.Show(ex.Message);
 
 			}
@@ -88,24 +81,24 @@ namespace Interfaz
 		{
 			try
 			{
-				if(e.ColumnIndex== 4)
+				if (e.ColumnIndex == 4)
 				{
 					// Obtener el id
 					CambiarContrasena cambiarContrasena = new();
 					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
-					cambiarContrasena.idUsuario= id;
-					cambiarContrasena.ShowDialog();	
+					cambiarContrasena.idUsuario = id;
+					cambiarContrasena.ShowDialog();
 				}
-				else if(e.ColumnIndex == 3)
+				else if (e.ColumnIndex == 3)
 				{
 					UsuarioNegocio usuarioNegocio = new();
 					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
 					var usuario = usuarioNegocio.ObtenerUsuario(id);
-					if(usuario != null)
+					if (usuario != null)
 					{
 						var estado = (usuario.Activo) ? "Activo" : "Inactivo";
-						var resultado = MessageBox.Show($"El usuario {usuario.Nombre} se encuentra {estado}\n¿Deseas cambiar su estado? ","Consulta",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-						if(resultado == DialogResult.Yes)
+						var resultado = MessageBox.Show($"El usuario {usuario.Nombre} se encuentra {estado}\n¿Deseas cambiar su estado? ", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+						if (resultado == DialogResult.Yes)
 						{
 							usuario.Activo = !usuario.Activo;
 							var resultado1 = usuarioNegocio.ActualizarUsuario(usuario);
@@ -118,8 +111,10 @@ namespace Interfaz
 					CargarUsuarios();
 				}
 
-			}catch (Exception ex) {
-				MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 
 		}

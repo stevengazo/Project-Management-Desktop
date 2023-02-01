@@ -1,21 +1,10 @@
 ﻿using Modelos;
-using Negocios;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
-using System.Reflection;
-using DataTable = System.Data.DataTable;
 using Negocio;
-using Microsoft.EntityFrameworkCore.Storage;
-using System.Security.Cryptography;
+using Negocios;
+using System.Data;
 using System.Globalization;
+using DataTable = System.Data.DataTable;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Interfaz
 {
@@ -50,7 +39,7 @@ namespace Interfaz
 			try
 			{
 				OfertaNegocio ofertaNegocio = new();
-				Ofertas =await ofertaNegocio.DiccionarioOfertasAsync();
+				Ofertas = await ofertaNegocio.DiccionarioOfertasAsync();
 				if (Ofertas != null)
 				{
 					cbOfertas.Items.Clear();
@@ -102,7 +91,7 @@ namespace Interfaz
 			else
 			{
 				var proyectosNegocio = new ProyectoNegocios();
-				proyectos =await proyectosNegocio.ListarProyectoAsync();
+				proyectos = await proyectosNegocio.ListarProyectoAsync();
 			}
 
 			if (proyectos.Count > 0)
@@ -130,7 +119,7 @@ namespace Interfaz
 						i.OfertaId,
 						i.FechaInicio.ToLongDateString(),
 						i.FechaFinal.ToLongDateString(),
-						i.Monto.ToString("C",CultureInfo.CurrentCulture),
+						i.Monto.ToString("C", CultureInfo.CurrentCulture),
 						i.Estado
 						);
 				}
@@ -241,7 +230,7 @@ namespace Interfaz
 						worksheet.Cells[contador, 9] = item.OfertaId.ToString();
 						worksheet.Cells[contador, 10] = item.FechaInicio.ToLongDateString();
 						worksheet.Cells[contador, 11] = item.FechaFinal.ToLongDateString();
-						worksheet.Cells[contador, 12] = item.Monto.ToString("C",CultureInfo.CurrentCulture);
+						worksheet.Cells[contador, 12] = item.Monto.ToString("C", CultureInfo.CurrentCulture);
 						contador++;
 					}
 					ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
@@ -390,7 +379,7 @@ namespace Interfaz
 			{
 				int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
 				var proyectosFiltrados = (from p in proyectos
-										  where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper()) && p.ProyectoId== idProyecto
+										  where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper()) && p.ProyectoId == idProyecto
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{
@@ -419,7 +408,7 @@ namespace Interfaz
 			{
 				int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
 				var proyectosFiltrados = (from p in proyectos
-										  where p.ProyectoId==idProyecto
+										  where p.ProyectoId == idProyecto
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{

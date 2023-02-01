@@ -1,21 +1,13 @@
 ﻿using Modelos;
 using Negocio;
 using Negocios;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Interfaz
 {
 	public partial class AgregarOferta : Form
 	{
-		private List<Usuario> usuarios= new List<Usuario>();
+		private List<Usuario> usuarios = new List<Usuario>();
 		public AgregarOferta()
 		{
 			InitializeComponent();
@@ -40,8 +32,10 @@ namespace Interfaz
 				{
 					cbEncargado.Items.Add(item.Nombre);
 				}
-			}catch(Exception ex) { 
-				MessageBox.Show($"Error Interno: {ex.Message}","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);	
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Error Interno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 
 		}
@@ -59,7 +53,7 @@ namespace Interfaz
 				ofertaTemporal.Asfalto = checkBoxAsfalto.Checked;
 				ofertaTemporal.Base = checkBoxBase.Checked;
 				ofertaTemporal.SubBase = checkBoxSubbase.Checked;
-				ofertaTemporal.Excavacion= checkBoxExcavacion.Checked;
+				ofertaTemporal.Excavacion = checkBoxExcavacion.Checked;
 				ofertaTemporal.Cliente = txtCliente.Text;
 				ofertaTemporal.Monto = float.Parse(txtMonto.Text);
 				ofertaTemporal.Notas = txtNotas.Text;
@@ -90,17 +84,17 @@ namespace Interfaz
 				if (string.IsNullOrEmpty(txtCliente.Text))
 				{
 					MessageBox.Show($"Nombre del Cliente no digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-					return  false;
+					return false;
 				}
-				int.TryParse(txtMonto.Text,out int val);
-				if(val == 0)
+				int.TryParse(txtMonto.Text, out int val);
+				if (val == 0)
 				{
 					MessageBox.Show($"Verifique el monto digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					return false;
 				}
 				if (string.IsNullOrEmpty(txtNotas.Text))
 				{
-					MessageBox.Show("No digito notas sobre la cotizacion","Adventencia",MessageBoxButtons.OK);
+					MessageBox.Show("No digito notas sobre la cotizacion", "Adventencia", MessageBoxButtons.OK);
 				}
 				if (string.IsNullOrEmpty(txtObservaciones.Text))
 				{
@@ -117,7 +111,8 @@ namespace Interfaz
 					return false;
 				}
 				return true;
-			}catch(Exception ex)
+			}
+			catch (Exception ex)
 			{
 				MessageBox.Show($"Error {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();

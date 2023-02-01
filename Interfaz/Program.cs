@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace Interfaz
 {
 	internal static class Program
@@ -20,9 +18,9 @@ namespace Interfaz
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show($"Error interno, la aplicación se cerrará\nError {ex.Message}","Error interno",MessageBoxButtons.OK);			
+				MessageBox.Show($"Error interno, la aplicación se cerrará\nError {ex.Message}", "Error interno", MessageBoxButtons.OK);
 			}
-			
+
 		}
 	}
 }

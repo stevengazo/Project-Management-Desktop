@@ -1,14 +1,5 @@
 ﻿using Modelos;
 using Negocios;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Interfaz
 {
@@ -54,8 +45,8 @@ namespace Interfaz
 						Usuario UsuarioTemporal = new Usuario()
 						{
 							Activo = true,
-							Nombre= txtNombre.Text,
-							Login = txtLogin.Text,	
+							Nombre = txtNombre.Text,
+							Login = txtLogin.Text,
 							HashContraseña = txtContrasena.Text
 						};
 						bool Resultado = tmp.CrearUsuario(UsuarioTemporal, out int idUsuario);
@@ -81,12 +72,12 @@ namespace Interfaz
 			{
 				RolUsuarioNegocio rolUsuario = new();
 				RolUsuario rolUsuario1Temporal = new();
-				var resultado =	MessageBox.Show("¿El rol por defecto es Vendedor, deseas cambiarlo a administrador?","Información",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-				if(DialogResult.Yes == resultado)
+				var resultado = MessageBox.Show("¿El rol por defecto es Vendedor, deseas cambiarlo a administrador?", "Información", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				if (DialogResult.Yes == resultado)
 				{
 					// asigna administrador como rol
 					rolUsuario1Temporal.RolId = 1;
-					rolUsuario1Temporal.UsuarioId = usuario.UsuarioId;	
+					rolUsuario1Temporal.UsuarioId = usuario.UsuarioId;
 				}
 				else
 				{
@@ -94,16 +85,16 @@ namespace Interfaz
 					rolUsuario1Temporal.RolId = 2;
 					rolUsuario1Temporal.UsuarioId = usuario.UsuarioId;
 				}
-				var resultadoRol= rolUsuario.AgregarRolUsuario(rolUsuario1Temporal);
+				var resultadoRol = rolUsuario.AgregarRolUsuario(rolUsuario1Temporal);
 				if (resultadoRol)
 				{
 					MessageBox.Show("Rol Agregado al usuario", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					this.Close();
 				}
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
-				MessageBox.Show("Error interno", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+				MessageBox.Show("Error interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 			}
 

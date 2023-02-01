@@ -2,10 +2,8 @@ using Modelos;
 using Negocio;
 using Negocios;
 using System.Data;
-using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
-using System.Threading;
 using System.Globalization;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Interfaz
 {
@@ -84,7 +82,7 @@ namespace Interfaz
 			else
 			{
 				proyectos = await proyectosNegocio.ListaProyectos(Temporal.UsuarioActivo.UsuarioId);
-			}			
+			}
 			if (proyectos.Count > 0)
 			{
 				DataTable _tabla = new();
@@ -114,7 +112,7 @@ namespace Interfaz
 						i.FacturaAnticipoId,
 						i.FechaInicio.ToLongDateString(),
 						i.FechaFinal.ToLongDateString(),
-						i.Monto.ToString("C",CultureInfo.CurrentCulture),
+						i.Monto.ToString("C", CultureInfo.CurrentCulture),
 						i.Estado
 						);
 				}
@@ -137,12 +135,12 @@ namespace Interfaz
 			txtContacto.Text = string.Empty;
 			comboBoxOfertas.Text = string.Empty;
 			txtMonto.Text = string.Empty;
-			numericUpDownPorcentaje.Value = 0;	
+			numericUpDownPorcentaje.Value = 0;
 			txtNumeroFacturaAnticipo.Text = string.Empty;
 			txtTareaBitrix.Text = string.Empty;
 			textBoxUbicacion.Text = string.Empty;
-			dateTimePickerInicio.Value= DateTime.Now;
-			dateTimePickerFinal.Value= DateTime.Now;
+			dateTimePickerInicio.Value = DateTime.Now;
+			dateTimePickerFinal.Value = DateTime.Now;
 			comboBoxEstado.Text = string.Empty;
 		}
 

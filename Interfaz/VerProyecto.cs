@@ -1,14 +1,5 @@
-﻿using Negocios;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Modelos;
+﻿using Modelos;
+using Negocios;
 using System.Globalization;
 
 namespace Interfaz
@@ -28,9 +19,9 @@ namespace Interfaz
 
 		private void CargarProyectoBasico()
 		{
-			if(idProyecto== 0)
+			if (idProyecto == 0)
 			{
-				MessageBox.Show("Error interno, no hay un proyecto especificado","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				MessageBox.Show("Error interno, no hay un proyecto especificado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -57,7 +48,7 @@ namespace Interfaz
 					txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
 					txtContacto.Text = proyectoTemporal.Contacto;
 					txtOferta.Text = proyectoTemporal.OfertaId;
-					txtMontoProyecto.Text =    proyectoTemporal.Monto.ToString("C",CultureInfo.CurrentCulture);
+					txtMontoProyecto.Text = proyectoTemporal.Monto.ToString("C", CultureInfo.CurrentCulture);
 					txtPorcentaje.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
 					txtNumeroFacturaAnticipo.Text = proyectoTemporal.FacturaAnticipoId;
 					txtNumeroTarea.Text = proyectoTemporal.TareaId.ToString();
@@ -66,7 +57,8 @@ namespace Interfaz
 					txtFechaFinal.Text = proyectoTemporal.FechaFinal.ToLongDateString();
 
 				}
-			}catch (Exception f)
+			}
+			catch (Exception f)
 			{
 				MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();

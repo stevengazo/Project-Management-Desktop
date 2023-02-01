@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Modelos;
 using Negocios;
-using System.IO;
-using Modelos;
+using System.Data;
 namespace Interfaz
 {
 	public partial class Login : Form
@@ -52,7 +43,7 @@ namespace Interfaz
 							bool Autorizacion = await usuarioNegocio.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
 							if (Autorizacion)
 							{
-								Temporal.UsuarioActivo =  usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
+								Temporal.UsuarioActivo = usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
 								Temporal.TipoLogin = "Vendedor";
 								ModuloVentas moduloVentas = new();
 								this.Hide();
@@ -106,7 +97,7 @@ namespace Interfaz
 
 		private async void Login_Load(object sender, EventArgs e)
 		{
-			var conexion =  Negocio.ComunNegocios.VerificarConexion();
+			var conexion = Negocio.ComunNegocios.VerificarConexion();
 			if (conexion)
 			{
 				CargarRoles();
@@ -116,8 +107,8 @@ namespace Interfaz
 				MessageBox.Show("No se puede conectar con la Base de Datos...\nVerifica tu conexion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 			}
-			
-			
+
+
 		}
 
 		private void CargarRoles()

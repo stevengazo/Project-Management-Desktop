@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Modelos;
+﻿using Modelos;
 
 namespace Negocios
 {
@@ -15,13 +10,14 @@ namespace Negocios
 		{
 			try
 			{
-				using(var db= new DBContextProyectosAsfaltos())
+				using (var db = new DBContextProyectosAsfaltos())
 				{
 					db.RolUsuarios.Add(item);
 					db.SaveChanges();
 				}
 				return true;
-			}catch (Exception f)
+			}
+			catch (Exception f)
 			{
 				return false;
 			}
@@ -36,7 +32,7 @@ namespace Negocios
 					var query = (
 							from item in db.RolUsuarios
 							join usuario in db.Usuarios on item.UsuarioId equals usuario.UsuarioId
-							where usuario.Login.ToUpper().Equals(login.ToUpper()) && item.RolId==idRol
+							where usuario.Login.ToUpper().Equals(login.ToUpper()) && item.RolId == idRol
 							select item
 								 ).FirstOrDefault();
 					if (query != null)
@@ -60,21 +56,23 @@ namespace Negocios
 		{
 			try
 			{
-				using (var db= dBContext)
+				using (var db = dBContext)
 				{
 					var query = (from item in db.RolUsuarios
-								 where item.RolUsuarioId== idUsuario && item.RolUsuarioId== idRol
+								 where item.RolUsuarioId == idUsuario && item.RolUsuarioId == idRol
 								 select item
 								 ).FirstOrDefault();
 					if (query != null)
 					{
 						return true;
-					}else
+					}
+					else
 					{
 						return false;
 					}
 				}
-			}catch(Exception ex)
+			}
+			catch (Exception ex)
 			{
 				return false;
 			}

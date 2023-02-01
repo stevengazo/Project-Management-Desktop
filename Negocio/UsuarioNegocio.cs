@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using Microsoft.EntityFrameworkCore;
+using Modelos;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Modelos;
 
 namespace Negocios
 {
 	public class UsuarioNegocio
 	{
-		
+
 
 		public async Task<List<Usuario>> ListarVendedoresAsync()
 		{
@@ -21,10 +16,10 @@ namespace Negocios
 				List<Usuario> Vendedores = new();
 				using (var db = new DBContextProyectosAsfaltos())
 				{
-					Vendedores =await (from usuario in db.Usuarios
-								  join rolesUsuario in db.RolUsuarios on usuario.UsuarioId equals rolesUsuario.UsuarioId
-								  where rolesUsuario.RolId == 2 && usuario.Activo == true
-								  select usuario
+					Vendedores = await (from usuario in db.Usuarios
+										join rolesUsuario in db.RolUsuarios on usuario.UsuarioId equals rolesUsuario.UsuarioId
+										where rolesUsuario.RolId == 2 && usuario.Activo == true
+										select usuario
 								  ).ToListAsync();
 				}
 				return Vendedores;
@@ -49,7 +44,8 @@ namespace Negocios
 								  ).ToList();
 				}
 				return Vendedores;
-			}catch (Exception f)
+			}
+			catch (Exception f)
 			{
 				return null;
 			}
@@ -65,8 +61,9 @@ namespace Negocios
 					db.Usuarios.Update(usuario);
 					db.SaveChanges();
 				}
-				return true;	
-			}catch (Exception f)
+				return true;
+			}
+			catch (Exception f)
 			{
 				return false;
 			}
@@ -77,7 +74,7 @@ namespace Negocios
 			try
 			{
 				Usuario usuario = ObtenerUsuario(idUsuario);
-				if(usuario != null)
+				if (usuario != null)
 				{
 					using (var md6Hash = MD5.Create())
 					{
@@ -86,7 +83,7 @@ namespace Negocios
 						var hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
 						usuario.HashContraseña = hash;
 					}
-					using( var db = new DBContextProyectosAsfaltos())
+					using (var db = new DBContextProyectosAsfaltos())
 					{
 						db.Usuarios.Update(usuario);
 						db.SaveChanges();
@@ -97,8 +94,9 @@ namespace Negocios
 				{
 					return false;
 				}
-				
-			}catch (Exception e)
+
+			}
+			catch (Exception e)
 			{
 				return false;
 			}
@@ -119,7 +117,7 @@ namespace Negocios
 				{
 					db.Usuarios.Add(_usuario);
 					db.SaveChanges();
-					UsuarioId = (from i in db.Usuarios where i.Login== _usuario.Login select i.UsuarioId).FirstOrDefault();
+					UsuarioId = (from i in db.Usuarios where i.Login == _usuario.Login select i.UsuarioId).FirstOrDefault();
 					return true;
 				}
 			}
@@ -272,8 +270,8 @@ namespace Negocios
 				using (var db = new DBContextProyectosAsfaltos())
 				{
 					usuarios = await (from usuario in db.Usuarios
-								orderby usuario.Activo descending
-								select usuario).ToListAsync();
+									  orderby usuario.Activo descending
+									  select usuario).ToListAsync();
 					foreach (var item in usuarios)
 					{
 						item.HashContraseña = string.Empty;

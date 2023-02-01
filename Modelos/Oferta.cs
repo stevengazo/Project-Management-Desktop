@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Modelos
 {
@@ -25,7 +20,7 @@ namespace Modelos
 		public string Observaciones { get; set; }
 		public string EncargadoCotizador { get; set; }
 		public string AutorPrespuesto { get; set; }
-		public string Cliente { get; set; }	
+		public string Cliente { get; set; }
 
 		public DateTime UltimaModificacion { get; set; }
 

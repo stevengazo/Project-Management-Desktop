@@ -1,15 +1,7 @@
 ﻿using Modelos;
 using Negocio;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Interfaz
 {
@@ -66,7 +58,7 @@ namespace Interfaz
 							item.Asfalto,
 							item.SubBase,
 							item.Excavacion,
-							item.Monto.ToString("C",CultureInfo.CurrentCulture),
+							item.Monto.ToString("C", CultureInfo.CurrentCulture),
 							item.Cliente,
 							item.Encargado.Nombre,
 							item.EncargadoCotizador
@@ -74,17 +66,18 @@ namespace Interfaz
 					}
 					dgvOfertas.DataSource = _tabla;
 				}
-			}catch (Exception f)
+			}
+			catch (Exception f)
 			{
 				MessageBox.Show("Error interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-			
+
 
 		}
 		private async Task CargarTablaAdministradores()
 		{
 			OfertaNegocio ofertaNegocio = new();
-			var listaOfertas =await ofertaNegocio.ListaOfertasAsync();
+			var listaOfertas = await ofertaNegocio.ListaOfertasAsync();
 			if (listaOfertas.Count > 0)
 			{
 				DataTable _tabla = new();
@@ -110,7 +103,7 @@ namespace Interfaz
 						item.Asfalto,
 						item.SubBase,
 						item.Excavacion,
-						item.Monto.ToString("C",CultureInfo.CurrentCulture),
+						item.Monto.ToString("C", CultureInfo.CurrentCulture),
 						item.Encargado.Nombre,
 						item.AutorPrespuesto,
 						item.EncargadoCotizador

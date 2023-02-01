@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Modelos
 {
@@ -22,16 +22,16 @@ namespace Modelos
 		public DateTime FechaFinal { get; set; }
 		public string Estado { get; set; }
 		public string Autor { get; set; }
-		public DateTime UltimaEdicion { get; set; }	
-		public string UltimoEditor { get; set; }			
+		public DateTime UltimaEdicion { get; set; }
+		public string UltimoEditor { get; set; }
 		public Usuario Vendedor { get; set; }
 		public int UsuarioId { get; set; }
-		public bool Enable { get; set; }	
+		public bool Enable { get; set; }
 
 		//public int ClienteID { get; set; }
 		//public Cliente Cliente { get; set;}
 
 
 	}
-	
+
 }
