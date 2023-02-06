@@ -30,9 +30,9 @@ namespace Interfaz
 
 		}
 
-		private void Form1_Load(object sender, EventArgs e)
+		private async void Form1_Load(object sender, EventArgs e)
 		{
-			CargarTabla();
+			await CargarTabla();
 			cargarOfertas();
 			CargarVendedores();
 			this.Text = $"Modulo Ventas - Asfaltos - Bienvenido {Temporal.UsuarioActivo.Nombre}";
@@ -81,48 +81,55 @@ namespace Interfaz
 			}
 			else
 			{
+#pragma warning disable CS8601 // Posible asignación de referencia nula
 				proyectos = await proyectosNegocio.ListaProyectos(Temporal.UsuarioActivo.UsuarioId);
+#pragma warning restore CS8601 // Posible asignación de referencia nula
 			}
-			if (proyectos.Count > 0)
+			if (proyectos!=null)
 			{
-				DataTable _tabla = new();
-
-				_tabla.Columns.Add("Numero Proyecto");
-				_tabla.Columns.Add("Vendedor");
-				_tabla.Columns.Add("Razon Social");
-				_tabla.Columns.Add("Fecha OC");
-				_tabla.Columns.Add("Oferta");
-				_tabla.Columns.Add("Porcentaje");
-				_tabla.Columns.Add("Id Factura Anticipo");
-				_tabla.Columns.Add("Fecha Inicio");
-				_tabla.Columns.Add("Fecha Final");
-				_tabla.Columns.Add("Monto");
-				_tabla.Columns.Add("Estado");
-
-
-				foreach (Proyecto i in proyectos)
+				if(proyectos.Count > 0)
 				{
-					_tabla.Rows.Add(
-						i.ProyectoId,
-						i.Vendedor.Nombre,
-						i.Cliente,
-						i.FechaOC.ToLongDateString(),
-						i.OfertaId,
-						$"{i.PorcentajeAnticipo}%",
-						i.FacturaAnticipoId,
-						i.FechaInicio.ToLongDateString(),
-						i.FechaFinal.ToLongDateString(),
-						i.Monto.ToString("C", CultureInfo.CurrentCulture),
-						i.Estado
-						);
+					DataTable _tabla = new();
+
+					_tabla.Columns.Add("id Interno");
+					_tabla.Columns.Add("Numero Proyecto");
+					_tabla.Columns.Add("Vendedor");
+					_tabla.Columns.Add("Razon Social");
+					_tabla.Columns.Add("Fecha OC");
+					_tabla.Columns.Add("Oferta");
+					_tabla.Columns.Add("Porcentaje");
+					_tabla.Columns.Add("Id Factura Anticipo");
+					_tabla.Columns.Add("Fecha Inicio");
+					_tabla.Columns.Add("Fecha Final");
+					_tabla.Columns.Add("Monto");
+					_tabla.Columns.Add("Estado");
+
+
+					foreach (Proyecto i in proyectos)
+					{
+						_tabla.Rows.Add(
+							i.ProyectoId,
+							$"P-{i.NumeroProyecto.ToString()}",
+							i.Vendedor.Nombre,
+							i.Cliente,
+							i.FechaOC.ToLongDateString(),
+							i.OfertaId,
+							$"{i.PorcentajeAnticipo}%",
+							i.FacturaAnticipoId,
+							i.FechaInicio.ToLongDateString(),
+							i.FechaFinal.ToLongDateString(),
+							i.Monto.ToString("C", CultureInfo.CurrentCulture),
+							i.Estado
+							);
+					}
+					dgvProyectos.DataSource = _tabla;
+					DataGridViewButtonColumn botonVer = new();
+					botonVer.HeaderText = "Ver";
+					botonVer.Text = "Ver";
+					botonVer.Name = "btnVerProyecto";
+					botonVer.UseColumnTextForButtonValue = true;
+					dgvProyectos.Columns.Add(botonVer);
 				}
-				dgvProyectos.DataSource = _tabla;
-				DataGridViewButtonColumn botonVer = new();
-				botonVer.HeaderText = "Ver";
-				botonVer.Text = "Ver";
-				botonVer.Name = "btnVerProyecto";
-				botonVer.UseColumnTextForButtonValue = true;
-				dgvProyectos.Columns.Add(botonVer);
 			}
 		}
 
@@ -165,7 +172,7 @@ namespace Interfaz
 						var ExcelApp = new Excel.Application();
 						ExcelApp.Workbooks.Add();
 						Excel._Worksheet worksheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
-						worksheet.Cells[1, "A"] = "Numero Proyecto";
+						worksheet.Cells[1, "A"] = "Numero proyecto";
 						worksheet.Cells[1, "B"] = "Vendedor";
 						worksheet.Cells[1, "B"] = "Cliente";
 						worksheet.Cells[1, "C"] = "Fecha OC";
@@ -176,7 +183,7 @@ namespace Interfaz
 						int contador = 2;
 						foreach (Proyecto item in proyectos)
 						{
-							worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
+							worksheet.Cells[contador, 1] = $"P-{item.NumeroProyecto.ToString()}";
 							worksheet.Cells[contador, 2] = item.Vendedor.Nombre;
 							worksheet.Cells[contador, 3] = item.Cliente;
 							worksheet.Cells[contador, 4] = item.FechaOC.ToLongDateString();
@@ -319,6 +326,7 @@ namespace Interfaz
 			}
 			catch (Exception f)
 			{
+				MessageBox.Show($"Error interno {f.Message}", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
 		}
@@ -382,7 +390,7 @@ namespace Interfaz
 				{
 					int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
 					var proyectosFiltrados = (from p in proyectos
-											  where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper()) && p.ProyectoId == idProyecto
+											  where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper()) && p.NumeroProyecto == idProyecto
 											  select p).ToList();
 					if (proyectosFiltrados.Count > 0)
 					{
@@ -411,7 +419,7 @@ namespace Interfaz
 				{
 					int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
 					var proyectosFiltrados = (from p in proyectos
-											  where p.ProyectoId == idProyecto
+											  where p.NumeroProyecto == idProyecto
 											  select p).ToList();
 					if (proyectosFiltrados.Count > 0)
 					{
@@ -427,7 +435,7 @@ namespace Interfaz
 			}
 			catch (Exception f)
 			{
-
+				MessageBox.Show($"Error interno {f.Message}", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 

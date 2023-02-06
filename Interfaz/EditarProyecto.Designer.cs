@@ -34,7 +34,7 @@
 			this.comboBoxOfertas = new System.Windows.Forms.ComboBox();
 			this.btnBorrar = new System.Windows.Forms.Button();
 			this.txtRazonSocial = new System.Windows.Forms.TextBox();
-			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
+			this.txtidProyecto = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.dtpOC = new System.Windows.Forms.DateTimePicker();
 			this.cbVendedores = new System.Windows.Forms.ComboBox();
@@ -62,18 +62,22 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorcentaje)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.txtNumeroProyecto);
+			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.txtFacturalFinalId);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.comboBoxOfertas);
 			this.groupBox1.Controls.Add(this.btnBorrar);
 			this.groupBox1.Controls.Add(this.txtRazonSocial);
-			this.groupBox1.Controls.Add(this.txtNumeroProyecto);
+			this.groupBox1.Controls.Add(this.txtidProyecto);
 			this.groupBox1.Controls.Add(this.label6);
 			this.groupBox1.Controls.Add(this.dtpOC);
 			this.groupBox1.Controls.Add(this.cbVendedores);
@@ -103,14 +107,14 @@
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Location = new System.Drawing.Point(12, 12);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(429, 579);
+			this.groupBox1.Size = new System.Drawing.Size(429, 637);
 			this.groupBox1.TabIndex = 4;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Información del Proyecto";
 			// 
 			// txtFacturalFinalId
 			// 
-			this.txtFacturalFinalId.Location = new System.Drawing.Point(181, 304);
+			this.txtFacturalFinalId.Location = new System.Drawing.Point(181, 330);
 			this.txtFacturalFinalId.Name = "txtFacturalFinalId";
 			this.txtFacturalFinalId.Size = new System.Drawing.Size(225, 23);
 			this.txtFacturalFinalId.TabIndex = 44;
@@ -118,7 +122,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(7, 307);
+			this.label1.Location = new System.Drawing.Point(7, 333);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(124, 15);
 			this.label1.TabIndex = 43;
@@ -127,7 +131,7 @@
 			// comboBoxOfertas
 			// 
 			this.comboBoxOfertas.FormattingEnabled = true;
-			this.comboBoxOfertas.Location = new System.Drawing.Point(181, 191);
+			this.comboBoxOfertas.Location = new System.Drawing.Point(181, 217);
 			this.comboBoxOfertas.Name = "comboBoxOfertas";
 			this.comboBoxOfertas.Size = new System.Drawing.Size(225, 23);
 			this.comboBoxOfertas.TabIndex = 42;
@@ -135,7 +139,7 @@
 			// btnBorrar
 			// 
 			this.btnBorrar.BackColor = System.Drawing.Color.LightCoral;
-			this.btnBorrar.Location = new System.Drawing.Point(33, 540);
+			this.btnBorrar.Location = new System.Drawing.Point(33, 566);
 			this.btnBorrar.Name = "btnBorrar";
 			this.btnBorrar.Size = new System.Drawing.Size(106, 23);
 			this.btnBorrar.TabIndex = 41;
@@ -145,31 +149,31 @@
 			// 
 			// txtRazonSocial
 			// 
-			this.txtRazonSocial.Location = new System.Drawing.Point(181, 98);
+			this.txtRazonSocial.Location = new System.Drawing.Point(181, 124);
 			this.txtRazonSocial.Name = "txtRazonSocial";
 			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
 			this.txtRazonSocial.TabIndex = 6;
 			// 
-			// txtNumeroProyecto
+			// txtidProyecto
 			// 
-			this.txtNumeroProyecto.Location = new System.Drawing.Point(181, 29);
-			this.txtNumeroProyecto.Name = "txtNumeroProyecto";
-			this.txtNumeroProyecto.ReadOnly = true;
-			this.txtNumeroProyecto.Size = new System.Drawing.Size(225, 23);
-			this.txtNumeroProyecto.TabIndex = 40;
+			this.txtidProyecto.Location = new System.Drawing.Point(181, 29);
+			this.txtidProyecto.Name = "txtidProyecto";
+			this.txtidProyecto.ReadOnly = true;
+			this.txtidProyecto.Size = new System.Drawing.Size(225, 23);
+			this.txtidProyecto.TabIndex = 40;
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Location = new System.Drawing.Point(7, 32);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(117, 15);
+			this.label6.Size = new System.Drawing.Size(58, 15);
 			this.label6.TabIndex = 39;
-			this.label6.Text = "Numero de Proyecto";
+			this.label6.Text = "Id Interno";
 			// 
 			// dtpOC
 			// 
-			this.dtpOC.Location = new System.Drawing.Point(181, 130);
+			this.dtpOC.Location = new System.Drawing.Point(181, 156);
 			this.dtpOC.Name = "dtpOC";
 			this.dtpOC.Size = new System.Drawing.Size(225, 23);
 			this.dtpOC.TabIndex = 38;
@@ -177,7 +181,7 @@
 			// cbVendedores
 			// 
 			this.cbVendedores.FormattingEnabled = true;
-			this.cbVendedores.Location = new System.Drawing.Point(181, 61);
+			this.cbVendedores.Location = new System.Drawing.Point(181, 87);
 			this.cbVendedores.Name = "cbVendedores";
 			this.cbVendedores.Size = new System.Drawing.Size(225, 23);
 			this.cbVendedores.TabIndex = 37;
@@ -190,7 +194,7 @@
             "En ejecución",
             "Finalizado con cobro",
             "Finalizado sin cobro"});
-			this.cbEstado.Location = new System.Drawing.Point(181, 501);
+			this.cbEstado.Location = new System.Drawing.Point(181, 527);
 			this.cbEstado.Name = "cbEstado";
 			this.cbEstado.Size = new System.Drawing.Size(225, 23);
 			this.cbEstado.TabIndex = 36;
@@ -198,21 +202,21 @@
 			// 
 			// numericUpDownPorcentaje
 			// 
-			this.numericUpDownPorcentaje.Location = new System.Drawing.Point(181, 249);
+			this.numericUpDownPorcentaje.Location = new System.Drawing.Point(181, 275);
 			this.numericUpDownPorcentaje.Name = "numericUpDownPorcentaje";
 			this.numericUpDownPorcentaje.Size = new System.Drawing.Size(225, 23);
 			this.numericUpDownPorcentaje.TabIndex = 35;
 			// 
 			// dtpFinalizacion
 			// 
-			this.dtpFinalizacion.Location = new System.Drawing.Point(181, 472);
+			this.dtpFinalizacion.Location = new System.Drawing.Point(181, 498);
 			this.dtpFinalizacion.Name = "dtpFinalizacion";
 			this.dtpFinalizacion.Size = new System.Drawing.Size(225, 23);
 			this.dtpFinalizacion.TabIndex = 34;
 			// 
 			// dtpInicio
 			// 
-			this.dtpInicio.Location = new System.Drawing.Point(181, 443);
+			this.dtpInicio.Location = new System.Drawing.Point(181, 469);
 			this.dtpInicio.Name = "dtpInicio";
 			this.dtpInicio.Size = new System.Drawing.Size(225, 23);
 			this.dtpInicio.TabIndex = 33;
@@ -220,7 +224,7 @@
 			// btnAgregar
 			// 
 			this.btnAgregar.BackColor = System.Drawing.Color.SkyBlue;
-			this.btnAgregar.Location = new System.Drawing.Point(270, 540);
+			this.btnAgregar.Location = new System.Drawing.Point(270, 566);
 			this.btnAgregar.Name = "btnAgregar";
 			this.btnAgregar.Size = new System.Drawing.Size(123, 23);
 			this.btnAgregar.TabIndex = 31;
@@ -230,7 +234,7 @@
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(168, 540);
+			this.button2.Location = new System.Drawing.Point(168, 566);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
 			this.button2.TabIndex = 30;
@@ -240,7 +244,7 @@
 			// label17
 			// 
 			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(7, 501);
+			this.label17.Location = new System.Drawing.Point(7, 527);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(42, 15);
 			this.label17.TabIndex = 28;
@@ -249,7 +253,7 @@
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(7, 472);
+			this.label16.Location = new System.Drawing.Point(7, 498);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(103, 15);
 			this.label16.TabIndex = 26;
@@ -258,7 +262,7 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(7, 443);
+			this.label15.Location = new System.Drawing.Point(7, 469);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(70, 15);
 			this.label15.TabIndex = 24;
@@ -266,7 +270,7 @@
 			// 
 			// txtUbicacion
 			// 
-			this.txtUbicacion.Location = new System.Drawing.Point(181, 362);
+			this.txtUbicacion.Location = new System.Drawing.Point(181, 388);
 			this.txtUbicacion.Multiline = true;
 			this.txtUbicacion.Name = "txtUbicacion";
 			this.txtUbicacion.Size = new System.Drawing.Size(225, 75);
@@ -275,7 +279,7 @@
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(7, 365);
+			this.label14.Location = new System.Drawing.Point(7, 391);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(60, 15);
 			this.label14.TabIndex = 22;
@@ -283,7 +287,7 @@
 			// 
 			// txtTarea
 			// 
-			this.txtTarea.Location = new System.Drawing.Point(181, 333);
+			this.txtTarea.Location = new System.Drawing.Point(181, 359);
 			this.txtTarea.Name = "txtTarea";
 			this.txtTarea.Size = new System.Drawing.Size(225, 23);
 			this.txtTarea.TabIndex = 21;
@@ -291,7 +295,7 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(7, 336);
+			this.label13.Location = new System.Drawing.Point(7, 362);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(64, 15);
 			this.label13.TabIndex = 20;
@@ -299,7 +303,7 @@
 			// 
 			// txtNumeroFacturaAnticipo
 			// 
-			this.txtNumeroFacturaAnticipo.Location = new System.Drawing.Point(181, 275);
+			this.txtNumeroFacturaAnticipo.Location = new System.Drawing.Point(181, 301);
 			this.txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
 			this.txtNumeroFacturaAnticipo.Size = new System.Drawing.Size(225, 23);
 			this.txtNumeroFacturaAnticipo.TabIndex = 17;
@@ -307,7 +311,7 @@
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(7, 278);
+			this.label11.Location = new System.Drawing.Point(7, 304);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(141, 15);
 			this.label11.TabIndex = 16;
@@ -315,7 +319,7 @@
 			// 
 			// txtMonto
 			// 
-			this.txtMonto.Location = new System.Drawing.Point(181, 220);
+			this.txtMonto.Location = new System.Drawing.Point(181, 246);
 			this.txtMonto.Name = "txtMonto";
 			this.txtMonto.Size = new System.Drawing.Size(225, 23);
 			this.txtMonto.TabIndex = 15;
@@ -323,7 +327,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(7, 249);
+			this.label10.Location = new System.Drawing.Point(7, 275);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(111, 15);
 			this.label10.TabIndex = 14;
@@ -332,7 +336,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(7, 220);
+			this.label9.Location = new System.Drawing.Point(7, 246);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(43, 15);
 			this.label9.TabIndex = 12;
@@ -341,7 +345,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(7, 191);
+			this.label8.Location = new System.Drawing.Point(7, 217);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(77, 15);
 			this.label8.TabIndex = 10;
@@ -349,7 +353,7 @@
 			// 
 			// txtContacto
 			// 
-			this.txtContacto.Location = new System.Drawing.Point(181, 159);
+			this.txtContacto.Location = new System.Drawing.Point(181, 185);
 			this.txtContacto.Name = "txtContacto";
 			this.txtContacto.Size = new System.Drawing.Size(225, 23);
 			this.txtContacto.TabIndex = 9;
@@ -357,7 +361,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(7, 162);
+			this.label7.Location = new System.Drawing.Point(7, 188);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(56, 15);
 			this.label7.TabIndex = 8;
@@ -366,7 +370,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(7, 133);
+			this.label5.Location = new System.Drawing.Point(7, 159);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(120, 15);
 			this.label5.TabIndex = 2;
@@ -375,7 +379,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(7, 101);
+			this.label4.Location = new System.Drawing.Point(7, 127);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(73, 15);
 			this.label4.TabIndex = 1;
@@ -384,17 +388,34 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(7, 69);
+			this.label3.Location = new System.Drawing.Point(7, 95);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(57, 15);
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Vendedor";
 			// 
+			// txtNumeroProyecto
+			// 
+			this.txtNumeroProyecto.Location = new System.Drawing.Point(181, 58);
+			this.txtNumeroProyecto.Name = "txtNumeroProyecto";
+			this.txtNumeroProyecto.ReadOnly = true;
+			this.txtNumeroProyecto.Size = new System.Drawing.Size(225, 23);
+			this.txtNumeroProyecto.TabIndex = 46;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(7, 61);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(117, 15);
+			this.label2.TabIndex = 45;
+			this.label2.Text = "Numero de Proyecto";
+			// 
 			// EditarProyecto
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(453, 603);
+			this.ClientSize = new System.Drawing.Size(453, 679);
 			this.Controls.Add(this.groupBox1);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -414,7 +435,7 @@
 
 		private GroupBox groupBox1;
 		private TextBox txtRazonSocial;
-		private TextBox txtNumeroProyecto;
+		private TextBox txtidProyecto;
 		private Label label6;
 		private DateTimePicker dtpOC;
 		private ComboBox cbVendedores;
@@ -446,5 +467,7 @@
 		private ComboBox comboBoxOfertas;
 		private TextBox txtFacturalFinalId;
 		private Label label1;
+		private TextBox txtNumeroProyecto;
+		private Label label2;
 	}
 }

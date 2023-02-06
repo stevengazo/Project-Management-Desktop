@@ -14,10 +14,18 @@ namespace Interfaz
 		public int ProyectoId { get; set; } = 0;
 		public EditarProyecto()
 		{
-			InitializeComponent();
+			try
+			{
+				InitializeComponent();
+			}
+			catch (Exception ex) {
+				MessageBox.Show($"Error interno - {ex.Message}", $"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.Close();
+			}
+			
 		}
 
-		private async Task CargarVendedores()
+		private void CargarVendedores()
 		{
 			UsuarioNegocio usuarioNegocio = new();
 			Vendedores = usuarioNegocio.ListarVendedores();
@@ -56,7 +64,7 @@ namespace Interfaz
 			var Resultado = MessageBox.Show("¿Deseas borrar este ProyectoActual?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (Resultado == DialogResult.Yes)
 			{
-				ProyectoNegocios proyectoNegocios = new ProyectoNegocios();
+				ProyectoNegocios proyectoNegocios = new();
 				var resultado1 = proyectoNegocios.DesactivarProyecto(ProyectoActual.ProyectoId);
 				if (resultado1)
 				{
@@ -69,12 +77,13 @@ namespace Interfaz
 		private async void EditarProyecto_Load(object sender, EventArgs e)
 		{
 			await cargarOfertas();
-			await CargarVendedores();
+			CargarVendedores();
 			if (ProyectoId != 0)
 			{
 				ProyectoNegocios proyectoNegocios = new();
 				ProyectoActual = proyectoNegocios.ObtenerProyecto(ProyectoId);
-				txtNumeroProyecto.Text = ProyectoActual.ProyectoId.ToString();
+				txtidProyecto.Text = ProyectoActual.ProyectoId.ToString();
+				txtNumeroProyecto.Text = $"P-{ProyectoActual.NumeroProyecto.ToString()}";
 				// vendedor
 				cbVendedores.Text = ProyectoActual.Vendedor.Nombre;
 				txtRazonSocial.Text = ProyectoActual.Cliente;

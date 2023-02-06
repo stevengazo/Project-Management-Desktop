@@ -12,17 +12,16 @@ namespace Interfaz
 			InitializeComponent();
 		}
 
-		private void ListarOferta_Load(object sender, EventArgs e)
+		private async void ListarOferta_Load(object sender, EventArgs e)
 		{
 			if (Temporal.TipoLogin.Equals("Administrador"))
 			{
-				CargarTablaAdministradores();
+				await CargarTablaAdministradores();
 			}
 			else
 			{
-				CargarTablaVendedores();
+				await CargarTablaVendedores();
 			}
-
 		}
 
 		private async Task CargarTablaVendedores()
@@ -69,7 +68,7 @@ namespace Interfaz
 			}
 			catch (Exception f)
 			{
-				MessageBox.Show("Error interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show($"Error interno - {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 
 
@@ -122,17 +121,17 @@ namespace Interfaz
 			this.Close();
 		}
 
-		private void agregarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
+		private async void agregarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			AgregarOferta agregarOferta = new();
 			agregarOferta.ShowDialog();
 			if (Temporal.TipoLogin.Equals("Administrador"))
 			{
-				CargarTablaAdministradores();
+				await CargarTablaAdministradores();
 			}
 			else
 			{
-				CargarTablaVendedores();
+				await CargarTablaVendedores();
 			}
 
 		}
@@ -142,18 +141,18 @@ namespace Interfaz
 
 		}
 
-		private void BtnLimpar_Click(object sender, EventArgs e)
+		private async void BtnLimpar_Click(object sender, EventArgs e)
 		{
 			txtCliente.Text = string.Empty;
 			txtNumeroProyecto.Text = string.Empty;
 			txtVendedor.Text = string.Empty;
 			if (Temporal.TipoLogin.Equals("Administrador"))
 			{
-				CargarTablaAdministradores();
+			 await CargarTablaAdministradores();
 			}
 			else
 			{
-				CargarTablaVendedores();
+			await	CargarTablaVendedores();
 			}
 		}
 	}

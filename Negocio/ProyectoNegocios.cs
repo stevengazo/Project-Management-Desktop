@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Modelos;
+using System.Security.Cryptography;
 
 namespace Negocios
 {
@@ -7,6 +8,20 @@ namespace Negocios
 	{
 		private DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
 
+
+		public int ObtenerUltimoNumero()
+		{
+			try
+			{
+				var query = (from i in dBContext.Proyectos
+							 orderby i.NumeroProyecto descending
+							 select i.NumeroProyecto).FirstOrDefault();
+				return query;
+			}catch(Exception ex) {
+				Console.WriteLine(ex.Message);
+				return -1;
+			}
+		}
 
 		public async Task<bool> DesactivarProyectoAsync(int ProyectoId)
 		{
@@ -19,7 +34,7 @@ namespace Negocios
 					using (var db = new DBContextProyectosAsfaltos())
 					{
 						db.Proyectos.Update(Proyecto);
-						db.SaveChangesAsync();
+						await db.SaveChangesAsync();
 					}
 					return true;
 				}
@@ -30,6 +45,7 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return false;
 			}
 		}
@@ -56,6 +72,7 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return false;
 			}
 		}
@@ -85,6 +102,16 @@ namespace Negocios
 			{
 				using (var db = new DBContextProyectosAsfaltos())
 				{
+					var numeroProyecto = ObtenerUltimoNumero();
+					if(numeroProyecto > 0)
+					{
+						proyecto.NumeroProyecto = numeroProyecto + 1;
+					}
+					else
+					{
+						idProyecto = -1;
+						return false;
+					}
 					db.Proyectos.Add(proyecto);
 					db.SaveChanges();
 					idProyecto = (from pro in db.Proyectos
@@ -96,12 +123,13 @@ namespace Negocios
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				idProyecto = -1;
 				return false;
 			}
 		}
 
-		public async Task<List<Proyecto>> ListaProyectos(int idEncargado)
+		public async Task<List<Proyecto>?> ListaProyectos(int idEncargado)
 		{
 			try
 			{
@@ -117,12 +145,13 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return null;
 			}
 		}
 
 
-		public async Task<List<Proyecto>> ListarProyectoAsync()
+		public async Task<List<Proyecto>?> ListarProyectoAsync()
 		{
 			try
 			{
@@ -137,11 +166,12 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return null;
 			}
 		}
 
-		public List<Proyecto> ListaProyectos()
+		public List<Proyecto>? ListaProyectos()
 		{
 			try
 			{
@@ -156,14 +186,15 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return null;
 			}
 		}
-		public Proyecto ObtenerProyecto(int id)
+		public Proyecto? ObtenerProyecto(int id)
 		{
 			try
 			{
-				Proyecto proyectos = new();
+				var proyectos = new Proyecto();
 				using (var db = dBContext)
 				{
 					proyectos = (from proye in db.Proyectos
@@ -174,6 +205,7 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return null;
 			}
 		}

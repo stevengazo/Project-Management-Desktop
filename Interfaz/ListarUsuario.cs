@@ -15,12 +15,12 @@ namespace Interfaz
 		{
 			try
 			{
-				UsuarioNegocio tmp = new UsuarioNegocio();
+				UsuarioNegocio tmp = new();
 				usuarios = await tmp.ListarUsuariosAsync();
 				if (usuarios.Count > 0)
 				{
 					dgvUsuarios.Columns.Clear();
-					DataTable data = new DataTable();
+					DataTable data = new();
 					data.Columns.Add("Id");
 					data.Columns.Add("Nombre");
 					data.Columns.Add("Estado");
@@ -72,12 +72,12 @@ namespace Interfaz
 
 			}
 		}
-		private void ListarUsuario_Load(object sender, EventArgs e)
+		private async void ListarUsuario_Load(object sender, EventArgs e)
 		{
-			CargarUsuarios();
+			await CargarUsuarios();
 		}
 
-		private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		private async void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 			try
 			{
@@ -108,7 +108,7 @@ namespace Interfaz
 							}
 						}
 					}
-					CargarUsuarios();
+				await CargarUsuarios();
 				}
 
 			}

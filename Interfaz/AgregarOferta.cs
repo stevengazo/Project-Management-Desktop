@@ -7,7 +7,7 @@ namespace Interfaz
 {
 	public partial class AgregarOferta : Form
 	{
-		private List<Usuario> usuarios = new List<Usuario>();
+		private List<Usuario> usuarios = new();
 		public AgregarOferta()
 		{
 			InitializeComponent();
@@ -18,15 +18,15 @@ namespace Interfaz
 
 		}
 
-		private void AgregarOferta_Load(object sender, EventArgs e)
+		private async void AgregarOferta_Load(object sender, EventArgs e)
 		{
-			CargarEncargados();
+			await CargarEncargadosAsync();
 		}
-		private async Task CargarEncargados()
+		private async Task CargarEncargadosAsync()
 		{
 			try
 			{
-				UsuarioNegocio UsuarioNegocio = new UsuarioNegocio();
+				UsuarioNegocio UsuarioNegocio = new();
 				usuarios = await UsuarioNegocio.ListarVendedoresAsync();
 				foreach (var item in usuarios)
 				{
@@ -45,7 +45,7 @@ namespace Interfaz
 			bool valido = ValidarCampos();
 			if (valido)
 			{
-				Oferta ofertaTemporal = new Oferta();
+				Oferta ofertaTemporal = new();
 				ofertaTemporal.AutorPrespuesto = Temporal.UsuarioActivo.Nombre;
 				ofertaTemporal.UltimaModificacion = DateTime.Now;
 				ofertaTemporal.Fecha = dateTimePickerFecha.Value;

@@ -8,6 +8,7 @@ namespace Modelos
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ProyectoId { get; set; }
+		public int NumeroProyecto { get; set; }
 		public DateTime FechaOC { get; set; }
 		public string Contacto { get; set; }
 		public string Cliente { get; set; }

@@ -32,6 +32,7 @@ namespace Negocio
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				idOferta = 0;
 				return false;
 			}
@@ -42,7 +43,7 @@ namespace Negocio
 		/// </summary>
 		/// <param name="año"></param>
 		/// <returns></returns>
-		public async Task<Dictionary<int, string>> DiccionarioOfertasAsync(int año = 0)
+		public async Task<Dictionary<int, string>?> DiccionarioOfertasAsync(int año = 0)
 		{
 			try
 			{
@@ -58,13 +59,14 @@ namespace Negocio
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				return null;
 			}
 
 		}
 
 
-		public Dictionary<int, string> DiccionarioOfertas(int año = 0)
+		public Dictionary<int, string>? DiccionarioOfertas(int año = 0)
 		{
 			try
 			{
@@ -80,13 +82,14 @@ namespace Negocio
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				return null;
 			}
 
 		}
 
 
-		public async Task<List<Oferta>> ListaOfertasPorAñoAsync(int ano = 0)
+		public async Task<List<Oferta>?> ListaOfertasPorAñoAsync(int ano = 0)
 		{
 			try
 			{
@@ -115,11 +118,12 @@ namespace Negocio
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return null;
 			}
 
 		}
-		public List<Oferta> ListaOfertasPorAño(int ano = 0)
+		public List<Oferta>? ListaOfertasPorAño(int ano = 0)
 		{
 			try
 			{
@@ -148,12 +152,13 @@ namespace Negocio
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return null;
 			}
 
 		}
 
-		public List<Oferta> BuscarOferta(string cliente = null, string NumeroOferta = null, string Vendedor = null)
+		public List<Oferta> BuscarOferta(string? cliente = null, string? NumeroOferta = null, string? Vendedor = null)
 		{
 			if (cliente != null && NumeroOferta != null && Vendedor != null)
 			{
@@ -167,14 +172,13 @@ namespace Negocio
 			{
 
 			}
-
 			throw new NotImplementedException();
 		}
 
 
 
 
-		public async Task<List<Oferta>> ListaOfertasAsync()
+		public async Task<List<Oferta>?> ListaOfertasAsync()
 		{
 			try
 			{
@@ -187,10 +191,11 @@ namespace Negocio
 			}
 			catch (Exception e)
 			{
+				Console.WriteLine(e);	
 				return null;
 			}
 		}
-		public List<Oferta> ListaOfertas()
+		public List<Oferta>? ListaOfertas()
 		{
 			try
 			{
@@ -203,6 +208,7 @@ namespace Negocio
 			}
 			catch (Exception e)
 			{
+				Console.WriteLine(e);
 				return null;
 			}
 		}

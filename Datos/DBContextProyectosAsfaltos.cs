@@ -86,6 +86,7 @@ namespace Modelos
 			Proyecto ProyectoBase = new()
 			{
 				ProyectoId = 1,
+				NumeroProyecto = 1,
 				FechaOC = DateTime.Now,
 				Contacto = "Ejemplo",
 				Cliente = "Ejemplo de Cliente",

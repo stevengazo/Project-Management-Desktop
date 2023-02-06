@@ -8,7 +8,7 @@ namespace Negocio
 		/// Lista los clientes existentes en la DB de forma asincrona
 		/// </summary>
 		/// <returns>Lista de clientes</returns>
-		public Task<Cliente> ListaClientesAsync()
+		public Task<Cliente>? ListaClientesAsync()
 		{
 			try
 			{
@@ -17,6 +17,7 @@ namespace Negocio
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				return null;
 			}
 		}
@@ -25,7 +26,7 @@ namespace Negocio
 		/// Lista los clientes registrados en la DB
 		/// </summary>
 		/// <returns></returns>
-		public List<Cliente> ListaClientes()
+		public List<Cliente>? ListaClientes()
 		{
 			try
 			{
@@ -38,10 +39,10 @@ namespace Negocio
 								select c).ToList();	
 				}*/
 				throw new NotImplementedException();
-				return clientes;
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				return null;
 			}
 		}

@@ -19,6 +19,7 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return false;
 			}
 		}
@@ -47,6 +48,7 @@ namespace Negocios
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.ToString());
 				return false;
 			}
 		}
@@ -74,6 +76,7 @@ namespace Negocios
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.ToString());
 				return false;
 			}
 		}

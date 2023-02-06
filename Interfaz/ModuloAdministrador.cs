@@ -17,10 +17,14 @@ namespace Interfaz
 		public ModuloAdministrador()
 		{
 			InitializeComponent();
-			CargarVendedoresAsync();
-			CargarTablaAsync();
-			cargarOfertas();
+			Carga();
+		}
 
+		public async void Carga()
+		{
+			await CargarVendedoresAsync();
+			await CargarTablaAsync();
+			await cargarOfertas();
 		}
 
 		private void CargarClientes()
@@ -98,6 +102,7 @@ namespace Interfaz
 			{
 				dgvProyectos.Columns.Clear();
 				DataTable _tabla = new();
+				_tabla.Columns.Add("Id Interno");
 				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
 				_tabla.Columns.Add("Cliente");
@@ -112,6 +117,7 @@ namespace Interfaz
 				{
 					_tabla.Rows.Add(
 						i.ProyectoId,
+						$"P-{i.NumeroProyecto}",
 						i.Vendedor.Nombre,
 						i.Cliente,
 						i.FechaOC.ToLongDateString(),
@@ -174,22 +180,22 @@ namespace Interfaz
 			}
 			catch (Exception f)
 			{
-				MessageBox.Show("Error interno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show($"Error interno {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
-		private void listarOfertasToolStripMenuItem_Click(object sender, EventArgs e)
+		private async void listarOfertasToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			ListarOferta listarOferta = new();
 			listarOferta.ShowDialog();
-			cargarOfertas();
+			await cargarOfertas();
 		}
 
-		private void agregarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
+		private async void agregarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			AgregarOferta agregarOferta = new();
 			agregarOferta.ShowDialog();
-			cargarOfertas();
+			await cargarOfertas();
 		}
 
 		private void excelToolStripMenuItem_Click(object sender, EventArgs e)
@@ -219,7 +225,7 @@ namespace Interfaz
 					int contador = 2;
 					foreach (Proyecto item in proyectos)
 					{
-						worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
+						worksheet.Cells[contador, 1] = $"P-{item.NumeroProyecto.ToString()}";
 						worksheet.Cells[contador, 2] = item.Vendedor.Nombre;
 						worksheet.Cells[contador, 3] = item.Cliente;
 						worksheet.Cells[contador, 4] = item.FacturaAnticipoId;
@@ -245,7 +251,7 @@ namespace Interfaz
 			}
 		}
 
-		private void btnAgregar_Click(object sender, EventArgs e)
+		private async void btnAgregar_Click(object sender, EventArgs e)
 		{
 			try
 			{
@@ -277,8 +283,8 @@ namespace Interfaz
 					var resultado = proyectoNegocios.CrearProyecto(proyectoTemporal, out int idProyecto);
 					if (resultado)
 					{
-						MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-						CargarTablaAsync();
+						MessageBox.Show($"Proyecto agregado. Id: {idProyecto}\nNumero de Proyecto P-{proyectoTemporal.NumeroProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						await CargarTablaAsync();
 						Limpiar();
 					}
 					else
@@ -332,6 +338,7 @@ namespace Interfaz
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return false;
 			}
 		}
@@ -373,17 +380,17 @@ namespace Interfaz
 			cbEstado.Text = string.Empty;
 		}
 
-		private void btnBuscar_Click(object sender, EventArgs e)
+		private async void btnBuscar_Click(object sender, EventArgs e)
 		{
 			if (!string.IsNullOrEmpty(txtNombreBuscar.Text) && !string.IsNullOrEmpty(txtNumeroProyectoBuscar.Text))
 			{
 				int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
 				var proyectosFiltrados = (from p in proyectos
-										  where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper()) && p.ProyectoId == idProyecto
+										  where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper()) && p.NumeroProyecto == idProyecto
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{
-					CargarTablaAsync(proyectosFiltrados);
+				 await CargarTablaAsync(proyectosFiltrados);
 				}
 				else
 				{
@@ -408,7 +415,7 @@ namespace Interfaz
 			{
 				int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
 				var proyectosFiltrados = (from p in proyectos
-										  where p.ProyectoId == idProyecto
+										  where p.NumeroProyecto == idProyecto
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{

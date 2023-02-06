@@ -7,7 +7,7 @@ namespace Negocios
 	{
 		private DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
 
-		public List<Rol> ListaDeRoles()
+		public List<Rol>? ListaDeRoles()
 		{
 			try
 			{

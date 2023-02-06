@@ -9,7 +9,7 @@ namespace Negocios
 	{
 
 
-		public async Task<List<Usuario>> ListarVendedoresAsync()
+		public async Task<List<Usuario>?> ListarVendedoresAsync()
 		{
 			try
 			{
@@ -26,6 +26,7 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return null;
 			}
 		}
@@ -47,6 +48,7 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return null;
 			}
 		}
@@ -65,6 +67,7 @@ namespace Negocios
 			}
 			catch (Exception f)
 			{
+				Console.WriteLine(f.Message);
 				return false;
 			}
 		}
@@ -98,6 +101,7 @@ namespace Negocios
 			}
 			catch (Exception e)
 			{
+				Console.WriteLine(e.Message);
 				return false;
 			}
 		}
@@ -113,16 +117,15 @@ namespace Negocios
 					var hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
 					_usuario.HashContraseña = hash;
 				}
-				using (var db = new DBContextProyectosAsfaltos())
-				{
-					db.Usuarios.Add(_usuario);
-					db.SaveChanges();
-					UsuarioId = (from i in db.Usuarios where i.Login == _usuario.Login select i.UsuarioId).FirstOrDefault();
-					return true;
-				}
+				using var db = new DBContextProyectosAsfaltos();
+				db.Usuarios.Add(_usuario);
+				db.SaveChanges();
+				UsuarioId = (from i in db.Usuarios where i.Login == _usuario.Login select i.UsuarioId).FirstOrDefault();
+				return true;
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				UsuarioId = 0;
 				return false;
 			}
@@ -154,6 +157,7 @@ namespace Negocios
 			}
 			catch (Exception r)
 			{
+				Console.WriteLine(r.Message);
 				return true;
 			}
 		}
@@ -161,7 +165,7 @@ namespace Negocios
 		{
 			throw new NotImplementedException();
 		}
-		public Usuario ObtenerUsuario(string login)
+		public Usuario? ObtenerUsuario(string login)
 		{
 			try
 			{
@@ -172,11 +176,10 @@ namespace Negocios
 							 select i).FirstOrDefault();
 					return s;
 				}
-
-
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				return null;
 			}
 		}
@@ -194,15 +197,12 @@ namespace Negocios
 			}
 			catch (Exception ex)
 			{
-				return null;
+				Console.WriteLine(ex.Message);
+				return new();
 			}
 		}
 
-		public async Task<UsuarioNegocio> ObtenerUsuarioAsync(int idUsuario)
-		{
-			throw new NotImplementedException();
-		}
-		public async Task<bool> IniciarSesion(string login, string password)
+		public bool IniciarSesion(string login, string password)
 		{
 			try
 			{
@@ -235,10 +235,11 @@ namespace Negocios
 			}
 			catch (Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				return false;
 			}
 		}
-		public List<Usuario> ListarUsuarios()
+		public List<Usuario>? ListarUsuarios()
 		{
 			try
 			{
@@ -262,7 +263,7 @@ namespace Negocios
 			}
 		}
 
-		public async Task<List<Usuario>> ListarUsuariosAsync()
+		public async Task<List<Usuario>?> ListarUsuariosAsync()
 		{
 			try
 			{

@@ -40,7 +40,7 @@ namespace Interfaz
 						bool PermisoDeRol = rolUsuarioNegocio.VerificarRol(txtUsuario.Text, idRol);
 						if (PermisoDeRol)
 						{
-							bool Autorizacion = await usuarioNegocio.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
+							bool Autorizacion = usuarioNegocio.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
 							if (Autorizacion)
 							{
 								Temporal.UsuarioActivo = usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
@@ -68,7 +68,7 @@ namespace Interfaz
 						bool PermisoDeRol = rolUsuarioNegocio.VerificarRol(txtUsuario.Text, idRol);
 						if (PermisoDeRol)
 						{
-							bool Autorizacion = await usuarioNegocio.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
+							bool Autorizacion = usuarioNegocio.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
 							if (Autorizacion)
 							{
 								Temporal.UsuarioActivo = usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
@@ -95,7 +95,7 @@ namespace Interfaz
 			}
 		}
 
-		private async void Login_Load(object sender, EventArgs e)
+		private void Login_Load(object sender, EventArgs e)
 		{
 			var conexion = Negocio.ComunNegocios.VerificarConexion();
 			if (conexion)

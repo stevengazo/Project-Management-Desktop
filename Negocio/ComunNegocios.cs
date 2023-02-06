@@ -15,6 +15,7 @@ namespace Negocio
 				}
 				catch (Exception r)
 				{
+					Console.WriteLine(r.Message);
 					return false;
 				}
 			}

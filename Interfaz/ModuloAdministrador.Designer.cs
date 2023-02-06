@@ -40,8 +40,6 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.txtNombreCliente = new System.Windows.Forms.TextBox();
 			this.cbOfertas = new System.Windows.Forms.ComboBox();
-			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
 			this.dtpOrdenCompra = new System.Windows.Forms.DateTimePicker();
 			this.cbVendedores = new System.Windows.Forms.ComboBox();
 			this.cbEstado = new System.Windows.Forms.ComboBox();
@@ -175,8 +173,6 @@
 			// 
 			this.groupBox1.Controls.Add(this.txtNombreCliente);
 			this.groupBox1.Controls.Add(this.cbOfertas);
-			this.groupBox1.Controls.Add(this.txtNumeroProyecto);
-			this.groupBox1.Controls.Add(this.label6);
 			this.groupBox1.Controls.Add(this.dtpOrdenCompra);
 			this.groupBox1.Controls.Add(this.cbVendedores);
 			this.groupBox1.Controls.Add(this.cbEstado);
@@ -225,23 +221,6 @@
 			this.cbOfertas.Name = "cbOfertas";
 			this.cbOfertas.Size = new System.Drawing.Size(225, 23);
 			this.cbOfertas.TabIndex = 41;
-			// 
-			// txtNumeroProyecto
-			// 
-			this.txtNumeroProyecto.Location = new System.Drawing.Point(181, 29);
-			this.txtNumeroProyecto.Name = "txtNumeroProyecto";
-			this.txtNumeroProyecto.ReadOnly = true;
-			this.txtNumeroProyecto.Size = new System.Drawing.Size(225, 23);
-			this.txtNumeroProyecto.TabIndex = 40;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(7, 32);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(117, 15);
-			this.label6.TabIndex = 39;
-			this.label6.Text = "Numero de Proyecto";
 			// 
 			// dtpOrdenCompra
 			// 
@@ -618,8 +597,6 @@
 		private Label label1;
 		private DataGridView dgvProyectos;
 		private GroupBox groupBox1;
-		private TextBox txtNumeroProyecto;
-		private Label label6;
 		private DateTimePicker dtpOrdenCompra;
 		private ComboBox cbVendedores;
 		private ComboBox cbEstado;
