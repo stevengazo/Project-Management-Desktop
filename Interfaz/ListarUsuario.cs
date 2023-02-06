@@ -7,6 +7,7 @@ namespace Interfaz
 	public partial class ListarUsuario : Form
 	{
 		private List<Usuario> usuarios;
+		private RolUsuarioNegocio RolUsuario = new RolUsuarioNegocio();
 		public ListarUsuario()
 		{
 			InitializeComponent();
@@ -60,6 +61,20 @@ namespace Interfaz
 					botonContrasena.UseColumnTextForButtonValue = true;
 					dgvUsuarios.Columns.Add(botonContrasena);
 
+
+					DataGridViewButtonColumn botonRolVentas = new();
+					botonRolVentas.HeaderText = "Rol Ventas";
+					botonRolVentas.Text = "Rol Ventas";
+					botonRolVentas.Name = "btnRolVentas";
+					botonRolVentas.UseColumnTextForButtonValue = true;
+					dgvUsuarios.Columns.Add(botonRolVentas);
+
+					DataGridViewButtonColumn botonRolAdmin = new();
+					botonRolAdmin.HeaderText = "Rol Admin";
+					botonRolAdmin.Text = "Rol Admin";
+					botonRolAdmin.Name = "btnRolAdmin";
+					botonRolAdmin.UseColumnTextForButtonValue = true;
+					dgvUsuarios.Columns.Add(botonRolAdmin);
 				}
 				else
 				{
@@ -108,9 +123,99 @@ namespace Interfaz
 							}
 						}
 					}
-				await CargarUsuarios();
+					await CargarUsuarios();
 				}
+				/// ROL DE VENDEDOR
+				else if (e.ColumnIndex == 5)
+				{
+					UsuarioNegocio usuarioNegocio = new();
+					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
+					var usuario = usuarioNegocio.ObtenerUsuario(id);
 
+					bool PoseeRol = RolUsuario.VerificarRol(usuario.UsuarioId, 2);
+					if (PoseeRol)
+					{
+						var respuesta = MessageBox.Show("El usuario posee el rol de vendedor, deseas quitarlo?", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+						if (respuesta == DialogResult.Yes)
+						{
+							var rol = RolUsuario.ObtenerRolUsuario(usuario.UsuarioId, 1);
+							if (rol != null)
+							{
+								var resultado = RolUsuario.BorrarRolUsuario(rol);
+								if (resultado)
+								{
+									MessageBox.Show("Rol Borrado", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+									CargarUsuarios();
+								}
+							}
+						}
+					}
+					else
+					{
+						// CONSULTAR SI AÑADIR ROL
+						var respuesta = MessageBox.Show("El usuario no posee el rol de vendedor, deseas añadirlo?", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+						if (respuesta == DialogResult.Yes)
+						{
+							RolUsuario rol = new RolUsuario()
+							{
+								RolId = 2,
+								UsuarioId = usuario.UsuarioId
+							};
+							var d = RolUsuario.AgregarRolUsuario(rol);
+							if (d)
+							{
+								MessageBox.Show("Rol Añadido al usuario", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+								CargarUsuarios();
+							}
+						}
+					}
+
+				}
+				/// ROL DE ADMINISTRADOR
+				else if (e.ColumnIndex == 6)
+				{
+					UsuarioNegocio usuarioNegocio = new();
+					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
+					var usuario = usuarioNegocio.ObtenerUsuario(id);
+
+					bool PoseeRol = RolUsuario.VerificarRol(usuario.UsuarioId, 1);
+					if (PoseeRol)
+					{
+						var respuesta = MessageBox.Show("El usuario posee el rol de administrador, deseas quitarlo?", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+						if (respuesta == DialogResult.Yes)
+						{
+							var rol = RolUsuario.ObtenerRolUsuario(usuario.UsuarioId, 1);
+							if (rol != null)
+							{
+								var resultado = RolUsuario.BorrarRolUsuario(rol);
+								if (resultado)
+								{
+									MessageBox.Show("Rol Borrado", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+									CargarUsuarios();
+								}
+							}
+						}
+					}
+					else
+					{
+						// CONSULTAR SI AÑADIR ROL
+						var respuesta = MessageBox.Show("El usuario no posee el rol de administrador, deseas añadirlo?", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+						if (respuesta == DialogResult.Yes)
+						{
+							RolUsuario rol = new RolUsuario()
+							{
+								RolId = 2,
+								UsuarioId = usuario.UsuarioId
+							};
+							var d = RolUsuario.AgregarRolUsuario(rol);
+							if (d)
+							{
+								MessageBox.Show("Rol Añadido al usuario", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+								CargarUsuarios();
+							}
+						}
+					}
+				}
 			}
 			catch (Exception ex)
 			{

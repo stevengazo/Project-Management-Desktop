@@ -6,6 +6,41 @@ namespace Negocios
 	{
 		private DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
 
+		public RolUsuario? ObtenerRolUsuario(int idUsuario= 0, int rol= 0)
+		{
+			try
+			{
+				using(var db = new DBContextProyectosAsfaltos())
+				{
+					var query = (from i in db.RolUsuarios
+								 where i.RolId == rol && i.UsuarioId == idUsuario
+								 select i ).FirstOrDefault();
+					return query;
+				}
+			}catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				return null;
+			}
+		}
+
+		public bool BorrarRolUsuario(RolUsuario rol)
+		{
+			try
+			{
+				using(var db = new DBContextProyectosAsfaltos())
+				{
+					db.RolUsuarios.Remove(rol);
+					db.SaveChanges();
+				}
+				return true;
+			}catch (Exception ex) {
+				Console.WriteLine(ex.Message);
+				return false;
+			}
+
+		}
+	
 		public bool AgregarRolUsuario(RolUsuario item)
 		{
 			try
@@ -58,7 +93,7 @@ namespace Negocios
 		{
 			try
 			{
-				using (var db = dBContext)
+				using (var db = new DBContextProyectosAsfaltos())
 				{
 					var query = (from item in db.RolUsuarios
 								 where item.RolUsuarioId == idUsuario && item.RolUsuarioId == idRol
