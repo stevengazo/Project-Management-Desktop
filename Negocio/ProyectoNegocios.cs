@@ -14,8 +14,8 @@ namespace Negocios
 			try
 			{
 				var query = (from i in dBContext.Proyectos
-							 orderby i.NumeroProyecto descending
-							 select i.NumeroProyecto).FirstOrDefault();
+							 orderby i.ProyectoId descending
+							 select i.ProyectoId).FirstOrDefault();
 				return query;
 			}catch(Exception ex) {
 				Console.WriteLine(ex.Message);
@@ -105,7 +105,7 @@ namespace Negocios
 					var numeroProyecto = ObtenerUltimoNumero();
 					if(numeroProyecto > 0)
 					{
-						proyecto.NumeroProyecto = numeroProyecto + 1;
+						proyecto.ProyectoId = numeroProyecto + 1;
 					}
 					else
 					{

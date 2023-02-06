@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <datos>
 	<cadenasdeconexion>
-		<DBAsfaltos>CADENA DE CONEXION A DB</DBAsfaltos>
+		<DBAsfaltos>Data Source=192.168.1.15;Initial Catalog=ProyectosAsfaltos;User ID=sa;Password=Password123;encrypt=false</DBAsfaltos>
 	</cadenasdeconexion>
 </datos>

@@ -82,8 +82,7 @@ namespace Interfaz
 			{
 				ProyectoNegocios proyectoNegocios = new();
 				ProyectoActual = proyectoNegocios.ObtenerProyecto(ProyectoId);
-				txtidProyecto.Text = ProyectoActual.ProyectoId.ToString();
-				txtNumeroProyecto.Text = $"P-{ProyectoActual.NumeroProyecto.ToString()}";
+				txtidProyecto.Text = $"P-{ProyectoActual.ProyectoId.ToString()}";
 				// vendedor
 				cbVendedores.Text = ProyectoActual.Vendedor.Nombre;
 				txtRazonSocial.Text = ProyectoActual.Cliente;

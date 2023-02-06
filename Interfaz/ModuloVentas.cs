@@ -92,7 +92,6 @@ namespace Interfaz
 					DataTable _tabla = new();
 
 					_tabla.Columns.Add("id Interno");
-					_tabla.Columns.Add("Numero Proyecto");
 					_tabla.Columns.Add("Vendedor");
 					_tabla.Columns.Add("Razon Social");
 					_tabla.Columns.Add("Fecha OC");
@@ -109,7 +108,6 @@ namespace Interfaz
 					{
 						_tabla.Rows.Add(
 							i.ProyectoId,
-							$"P-{i.NumeroProyecto.ToString()}",
 							i.Vendedor.Nombre,
 							i.Cliente,
 							i.FechaOC.ToLongDateString(),
@@ -183,7 +181,7 @@ namespace Interfaz
 						int contador = 2;
 						foreach (Proyecto item in proyectos)
 						{
-							worksheet.Cells[contador, 1] = $"P-{item.NumeroProyecto.ToString()}";
+							worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
 							worksheet.Cells[contador, 2] = item.Vendedor.Nombre;
 							worksheet.Cells[contador, 3] = item.Cliente;
 							worksheet.Cells[contador, 4] = item.FechaOC.ToLongDateString();
@@ -390,7 +388,7 @@ namespace Interfaz
 				{
 					int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
 					var proyectosFiltrados = (from p in proyectos
-											  where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper()) && p.NumeroProyecto == idProyecto
+											  where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper()) && p.ProyectoId == idProyecto
 											  select p).ToList();
 					if (proyectosFiltrados.Count > 0)
 					{
@@ -419,7 +417,7 @@ namespace Interfaz
 				{
 					int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
 					var proyectosFiltrados = (from p in proyectos
-											  where p.NumeroProyecto == idProyecto
+											  where p.ProyectoId == idProyecto
 											  select p).ToList();
 					if (proyectosFiltrados.Count > 0)
 					{

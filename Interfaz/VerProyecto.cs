@@ -41,7 +41,7 @@ namespace Interfaz
 				{
 					ProyectoNegocios proyectoNegocios = new();
 					Proyecto proyectoTemporal = proyectoNegocios.ObtenerProyecto(idProyecto);
-					txtNumeroProyecto.Text = $"P-{proyectoTemporal.NumeroProyecto.ToString()}" ;
+					txtNumeroProyecto.Text = $"P-{proyectoTemporal.ProyectoId.ToString()}" ;
 					txtEstado.Text = proyectoTemporal.Estado;
 					txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
 					txtRazonSocial.Text = proyectoTemporal.Cliente;

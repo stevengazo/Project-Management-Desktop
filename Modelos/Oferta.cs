@@ -6,7 +6,6 @@ namespace Modelos
 	public class Oferta
 	{
 		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int OfertaId { get; set; }
 		public DateTime Fecha { get; set; }
 		public int Codigo { get; set; }

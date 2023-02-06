@@ -103,7 +103,6 @@ namespace Interfaz
 				dgvProyectos.Columns.Clear();
 				DataTable _tabla = new();
 				_tabla.Columns.Add("Id Interno");
-				_tabla.Columns.Add("Numero Proyecto");
 				_tabla.Columns.Add("Vendedor");
 				_tabla.Columns.Add("Cliente");
 				_tabla.Columns.Add("Fecha OC");
@@ -117,7 +116,6 @@ namespace Interfaz
 				{
 					_tabla.Rows.Add(
 						i.ProyectoId,
-						$"P-{i.NumeroProyecto}",
 						i.Vendedor.Nombre,
 						i.Cliente,
 						i.FechaOC.ToLongDateString(),
@@ -225,7 +223,7 @@ namespace Interfaz
 					int contador = 2;
 					foreach (Proyecto item in proyectos)
 					{
-						worksheet.Cells[contador, 1] = $"P-{item.NumeroProyecto.ToString()}";
+						worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
 						worksheet.Cells[contador, 2] = item.Vendedor.Nombre;
 						worksheet.Cells[contador, 3] = item.Cliente;
 						worksheet.Cells[contador, 4] = item.FacturaAnticipoId;
@@ -283,7 +281,7 @@ namespace Interfaz
 					var resultado = proyectoNegocios.CrearProyecto(proyectoTemporal, out int idProyecto);
 					if (resultado)
 					{
-						MessageBox.Show($"Proyecto agregado. Id: {idProyecto}\nNumero de Proyecto P-{proyectoTemporal.NumeroProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						await CargarTablaAsync();
 						Limpiar();
 					}
@@ -386,7 +384,7 @@ namespace Interfaz
 			{
 				int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
 				var proyectosFiltrados = (from p in proyectos
-										  where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper()) && p.NumeroProyecto == idProyecto
+										  where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper()) && p.ProyectoId == idProyecto
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{
@@ -415,7 +413,7 @@ namespace Interfaz
 			{
 				int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
 				var proyectosFiltrados = (from p in proyectos
-										  where p.NumeroProyecto == idProyecto
+										  where p.ProyectoId == idProyecto
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{

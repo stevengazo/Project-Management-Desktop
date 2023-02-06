@@ -8,6 +8,25 @@ namespace Negocio
 	/// </summary>
 	public class OfertaNegocio
 	{
+
+		public int ObtenerUltimoId()
+		{
+			try
+			{
+				int Numero = -1;
+				using(var db = new DBContextProyectosAsfaltos())
+				{
+					Numero = (from i in db.Ofertas
+							  orderby i.OfertaId descending
+							  select i.OfertaId).FirstOrDefault();
+				}
+				return Numero;
+			}catch (Exception ex)
+			{
+				return -1;
+			}
+		}
+
 		/// <summary>
 		/// Registra una nueva oferta en la base de datos
 		/// </summary>
@@ -18,15 +37,24 @@ namespace Negocio
 		{
 			try
 			{
+				int idTmp = ObtenerUltimoId();
 				using (var db = new DBContextProyectosAsfaltos())
-				{
-					db.Ofertas.Add(ofertaNueva);
-					db.SaveChanges();
-					idOferta = (from o in db.Ofertas
-								where o.AutorPrespuesto == ofertaNueva.AutorPrespuesto && o.Monto == ofertaNueva.Monto
-								orderby o.OfertaId descending
-								select o.OfertaId).FirstOrDefault();
-
+				{					
+					if(idTmp != -1)
+					{
+						ofertaNueva.OfertaId = idTmp+1;
+						db.Ofertas.Add(ofertaNueva);
+						db.SaveChanges();
+						idOferta = (from o in db.Ofertas
+									where o.AutorPrespuesto == ofertaNueva.AutorPrespuesto && o.Monto == ofertaNueva.Monto
+									orderby o.OfertaId descending
+									select o.OfertaId).FirstOrDefault();
+					}
+					else
+					{
+						idOferta = 0;
+						return false;
+					}
 				}
 				return true;
 			}
