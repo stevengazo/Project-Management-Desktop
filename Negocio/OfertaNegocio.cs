@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using Modelos;
 
 namespace Negocio
@@ -8,6 +9,54 @@ namespace Negocio
 	/// </summary>
 	public class OfertaNegocio
 	{
+
+		/// <summary>
+		/// Realiza la busqueda de la informaci[on dada
+		/// </summary>
+		/// <param name="numeroOferta"></param>
+		/// <param name="Cliente"></param>
+		/// <returns></returns>
+		public List<Oferta> BuscarOferta(int numeroOferta = 0, string Cliente = "")
+		{
+			try
+			{
+				List<Oferta> lista = new List<Oferta>();
+				using(var db = new DBContextProyectosAsfaltos())
+				{
+					if(numeroOferta > 0 && !string.IsNullOrEmpty(Cliente))
+					{
+						lista = (from i in db.Ofertas
+								 where i.OfertaId== numeroOferta && i.Cliente.Contains(Cliente)
+								 orderby i.OfertaId descending
+								 select i).Include(V=>V.Encargado).ToList();
+
+					}
+					else if (numeroOferta == 0 && !string.IsNullOrEmpty(Cliente))
+					{
+						lista = (from i in db.Ofertas
+								 where  i.Cliente.Contains(Cliente)
+								 orderby i.OfertaId descending
+								 select i).Include(V => V.Encargado).ToList();
+
+					}
+					else if (numeroOferta > 0 && string.IsNullOrEmpty(Cliente))
+					{
+						lista = (from i in db.Ofertas
+								 where i.OfertaId == numeroOferta
+								 orderby i.OfertaId descending
+								 select i).Include(V => V.Encargado).ToList();
+					}
+					else
+					{
+						return lista;
+					}
+					return lista;
+				}
+			}catch(Exception ex)
+			{
+				return new List<Oferta>();
+			}
+		}
 
 		public int ObtenerUltimoId()
 		{

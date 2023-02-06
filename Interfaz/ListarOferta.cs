@@ -7,7 +7,9 @@ namespace Interfaz
 {
 	public partial class ListarOferta : Form
 	{
-		public ListarOferta()
+
+		private List<Oferta> ListaOfertas { get; set; }
+ 		public ListarOferta()
 		{
 			InitializeComponent();
 		}
@@ -24,14 +26,21 @@ namespace Interfaz
 			}
 		}
 
-		private async Task CargarTablaVendedores()
+		private async Task CargarTablaVendedores(List<Oferta> lista = null)
 		{
 			try
 			{
-				int IdUsuario = Temporal.UsuarioActivo.UsuarioId;
-				OfertaNegocio ofertaNegocio = new();
-				var ofertas = await ofertaNegocio.ListaOfertasPorAñoAsync(DateTime.Now.Year);
-				if (ofertas.Count > 0)
+				if (lista != null)
+				{
+					ListaOfertas = lista;
+				}
+				else
+				{
+					int IdUsuario = Temporal.UsuarioActivo.UsuarioId;
+					OfertaNegocio ofertaNegocio = new();
+					ListaOfertas = await ofertaNegocio.ListaOfertasPorAñoAsync(DateTime.Now.Year);
+				}
+				if (ListaOfertas.Count > 0)
 				{
 					DataTable _tabla = new();
 					_tabla.Columns.Add("Oferta Id");
@@ -47,7 +56,7 @@ namespace Interfaz
 					_tabla.Columns.Add("Cotizado Por");
 
 
-					foreach (Oferta item in ofertas)
+					foreach (Oferta item in ListaOfertas)
 					{
 						_tabla.Rows.Add(
 							$"CM-{item.OfertaId.ToString()}",
@@ -73,14 +82,22 @@ namespace Interfaz
 
 
 		}
-		private async Task CargarTablaAdministradores()
+		private async Task CargarTablaAdministradores(List<Oferta> lista = null) 
 		{
-			OfertaNegocio ofertaNegocio = new();
-			var listaOfertas = await ofertaNegocio.ListaOfertasAsync();
-			if (listaOfertas.Count > 0)
+			if (lista != null)
+			{
+				ListaOfertas = lista;
+			}
+			else
+			{
+				OfertaNegocio ofertaNegocio = new();
+				ListaOfertas = await ofertaNegocio.ListaOfertasAsync();
+			}
+			if (ListaOfertas.Count > 0)
 			{
 				DataTable _tabla = new();
 				_tabla.Columns.Add("Oferta Id");
+				_tabla.Columns.Add("Cliente");
 				_tabla.Columns.Add("Fecha");
 				//_tabla.Columns.Add("Codigo");
 				_tabla.Columns.Add("Sellador");
@@ -92,10 +109,11 @@ namespace Interfaz
 				_tabla.Columns.Add("Creado por");
 				_tabla.Columns.Add("Cotizado Por");
 
-				foreach (Oferta item in listaOfertas)
+				foreach (Oferta item in ListaOfertas)
 				{
 					_tabla.Rows.Add(
 						$"CM-{item.OfertaId.ToString()}",
+						item.Cliente,
 						item.Fecha.ToLongDateString(),
 						//item.Codigo,
 						item.Sellador,
@@ -136,16 +154,10 @@ namespace Interfaz
 
 		}
 
-		private void btnAgregar_Click(object sender, EventArgs e)
-		{
-
-		}
-
 		private async void BtnLimpar_Click(object sender, EventArgs e)
 		{
 			txtCliente.Text = string.Empty;
-			txtNumeroProyecto.Text = string.Empty;
-			txtVendedor.Text = string.Empty;
+			txtNumeroOferta.Text = string.Empty;
 			if (Temporal.TipoLogin.Equals("Administrador"))
 			{
 			 await CargarTablaAdministradores();
@@ -154,6 +166,83 @@ namespace Interfaz
 			{
 			await	CargarTablaVendedores();
 			}
+		}
+
+		private void btnBuscar_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				int.TryParse(txtNumeroOferta.Text, out int numeroOferta);
+				var cliente = txtCliente.Text;
+				if (!string.IsNullOrEmpty(cliente))
+				{
+					OfertaNegocio tmp = new OfertaNegocio();
+					ListaOfertas = tmp.BuscarOferta(numeroOferta, cliente);
+					if (ListaOfertas.Count > 0)
+					{
+						if (Temporal.TipoLogin.Equals("Administrador"))
+						{
+							CargarTablaAdministradores(ListaOfertas);
+						}
+						else
+						{
+							CargarTablaVendedores(ListaOfertas);
+						}
+					}
+					else
+					{
+						MessageBox.Show($"Busqueda sin resultados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						if (Temporal.TipoLogin.Equals("Administrador"))
+						{
+							CargarTablaAdministradores();
+						}
+						else
+						{
+							CargarTablaVendedores();
+						}
+					}
+				}
+				else
+				{
+					OfertaNegocio tmp = new OfertaNegocio();
+					ListaOfertas = tmp.BuscarOferta(numeroOferta);
+					if (ListaOfertas.Count > 0)
+					{
+						if (Temporal.TipoLogin.Equals("Administrador"))
+						{
+							CargarTablaAdministradores(ListaOfertas);
+						}
+						else
+						{
+							CargarTablaVendedores(ListaOfertas);
+						}
+					}
+					else
+					{
+						MessageBox.Show($"Busqueda sin resultados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						if (Temporal.TipoLogin.Equals("Administrador"))
+						{
+							CargarTablaAdministradores();
+						}
+						else
+						{
+							CargarTablaVendedores();
+						}
+					}
+
+				}
+
+
+
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Error {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+			}
+
+
+
 		}
 	}
 }
