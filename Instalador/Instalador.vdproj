@@ -104,6 +104,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -225,7 +233,7 @@
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:TRUE"
+            "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
@@ -303,7 +311,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Proyectos y Ofertas - Asfaltos Mecsa"
         "ProductCode" = "8:{602544DB-79D7-43D0-BB05-7EA82947561D}"
-        "PackageCode" = "8:{CA729FE8-44E5-49DD-9028-4D6445415719}"
+        "PackageCode" = "8:{56280058-AC5D-4D38-8001-43762DFE8251}"
         "UpgradeCode" = "8:{A5057F17-8AA7-436F-9927-1EDE8B5CA68D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -437,17 +445,17 @@
             "Icon" = "8:_4673EAA4030746DF8CEC562541F7B5D5"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AF77C598756A4E6FB790E6038477364B"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ABA2DBBDC0244ECBAE6B3CA7CD0DABB0"
             {
-            "Name" = "8:Asfaltos - Proyectos y Ofertas"
+            "Name" = "8:Proyecto Asfaltos"
             "Arguments" = "8:"
-            "Description" = "8:Aplicación para el registro de proyectos y ofertas"
+            "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_7A5B65C22D454B178430CED4590C9220"
             "Folder" = "8:_09DB19F13B3141C2B570CBE51FA2928D"
-            "WorkingFolder" = "8:_6245F030ECCA463DBBE3ABED93F363DB"
+            "WorkingFolder" = "8:_333325947964420B9A79EB9DD57763B0"
             "Icon" = "8:_4673EAA4030746DF8CEC562541F7B5D5"
             "Feature" = "8:"
             }

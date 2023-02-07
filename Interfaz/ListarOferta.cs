@@ -43,6 +43,14 @@ namespace Interfaz
 				}
 				if (ListaOfertas.Count > 0)
 				{
+					dgvOfertas.Columns.Clear();
+					DataGridViewButtonColumn botonVer = new DataGridViewButtonColumn();
+					botonVer.HeaderText = "Ver";
+					botonVer.Text = "Ver";
+					botonVer.Name = "btnVer";
+					botonVer.UseColumnTextForButtonValue = true;
+					dgvOfertas.Columns.Add(botonVer);
+
 					DataTable _tabla = new();
 					_tabla.Columns.Add("Oferta Id");
 					_tabla.Columns.Add("Fecha");
@@ -74,12 +82,7 @@ namespace Interfaz
 							);
 					}
 					dgvOfertas.DataSource = _tabla;
-					DataGridViewButtonColumn botonVer = new DataGridViewButtonColumn();
-					botonVer.HeaderText = "Ver";
-					botonVer.Text = "Ver";
-					botonVer.Name = "btnVer";
-					botonVer.UseColumnTextForButtonValue = true;
-					dgvOfertas.Columns.Add(botonVer);
+		
 
 
 				}
@@ -104,6 +107,16 @@ namespace Interfaz
 			}
 			if (ListaOfertas.Count > 0)
 			{
+				dgvOfertas.Columns.Clear();
+				DataGridViewButtonColumn botonVer = new DataGridViewButtonColumn();
+				botonVer.HeaderText = "Ver";
+				botonVer.Text = "Ver";
+				botonVer.Name = "btnVer";
+				botonVer.UseColumnTextForButtonValue = true;
+				dgvOfertas.Columns.Add(botonVer);
+
+				
+
 				DataTable _tabla = new();
 				_tabla.Columns.Add("Oferta Id");
 				_tabla.Columns.Add("Cliente");
@@ -136,12 +149,7 @@ namespace Interfaz
 						);
 				}
 				dgvOfertas.DataSource = _tabla;
-				DataGridViewButtonColumn botonVer = new DataGridViewButtonColumn();
-				botonVer.HeaderText = "Ver";
-				botonVer.Text = "Ver";
-				botonVer.Name = "btnVer";
-				botonVer.UseColumnTextForButtonValue = true;
-				dgvOfertas.Columns.Add(botonVer);
+				
 			}
 			else
 			{
@@ -265,10 +273,10 @@ namespace Interfaz
 			try
 			{
 				// CAMBIAR CONTRASENA
-				if (e.ColumnIndex == 11)
+				if (e.ColumnIndex == 0)
 				{
 					// Obtener el id
-					var dato = (dgvOfertas.Rows[e.RowIndex].Cells[0].Value.ToString()).Split('-');
+					var dato = (dgvOfertas.Rows[e.RowIndex].Cells[1].Value.ToString()).Split('-');
 					var id = int.Parse(dato[1]);
 					VerOferta verOferta= new VerOferta();
 					verOferta.idOferta = id;
