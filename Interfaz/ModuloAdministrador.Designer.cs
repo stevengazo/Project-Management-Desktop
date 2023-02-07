@@ -128,6 +128,7 @@
 			// 
 			this.txtNumeroProyectoBuscar.Location = new System.Drawing.Point(365, 29);
 			this.txtNumeroProyectoBuscar.Name = "txtNumeroProyectoBuscar";
+			this.txtNumeroProyectoBuscar.PlaceholderText = "Mecsa";
 			this.txtNumeroProyectoBuscar.Size = new System.Drawing.Size(102, 23);
 			this.txtNumeroProyectoBuscar.TabIndex = 4;
 			// 
@@ -144,6 +145,7 @@
 			// 
 			this.txtNombreBuscar.Location = new System.Drawing.Point(56, 29);
 			this.txtNombreBuscar.Name = "txtNombreBuscar";
+			this.txtNombreBuscar.PlaceholderText = "1234678";
 			this.txtNombreBuscar.Size = new System.Drawing.Size(163, 23);
 			this.txtNombreBuscar.TabIndex = 2;
 			// 

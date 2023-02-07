@@ -96,10 +96,9 @@ namespace Negocios
 				using (var db = new DBContextProyectosAsfaltos())
 				{
 					var query = (from item in db.RolUsuarios
-								 where item.RolUsuarioId == idUsuario && item.RolUsuarioId == idRol
-								 select item
-								 ).FirstOrDefault();
-					if (query != null)
+								 where item.RolId == (int)idRol && item.UsuarioId == (int)idUsuario
+								 select item).ToList().Count();
+					if (query > 0)
 					{
 						return true;
 					}

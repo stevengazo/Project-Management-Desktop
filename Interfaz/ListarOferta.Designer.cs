@@ -46,9 +46,12 @@
 			// 
 			// dgvOfertas
 			// 
+			this.dgvOfertas.AllowUserToAddRows = false;
+			this.dgvOfertas.AllowUserToDeleteRows = false;
 			this.dgvOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvOfertas.Location = new System.Drawing.Point(12, 92);
 			this.dgvOfertas.Name = "dgvOfertas";
+			this.dgvOfertas.ReadOnly = true;
 			this.dgvOfertas.RowTemplate.Height = 25;
 			this.dgvOfertas.Size = new System.Drawing.Size(1213, 491);
 			this.dgvOfertas.TabIndex = 0;

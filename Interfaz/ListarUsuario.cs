@@ -96,6 +96,7 @@ namespace Interfaz
 		{
 			try
 			{
+				// CAMBIAR CONTRASENA
 				if (e.ColumnIndex == 4)
 				{
 					// Obtener el id
@@ -104,8 +105,10 @@ namespace Interfaz
 					cambiarContrasena.idUsuario = id;
 					cambiarContrasena.ShowDialog();
 				}
+				/// ESTADO DEL USUARIO 
 				else if (e.ColumnIndex == 3)
 				{
+					
 					UsuarioNegocio usuarioNegocio = new();
 					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
 					var usuario = usuarioNegocio.ObtenerUsuario(id);
@@ -135,16 +138,17 @@ namespace Interfaz
 					bool PoseeRol = RolUsuario.VerificarRol(usuario.UsuarioId, 2);
 					if (PoseeRol)
 					{
+						// BORRADO DEL ROL
 						var respuesta = MessageBox.Show("El usuario posee el rol de vendedor, deseas quitarlo?", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 						if (respuesta == DialogResult.Yes)
 						{
-							var rol = RolUsuario.ObtenerRolUsuario(usuario.UsuarioId, 1);
+							var rol = RolUsuario.ObtenerRolUsuario(usuario.UsuarioId, 2);
 							if (rol != null)
 							{
 								var resultado = RolUsuario.BorrarRolUsuario(rol);
 								if (resultado)
 								{
-									MessageBox.Show("Rol Borrado", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+									MessageBox.Show("Rol Borrado", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
 									CargarUsuarios();
 								}
 							}
@@ -190,7 +194,7 @@ namespace Interfaz
 								var resultado = RolUsuario.BorrarRolUsuario(rol);
 								if (resultado)
 								{
-									MessageBox.Show("Rol Borrado", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+									MessageBox.Show("Rol Borrado", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
 									CargarUsuarios();
 								}
 							}

@@ -388,7 +388,7 @@ namespace Interfaz
 										  select p).ToList();
 				if (proyectosFiltrados.Count > 0)
 				{
-				 await CargarTablaAsync(proyectosFiltrados);
+					await CargarTablaAsync(proyectosFiltrados);
 				}
 				else
 				{
@@ -435,6 +435,10 @@ namespace Interfaz
 
 		private void txtMonto_Leave(object sender, EventArgs e)
 		{
+			bool parseable = float.TryParse(txtMonto.Text, out float resultado);
+			if (!parseable) {
+				MessageBox.Show($"El valor {txtMonto.Text} no es valido, reviselo\n Ejemplo: 1520,25","",MessageBoxButtons.OK);
+			}
 
 		}
 	}
