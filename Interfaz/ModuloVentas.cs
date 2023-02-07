@@ -85,9 +85,9 @@ namespace Interfaz
 				proyectos = await proyectosNegocio.ListaProyectos(Temporal.UsuarioActivo.UsuarioId);
 #pragma warning restore CS8601 // Posible asignación de referencia nula
 			}
-			if (proyectos!=null)
+			if (proyectos != null)
 			{
-				if(proyectos.Count > 0)
+				if (proyectos.Count > 0)
 				{
 					DataTable _tabla = new();
 
@@ -120,6 +120,7 @@ namespace Interfaz
 							i.Estado
 							);
 					}
+					dgvProyectos.Columns.Clear();
 					dgvProyectos.DataSource = _tabla;
 					DataGridViewButtonColumn botonVer = new();
 					botonVer.HeaderText = "Ver";
@@ -127,6 +128,14 @@ namespace Interfaz
 					botonVer.Name = "btnVerProyecto";
 					botonVer.UseColumnTextForButtonValue = true;
 					dgvProyectos.Columns.Add(botonVer);
+
+
+					DataGridViewButtonColumn botonEditar = new();
+					botonEditar.HeaderText = "Editar";
+					botonEditar.Text = "Editar";
+					botonEditar.Name = "btnEditarProyecto";
+					botonEditar.UseColumnTextForButtonValue = true;
+					dgvProyectos.Columns.Add(botonEditar);
 				}
 			}
 		}
@@ -194,7 +203,6 @@ namespace Interfaz
 						ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
 						ExcelApp.ActiveWorkbook.Close();
 						ExcelApp.Quit();
-
 					}
 				}
 				else
@@ -221,8 +229,7 @@ namespace Interfaz
 					proyectoNuevo.Autor = Temporal.UsuarioActivo.Nombre;
 					proyectoNuevo.UltimaEdicion = DateTime.Now;
 					proyectoNuevo.UltimoEditor = Temporal.UsuarioActivo.Nombre;
-
-					// No viisble
+					// No visible
 					proyectoNuevo.FacturaFinalId = string.Empty;
 					proyectoNuevo.Enable = true;
 
@@ -355,12 +362,20 @@ namespace Interfaz
 
 		private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if (e.ColumnIndex == 9)
+			if (e.ColumnIndex == 11)
 			{
 				VerProyecto verProyecto = new();
 				var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
 				verProyecto.idProyecto = id;
 				verProyecto.ShowDialog();
+			}else
+			if (e.ColumnIndex == 12)
+			{
+				var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
+				EditarProyecto editarProyecto = new();
+				editarProyecto.ProyectoId = id;
+				editarProyecto.ShowDialog();
+				CargarTabla();
 			}
 		}
 
@@ -442,6 +457,15 @@ namespace Interfaz
 			txtNumeroPBuscar.Text = string.Empty;
 			txtClienteBuscar.Text = string.Empty;
 			CargarTabla();
+		}
+
+		private void txtMonto_Leave(object sender, EventArgs e)
+		{
+			bool parseable = float.TryParse(txtMonto.Text, out float resultado);
+			if (!parseable)
+			{
+				MessageBox.Show($"El valor {txtMonto.Text} no es valido, reviselo\n Ejemplo: 1520,25", "", MessageBoxButtons.OK);
+			}
 		}
 	}
 }

@@ -22,14 +22,14 @@ namespace Interfaz
 			UsuarioNegocio usuarioNegocio = new();
 			if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtContrasena.Text))
 			{
-				lblErrorMessage.ForeColor = Color.Red;
+				lblErrorMessage.ForeColor = Color.White;
 				lblErrorMessage.Text = "Verifique los campos";
 			}
 			else
 			{
 				if (cbTipo.Text.Length == 0)
 				{
-					lblErrorMessage.ForeColor = Color.Red;
+					lblErrorMessage.ForeColor = Color.White;
 					lblErrorMessage.Text = "Seleccione un tipo de Ingreso";
 				}
 				else
@@ -52,14 +52,14 @@ namespace Interfaz
 							}
 							else
 							{
-								lblErrorMessage.ForeColor = Color.Red;
+								lblErrorMessage.ForeColor = Color.White;
 								lblErrorMessage.Text = "Información incorrecta";
 							}
 						}
 						else
 						{
-							lblErrorMessage.ForeColor = Color.Red;
-							lblErrorMessage.Text = "Verifique los permisos de tipo Vendedor";
+							lblErrorMessage.ForeColor = Color.White;
+							lblErrorMessage.Text = "No posee permisos de Vendedor";
 						}
 					}
 					else if (cbTipo.Text.Equals("Admin"))
@@ -80,14 +80,14 @@ namespace Interfaz
 							}
 							else
 							{
-								lblErrorMessage.ForeColor = Color.Red;
+								lblErrorMessage.ForeColor = Color.White;
 								lblErrorMessage.Text = "Información incorrecta";
 							}
 						}
 						else
 						{
-							lblErrorMessage.ForeColor = Color.Red;
-							lblErrorMessage.Text = "Verifique los permisos de tipo Admin";
+							lblErrorMessage.ForeColor = Color.White;
+							lblErrorMessage.Text = "No posee permisos de administrador";
 						}
 
 					}

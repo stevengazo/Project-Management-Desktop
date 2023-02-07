@@ -53,8 +53,9 @@
 			this.dgvOfertas.Name = "dgvOfertas";
 			this.dgvOfertas.ReadOnly = true;
 			this.dgvOfertas.RowTemplate.Height = 25;
-			this.dgvOfertas.Size = new System.Drawing.Size(1213, 491);
+			this.dgvOfertas.Size = new System.Drawing.Size(1277, 491);
 			this.dgvOfertas.TabIndex = 0;
+			this.dgvOfertas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOfertas_CellContentClick);
 			// 
 			// menuStrip1
 			// 
@@ -63,7 +64,7 @@
             this.agregarOfertaToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1237, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1301, 24);
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -91,7 +92,7 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(12, 27);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(1213, 59);
+			this.groupBox1.Size = new System.Drawing.Size(1277, 59);
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Buscar";
@@ -154,7 +155,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1237, 595);
+			this.ClientSize = new System.Drawing.Size(1301, 595);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.dgvOfertas);
 			this.Controls.Add(this.menuStrip1);

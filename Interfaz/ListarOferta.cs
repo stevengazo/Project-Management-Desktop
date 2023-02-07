@@ -1,5 +1,6 @@
 ﻿using Modelos;
 using Negocio;
+using Negocios;
 using System.Data;
 using System.Globalization;
 
@@ -73,6 +74,14 @@ namespace Interfaz
 							);
 					}
 					dgvOfertas.DataSource = _tabla;
+					DataGridViewButtonColumn botonVer = new DataGridViewButtonColumn();
+					botonVer.HeaderText = "Ver";
+					botonVer.Text = "Ver";
+					botonVer.Name = "btnVer";
+					botonVer.UseColumnTextForButtonValue = true;
+					dgvOfertas.Columns.Add(botonVer);
+
+
 				}
 			}
 			catch (Exception f)
@@ -127,6 +136,12 @@ namespace Interfaz
 						);
 				}
 				dgvOfertas.DataSource = _tabla;
+				DataGridViewButtonColumn botonVer = new DataGridViewButtonColumn();
+				botonVer.HeaderText = "Ver";
+				botonVer.Text = "Ver";
+				botonVer.Name = "btnVer";
+				botonVer.UseColumnTextForButtonValue = true;
+				dgvOfertas.Columns.Add(botonVer);
 			}
 			else
 			{
@@ -242,6 +257,28 @@ namespace Interfaz
 			}
 
 
+
+		}
+
+		private void dgvOfertas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			try
+			{
+				// CAMBIAR CONTRASENA
+				if (e.ColumnIndex == 11)
+				{
+					// Obtener el id
+					var dato = (dgvOfertas.Rows[e.RowIndex].Cells[0].Value.ToString()).Split('-');
+					var id = int.Parse(dato[1]);
+					VerOferta verOferta= new VerOferta();
+					verOferta.idOferta = id;
+					verOferta.ShowDialog();
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 
 		}
 	}

@@ -65,6 +65,7 @@
 			this.txtRazonSocial.ReadOnly = true;
 			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
 			this.txtRazonSocial.TabIndex = 44;
+			this.txtRazonSocial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// txtNumeroProyecto
 			// 
@@ -73,6 +74,7 @@
 			this.txtNumeroProyecto.ReadOnly = true;
 			this.txtNumeroProyecto.Size = new System.Drawing.Size(225, 23);
 			this.txtNumeroProyecto.TabIndex = 70;
+			this.txtNumeroProyecto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label6
 			// 
@@ -118,6 +120,7 @@
 			this.txtUbicacion.ReadOnly = true;
 			this.txtUbicacion.Size = new System.Drawing.Size(225, 75);
 			this.txtUbicacion.TabIndex = 57;
+			this.txtUbicacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label14
 			// 
@@ -135,6 +138,7 @@
 			this.txtNumeroTarea.ReadOnly = true;
 			this.txtNumeroTarea.Size = new System.Drawing.Size(225, 23);
 			this.txtNumeroTarea.TabIndex = 55;
+			this.txtNumeroTarea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label13
 			// 
@@ -152,6 +156,7 @@
 			this.txtNumeroFacturaAnticipo.ReadOnly = true;
 			this.txtNumeroFacturaAnticipo.Size = new System.Drawing.Size(225, 23);
 			this.txtNumeroFacturaAnticipo.TabIndex = 53;
+			this.txtNumeroFacturaAnticipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label11
 			// 
@@ -169,6 +174,7 @@
 			this.txtMontoProyecto.ReadOnly = true;
 			this.txtMontoProyecto.Size = new System.Drawing.Size(225, 23);
 			this.txtMontoProyecto.TabIndex = 51;
+			this.txtMontoProyecto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label10
 			// 
@@ -195,6 +201,7 @@
 			this.txtOferta.ReadOnly = true;
 			this.txtOferta.Size = new System.Drawing.Size(225, 23);
 			this.txtOferta.TabIndex = 48;
+			this.txtOferta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label8
 			// 
@@ -212,6 +219,7 @@
 			this.txtContacto.ReadOnly = true;
 			this.txtContacto.Size = new System.Drawing.Size(225, 23);
 			this.txtContacto.TabIndex = 46;
+			this.txtContacto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// label7
 			// 
@@ -256,6 +264,7 @@
 			this.txtVendedor.ReadOnly = true;
 			this.txtVendedor.Size = new System.Drawing.Size(225, 23);
 			this.txtVendedor.TabIndex = 73;
+			this.txtVendedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// txtOC
 			// 
@@ -264,6 +273,7 @@
 			this.txtOC.ReadOnly = true;
 			this.txtOC.Size = new System.Drawing.Size(225, 23);
 			this.txtOC.TabIndex = 74;
+			this.txtOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// txtFechaInicio
 			// 
@@ -272,6 +282,7 @@
 			this.txtFechaInicio.ReadOnly = true;
 			this.txtFechaInicio.Size = new System.Drawing.Size(225, 23);
 			this.txtFechaInicio.TabIndex = 75;
+			this.txtFechaInicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// txtFechaFinal
 			// 
@@ -280,6 +291,7 @@
 			this.txtFechaFinal.ReadOnly = true;
 			this.txtFechaFinal.Size = new System.Drawing.Size(225, 23);
 			this.txtFechaFinal.TabIndex = 76;
+			this.txtFechaFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// txtPorcentaje
 			// 
@@ -288,6 +300,7 @@
 			this.txtPorcentaje.ReadOnly = true;
 			this.txtPorcentaje.Size = new System.Drawing.Size(225, 23);
 			this.txtPorcentaje.TabIndex = 77;
+			this.txtPorcentaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// txtEstado
 			// 
@@ -296,6 +309,7 @@
 			this.txtEstado.ReadOnly = true;
 			this.txtEstado.Size = new System.Drawing.Size(225, 23);
 			this.txtEstado.TabIndex = 78;
+			this.txtEstado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// VerProyecto
 			// 

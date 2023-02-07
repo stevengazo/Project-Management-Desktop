@@ -10,6 +10,28 @@ namespace Negocio
 	public class OfertaNegocio
 	{
 
+		public Oferta ObtenerOferta(int numeroOferta = 0)
+		{
+			try
+			{
+				if(numeroOferta > 0)
+				{
+					using (var db = new DBContextProyectosAsfaltos())
+					{
+						var oferta = (from o in db.Ofertas
+									  where o.OfertaId == numeroOferta	
+									  select o).Include(E=>E.Encargado).FirstOrDefault();
+						return oferta;
+					}
+				}
+				return null;
+			}catch(Exception f)
+			{
+				Console.Error.WriteLine(f.ToString());
+				return new();
+			}
+		}
+
 		/// <summary>
 		/// Realiza la busqueda de la informaci[on dada
 		/// </summary>

@@ -55,18 +55,19 @@ namespace Interfaz
 				ofertaTemporal.SubBase = checkBoxSubbase.Checked;
 				ofertaTemporal.Excavacion = checkBoxExcavacion.Checked;
 				ofertaTemporal.Cliente = txtCliente.Text;
-				ofertaTemporal.Monto = float.Parse(txtMonto.Text);
+				float.TryParse(txtMonto.Text, out float tmpNumero);
+				ofertaTemporal.Monto = tmpNumero;
 				ofertaTemporal.Notas = txtNotas.Text;
 				ofertaTemporal.Observaciones = txtObservaciones.Text;
 				ofertaTemporal.UsuarioId = (from i in usuarios
 											where i.Nombre == cbEncargado.Text
 											select i.UsuarioId).FirstOrDefault();
-				ofertaTemporal.EncargadoCotizador = txtEncargado.Text;
+				ofertaTemporal.EncargadoCotizador = txtEncargado.Text;			
 				OfertaNegocio negocioOferta = new();
 				bool Resultado = negocioOferta.CrearOferta(ofertaTemporal, out int idOferta);
 				if (Resultado)
 				{
-					MessageBox.Show($"Oferta Guardada exitosamente \nOferta Id= {idOferta}\nCliente= {ofertaTemporal.Cliente}\nMonto= {ofertaTemporal.Monto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show($"Oferta Guardada exitosamente \n\nOferta Id= {idOferta}\nCliente= {ofertaTemporal.Cliente}\nMonto= {ofertaTemporal.Monto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					this.Close();
 				}
 				else
@@ -89,8 +90,7 @@ namespace Interfaz
 				int.TryParse(txtMonto.Text, out int val);
 				if (val == 0)
 				{
-					MessageBox.Show($"Verifique el monto digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-					return false;
+					MessageBox.Show($"Monto No digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				}
 				if (string.IsNullOrEmpty(txtNotas.Text))
 				{

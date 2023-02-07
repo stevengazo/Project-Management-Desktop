@@ -58,11 +58,11 @@
 			// lblErrorMessage
 			// 
 			this.lblErrorMessage.AutoSize = true;
-			this.lblErrorMessage.Location = new System.Drawing.Point(77, 151);
+			this.lblErrorMessage.Location = new System.Drawing.Point(73, 151);
 			this.lblErrorMessage.Name = "lblErrorMessage";
 			this.lblErrorMessage.Size = new System.Drawing.Size(0, 15);
 			this.lblErrorMessage.TabIndex = 2;
-			this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// btnIngresar
 			// 
@@ -120,6 +120,7 @@
 			this.Controls.Add(this.txtContrasena);
 			this.Controls.Add(this.txtUsuario);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.Name = "Login";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Inicio de Sesión";

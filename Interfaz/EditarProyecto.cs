@@ -156,12 +156,18 @@ namespace Interfaz
 						ProyectoActual.UltimoEditor = Temporal.UsuarioActivo.Nombre;
 						ProyectoActual.UltimaEdicion = DateTime.Now;
 
+						ProyectoActual.Vendedor = null;
 						//Envio a la DB
 
 						bool resultado = proyectoNegocios.ActualizarProyecto(ProyectoActual);
 						if (resultado)
 						{
 							MessageBox.Show("Proyecto Actualizado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							this.Close();
+						}
+						else
+						{
+							MessageBox.Show("No fue posible actualizar la ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 							this.Close();
 						}
 					}
