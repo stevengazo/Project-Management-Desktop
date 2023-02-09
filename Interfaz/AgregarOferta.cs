@@ -90,15 +90,31 @@ namespace Interfaz
 				int.TryParse(txtMonto.Text, out int val);
 				if (val == 0)
 				{
-					MessageBox.Show($"Monto No digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					var resultado =MessageBox.Show($"Monto No digitado\n¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+					if(resultado == DialogResult.Yes)
+					{
+
+					}
+					else
+					{
+						return false;
+					}
 				}
 				if (string.IsNullOrEmpty(txtNotas.Text))
 				{
-					MessageBox.Show("No digito notas sobre la cotizacion", "Adventencia", MessageBoxButtons.OK);
+					var resultado = MessageBox.Show($"Monto notas de la cotización\n¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+					if (resultado == DialogResult.Yes)
+					{
+
+					}
+					else
+					{
+						return false;
+					}
 				}
 				if (string.IsNullOrEmpty(txtObservaciones.Text))
 				{
-					MessageBox.Show("Descripcion del trabajo no mencionanda", "Adventencia", MessageBoxButtons.OK);
+					MessageBox.Show("Descripcion del trabajo no mencionada", "Adventencia", MessageBoxButtons.OK);
 				}
 				if (string.IsNullOrEmpty(cbEncargado.Text))
 				{

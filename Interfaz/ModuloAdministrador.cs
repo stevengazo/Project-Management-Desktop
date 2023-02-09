@@ -149,20 +149,32 @@ namespace Interfaz
 
 		private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if (e.ColumnIndex == 0)
+			try
 			{
-				VerProyecto verProyecto = new();
-				var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[2].Value.ToString());
-				verProyecto.idProyecto = id;
-				verProyecto.ShowDialog();
+				if (e.ColumnIndex == 0)
+				{
+					VerProyecto verProyecto = new();
+					var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[2].Value.ToString());
+					verProyecto.idProyecto = id;
+					verProyecto.ShowDialog();
+				}
+				else if (e.ColumnIndex == 1)
+				{
+					var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[2].Value.ToString());
+					EditarProyecto editarProyecto = new();
+					editarProyecto.ProyectoId = id;
+					editarProyecto.ShowDialog();
+					CargarTablaAsync();
+				}
+				else
+				{
+
+				}
 			}
-			else if (e.ColumnIndex == 1)
+			catch (Exception f)
 			{
-				var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[2].Value.ToString());
-				EditarProyecto editarProyecto = new();
-				editarProyecto.ProyectoId = id;
-				editarProyecto.ShowDialog();
-				CargarTablaAsync();
+				MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 			}
 		}
 

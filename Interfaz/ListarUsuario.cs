@@ -23,6 +23,7 @@ namespace Interfaz
 					dgvUsuarios.Columns.Clear();
 					DataTable data = new();
 					data.Columns.Add("Id");
+					data.Columns.Add("Login");
 					data.Columns.Add("Nombre");
 					data.Columns.Add("Estado");
 
@@ -41,6 +42,7 @@ namespace Interfaz
 
 						data.Rows.Add(
 							item.UsuarioId,
+							item.Login,
 							item.Nombre,
 							estado
 							);
@@ -97,7 +99,7 @@ namespace Interfaz
 			try
 			{
 				// CAMBIAR CONTRASENA
-				if (e.ColumnIndex == 4)
+				if (e.ColumnIndex == 5)
 				{
 					// Obtener el id
 					CambiarContrasena cambiarContrasena = new();
@@ -106,7 +108,7 @@ namespace Interfaz
 					cambiarContrasena.ShowDialog();
 				}
 				/// ESTADO DEL USUARIO 
-				else if (e.ColumnIndex == 3)
+				else if (e.ColumnIndex == 4)
 				{
 					
 					UsuarioNegocio usuarioNegocio = new();
@@ -129,7 +131,7 @@ namespace Interfaz
 					await CargarUsuarios();
 				}
 				/// ROL DE VENDEDOR
-				else if (e.ColumnIndex == 5)
+				else if (e.ColumnIndex == 6)
 				{
 					UsuarioNegocio usuarioNegocio = new();
 					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -176,7 +178,7 @@ namespace Interfaz
 
 				}
 				/// ROL DE ADMINISTRADOR
-				else if (e.ColumnIndex == 6)
+				else if (e.ColumnIndex == 7)
 				{
 					UsuarioNegocio usuarioNegocio = new();
 					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
