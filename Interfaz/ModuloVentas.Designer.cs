@@ -90,7 +90,7 @@
             this.ofertasToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1426, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1233, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -447,7 +447,7 @@
 			this.groupBox2.Controls.Add(this.dgvProyectos);
 			this.groupBox2.Location = new System.Drawing.Point(447, 27);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(967, 607);
+			this.groupBox2.Size = new System.Drawing.Size(780, 607);
 			this.groupBox2.TabIndex = 2;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Proyectos";
@@ -513,7 +513,7 @@
 			this.dgvProyectos.Name = "dgvProyectos";
 			this.dgvProyectos.ReadOnly = true;
 			this.dgvProyectos.RowTemplate.Height = 25;
-			this.dgvProyectos.Size = new System.Drawing.Size(955, 540);
+			this.dgvProyectos.Size = new System.Drawing.Size(768, 540);
 			this.dgvProyectos.TabIndex = 0;
 			this.dgvProyectos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProyectos_CellContentClick);
 			// 
@@ -522,7 +522,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightBlue;
-			this.ClientSize = new System.Drawing.Size(1426, 646);
+			this.ClientSize = new System.Drawing.Size(1233, 646);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
