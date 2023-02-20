@@ -10,6 +10,25 @@ namespace Negocio
 	public class OfertaNegocio
 	{
 
+
+		public bool ActualizarOferta(Oferta oferta, out int idOferta)
+		{
+			try
+			{
+				using(var db = new DBContextProyectosAsfaltos())
+				{
+					db.Ofertas.Update(oferta);
+					db.SaveChanges();
+					idOferta = oferta.OfertaId;
+					return true;
+				}
+			}catch (Exception ex)
+			{
+				idOferta = -1;
+				return false;
+			}
+		}
+
 		public Oferta ObtenerOferta(int numeroOferta = 0)
 		{
 			try

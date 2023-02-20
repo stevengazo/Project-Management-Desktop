@@ -20,7 +20,7 @@ namespace Negocios
 										join rolesUsuario in db.RolUsuarios on usuario.UsuarioId equals rolesUsuario.UsuarioId
 										where rolesUsuario.RolId == 2 && usuario.Activo == true
 										select usuario
-								  ).ToListAsync();
+								  ).Distinct().ToListAsync();
 				}
 				return Vendedores;
 			}

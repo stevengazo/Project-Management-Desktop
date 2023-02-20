@@ -1,6 +1,6 @@
 ﻿namespace Interfaz
 {
-	partial class AgregarOferta
+	partial class EditarOferta
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -88,8 +88,8 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(12, 12);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(309, 482);
-			this.groupBox1.TabIndex = 0;
+			this.groupBox1.Size = new System.Drawing.Size(309, 458);
+			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Información de Ofeta";
 			// 
@@ -129,16 +129,17 @@
 			// 
 			// btnCancelar
 			// 
-			this.btnCancelar.Location = new System.Drawing.Point(162, 452);
+			this.btnCancelar.Location = new System.Drawing.Point(161, 426);
 			this.btnCancelar.Name = "btnCancelar";
 			this.btnCancelar.Size = new System.Drawing.Size(75, 23);
 			this.btnCancelar.TabIndex = 22;
 			this.btnCancelar.Text = "Cancelar";
 			this.btnCancelar.UseVisualStyleBackColor = true;
+			this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
 			// 
 			// btnAgregar
 			// 
-			this.btnAgregar.Location = new System.Drawing.Point(57, 452);
+			this.btnAgregar.Location = new System.Drawing.Point(56, 426);
 			this.btnAgregar.Name = "btnAgregar";
 			this.btnAgregar.Size = new System.Drawing.Size(75, 23);
 			this.btnAgregar.TabIndex = 21;
@@ -317,7 +318,6 @@
 			this.dateTimePickerFecha.Name = "dateTimePickerFecha";
 			this.dateTimePickerFecha.Size = new System.Drawing.Size(184, 23);
 			this.dateTimePickerFecha.TabIndex = 1;
-			this.dateTimePickerFecha.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
 			// 
 			// label1
 			// 
@@ -328,19 +328,19 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Fecha";
 			// 
-			// AgregarOferta
+			// EditarOferta
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(333, 499);
+			this.ClientSize = new System.Drawing.Size(334, 475);
 			this.Controls.Add(this.groupBox1);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "AgregarOferta";
+			this.Name = "EditarOferta";
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Agregar Oferta";
-			this.Load += new System.EventHandler(this.AgregarOferta_Load);
+			this.Text = "Editar Oferta";
+			this.Load += new System.EventHandler(this.EditarOferta_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
@@ -350,8 +350,10 @@
 		#endregion
 
 		private GroupBox groupBox1;
-		private DateTimePicker dateTimePickerFecha;
-		private Label label1;
+		private Label label12;
+		private TextBox txtEncargado;
+		private Label label11;
+		private TextBox txtCliente;
 		private Button btnCancelar;
 		private Button btnAgregar;
 		private ComboBox cbEncargado;
@@ -372,9 +374,7 @@
 		private Label label3;
 		private CheckBox checkBoxSellador;
 		private Label label2;
-		private Label label11;
-		private TextBox txtCliente;
-		private Label label12;
-		private TextBox txtEncargado;
+		private DateTimePicker dateTimePickerFecha;
+		private Label label1;
 	}
 }

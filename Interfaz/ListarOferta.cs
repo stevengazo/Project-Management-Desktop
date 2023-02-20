@@ -51,6 +51,14 @@ namespace Interfaz
 					botonVer.UseColumnTextForButtonValue = true;
 					dgvOfertas.Columns.Add(botonVer);
 
+
+					DataGridViewButtonColumn botonEditar = new DataGridViewButtonColumn();
+					botonEditar.HeaderText = "Editar";
+					botonEditar.Text = "Editar";
+					botonEditar.Name = "btnEditar";
+					botonEditar.UseColumnTextForButtonValue = true;
+					dgvOfertas.Columns.Add(botonEditar);
+
 					DataTable _tabla = new();
 					_tabla.Columns.Add("Oferta Id");
 					_tabla.Columns.Add("Fecha");
@@ -115,7 +123,13 @@ namespace Interfaz
 				botonVer.UseColumnTextForButtonValue = true;
 				dgvOfertas.Columns.Add(botonVer);
 
-				
+
+				DataGridViewButtonColumn botonEditar = new DataGridViewButtonColumn();
+				botonEditar.HeaderText = "Editar";
+				botonEditar.Text = "Editar";
+				botonEditar.Name = "btnEditar";
+				botonEditar.UseColumnTextForButtonValue = true;
+				dgvOfertas.Columns.Add(botonEditar);
 
 				DataTable _tabla = new();
 				_tabla.Columns.Add("Oferta Id");
@@ -276,11 +290,20 @@ namespace Interfaz
 				if (e.ColumnIndex == 0)
 				{
 					// Obtener el id
-					var dato = (dgvOfertas.Rows[e.RowIndex].Cells[1].Value.ToString()).Split('-');
+					var dato = (dgvOfertas.Rows[e.RowIndex].Cells[2].Value.ToString()).Split('-');
 					var id = int.Parse(dato[1]);
 					VerOferta verOferta= new VerOferta();
 					verOferta.idOferta = id;
 					verOferta.ShowDialog();
+				}
+				else if (e.ColumnIndex == 1)
+				{
+					// Obtener el id
+					var dato = (dgvOfertas.Rows[e.RowIndex].Cells[2].Value.ToString()).Split('-');
+					var id = int.Parse(dato[1]);
+					EditarOferta editarOferta = new() { idOferta=id};
+					editarOferta.ShowDialog();
+
 				}
 			}
 			catch (Exception ex)
