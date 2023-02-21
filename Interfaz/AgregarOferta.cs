@@ -67,12 +67,12 @@ namespace Interfaz
 				bool Resultado = negocioOferta.CrearOferta(ofertaTemporal, out int idOferta);
 				if (Resultado)
 				{
-					MessageBox.Show($"Oferta Guardada exitosamente \n\nOferta Id= {idOferta}\nCliente= {ofertaTemporal.Cliente}\nMonto= {ofertaTemporal.Monto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show($"Oferta Guardada exitosamente \n\nOferta Id= {idOferta}\nCliente= {ofertaTemporal.Cliente}\nMonto= {ofertaTemporal.Monto}", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					this.Close();
 				}
 				else
 				{
-					MessageBox.Show($"Error interno, no fue posible guardar la informacion", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show($"Error interno, no fue posible guardar la información", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -102,10 +102,10 @@ namespace Interfaz
 				}
 				if (string.IsNullOrEmpty(txtNotas.Text))
 				{
-					var resultado = MessageBox.Show($"Monto notas de la cotización\n¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+					var resultado = MessageBox.Show($"Notas de la cotización se encuentra vacío\n¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 					if (resultado == DialogResult.Yes)
 					{
-
+						// Continua con la verificación
 					}
 					else
 					{
@@ -114,26 +114,31 @@ namespace Interfaz
 				}
 				if (string.IsNullOrEmpty(txtObservaciones.Text))
 				{
-					MessageBox.Show("Descripcion del trabajo no mencionada", "Adventencia", MessageBoxButtons.OK);
+					MessageBox.Show("Descripción del trabajo no mencionada", "Adventencia", MessageBoxButtons.OK);
 				}
 				if (string.IsNullOrEmpty(cbEncargado.Text))
 				{
-					MessageBox.Show($"No selecciono un vendedor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					MessageBox.Show($"No seleccionó un vendedor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					return false;
 				}
 				if (string.IsNullOrEmpty(txtEncargado.Text))
 				{
-					MessageBox.Show($"No ingreso un encargado de la realizacion de la cotizacion", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					MessageBox.Show($"No ingreso un encargado de la realización de la cotización", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					return false;
 				}
 				return true;
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show($"Error {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show($"Error interno\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				this.Close();
 				return false;
 			}
+		}
+
+		private void btnCancelar_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

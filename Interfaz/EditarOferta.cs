@@ -27,7 +27,7 @@ namespace Interfaz
 		{
 			try
 			{
-
+				this.Close();
 			}
 			catch (Exception ex)
 			{
@@ -97,40 +97,48 @@ namespace Interfaz
 		{
 			try
 			{
-				UsuarioNegocio tmpNegocioUsuario = new();
-				usuarios = tmpNegocioUsuario.ListarVendedores().Distinct().ToList();
-				foreach (var item in usuarios)
+				if (Temporal.TipoLogin.Equals("Administrador"))
 				{
-					cbEncargado.Items.Add(item.Nombre);
-				}
-				if(idOferta != -1)
-				{
-					OfertaNegocio ofertaNegocio = new();
-					Ofertatmp = ofertaNegocio.ObtenerOferta(idOferta);
-					if(Ofertatmp == null)
+					UsuarioNegocio tmpNegocioUsuario = new();
+					usuarios = tmpNegocioUsuario.ListarVendedores().Distinct().ToList();
+					foreach (var item in usuarios)
+					{
+						cbEncargado.Items.Add(item.Nombre);
+					}
+					if (idOferta != -1)
+					{
+						OfertaNegocio ofertaNegocio = new();
+						Ofertatmp = ofertaNegocio.ObtenerOferta(idOferta);
+						if (Ofertatmp == null)
+						{
+							MessageBox.Show($"Error interno: el id de oferta no fue especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+							this.Close();
+						}
+						else
+						{
+							dateTimePickerFecha.Value = Ofertatmp.Fecha;
+							checkBoxSellador.Checked = Ofertatmp.Sellador;
+							checkBoxAsfalto.Checked = Ofertatmp.Asfalto;
+							checkBoxBase.Checked = Ofertatmp.Base;
+							checkBoxSubbase.Checked = Ofertatmp.SubBase;
+							checkBoxExcavacion.Checked = Ofertatmp.Excavacion;
+							txtCliente.Text = Ofertatmp.Cliente;
+							txtMonto.Text = Ofertatmp.Monto.ToString();
+							txtNotas.Text = Ofertatmp.Notas;
+							txtObservaciones.Text = Ofertatmp.Observaciones;
+							cbEncargado.SelectedText = Ofertatmp.Encargado.Nombre;
+							txtEncargado.Text = Ofertatmp.EncargadoCotizador;
+						}
+					}
+					else
 					{
 						MessageBox.Show($"Error interno: el id de oferta no fue especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						this.Close();
 					}
-					else
-					{
-						dateTimePickerFecha.Value = Ofertatmp.Fecha;
-						checkBoxSellador.Checked = Ofertatmp.Sellador;
-						checkBoxAsfalto.Checked = Ofertatmp.Asfalto;
-						checkBoxBase.Checked = Ofertatmp.Base;
-						checkBoxSubbase.Checked = Ofertatmp.SubBase;
-						checkBoxExcavacion.Checked = Ofertatmp.Excavacion;
-						txtCliente.Text = Ofertatmp.Cliente;
-						txtMonto.Text = Ofertatmp.Monto.ToString();
-						txtNotas.Text = Ofertatmp.Notas;
-						txtObservaciones.Text = Ofertatmp.Observaciones;
-						cbEncargado.SelectedText = Ofertatmp.Encargado.Nombre;
-						txtEncargado.Text = Ofertatmp.EncargadoCotizador;
-					}
 				}
 				else
 				{
-					MessageBox.Show($"Error interno: el id de oferta no fue especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show($"Esta Funcionabilidad solo se encuentra disponible para los Administradores\nContacte con algún administrador para realizar el cambio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					this.Close();
 				}
 			}
@@ -147,35 +155,34 @@ namespace Interfaz
 			{
 				bool valido = ValidarCampos();
 				if (valido)
-				{
-					Oferta ofertaTemporal = new();
-					ofertaTemporal.AutorPrespuesto = Temporal.UsuarioActivo.Nombre;
-					ofertaTemporal.UltimaModificacion = DateTime.Now;
-					ofertaTemporal.Fecha = dateTimePickerFecha.Value;
-					ofertaTemporal.Sellador = checkBoxSellador.Checked;
-					ofertaTemporal.Asfalto = checkBoxAsfalto.Checked;
-					ofertaTemporal.Base = checkBoxBase.Checked;
-					ofertaTemporal.SubBase = checkBoxSubbase.Checked;
-					ofertaTemporal.Excavacion = checkBoxExcavacion.Checked;
-					ofertaTemporal.Cliente = txtCliente.Text;
+				{					
+					Ofertatmp.AutorPrespuesto = Temporal.UsuarioActivo.Nombre;
+					Ofertatmp.UltimaModificacion = DateTime.Now;
+					Ofertatmp.Fecha = dateTimePickerFecha.Value;
+					Ofertatmp.Sellador = checkBoxSellador.Checked;
+					Ofertatmp.Asfalto = checkBoxAsfalto.Checked;
+					Ofertatmp.Base = checkBoxBase.Checked;
+					Ofertatmp.SubBase = checkBoxSubbase.Checked;
+					Ofertatmp.Excavacion = checkBoxExcavacion.Checked;
+					Ofertatmp.Cliente = txtCliente.Text;
 					float.TryParse(txtMonto.Text, out float tmpNumero);
-					ofertaTemporal.Monto = tmpNumero;
-					ofertaTemporal.Notas = txtNotas.Text;
-					ofertaTemporal.Observaciones = txtObservaciones.Text;
-					ofertaTemporal.UsuarioId = (from i in usuarios
+					Ofertatmp.Monto = tmpNumero;
+					Ofertatmp.Notas = txtNotas.Text;
+					Ofertatmp.Observaciones = txtObservaciones.Text;
+					Ofertatmp.UsuarioId = (from i in usuarios
 												where i.Nombre == cbEncargado.Text
 												select i.UsuarioId).FirstOrDefault();
-					ofertaTemporal.EncargadoCotizador = txtEncargado.Text;
+					Ofertatmp.EncargadoCotizador = txtEncargado.Text;
 					OfertaNegocio negocioOferta = new();
-					bool Resultado = negocioOferta.ActualizarOferta(ofertaTemporal, out int idOferta);
+					bool Resultado = negocioOferta.ActualizarOferta(Ofertatmp, out int idOferta);
 					if (Resultado)
 					{
-						MessageBox.Show($"Oferta Actualizada exitosamente \n\nOferta Id= {idOferta}\nCliente= {ofertaTemporal.Cliente}\nMonto= {ofertaTemporal.Monto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						MessageBox.Show($"Oferta Actualizada exitosamente \n\nOferta Id= {idOferta}\nCliente= {Ofertatmp.Cliente}\nMonto= {Ofertatmp.Monto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						this.Close();
 					}
 					else
 					{
-						MessageBox.Show($"Error interno, no fue posible guardar la informacion", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						MessageBox.Show($"Error interno, no fue posible guardar la información", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 				}
 			}

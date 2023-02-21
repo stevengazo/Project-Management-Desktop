@@ -139,11 +139,7 @@ namespace Interfaz
 				botonEditar.Name = "btnEditarProyecto";
 				botonEditar.UseColumnTextForButtonValue = true;
 				dgvProyectos.Columns.Add(botonEditar);
-
 				dgvProyectos.DataSource = _tabla;
-
-
-
 			}
 		}
 
@@ -293,7 +289,7 @@ namespace Interfaz
 					var resultado = proyectoNegocios.CrearProyecto(proyectoTemporal, out int idProyecto);
 					if (resultado)
 					{
-						MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						await CargarTablaAsync();
 						Limpiar();
 					}
@@ -365,7 +361,7 @@ namespace Interfaz
 
 		private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Contacte al departamento de TI", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show("Contacte al Encargado para obtener la documentación", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		private void button2_Click(object sender, EventArgs e)
@@ -449,7 +445,7 @@ namespace Interfaz
 		{
 			bool parseable = float.TryParse(txtMonto.Text, out float resultado);
 			if (!parseable) {
-				MessageBox.Show($"El valor {txtMonto.Text} no es valido, reviselo\n Ejemplo: 1520,25","",MessageBoxButtons.OK);
+				MessageBox.Show($"El valor {txtMonto.Text} no es válido, reviselo\n Ejemplo: 1520,25","",MessageBoxButtons.OK);
 			}
 
 		}

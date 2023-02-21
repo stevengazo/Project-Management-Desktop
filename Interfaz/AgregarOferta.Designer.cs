@@ -106,7 +106,7 @@
 			// 
 			this.txtEncargado.Location = new System.Drawing.Point(103, 397);
 			this.txtEncargado.Name = "txtEncargado";
-			this.txtEncargado.PlaceholderText = "Adrian ";
+			this.txtEncargado.PlaceholderText = "Adrián Sólis";
 			this.txtEncargado.Size = new System.Drawing.Size(184, 23);
 			this.txtEncargado.TabIndex = 25;
 			// 
@@ -135,6 +135,7 @@
 			this.btnCancelar.TabIndex = 22;
 			this.btnCancelar.Text = "Cancelar";
 			this.btnCancelar.UseVisualStyleBackColor = true;
+			this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
 			// 
 			// btnAgregar
 			// 
@@ -177,7 +178,7 @@
 			this.txtObservaciones.Location = new System.Drawing.Point(103, 304);
 			this.txtObservaciones.Multiline = true;
 			this.txtObservaciones.Name = "txtObservaciones";
-			this.txtObservaciones.PlaceholderText = "Descripción breve del trabajo";
+			this.txtObservaciones.PlaceholderText = "Descripción y ubicación";
 			this.txtObservaciones.Size = new System.Drawing.Size(184, 53);
 			this.txtObservaciones.TabIndex = 16;
 			// 
@@ -195,7 +196,7 @@
 			this.txtNotas.Location = new System.Drawing.Point(103, 242);
 			this.txtNotas.Multiline = true;
 			this.txtNotas.Name = "txtNotas";
-			this.txtNotas.PlaceholderText = "Notas de relevancia, sobre la tarea";
+			this.txtNotas.PlaceholderText = "Notas e información varia";
 			this.txtNotas.Size = new System.Drawing.Size(184, 53);
 			this.txtNotas.TabIndex = 14;
 			// 
