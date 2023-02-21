@@ -111,6 +111,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 y x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.6.0.x64"
+                    {
+                    "Name" = "8:.NET Runtime 6.0.13 (x64)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.6.0.x64"
+                    }
+                }
             }
         }
     }
@@ -433,7 +446,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7805C32269DB41FFAE736EE6B07E0727"
             {
-            "Name" = "8:Asfaltos - Proyectos y Ofertas"
+            "Name" = "8:Proyectos - Ofertas - Asfaltos Mecsa"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -447,7 +460,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ABA2DBBDC0244ECBAE6B3CA7CD0DABB0"
             {
-            "Name" = "8:Proyecto Asfaltos"
+            "Name" = "8:Proyectos - Ofertas - Asfaltos Mecsa"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -935,7 +948,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7A5B65C22D454B178430CED4590C9220"
             {
-            "SourcePath" = "8:..\\Interfaz\\obj\\Debug\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Interfaz\\obj\\Release\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_333325947964420B9A79EB9DD57763B0"
