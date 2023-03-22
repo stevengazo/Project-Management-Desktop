@@ -77,7 +77,10 @@ namespace Interfaz
 			}
 		}
 
-
+		/// <summary>
+		/// Valida la verificación realizada a los campos del formulario
+		/// </summary>
+		/// <returns>True si es válido, False si presenta error</returns>
 		private bool ValidarCampos()
 		{
 			try
@@ -91,11 +94,7 @@ namespace Interfaz
 				if (val == 0)
 				{
 					var resultado =MessageBox.Show($"Monto No digitado\n¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-					if(resultado == DialogResult.Yes)
-					{
-
-					}
-					else
+					if(resultado != DialogResult.Yes)
 					{
 						return false;
 					}
@@ -104,8 +103,7 @@ namespace Interfaz
 				{
 					var resultado = MessageBox.Show($"Notas de la cotización se encuentra vacío\n¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 					if (resultado == DialogResult.Yes)
-					{
-						// Continua con la verificación
+					{						
 					}
 					else
 					{
