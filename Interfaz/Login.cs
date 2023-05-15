@@ -9,11 +9,34 @@ namespace Interfaz
 		public Login()
 		{
 			InitializeComponent();
+			CargarCredenciales();
 		}
 
 		private void label3_Click(object sender, EventArgs e)
 		{
 
+		}
+		private async Task CargarCredenciales()
+		{
+			try
+			{
+
+			}catch(Exception f)
+			{
+
+			}
+		}
+
+		private async Task RecordarCredenciales()
+		{
+			try
+			{
+
+			}
+			catch (Exception f)
+			{
+
+			}
 		}
 
 		private async void btnIngresar_Click(object sender, EventArgs e)

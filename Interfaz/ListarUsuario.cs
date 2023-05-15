@@ -110,7 +110,7 @@ namespace Interfaz
 				/// ESTADO DEL USUARIO 
 				else if (e.ColumnIndex == 4)
 				{
-					
+
 					UsuarioNegocio usuarioNegocio = new();
 					var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
 					var usuario = usuarioNegocio.ObtenerUsuario(id);
