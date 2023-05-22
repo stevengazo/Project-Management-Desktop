@@ -1,6 +1,10 @@
-﻿using Modelos;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Modelos;
 using Negocios;
 using System.Data;
+using System.Xml;
+using System.Xml.Linq;
+
 namespace Interfaz
 {
 	public partial class Login : Form
@@ -20,11 +24,42 @@ namespace Interfaz
 		{
 			try
 			{
+				string urlArchivo = Path.Combine(Directory.GetCurrentDirectory(), "temporales.xml");
+				if (File.Exists(urlArchivo))
+				{
+					var data = new FileStream(urlArchivo, FileMode.Open, FileAccess.Read);
+					var documento = new XmlDataDocument();
+					documento.Load(data);
+					XmlNodeList nodeList = documento.GetElementsByTagName("root");
+					string Usuario = string.Empty;
+					string Contraseña = string.Empty;
+					foreach (XmlNode item in nodeList)
+					{
+						Usuario = item.SelectSingleNode("Usuario").InnerText.ToString();
+						Contraseña = item.SelectSingleNode("Contraseña").InnerText.ToString();
+					}
+					txtContrasena.Text = Contraseña;
+					txtUsuario.Text = Usuario;
+					checkBoxContrasena.Checked = true;
+				}
+				else
+				{
+					XDocument document = new XDocument(
+													new XDeclaration("1.0", "utf-8", "yes"),
+													new XComment("XML from plain code"),
 
-			}catch(Exception f)
-			{
-
+													new XElement("root",
+														new XElement("Usuario", string.Empty),
+														new XElement("Contraseña", string.Empty)
+														));
+					document.Save(urlArchivo);
+				}
 			}
+			catch (Exception f)
+			{
+				MessageBox.Show(f.Message);
+			}
+
 		}
 
 		private async Task RecordarCredenciales()
@@ -32,10 +67,45 @@ namespace Interfaz
 			try
 			{
 
+				string urlArchivo = Path.Combine(Directory.GetCurrentDirectory(), "temporales.xml");
+				string usuario = txtUsuario.Text;
+				string contraseña = txtContrasena.Text;
+				if (File.Exists(urlArchivo))
+				{
+					File.Delete(urlArchivo);
+				}
+				if (checkBoxContrasena.Checked)
+				{
+					XDocument document = new XDocument(
+														new XDeclaration("1.0", "utf-8", "yes"),
+														new XComment("XML from plain code"),
+
+														new XElement("root",
+															new XElement("Usuario", usuario),
+															new XElement("Contraseña", contraseña)
+															));
+					document.Save(urlArchivo);
+				}
+				else
+				{
+					XDocument document = new XDocument(
+														new XDeclaration("1.0", "utf-8", "yes"),
+														new XComment("XML from plain code"),
+
+														new XElement("root",
+															new XElement("Usuario", string.Empty),
+															new XElement("Contraseña", string.Empty)
+															));
+					document.Save(urlArchivo);
+				}
+
+
+
+
 			}
 			catch (Exception f)
 			{
-
+				MessageBox.Show(f.Message, "Error SaveCredentias");
 			}
 		}
 
@@ -66,6 +136,7 @@ namespace Interfaz
 							bool Autorizacion = usuarioNegocio.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
 							if (Autorizacion)
 							{
+								RecordarCredenciales();
 								Temporal.UsuarioActivo = usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
 								Temporal.TipoLogin = "Vendedor";
 								ModuloVentas moduloVentas = new();
@@ -94,6 +165,7 @@ namespace Interfaz
 							bool Autorizacion = usuarioNegocio.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
 							if (Autorizacion)
 							{
+								RecordarCredenciales();
 								Temporal.UsuarioActivo = usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
 								Temporal.TipoLogin = "Administrador";
 								ModuloAdministrador moduloAdministrador = new();

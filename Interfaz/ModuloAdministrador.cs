@@ -444,8 +444,9 @@ namespace Interfaz
 		private void txtMonto_Leave(object sender, EventArgs e)
 		{
 			bool parseable = float.TryParse(txtMonto.Text, out float resultado);
-			if (!parseable) {
-				MessageBox.Show($"El valor {txtMonto.Text} no es válido, reviselo\n Ejemplo: 1520,25","",MessageBoxButtons.OK);
+			if (!parseable)
+			{
+				MessageBox.Show($"El valor {txtMonto.Text} no es válido, reviselo\n Ejemplo: 1520,25", "", MessageBoxButtons.OK);
 			}
 
 		}

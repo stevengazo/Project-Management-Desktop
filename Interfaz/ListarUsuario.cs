@@ -210,7 +210,7 @@ namespace Interfaz
 						{
 							RolUsuario rol = new RolUsuario()
 							{
-								RolId = 2,
+								RolId = 1,
 								UsuarioId = usuario.UsuarioId
 							};
 							var d = RolUsuario.AgregarRolUsuario(rol);

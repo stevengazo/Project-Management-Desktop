@@ -290,41 +290,41 @@ namespace Interfaz
 				}
 				if (string.IsNullOrEmpty(txtRazonSocial.Text))
 				{
-					MessageBox.Show("", "", MessageBoxButtons.OK);
+					MessageBox.Show("La Razón social no puede estar vacia\nIngrese \"No aplica\" Si este dato no es necesario", "Advertencia", MessageBoxButtons.OK);
 					return false;
 				}
 				if (string.IsNullOrEmpty(txtContacto.Text))
 				{
-					MessageBox.Show("", "", MessageBoxButtons.OK);
+					MessageBox.Show("El contacto no puede estar vacio\nSi no aplica, ingrese \"No Aplica\" ","Advertencia",MessageBoxButtons.OK);
 					return false;
 				}
 				var Oferta = comboBoxOfertas.Text;
 				if (string.IsNullOrEmpty(Oferta))
 				{
-					MessageBox.Show("", "", MessageBoxButtons.OK);
+					MessageBox.Show("Debe seleccionar una oferta", "Advertencia", MessageBoxButtons.OK);
 					return false;
 				}
 				float.TryParse(txtMonto.Text, out float monto);
 				if (monto == 0)
 				{
-					MessageBox.Show("", "", MessageBoxButtons.OK);
+					MessageBox.Show("Debe ingresar un monto superior a 0\nSi no dispone de un monto digite: 1", "Advertencia", MessageBoxButtons.OK);
 					return false;
 				}
 				int.TryParse(txtNumeroFacturaAnticipo.Text, out int facturaanticipo);
 				if (facturaanticipo == 0)
 				{
-					MessageBox.Show("", "", MessageBoxButtons.OK);
+					MessageBox.Show("Debe ingresar un monto superior a 0\nSi no dispone de un monto de anticipo digite: 1", "Advertencia", MessageBoxButtons.OK);
 					return false;
 				}
 				int.TryParse(txtTareaBitrix.Text, out int tarea);
 				if (tarea == 0)
 				{
-					MessageBox.Show("", "", MessageBoxButtons.OK);
+					MessageBox.Show("Debe ingregar un número de tarea.\nSi esta no esta asignada digite: 1", "Advertencia", MessageBoxButtons.OK);
 					return false;
 				}
 				if (string.IsNullOrEmpty(comboBoxEstado.Text))
 				{
-					MessageBox.Show("", "", MessageBoxButtons.OK);
+					MessageBox.Show("Debe Seleccionar un estado inicial para el proyecto", "Advertencia", MessageBoxButtons.OK);
 					return false;
 				}
 				return true;
