@@ -1,381 +1,405 @@
 ﻿namespace Interfaz
 {
-	partial class AgregarOferta
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class AgregarOferta
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.label12 = new System.Windows.Forms.Label();
-			this.txtEncargado = new System.Windows.Forms.TextBox();
-			this.label11 = new System.Windows.Forms.Label();
-			this.txtCliente = new System.Windows.Forms.TextBox();
-			this.btnCancelar = new System.Windows.Forms.Button();
-			this.btnAgregar = new System.Windows.Forms.Button();
-			this.cbEncargado = new System.Windows.Forms.ComboBox();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.txtObservaciones = new System.Windows.Forms.TextBox();
-			this.label8 = new System.Windows.Forms.Label();
-			this.txtNotas = new System.Windows.Forms.TextBox();
-			this.label7 = new System.Windows.Forms.Label();
-			this.txtMonto = new System.Windows.Forms.TextBox();
-			this.checkBoxExcavacion = new System.Windows.Forms.CheckBox();
-			this.label6 = new System.Windows.Forms.Label();
-			this.checkBoxSubbase = new System.Windows.Forms.CheckBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.checkBoxBase = new System.Windows.Forms.CheckBox();
-			this.label4 = new System.Windows.Forms.Label();
-			this.checkBoxAsfalto = new System.Windows.Forms.CheckBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.checkBoxSellador = new System.Windows.Forms.CheckBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
-			this.label1 = new System.Windows.Forms.Label();
-			this.groupBox1.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// groupBox1
-			// 
-			this.groupBox1.Controls.Add(this.label12);
-			this.groupBox1.Controls.Add(this.txtEncargado);
-			this.groupBox1.Controls.Add(this.label11);
-			this.groupBox1.Controls.Add(this.txtCliente);
-			this.groupBox1.Controls.Add(this.btnCancelar);
-			this.groupBox1.Controls.Add(this.btnAgregar);
-			this.groupBox1.Controls.Add(this.cbEncargado);
-			this.groupBox1.Controls.Add(this.label10);
-			this.groupBox1.Controls.Add(this.label9);
-			this.groupBox1.Controls.Add(this.txtObservaciones);
-			this.groupBox1.Controls.Add(this.label8);
-			this.groupBox1.Controls.Add(this.txtNotas);
-			this.groupBox1.Controls.Add(this.label7);
-			this.groupBox1.Controls.Add(this.txtMonto);
-			this.groupBox1.Controls.Add(this.checkBoxExcavacion);
-			this.groupBox1.Controls.Add(this.label6);
-			this.groupBox1.Controls.Add(this.checkBoxSubbase);
-			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Controls.Add(this.checkBoxBase);
-			this.groupBox1.Controls.Add(this.label4);
-			this.groupBox1.Controls.Add(this.checkBoxAsfalto);
-			this.groupBox1.Controls.Add(this.label3);
-			this.groupBox1.Controls.Add(this.checkBoxSellador);
-			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Controls.Add(this.dateTimePickerFecha);
-			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Location = new System.Drawing.Point(12, 12);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(309, 482);
-			this.groupBox1.TabIndex = 0;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Información de Ofeta";
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(19, 400);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(58, 15);
-			this.label12.TabIndex = 26;
-			this.label12.Text = "Cotizador";
-			// 
-			// txtEncargado
-			// 
-			this.txtEncargado.Location = new System.Drawing.Point(103, 397);
-			this.txtEncargado.Name = "txtEncargado";
-			this.txtEncargado.PlaceholderText = "Adrián Sólis";
-			this.txtEncargado.Size = new System.Drawing.Size(184, 23);
-			this.txtEncargado.TabIndex = 25;
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(13, 173);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(44, 15);
-			this.label11.TabIndex = 24;
-			this.label11.Text = "Cliente";
-			// 
-			// txtCliente
-			// 
-			this.txtCliente.Location = new System.Drawing.Point(103, 176);
-			this.txtCliente.Name = "txtCliente";
-			this.txtCliente.PlaceholderText = "Pepe";
-			this.txtCliente.Size = new System.Drawing.Size(184, 23);
-			this.txtCliente.TabIndex = 23;
-			// 
-			// btnCancelar
-			// 
-			this.btnCancelar.Location = new System.Drawing.Point(162, 452);
-			this.btnCancelar.Name = "btnCancelar";
-			this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-			this.btnCancelar.TabIndex = 22;
-			this.btnCancelar.Text = "Cancelar";
-			this.btnCancelar.UseVisualStyleBackColor = true;
-			this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-			// 
-			// btnAgregar
-			// 
-			this.btnAgregar.Location = new System.Drawing.Point(57, 452);
-			this.btnAgregar.Name = "btnAgregar";
-			this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-			this.btnAgregar.TabIndex = 21;
-			this.btnAgregar.Text = "Actualizar";
-			this.btnAgregar.UseVisualStyleBackColor = true;
-			this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-			// 
-			// cbEncargado
-			// 
-			this.cbEncargado.FormattingEnabled = true;
-			this.cbEncargado.Location = new System.Drawing.Point(103, 368);
-			this.cbEncargado.Name = "cbEncargado";
-			this.cbEncargado.Size = new System.Drawing.Size(184, 23);
-			this.cbEncargado.TabIndex = 20;
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(19, 371);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(63, 15);
-			this.label10.TabIndex = 19;
-			this.label10.Text = "Encargado";
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(13, 307);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(69, 15);
-			this.label9.TabIndex = 17;
-			this.label9.Text = "Descripcion";
-			// 
-			// txtObservaciones
-			// 
-			this.txtObservaciones.Location = new System.Drawing.Point(103, 304);
-			this.txtObservaciones.Multiline = true;
-			this.txtObservaciones.Name = "txtObservaciones";
-			this.txtObservaciones.PlaceholderText = "Descripción y ubicación";
-			this.txtObservaciones.Size = new System.Drawing.Size(184, 53);
-			this.txtObservaciones.TabIndex = 16;
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(13, 239);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(38, 15);
-			this.label8.TabIndex = 15;
-			this.label8.Text = "Notas";
-			// 
-			// txtNotas
-			// 
-			this.txtNotas.Location = new System.Drawing.Point(103, 242);
-			this.txtNotas.Multiline = true;
-			this.txtNotas.Name = "txtNotas";
-			this.txtNotas.PlaceholderText = "Notas e información varia";
-			this.txtNotas.Size = new System.Drawing.Size(184, 53);
-			this.txtNotas.TabIndex = 14;
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(13, 210);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(43, 15);
-			this.label7.TabIndex = 13;
-			this.label7.Text = "Monto";
-			// 
-			// txtMonto
-			// 
-			this.txtMonto.Location = new System.Drawing.Point(103, 213);
-			this.txtMonto.Name = "txtMonto";
-			this.txtMonto.PlaceholderText = "150000";
-			this.txtMonto.Size = new System.Drawing.Size(184, 23);
-			this.txtMonto.TabIndex = 12;
-			// 
-			// checkBoxExcavacion
-			// 
-			this.checkBoxExcavacion.AutoSize = true;
-			this.checkBoxExcavacion.Location = new System.Drawing.Point(103, 151);
-			this.checkBoxExcavacion.Name = "checkBoxExcavacion";
-			this.checkBoxExcavacion.Size = new System.Drawing.Size(133, 19);
-			this.checkBoxExcavacion.TabIndex = 11;
-			this.checkBoxExcavacion.Text = "Necesita Excavación";
-			this.checkBoxExcavacion.UseVisualStyleBackColor = true;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(13, 146);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(66, 15);
-			this.label6.TabIndex = 10;
-			this.label6.Text = "Excavación";
-			// 
-			// checkBoxSubbase
-			// 
-			this.checkBoxSubbase.AutoSize = true;
-			this.checkBoxSubbase.Location = new System.Drawing.Point(103, 126);
-			this.checkBoxSubbase.Name = "checkBoxSubbase";
-			this.checkBoxSubbase.Size = new System.Drawing.Size(110, 19);
-			this.checkBoxSubbase.TabIndex = 9;
-			this.checkBoxSubbase.Text = "Aplicar Subbase";
-			this.checkBoxSubbase.UseVisualStyleBackColor = true;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(13, 121);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(51, 15);
-			this.label5.TabIndex = 8;
-			this.label5.Text = "Subbase";
-			// 
-			// checkBoxBase
-			// 
-			this.checkBoxBase.AutoSize = true;
-			this.checkBoxBase.Location = new System.Drawing.Point(103, 101);
-			this.checkBoxBase.Name = "checkBoxBase";
-			this.checkBoxBase.Size = new System.Drawing.Size(90, 19);
-			this.checkBoxBase.TabIndex = 7;
-			this.checkBoxBase.Text = "Aplicar Base";
-			this.checkBoxBase.UseVisualStyleBackColor = true;
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(13, 96);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(31, 15);
-			this.label4.TabIndex = 6;
-			this.label4.Text = "Base";
-			// 
-			// checkBoxAsfalto
-			// 
-			this.checkBoxAsfalto.AutoSize = true;
-			this.checkBoxAsfalto.Location = new System.Drawing.Point(103, 76);
-			this.checkBoxAsfalto.Name = "checkBoxAsfalto";
-			this.checkBoxAsfalto.Size = new System.Drawing.Size(103, 19);
-			this.checkBoxAsfalto.TabIndex = 5;
-			this.checkBoxAsfalto.Text = "Aplicar Asfalto";
-			this.checkBoxAsfalto.UseVisualStyleBackColor = true;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(13, 71);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(44, 15);
-			this.label3.TabIndex = 4;
-			this.label3.Text = "Asfalto";
-			// 
-			// checkBoxSellador
-			// 
-			this.checkBoxSellador.AutoSize = true;
-			this.checkBoxSellador.Location = new System.Drawing.Point(103, 51);
-			this.checkBoxSellador.Name = "checkBoxSellador";
-			this.checkBoxSellador.Size = new System.Drawing.Size(108, 19);
-			this.checkBoxSellador.TabIndex = 3;
-			this.checkBoxSellador.Text = "Aplicar Sellador";
-			this.checkBoxSellador.UseVisualStyleBackColor = true;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(13, 46);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(49, 15);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "Sellador";
-			// 
-			// dateTimePickerFecha
-			// 
-			this.dateTimePickerFecha.Location = new System.Drawing.Point(103, 22);
-			this.dateTimePickerFecha.Name = "dateTimePickerFecha";
-			this.dateTimePickerFecha.Size = new System.Drawing.Size(184, 23);
-			this.dateTimePickerFecha.TabIndex = 1;
-			this.dateTimePickerFecha.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(13, 22);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(38, 15);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Fecha";
-			// 
-			// AgregarOferta
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(333, 499);
-			this.Controls.Add(this.groupBox1);
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.Name = "AgregarOferta";
-			this.ShowIcon = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Agregar Oferta";
-			this.Load += new System.EventHandler(this.AgregarOferta_Load);
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
-			this.ResumeLayout(false);
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            groupBox1 = new GroupBox();
+            label12 = new Label();
+            txtEncargado = new TextBox();
+            label11 = new Label();
+            txtCliente = new TextBox();
+            btnCancelar = new Button();
+            btnAgregar = new Button();
+            cbEncargado = new ComboBox();
+            label10 = new Label();
+            label9 = new Label();
+            txtObservaciones = new TextBox();
+            label8 = new Label();
+            txtNotas = new TextBox();
+            label7 = new Label();
+            txtMonto = new TextBox();
+            checkBoxExcavacion = new CheckBox();
+            label6 = new Label();
+            checkBoxSubbase = new CheckBox();
+            label5 = new Label();
+            checkBoxBase = new CheckBox();
+            label4 = new Label();
+            checkBoxAsfalto = new CheckBox();
+            label3 = new Label();
+            checkBoxSellador = new CheckBox();
+            label2 = new Label();
+            dateTimePickerFecha = new DateTimePicker();
+            label1 = new Label();
+            ckdemarcado = new CheckBox();
+            label13 = new Label();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(ckdemarcado);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(txtEncargado);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(txtCliente);
+            groupBox1.Controls.Add(btnCancelar);
+            groupBox1.Controls.Add(btnAgregar);
+            groupBox1.Controls.Add(cbEncargado);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(txtObservaciones);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(txtNotas);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(txtMonto);
+            groupBox1.Controls.Add(checkBoxExcavacion);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(checkBoxSubbase);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(checkBoxBase);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(checkBoxAsfalto);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(checkBoxSellador);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(dateTimePickerFecha);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new Point(12, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(309, 482);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Información de Ofeta";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(19, 422);
+            label12.Name = "label12";
+            label12.Size = new Size(58, 15);
+            label12.TabIndex = 26;
+            label12.Text = "Cotizador";
+            // 
+            // txtEncargado
+            // 
+            txtEncargado.Location = new Point(103, 419);
+            txtEncargado.Name = "txtEncargado";
+            txtEncargado.PlaceholderText = "Adrián Sólis";
+            txtEncargado.Size = new Size(184, 23);
+            txtEncargado.TabIndex = 25;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(13, 195);
+            label11.Name = "label11";
+            label11.Size = new Size(44, 15);
+            label11.TabIndex = 24;
+            label11.Text = "Cliente";
+            // 
+            // txtCliente
+            // 
+            txtCliente.Location = new Point(103, 198);
+            txtCliente.Name = "txtCliente";
+            txtCliente.PlaceholderText = "Pepe";
+            txtCliente.Size = new Size(184, 23);
+            txtCliente.TabIndex = 23;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(162, 452);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.TabIndex = 22;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(57, 452);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.TabIndex = 21;
+            btnAgregar.Text = "Actualizar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // cbEncargado
+            // 
+            cbEncargado.FormattingEnabled = true;
+            cbEncargado.Location = new Point(103, 390);
+            cbEncargado.Name = "cbEncargado";
+            cbEncargado.Size = new Size(184, 23);
+            cbEncargado.TabIndex = 20;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(19, 393);
+            label10.Name = "label10";
+            label10.Size = new Size(63, 15);
+            label10.TabIndex = 19;
+            label10.Text = "Encargado";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(13, 329);
+            label9.Name = "label9";
+            label9.Size = new Size(69, 15);
+            label9.TabIndex = 17;
+            label9.Text = "Descripcion";
+            // 
+            // txtObservaciones
+            // 
+            txtObservaciones.Location = new Point(103, 326);
+            txtObservaciones.Multiline = true;
+            txtObservaciones.Name = "txtObservaciones";
+            txtObservaciones.PlaceholderText = "Descripción y ubicación";
+            txtObservaciones.Size = new Size(184, 53);
+            txtObservaciones.TabIndex = 16;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(13, 261);
+            label8.Name = "label8";
+            label8.Size = new Size(38, 15);
+            label8.TabIndex = 15;
+            label8.Text = "Notas";
+            // 
+            // txtNotas
+            // 
+            txtNotas.Location = new Point(103, 264);
+            txtNotas.Multiline = true;
+            txtNotas.Name = "txtNotas";
+            txtNotas.PlaceholderText = "Notas e información varia";
+            txtNotas.Size = new Size(184, 53);
+            txtNotas.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(13, 232);
+            label7.Name = "label7";
+            label7.Size = new Size(43, 15);
+            label7.TabIndex = 13;
+            label7.Text = "Monto";
+            // 
+            // txtMonto
+            // 
+            txtMonto.Location = new Point(103, 235);
+            txtMonto.Name = "txtMonto";
+            txtMonto.PlaceholderText = "150000";
+            txtMonto.Size = new Size(184, 23);
+            txtMonto.TabIndex = 12;
+            // 
+            // checkBoxExcavacion
+            // 
+            checkBoxExcavacion.AutoSize = true;
+            checkBoxExcavacion.Location = new Point(103, 151);
+            checkBoxExcavacion.Name = "checkBoxExcavacion";
+            checkBoxExcavacion.Size = new Size(133, 19);
+            checkBoxExcavacion.TabIndex = 11;
+            checkBoxExcavacion.Text = "Necesita Excavación";
+            checkBoxExcavacion.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(13, 146);
+            label6.Name = "label6";
+            label6.Size = new Size(66, 15);
+            label6.TabIndex = 10;
+            label6.Text = "Excavación";
+            // 
+            // checkBoxSubbase
+            // 
+            checkBoxSubbase.AutoSize = true;
+            checkBoxSubbase.Location = new Point(103, 126);
+            checkBoxSubbase.Name = "checkBoxSubbase";
+            checkBoxSubbase.Size = new Size(110, 19);
+            checkBoxSubbase.TabIndex = 9;
+            checkBoxSubbase.Text = "Aplicar Subbase";
+            checkBoxSubbase.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(13, 121);
+            label5.Name = "label5";
+            label5.Size = new Size(51, 15);
+            label5.TabIndex = 8;
+            label5.Text = "Subbase";
+            // 
+            // checkBoxBase
+            // 
+            checkBoxBase.AutoSize = true;
+            checkBoxBase.Location = new Point(103, 101);
+            checkBoxBase.Name = "checkBoxBase";
+            checkBoxBase.Size = new Size(90, 19);
+            checkBoxBase.TabIndex = 7;
+            checkBoxBase.Text = "Aplicar Base";
+            checkBoxBase.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(13, 96);
+            label4.Name = "label4";
+            label4.Size = new Size(31, 15);
+            label4.TabIndex = 6;
+            label4.Text = "Base";
+            // 
+            // checkBoxAsfalto
+            // 
+            checkBoxAsfalto.AutoSize = true;
+            checkBoxAsfalto.Location = new Point(103, 76);
+            checkBoxAsfalto.Name = "checkBoxAsfalto";
+            checkBoxAsfalto.Size = new Size(103, 19);
+            checkBoxAsfalto.TabIndex = 5;
+            checkBoxAsfalto.Text = "Aplicar Asfalto";
+            checkBoxAsfalto.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(13, 71);
+            label3.Name = "label3";
+            label3.Size = new Size(44, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Asfalto";
+            // 
+            // checkBoxSellador
+            // 
+            checkBoxSellador.AutoSize = true;
+            checkBoxSellador.Location = new Point(103, 51);
+            checkBoxSellador.Name = "checkBoxSellador";
+            checkBoxSellador.Size = new Size(108, 19);
+            checkBoxSellador.TabIndex = 3;
+            checkBoxSellador.Text = "Aplicar Sellador";
+            checkBoxSellador.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(13, 46);
+            label2.Name = "label2";
+            label2.Size = new Size(49, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Sellador";
+            // 
+            // dateTimePickerFecha
+            // 
+            dateTimePickerFecha.Location = new Point(103, 22);
+            dateTimePickerFecha.Name = "dateTimePickerFecha";
+            dateTimePickerFecha.Size = new Size(184, 23);
+            dateTimePickerFecha.TabIndex = 1;
+            dateTimePickerFecha.ValueChanged += dateTimePicker1_ValueChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(13, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Fecha";
+            // 
+            // ckdemarcado
+            // 
+            ckdemarcado.AutoSize = true;
+            ckdemarcado.Location = new Point(103, 173);
+            ckdemarcado.Name = "ckdemarcado";
+            ckdemarcado.Size = new Size(143, 19);
+            ckdemarcado.TabIndex = 27;
+            ckdemarcado.Text = "Necesita demarcación";
+            ckdemarcado.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(11, 173);
+            label13.Name = "label13";
+            label13.Size = new Size(68, 15);
+            label13.TabIndex = 28;
+            label13.Text = "Demarcado";
+            // 
+            // AgregarOferta
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(333, 499);
+            Controls.Add(groupBox1);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "AgregarOferta";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Agregar Oferta";
+            Load += AgregarOferta_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+        }
 
-		}
+        #endregion
 
-		#endregion
-
-		private GroupBox groupBox1;
-		private DateTimePicker dateTimePickerFecha;
-		private Label label1;
-		private Button btnCancelar;
-		private Button btnAgregar;
-		private ComboBox cbEncargado;
-		private Label label10;
-		private Label label9;
-		private TextBox txtObservaciones;
-		private Label label8;
-		private TextBox txtNotas;
-		private Label label7;
-		private TextBox txtMonto;
-		private CheckBox checkBoxExcavacion;
-		private Label label6;
-		private CheckBox checkBoxSubbase;
-		private Label label5;
-		private CheckBox checkBoxBase;
-		private Label label4;
-		private CheckBox checkBoxAsfalto;
-		private Label label3;
-		private CheckBox checkBoxSellador;
-		private Label label2;
-		private Label label11;
-		private TextBox txtCliente;
-		private Label label12;
-		private TextBox txtEncargado;
-	}
+        private GroupBox groupBox1;
+        private DateTimePicker dateTimePickerFecha;
+        private Label label1;
+        private Button btnCancelar;
+        private Button btnAgregar;
+        private ComboBox cbEncargado;
+        private Label label10;
+        private Label label9;
+        private TextBox txtObservaciones;
+        private Label label8;
+        private TextBox txtNotas;
+        private Label label7;
+        private TextBox txtMonto;
+        private CheckBox checkBoxExcavacion;
+        private Label label6;
+        private CheckBox checkBoxSubbase;
+        private Label label5;
+        private CheckBox checkBoxBase;
+        private Label label4;
+        private CheckBox checkBoxAsfalto;
+        private Label label3;
+        private CheckBox checkBoxSellador;
+        private Label label2;
+        private Label label11;
+        private TextBox txtCliente;
+        private Label label12;
+        private TextBox txtEncargado;
+        private Label label13;
+        private CheckBox ckdemarcado;
+    }
 }

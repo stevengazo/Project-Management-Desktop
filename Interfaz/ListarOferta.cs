@@ -67,7 +67,8 @@ namespace Interfaz
 					_tabla.Columns.Add("Asfalto");
 					_tabla.Columns.Add("SubBase");
 					_tabla.Columns.Add("Excavacion");
-					_tabla.Columns.Add("Monto");
+                    _tabla.Columns.Add("Demarcado");
+                    _tabla.Columns.Add("Monto");
 					_tabla.Columns.Add("Cliente");
 					_tabla.Columns.Add("Encargado");
 					_tabla.Columns.Add("Cotizado Por");
@@ -79,10 +80,11 @@ namespace Interfaz
 							$"CM-{item.OfertaId.ToString()}",
 							item.Fecha.ToLongDateString(),
 							//item.Codigo,
-							item.Sellador,
-							item.Asfalto,
-							item.SubBase,
-							item.Excavacion,
+							(item.Sellador)?"Ocupa":"No ocupa",
+                            (item.Asfalto) ? "Ocupa" : "No ocupa",
+                            (item.SubBase)?"Ocupa":"No ocupa",
+                            (item.Excavacion) ? "Ocupa" : "No ocupa",
+                            (item.Demarcado)?"Necesita":"No ocupa",
 							item.Monto.ToString("C", CultureInfo.CurrentCulture),
 							item.Cliente,
 							item.Encargado.Nombre,
@@ -140,6 +142,7 @@ namespace Interfaz
 				_tabla.Columns.Add("Asfalto");
 				_tabla.Columns.Add("SubBase");
 				_tabla.Columns.Add("Excavacion");
+				_tabla.Columns.Add("Demarcado");
 				_tabla.Columns.Add("Monto");
 				_tabla.Columns.Add("Encargado");
 				_tabla.Columns.Add("Creado por");
@@ -151,12 +154,13 @@ namespace Interfaz
 						$"CM-{item.OfertaId.ToString()}",
 						item.Cliente,
 						item.Fecha.ToLongDateString(),
-						//item.Codigo,
-						item.Sellador,
-						item.Asfalto,
-						item.SubBase,
-						item.Excavacion,
-						item.Monto.ToString("C", CultureInfo.CurrentCulture),
+                        //item.Codigo,
+                        (item.Sellador) ? "Ocupa" : "No ocupa",
+                            (item.Asfalto) ? "Ocupa" : "No ocupa",
+                            (item.SubBase) ? "Ocupa" : "No ocupa",
+                            (item.Excavacion) ? "Ocupa" : "No ocupa",
+                            (item.Demarcado) ? "Necesita" : "No ocupa",
+                        item.Monto.ToString("C", CultureInfo.CurrentCulture),
 						item.Encargado.Nombre,
 						item.AutorPrespuesto,
 						item.EncargadoCotizador
