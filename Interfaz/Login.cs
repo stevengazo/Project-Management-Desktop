@@ -24,7 +24,7 @@ namespace Interfaz
         {
             try
             {
-                string urlArchivo = Path.Combine(Directory.GetCurrentDirectory(), "temporales.xml");
+                string urlArchivo = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "temporals.xml"); 
                 if (File.Exists(urlArchivo))
                 {
                     var data = new FileStream(urlArchivo, FileMode.Open, FileAccess.Read);

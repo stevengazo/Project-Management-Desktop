@@ -164,6 +164,7 @@ namespace Interfaz
                     Ofertatmp.Base = checkBoxBase.Checked;
                     Ofertatmp.SubBase = checkBoxSubbase.Checked;
                     Ofertatmp.Excavacion = checkBoxExcavacion.Checked;
+                    Ofertatmp.Demarcado = ckDemarcacion.Checked;
                     Ofertatmp.Cliente = txtCliente.Text;
                     float.TryParse(txtMonto.Text, out float tmpNumero);
                     Ofertatmp.Monto = tmpNumero;
