@@ -24,7 +24,7 @@ namespace Interfaz
         {
             try
             {
-                string urlArchivo = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "temporals.xml"); 
+                string urlArchivo = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Asphalt_Register_Dat"); 
                 if (File.Exists(urlArchivo))
                 {
                     var data = new FileStream(urlArchivo, FileMode.Open, FileAccess.Read);
@@ -67,7 +67,7 @@ namespace Interfaz
             try
             {
 
-                string urlArchivo = Path.Combine(Directory.GetCurrentDirectory(), "temporales.xml");
+                string urlArchivo = Path.Combine(Directory.GetCurrentDirectory(), "Asphalt_Register_Dat");
                 string usuario = txtUsuario.Text;
                 string contraseña = txtContrasena.Text;
                 if (File.Exists(urlArchivo))

@@ -18,7 +18,8 @@ namespace Modelos
 		public string FacturaFinalId { get; set; }
 		public int TareaId { get; set; }
 		public string Ubicacion { get; set; }
-		public DateTime FechaInicio { get; set; }
+        public string Notas { get; set; }
+        public DateTime FechaInicio { get; set; }
 		public DateTime FechaFinal { get; set; }
 		public string Estado { get; set; }
 		public string Autor { get; set; }

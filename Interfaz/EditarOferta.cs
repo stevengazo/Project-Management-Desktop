@@ -97,7 +97,9 @@ namespace Interfaz
         {
             try
             {
-                if (Temporal.TipoLogin.Equals("Administrador"))
+                OfertaNegocio ofertaNegocio = new();
+                Ofertatmp = ofertaNegocio.ObtenerOferta(idOferta);
+                if (Temporal.TipoLogin.Equals("Administrador") || Ofertatmp.UsuarioId == Temporal.UsuarioActivo.UsuarioId ) 
                 {
                     UsuarioNegocio tmpNegocioUsuario = new();
                     usuarios = tmpNegocioUsuario.ListarVendedores().Distinct().ToList();
@@ -107,8 +109,6 @@ namespace Interfaz
                     }
                     if (idOferta != -1)
                     {
-                        OfertaNegocio ofertaNegocio = new();
-                        Ofertatmp = ofertaNegocio.ObtenerOferta(idOferta);
                         if (Ofertatmp == null)
                         {
                             MessageBox.Show($"Error interno: el id de oferta no fue especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -274,6 +274,7 @@ namespace Interfaz
 					proyectoTemporal.Ubicacion = txtUbicacion.Text;
 					proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
 					proyectoTemporal.Estado = cbEstado.Text;
+					proyectoTemporal.Notas = string.Empty;
 					proyectoTemporal.FacturaAnticipoId = txtNumeroFactura.Text;
 					proyectoTemporal.UsuarioId = (from i in Vendedores
 												  where i.Nombre == cbVendedores.Text
