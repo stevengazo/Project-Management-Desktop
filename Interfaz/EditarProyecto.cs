@@ -77,39 +77,57 @@ namespace Interfaz
 
         private async void EditarProyecto_Load(object sender, EventArgs e)
         {
-            await cargarOfertas();
-            CargarVendedores();
-            if (ProyectoId != 0)
+            try
             {
-                ProyectoNegocios proyectoNegocios = new();
-                ProyectoActual = proyectoNegocios.ObtenerProyecto(ProyectoId);
-                txtidProyecto.Text = $"P-{ProyectoActual.ProyectoId.ToString()}";
-                // vendedor
-                cbVendedores.Text = ProyectoActual.Vendedor.Nombre;
-                txtRazonSocial.Text = ProyectoActual.Cliente;
-                dtpOC.Value = ProyectoActual.FechaOC;
-                txtContacto.Text = ProyectoActual.Cliente;
-                // oferta
-                var ofertaIdTemporal = int.Parse(ProyectoActual.OfertaId);
-                var oferta = (from O in Ofertas
-                              where O.Key == ofertaIdTemporal
-                              select O).FirstOrDefault();
-                comboBoxOfertas.Text = $"{oferta.Key}-{oferta.Value}";
+                await cargarOfertas();
+                CargarVendedores();
+                if (ProyectoId != 0)
+                {
+                    ProyectoNegocios proyectoNegocios = new();
+                    ProyectoActual = proyectoNegocios.ObtenerProyecto(ProyectoId);
+                    txtidProyecto.Text = $"P-{ProyectoActual.ProyectoId.ToString()}";
+                    // vendedor
+                    cbVendedores.Text = ProyectoActual.Vendedor.Nombre;
+                    txtRazonSocial.Text = ProyectoActual.Cliente;
+                    dtpOC.Value = ProyectoActual.FechaOC;
+                    txtContacto.Text = ProyectoActual.Cliente;
+                    // oferta
+                    bool tryOferta = int.TryParse(ProyectoActual.OfertaId, out int idOferta);
+                    if (tryOferta)
+                    {
+                        var ofertaIdTemporal = int.Parse(ProyectoActual.OfertaId);
+                        var oferta = (from O in Ofertas
+                                      where O.Key == ofertaIdTemporal
+                                      select O).FirstOrDefault();
+                        comboBoxOfertas.Text = $"{oferta.Key}-{oferta.Value}";
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error interno, el valor de {nameof(ProyectoActual.OfertaId)}, no es valido, contacta a un administrador", "Advertencia");
+                        comboBoxOfertas.Text = "1 - No Valido ";
+                    }
 
-                txtMonto.Text = ProyectoActual.Monto.ToString();
-                numericUpDownPorcentaje.Value = ProyectoActual.PorcentajeAnticipo;
-                txtNumeroFacturaAnticipo.Text = ProyectoActual.FacturaAnticipoId;
-                txtTarea.Text = ProyectoActual.TareaId.ToString();
-                txtUbicacion.Text = ProyectoActual.Ubicacion;
-                txtNota.Text = ProyectoActual.Notas;
-                dtpInicio.Value = ProyectoActual.FechaInicio;
-                dtpFinalizacion.Value = ProyectoActual.FechaFinal;
-                cbEstado.Text = ProyectoActual.Estado;
+                    
+                    txtMonto.Text = ProyectoActual.Monto.ToString();
+                    numericUpDownPorcentaje.Value = ProyectoActual.PorcentajeAnticipo;
+                    txtNumeroFacturaAnticipo.Text = ProyectoActual.FacturaAnticipoId;
+                    txtTarea.Text = ProyectoActual.TareaId.ToString();
+                    txtUbicacion.Text = ProyectoActual.Ubicacion;
+                    txtNota.Text = ProyectoActual.Notas;
+                    dtpInicio.Value = ProyectoActual.FechaInicio;
+                    dtpFinalizacion.Value = ProyectoActual.FechaFinal;
+                    cbEstado.Text = ProyectoActual.Estado;
+                }
+                else
+                {
+                    MessageBox.Show("Error interno", "Advertencia");
+                }
             }
-            else
+            catch (Exception egt)
             {
-                MessageBox.Show("Error interno", "Advertencia");
+                MessageBox.Show($"Error interno: {egt.Message}", "Advertencia");
             }
+            
 
         }
 

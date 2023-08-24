@@ -67,7 +67,7 @@ namespace Interfaz
             try
             {
 
-                string urlArchivo = Path.Combine(Directory.GetCurrentDirectory(), "Asphalt_Register_Dat");
+                string urlArchivo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Asphalt_Register_Dat");
                 string usuario = txtUsuario.Text;
                 string contraseña = txtContrasena.Text;
                 if (File.Exists(urlArchivo))

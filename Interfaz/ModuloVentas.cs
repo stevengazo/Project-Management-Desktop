@@ -283,7 +283,8 @@ namespace Interfaz
 		{
 			try
 			{
-				var VendedorSeleccionado = cbVendedores.Text;
+                bool OfertaIDValido = int.TryParse( comboBoxOfertas.Text, out int IDValido);
+                var VendedorSeleccionado = cbVendedores.Text;
 				if (string.IsNullOrEmpty(VendedorSeleccionado))
 				{
 					MessageBox.Show(" ", "", MessageBoxButtons.OK);
@@ -317,7 +318,12 @@ namespace Interfaz
 					MessageBox.Show("Debe ingresar un monto superior a 0\nSi no dispone de un monto de anticipo digite: 1", "Advertencia", MessageBoxButtons.OK);
 					return false;
 				}
-				int.TryParse(txtTareaBitrix.Text, out int tarea);
+                if (!OfertaIDValido)
+                {
+                    MessageBox.Show($"El Valor en el combo box de Ofertas,  '{comboBoxOfertas.Text}' no es valido, dele seleccionar un nuevo elemento, o ingrese un 1");
+                    return false;
+                }
+                int.TryParse(txtTareaBitrix.Text, out int tarea);
 				if (tarea == 0)
 				{
 					MessageBox.Show("Debe ingregar un número de tarea.\nSi esta no esta asignada digite: 1", "Advertencia", MessageBoxButtons.OK);

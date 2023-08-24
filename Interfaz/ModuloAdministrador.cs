@@ -107,7 +107,8 @@ namespace Interfaz
 				_tabla.Columns.Add("Cliente");
 				_tabla.Columns.Add("Fecha OC");
 				_tabla.Columns.Add("Factura Anticipo");
-				_tabla.Columns.Add("Oferta");
+                _tabla.Columns.Add("Tarea");
+                _tabla.Columns.Add("Oferta");
 				_tabla.Columns.Add("Fecha Inicio");
 				_tabla.Columns.Add("Fecha Final");
 				_tabla.Columns.Add("Monto");
@@ -120,7 +121,8 @@ namespace Interfaz
 						i.Cliente,
 						i.FechaOC.ToLongDateString(),
 						i.FacturaAnticipoId.ToString(),
-						i.OfertaId,
+                        i.TareaId,
+                        i.OfertaId,
 						i.FechaInicio.ToLongDateString(),
 						i.FechaFinal.ToLongDateString(),
 						i.Monto.ToString("C", CultureInfo.CurrentCulture),
@@ -311,6 +313,7 @@ namespace Interfaz
 		{
 			try
 			{
+				bool OfertaIDValido = int.TryParse(cbOfertas.Text, out int IDValido);
 				var vendedorSeleccionado = cbVendedores.Text;
 				var ofertaSeleccionada = cbOfertas.Text;
 				var clienteSeleccionado = txtNombreCliente.Text;
@@ -336,6 +339,11 @@ namespace Interfaz
 					MessageBox.Show("Indique el nombre del contacto");
 					return false;
 				}
+				if (!OfertaIDValido)
+				{
+                    MessageBox.Show($"El Valor en el combo box de Ofertas,  '{cbOfertas.Text}' no es valido, dele seleccionar un nuevo elemento, o ingrese un 1");
+                    return false;
+                }
 				if (numericUpDownPorcentaje.Value == 0)
 				{
 					MessageBox.Show("Indique un porcentaje mayor a 0");
