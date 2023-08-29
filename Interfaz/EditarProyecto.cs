@@ -7,11 +7,14 @@ namespace Interfaz
 {
     public partial class EditarProyecto : Form
     {
+        #region Propiedades
         private List<Usuario> Vendedores = new();
         private Dictionary<int, string> Ofertas = new();
         private Proyecto ProyectoActual { get; set; }
-
         public int ProyectoId { get; set; } = 0;
+        #endregion
+
+        #region Constructor
         public EditarProyecto()
         {
             try
@@ -23,13 +26,23 @@ namespace Interfaz
                 MessageBox.Show($"Error interno - {ex.Message}", $"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
-
         }
+        #endregion
 
+        #region Metodos
+
+        /// <summary>
+        /// Carga los vendedores existentes en el combobox
+        /// </summary>
         private void CargarVendedores()
         {
             UsuarioNegocio usuarioNegocio = new();
             Vendedores = usuarioNegocio.ListarVendedores();
+            bool Exist = Vendedores.Exists(D => D.UsuarioId == ProyectoActual.UsuarioId);
+            if (!Exist)
+            {
+                Vendedores.Add(ProyectoActual.Vendedor);
+            }
             if (Vendedores.Count > 0)
             {
                 cbVendedores.Items.Clear();
@@ -37,9 +50,14 @@ namespace Interfaz
                 {
                     cbVendedores.Items.Add(item.Nombre);
                 }
+
             }
         }
 
+        /// <summary>
+        /// Carga la lista de Ofertas en el combo box
+        /// </summary>
+        /// <returns></returns>
         private async Task cargarOfertas()
         {
             try
@@ -49,6 +67,7 @@ namespace Interfaz
                 if (Ofertas != null)
                 {
                     comboBoxOfertas.Items.Clear();
+                    comboBoxOfertas.Items.Add($"1-No asignado / No Asignado");
                     foreach (var item in Ofertas)
                     {
                         comboBoxOfertas.Items.Add($"{item.Key}-{item.Value}");
@@ -60,6 +79,12 @@ namespace Interfaz
                 MessageBox.Show(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Funcion de Borrado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             var Resultado = MessageBox.Show("¿Deseas borrar este ProyectoActual?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -75,12 +100,15 @@ namespace Interfaz
             }
         }
 
+        /// <summary>
+        /// Carga la información del proyecto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void EditarProyecto_Load(object sender, EventArgs e)
         {
             try
             {
-                await cargarOfertas();
-                CargarVendedores();
                 if (ProyectoId != 0)
                 {
                     ProyectoNegocios proyectoNegocios = new();
@@ -96,10 +124,10 @@ namespace Interfaz
                     if (tryOferta)
                     {
                         var ofertaIdTemporal = int.Parse(ProyectoActual.OfertaId);
-                        var oferta = (from O in Ofertas
-                                      where O.Key == ofertaIdTemporal
-                                      select O).FirstOrDefault();
-                        comboBoxOfertas.Text = $"{oferta.Key}-{oferta.Value}";
+                        OfertaNegocio ofertaNegocio = new();
+                        var oferta = ofertaNegocio.ObtenerOferta(idOferta);
+                        comboBoxOfertas.Text = (oferta == null) ? $"1-No Asignado/No Disponible" : $"{oferta.OfertaId}-{oferta.Cliente}";
+
                     }
                     else
                     {
@@ -107,27 +135,31 @@ namespace Interfaz
                         comboBoxOfertas.Text = "1 - No Valido ";
                     }
 
-                    
+
                     txtMonto.Text = ProyectoActual.Monto.ToString();
                     numericUpDownPorcentaje.Value = ProyectoActual.PorcentajeAnticipo;
                     txtNumeroFacturaAnticipo.Text = ProyectoActual.FacturaAnticipoId;
                     txtTarea.Text = ProyectoActual.TareaId.ToString();
+                    txtFacturalFinalId.Text = ProyectoActual.FacturaFinalId;
                     txtUbicacion.Text = ProyectoActual.Ubicacion;
                     txtNota.Text = ProyectoActual.Notas;
                     dtpInicio.Value = ProyectoActual.FechaInicio;
                     dtpFinalizacion.Value = ProyectoActual.FechaFinal;
                     cbEstado.Text = ProyectoActual.Estado;
+                    await cargarOfertas();
+                    CargarVendedores();
                 }
                 else
                 {
                     MessageBox.Show("Error interno", "Advertencia");
+                    this.Close();
                 }
             }
             catch (Exception egt)
             {
                 MessageBox.Show($"Error interno: {egt.Message}", "Advertencia");
             }
-            
+
 
         }
 
@@ -152,28 +184,12 @@ namespace Interfaz
                         ProyectoActual.Monto = float.Parse(txtMonto.Text);
                         ProyectoActual.PorcentajeAnticipo = int.Parse(numericUpDownPorcentaje.Value.ToString());
                         ProyectoActual.FacturaAnticipoId = txtNumeroFacturaAnticipo.Text;
-                        ProyectoActual.Notas = txtNota.Text;
-                        if (string.IsNullOrEmpty(txtFacturalFinalId.Text))
-                        {
-                            ProyectoActual.FacturaFinalId = string.Empty;
-                        }
-                        else
-                        {
-                            ProyectoActual.FacturaFinalId = txtFacturalFinalId.Text;
-                        }
+                        ProyectoActual.FacturaFinalId = (string.IsNullOrEmpty(txtFacturalFinalId.Text)) ? "No ingresado" : txtFacturalFinalId.Text;
                         ProyectoActual.TareaId = int.Parse(txtTarea.Text);
-                        if (string.IsNullOrEmpty(txtUbicacion.Text))
-                        {
-                            ProyectoActual.Ubicacion = string.Empty;
-                        }
-                        else
-                        {
-                            ProyectoActual.Ubicacion = txtUbicacion.Text;
-                        }
+                        ProyectoActual.Ubicacion = (string.IsNullOrEmpty(txtUbicacion.Text)) ? "No Ingresado" : txtUbicacion.Text;
                         ProyectoActual.FechaInicio = dtpInicio.Value;
                         ProyectoActual.FechaFinal = dtpFinalizacion.Value;
                         ProyectoActual.Estado = cbEstado.Text;
-
                         ProyectoActual.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                         ProyectoActual.UltimaEdicion = DateTime.Now;
 
@@ -201,12 +217,23 @@ namespace Interfaz
             }
 
         }
+
+        /// <summary>
+        /// Valida los datos del proyecto
+        /// </summary>
+        /// <returns>True si no presenta error, false si hay algún inconventiente</returns>
         private bool ValidarDatos()
         {
             try
             {
                 string VendedorSeleccionado = cbVendedores.Text;
                 string OfertaSeleccionada = comboBoxOfertas.Text;
+                bool isvalid = int.TryParse(OfertaSeleccionada.Split('-').FirstOrDefault(), out int number);
+                if (string.IsNullOrEmpty(OfertaSeleccionada) || !isvalid)
+                {
+                    MessageBox.Show($"Compruebe la oferta, el valor '{OfertaSeleccionada}' no es valido\nLa oferta debe tener este formado: [Numero Oferta]-[Nombre]\nSeleccione algún numero de oferta de los existentes o seleccione 1-No aplica/no disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
                 if (string.IsNullOrEmpty(VendedorSeleccionado))
                 {
                     MessageBox.Show("No ha seleccionado un vendedor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -257,5 +284,7 @@ namespace Interfaz
                 return false;
             }
         }
+
+        #endregion
     }
 }

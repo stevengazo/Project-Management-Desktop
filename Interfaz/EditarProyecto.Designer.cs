@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label2 = new Label();
+            txtNota = new TextBox();
             txtFacturalFinalId = new TextBox();
             label1 = new Label();
             comboBoxOfertas = new ComboBox();
@@ -62,8 +64,6 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            txtNota = new TextBox();
-            label2 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPorcentaje).BeginInit();
             SuspendLayout();
@@ -111,6 +111,23 @@
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información del Proyecto";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(7, 359);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 15);
+            label2.TabIndex = 46;
+            label2.Text = "Notas";
+            // 
+            // txtNota
+            // 
+            txtNota.Location = new Point(181, 359);
+            txtNota.Multiline = true;
+            txtNota.Name = "txtNota";
+            txtNota.Size = new Size(225, 75);
+            txtNota.TabIndex = 45;
             // 
             // txtFacturalFinalId
             // 
@@ -188,13 +205,13 @@
             // 
             // cbEstado
             // 
+            cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
             cbEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
             cbEstado.Location = new Point(181, 579);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(225, 23);
             cbEstado.TabIndex = 36;
-            cbEstado.Text = "Pendiente de Ejecución";
             // 
             // numericUpDownPorcentaje
             // 
@@ -389,23 +406,6 @@
             label3.Size = new Size(57, 15);
             label3.TabIndex = 0;
             label3.Text = "Vendedor";
-            // 
-            // txtNota
-            // 
-            txtNota.Location = new Point(181, 359);
-            txtNota.Multiline = true;
-            txtNota.Name = "txtNota";
-            txtNota.Size = new Size(225, 75);
-            txtNota.TabIndex = 45;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(7, 359);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 46;
-            label2.Text = "Notas";
             // 
             // EditarProyecto
             // 

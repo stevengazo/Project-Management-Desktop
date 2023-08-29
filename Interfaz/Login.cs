@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using Modelos;
+﻿using Modelos;
 using Negocios;
 using System.Data;
 using System.Xml;
@@ -24,7 +23,7 @@ namespace Interfaz
         {
             try
             {
-                string urlArchivo = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Asphalt_Register_Dat"); 
+                string urlArchivo = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Asphalt_Register_Dat");
                 if (File.Exists(urlArchivo))
                 {
                     var data = new FileStream(urlArchivo, FileMode.Open, FileAccess.Read);

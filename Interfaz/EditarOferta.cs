@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Modelos;
 using Negocio;
-using Modelos;
 using Negocios;
+using System.Data;
 
 namespace Interfaz
 {
@@ -99,7 +91,7 @@ namespace Interfaz
             {
                 OfertaNegocio ofertaNegocio = new();
                 Ofertatmp = ofertaNegocio.ObtenerOferta(idOferta);
-                if (Temporal.TipoLogin.Equals("Administrador") || Ofertatmp.UsuarioId == Temporal.UsuarioActivo.UsuarioId ) 
+                if (Temporal.TipoLogin.Equals("Administrador") || Ofertatmp.UsuarioId == Temporal.UsuarioActivo.UsuarioId)
                 {
                     UsuarioNegocio tmpNegocioUsuario = new();
                     usuarios = tmpNegocioUsuario.ListarVendedores().Distinct().ToList();

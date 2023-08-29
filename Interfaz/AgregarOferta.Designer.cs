@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label13 = new Label();
+            ckdemarcado = new CheckBox();
             label12 = new Label();
             txtEncargado = new TextBox();
             label11 = new Label();
@@ -55,8 +57,6 @@
             label2 = new Label();
             dateTimePickerFecha = new DateTimePicker();
             label1 = new Label();
-            ckdemarcado = new CheckBox();
-            label13 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -96,6 +96,25 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información de Ofeta";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(11, 173);
+            label13.Name = "label13";
+            label13.Size = new Size(68, 15);
+            label13.TabIndex = 28;
+            label13.Text = "Demarcado";
+            // 
+            // ckdemarcado
+            // 
+            ckdemarcado.AutoSize = true;
+            ckdemarcado.Location = new Point(103, 173);
+            ckdemarcado.Name = "ckdemarcado";
+            ckdemarcado.Size = new Size(143, 19);
+            ckdemarcado.TabIndex = 27;
+            ckdemarcado.Text = "Necesita demarcación";
+            ckdemarcado.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -153,6 +172,7 @@
             // 
             // cbEncargado
             // 
+            cbEncargado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEncargado.FormattingEnabled = true;
             cbEncargado.Location = new Point(103, 390);
             cbEncargado.Name = "cbEncargado";
@@ -332,25 +352,6 @@
             label1.Size = new Size(38, 15);
             label1.TabIndex = 0;
             label1.Text = "Fecha";
-            // 
-            // ckdemarcado
-            // 
-            ckdemarcado.AutoSize = true;
-            ckdemarcado.Location = new Point(103, 173);
-            ckdemarcado.Name = "ckdemarcado";
-            ckdemarcado.Size = new Size(143, 19);
-            ckdemarcado.TabIndex = 27;
-            ckdemarcado.Text = "Necesita demarcación";
-            ckdemarcado.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(11, 173);
-            label13.Name = "label13";
-            label13.Size = new Size(68, 15);
-            label13.TabIndex = 28;
-            label13.Text = "Demarcado";
             // 
             // AgregarOferta
             // 

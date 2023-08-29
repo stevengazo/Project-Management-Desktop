@@ -1,10 +1,10 @@
 ﻿namespace Interfaz
 {
-	public partial class EditarUsuario : Form
-	{
-		public EditarUsuario()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class EditarUsuario : Form
+    {
+        public EditarUsuario()
+        {
+            InitializeComponent();
+        }
+    }
 }
