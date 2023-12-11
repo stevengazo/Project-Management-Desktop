@@ -90,6 +90,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(btnLimpiarBusqueda);
             groupBox2.Controls.Add(btnBuscar);
             groupBox2.Controls.Add(txtNumeroProyectoBuscar);
@@ -97,7 +98,6 @@
             groupBox2.Controls.Add(txtNombreBuscar);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(dgvProyectos);
-            groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(429, 24);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(936, 623);
@@ -163,6 +163,7 @@
             // 
             dgvProyectos.AllowUserToAddRows = false;
             dgvProyectos.AllowUserToDeleteRows = false;
+            dgvProyectos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvProyectos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProyectos.Location = new Point(6, 56);
             dgvProyectos.Name = "dgvProyectos";

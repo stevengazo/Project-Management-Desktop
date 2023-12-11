@@ -38,7 +38,7 @@ namespace Interfaz
                 {
                     int IdUsuario = Temporal.UsuarioActivo.UsuarioId;
                     OfertaNegocio ofertaNegocio = new();
-                    ListaOfertas = await ofertaNegocio.ListaOfertasPorAñoAsync(DateTime.Now.Year,IdUsuario);
+                    ListaOfertas = await ofertaNegocio.ListaOfertasPorAñoAsync(DateTime.Now.Year, IdUsuario);
                 }
                 if (ListaOfertas.Count > 0)
                 {

@@ -428,6 +428,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(limpar);
             groupBox2.Controls.Add(btnBuscar);
             groupBox2.Controls.Add(txtNumeroPBuscar);
@@ -498,6 +499,7 @@
             // 
             dgvProyectos.AllowUserToAddRows = false;
             dgvProyectos.AllowUserToDeleteRows = false;
+            dgvProyectos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvProyectos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProyectos.Location = new Point(6, 61);
             dgvProyectos.Name = "dgvProyectos";
@@ -518,7 +520,6 @@
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            MaximizeBox = false;
             Name = "ModuloVentas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Modulo Ventas ";

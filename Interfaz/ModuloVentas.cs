@@ -323,7 +323,8 @@ namespace Interfaz
                     return false;
                 }
                 /// Contacto
-                if(string.IsNullOrEmpty(txtContacto.Text)) {
+                if (string.IsNullOrEmpty(txtContacto.Text))
+                {
                     lblContacto.ForeColor = Color.Red;
                     MessageBox.Show("No indicó un contacto \nSi no posee, indicar: \"No aplica\"", "Advertencia: Validación de Contacto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
@@ -344,35 +345,37 @@ namespace Interfaz
                     return false;
                 }
                 /// Porcentaje Anticipo
-                if (numericUpDownPorcentaje.Value < 0 )
+                if (numericUpDownPorcentaje.Value < 0)
                 {
-                   lblPorcentaje.ForeColor = Color.Red;
-                   MessageBox.Show("El porcentaje de anticipo no puede ser negativo.", "Advertencia: Validación Porcentaje de Anticipo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                   return false;
-                }else if(numericUpDownPorcentaje.Value == 0)
+                    lblPorcentaje.ForeColor = Color.Red;
+                    MessageBox.Show("El porcentaje de anticipo no puede ser negativo.", "Advertencia: Validación Porcentaje de Anticipo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                else if (numericUpDownPorcentaje.Value == 0)
                 {
                     var response = MessageBox.Show("El porcentaje de anticipo se dejó en 0. ¿Desea continuar?", "Advertencia: Validación Porcentaje Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if(response == DialogResult.No)
+                    if (response == DialogResult.No)
                     {
                         return false;
                     }
                     else
                     {
-                       txtNumeroFacturaAnticipo.Text = "No hay anticipo";
+                        txtNumeroFacturaAnticipo.Text = "No hay anticipo";
                     }
                 }
                 // Numero Factura de anticipo
-                if(string.IsNullOrEmpty(txtNumeroFacturaAnticipo.Text))
+                if (string.IsNullOrEmpty(txtNumeroFacturaAnticipo.Text))
                 {
                     lblFacturaAnticipo.ForeColor = Color.Red;
                     var response = MessageBox.Show("No indico una factura de anticipo \n¿Desea continuar?", "Advertencia: Validación Número Factura Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if(response == DialogResult.No)
+                    if (response == DialogResult.No)
                     {
                         return false;
                     }
-                    else{
+                    else
+                    {
                         txtNumeroFacturaAnticipo.Text = "No hay factura de anticipo";
-                    }            
+                    }
                 }
                 // Validación de Tarea 
                 var taskNumber = int.TryParse(txtTareaBitrix.Text, out int numberTask);
@@ -386,10 +389,10 @@ namespace Interfaz
                 if (string.IsNullOrEmpty(textBoxUbicacion.Text))
                 {
                     var response = MessageBox.Show("No indico la ubicación del proyecto \n¿Desea continuar?", "Advertencia: Validación de Ubicación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                   if(response == DialogResult.Yes)
+                    if (response == DialogResult.Yes)
                     {
                         textBoxUbicacion.Text = "No se indica la ubicación del proyecto";
-                       
+
                     }
                     else
                     {
@@ -401,7 +404,8 @@ namespace Interfaz
                 {
                     lblEstado.ForeColor = Color.Red;
                     var response = MessageBox.Show("No indico el estado del proyecto \n¿Desea continuar?", "Advertencia: Estado del proyecto", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if(response == DialogResult.Yes) {
+                    if (response == DialogResult.Yes)
+                    {
                         comboBoxEstado.Text = "Pendiente de Ejecución";
                     }
                     else
