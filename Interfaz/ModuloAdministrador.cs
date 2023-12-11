@@ -361,49 +361,137 @@ namespace Interfaz
         {
             try
             {
+                SetBackLabels();
                 bool OfertaIDValido = int.TryParse(cbOfertas.Text.Split('-').FirstOrDefault(), out int IDValido);
-                var vendedorSeleccionado = cbVendedores.Text;
-                var ofertaSeleccionada = cbOfertas.Text;
-                var clienteSeleccionado = txtNombreCliente.Text;
-                if (string.IsNullOrEmpty(vendedorSeleccionado) || string.IsNullOrEmpty(ofertaSeleccionada) || string.IsNullOrEmpty(clienteSeleccionado))
+                var VendedorSeleccionado = cbVendedores.Text;
+                // Vendedor
+                if (string.IsNullOrEmpty(cbVendedores.Text))
                 {
-                    MessageBox.Show("Verifique los desplegables ", "", MessageBoxButtons.OK);
+                    lblVendedor.ForeColor = Color.Red;
+                    MessageBox.Show("No Seleccionó un vendedor", "Advertencia: Validación Vendedor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-                int.TryParse(txtMonto.Text, out int resultado);
-                if (resultado == 0)
+                // Razón Social
+                if (string.IsNullOrEmpty(txtNombreCliente.Text))
                 {
-                    MessageBox.Show("Indique el monto del proyecto");
+                    lblRazon.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó una razón social", "Advertencia: Validación de Razón Social", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                int.TryParse(txtNumeroTarea.Text, out int resultado1);
-                if (resultado1 == 0)
-                {
-                    MessageBox.Show("Indique el numero de tarea en bitrix");
-                    return false;
-                }
+                /// Contacto
                 if (string.IsNullOrEmpty(txtContacto.Text))
                 {
-                    MessageBox.Show("Indique el nombre del contacto");
+                    lblContacto.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó un contacto \nSi no posee, indicar: \"No aplica\"", "Advertencia: Validación de Contacto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                if (!OfertaIDValido)
+                /// Oferta
+                if (string.IsNullOrEmpty(cbOfertas.Text))
                 {
-                    MessageBox.Show($"El Valor en el combo box de Ofertas,  '{cbOfertas.Text}' no es valido, dele seleccionar un nuevo elemento, o ingrese un 1");
+                    lblOferta.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó una oferta", "Advertencia: Validación Oferta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                if (numericUpDownPorcentaje.Value == 0)
+                //  Monto
+                bool value = float.TryParse(txtMonto.Text, out float resultado);
+                if (!value)
                 {
-                    MessageBox.Show("Indique un porcentaje mayor a 0");
+                    lblMonto.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó un monto", "Advertencia: Validación Monto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
+                /// Porcentaje Anticipo
+                if (numericUpDownPorcentaje.Value < 0)
+                {
+                    lblPorcentaje.ForeColor = Color.Red;
+                    MessageBox.Show("El porcentaje de anticipo no puede ser negativo.", "Advertencia: Validación Porcentaje de Anticipo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                else if (numericUpDownPorcentaje.Value == 0)
+                {
+                    var response = MessageBox.Show("El porcentaje de anticipo se dejó en 0. ¿Desea continuar?", "Advertencia: Validación Porcentaje Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (response == DialogResult.No)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        txtNumeroFactura.Text = "No hay anticipo";
+                    }
+                }
+                // Numero Factura de anticipo
+                if (string.IsNullOrEmpty(txtNumeroFactura.Text))
+                {
+                    lblFacturaAnticipo.ForeColor = Color.Red;
+                    var response = MessageBox.Show("No indico una factura de anticipo \n¿Desea continuar?", "Advertencia: Validación Número Factura Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (response == DialogResult.No)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        txtNumeroFactura.Text = "No hay factura de anticipo";
+                    }
+                }
+                // Validación de Tarea 
+                var taskNumber = int.TryParse(txtNumeroTarea.Text, out int numberTask);
+                if (!taskNumber)
+                {
+                    lblTarea.ForeColor = Color.Red;
+                    MessageBox.Show("No puede dejar el número de tarea en blanco.\nSi no posee, indique: 1", "Advertencia: Validación de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                // Ubicacion
+                if (string.IsNullOrEmpty(txtUbicacion.Text))
+                {
+                    var response = MessageBox.Show("No indico la ubicación del proyecto \n¿Desea continuar?", "Advertencia: Validación de Ubicación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (response == DialogResult.Yes)
+                    {
+                        txtUbicacion.Text = "No se indica la ubicación del proyecto";
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                // Estado
+                if (string.IsNullOrEmpty(cbEstado.Text))
+                {
+                    lblEstado.ForeColor = Color.Red;
+                    var response = MessageBox.Show("No indico el estado del proyecto \n¿Desea continuar?", "Advertencia: Estado del proyecto", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (response == DialogResult.Yes)
+                    {
+                        cbEstado.Text = "Pendiente de Ejecución";
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                SetBackLabels();
                 return true;
+
+
             }
             catch (Exception f)
             {
                 Console.WriteLine(f.Message);
                 return false;
             }
+        }
+
+        private void SetBackLabels()
+        {
+            lblVendedor.ForeColor = Color.Black;
+            lblRazon.ForeColor = Color.Black;
+            lblContacto.ForeColor = Color.Black;
+            lblOferta.ForeColor = Color.Black;
+            lblMonto.ForeColor = Color.Black;
+            lblPorcentaje.ForeColor = Color.Black;
+            lblFacturaAnticipo.ForeColor = Color.Black;
+            lblTarea.ForeColor = Color.Black;
+
         }
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -425,7 +513,7 @@ namespace Interfaz
         {
             Limpiar();
         }
-       
+
         private void Limpiar()
         {
             cbVendedores.Text = string.Empty;
@@ -503,7 +591,7 @@ namespace Interfaz
             bool parseable = float.TryParse(txtMonto.Text, out float resultado);
             if (!parseable)
             {
-                MessageBox.Show($"El valor '{txtMonto.Text}' no es válido, Reviselo e intente de nuevo\nEjemplo de valor aceptable: 1520,25", "Advertencia", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show($"El valor '{txtMonto.Text}' no es válido, Reviselo e intente de nuevo\nEjemplo de valor aceptable: 1520,25", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

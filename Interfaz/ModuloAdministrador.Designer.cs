@@ -48,24 +48,24 @@
             dtpFechaInicio = new DateTimePicker();
             btnAgregar = new Button();
             button2 = new Button();
-            label17 = new Label();
+            lblEstado = new Label();
             label16 = new Label();
             label15 = new Label();
             txtUbicacion = new TextBox();
             label14 = new Label();
             txtNumeroTarea = new TextBox();
-            label13 = new Label();
+            lblTarea = new Label();
             txtNumeroFactura = new TextBox();
-            label11 = new Label();
+            lblFacturaAnticipo = new Label();
             txtMonto = new TextBox();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
+            lblPorcentaje = new Label();
+            lblMonto = new Label();
+            lblOferta = new Label();
             txtContacto = new TextBox();
-            label7 = new Label();
+            lblContacto = new Label();
             label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
+            lblRazon = new Label();
+            lblVendedor = new Label();
             menuStrip1 = new MenuStrip();
             archivoToolStripMenuItem = new ToolStripMenuItem();
             exportarToolStripMenuItem = new ToolStripMenuItem();
@@ -184,24 +184,24 @@
             groupBox1.Controls.Add(dtpFechaInicio);
             groupBox1.Controls.Add(btnAgregar);
             groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(label17);
+            groupBox1.Controls.Add(lblEstado);
             groupBox1.Controls.Add(label16);
             groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(txtUbicacion);
             groupBox1.Controls.Add(label14);
             groupBox1.Controls.Add(txtNumeroTarea);
-            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(lblTarea);
             groupBox1.Controls.Add(txtNumeroFactura);
-            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(lblFacturaAnticipo);
             groupBox1.Controls.Add(txtMonto);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(lblPorcentaje);
+            groupBox1.Controls.Add(lblMonto);
+            groupBox1.Controls.Add(lblOferta);
             groupBox1.Controls.Add(txtContacto);
-            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(lblContacto);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(lblRazon);
+            groupBox1.Controls.Add(lblVendedor);
             groupBox1.Dock = DockStyle.Left;
             groupBox1.Location = new Point(0, 24);
             groupBox1.Name = "groupBox1";
@@ -220,7 +220,6 @@
             // 
             // cbOfertas
             // 
-            cbOfertas.DropDownStyle = ComboBoxStyle.DropDownList;
             cbOfertas.FormattingEnabled = true;
             cbOfertas.Location = new Point(189, 152);
             cbOfertas.Name = "cbOfertas";
@@ -294,14 +293,14 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // label17
+            // lblEstado
             // 
-            label17.AutoSize = true;
-            label17.Location = new Point(15, 433);
-            label17.Name = "label17";
-            label17.Size = new Size(42, 15);
-            label17.TabIndex = 28;
-            label17.Text = "Estado";
+            lblEstado.AutoSize = true;
+            lblEstado.Location = new Point(15, 433);
+            lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(42, 15);
+            lblEstado.TabIndex = 28;
+            lblEstado.Text = "Estado";
             // 
             // label16
             // 
@@ -347,14 +346,14 @@
             txtNumeroTarea.Size = new Size(225, 23);
             txtNumeroTarea.TabIndex = 21;
             // 
-            // label13
+            // lblTarea
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(15, 268);
-            label13.Name = "label13";
-            label13.Size = new Size(64, 15);
-            label13.TabIndex = 20;
-            label13.Text = "Tarea Bitrix";
+            lblTarea.AutoSize = true;
+            lblTarea.Location = new Point(15, 268);
+            lblTarea.Name = "lblTarea";
+            lblTarea.Size = new Size(64, 15);
+            lblTarea.TabIndex = 20;
+            lblTarea.Text = "Tarea Bitrix";
             // 
             // txtNumeroFactura
             // 
@@ -364,14 +363,14 @@
             txtNumeroFactura.Size = new Size(225, 23);
             txtNumeroFactura.TabIndex = 17;
             // 
-            // label11
+            // lblFacturaAnticipo
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(15, 239);
-            label11.Name = "label11";
-            label11.Size = new Size(93, 15);
-            label11.TabIndex = 16;
-            label11.Text = "Número Factura";
+            lblFacturaAnticipo.AutoSize = true;
+            lblFacturaAnticipo.Location = new Point(15, 239);
+            lblFacturaAnticipo.Name = "lblFacturaAnticipo";
+            lblFacturaAnticipo.Size = new Size(93, 15);
+            lblFacturaAnticipo.TabIndex = 16;
+            lblFacturaAnticipo.Text = "Número Factura";
             // 
             // txtMonto
             // 
@@ -382,32 +381,32 @@
             txtMonto.TabIndex = 15;
             txtMonto.Leave += txtMonto_Leave;
             // 
-            // label10
+            // lblPorcentaje
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(15, 210);
-            label10.Name = "label10";
-            label10.Size = new Size(111, 15);
-            label10.TabIndex = 14;
-            label10.Text = "Porcentaje Anticipo";
+            lblPorcentaje.AutoSize = true;
+            lblPorcentaje.Location = new Point(15, 210);
+            lblPorcentaje.Name = "lblPorcentaje";
+            lblPorcentaje.Size = new Size(111, 15);
+            lblPorcentaje.TabIndex = 14;
+            lblPorcentaje.Text = "Porcentaje Anticipo";
             // 
-            // label9
+            // lblMonto
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(15, 181);
-            label9.Name = "label9";
-            label9.Size = new Size(43, 15);
-            label9.TabIndex = 12;
-            label9.Text = "Monto";
+            lblMonto.AutoSize = true;
+            lblMonto.Location = new Point(15, 181);
+            lblMonto.Name = "lblMonto";
+            lblMonto.Size = new Size(43, 15);
+            lblMonto.TabIndex = 12;
+            lblMonto.Text = "Monto";
             // 
-            // label8
+            // lblOferta
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(15, 152);
-            label8.Name = "label8";
-            label8.Size = new Size(77, 15);
-            label8.TabIndex = 10;
-            label8.Text = "Oferta Mecsa";
+            lblOferta.AutoSize = true;
+            lblOferta.Location = new Point(15, 152);
+            lblOferta.Name = "lblOferta";
+            lblOferta.Size = new Size(77, 15);
+            lblOferta.TabIndex = 10;
+            lblOferta.Text = "Oferta Mecsa";
             // 
             // txtContacto
             // 
@@ -417,14 +416,14 @@
             txtContacto.Size = new Size(225, 23);
             txtContacto.TabIndex = 9;
             // 
-            // label7
+            // lblContacto
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(15, 123);
-            label7.Name = "label7";
-            label7.Size = new Size(56, 15);
-            label7.TabIndex = 8;
-            label7.Text = "Contacto";
+            lblContacto.AutoSize = true;
+            lblContacto.Location = new Point(15, 123);
+            lblContacto.Name = "lblContacto";
+            lblContacto.Size = new Size(56, 15);
+            lblContacto.TabIndex = 8;
+            lblContacto.Text = "Contacto";
             // 
             // label5
             // 
@@ -435,23 +434,23 @@
             label5.TabIndex = 2;
             label5.Text = "Fecha Orden Compra";
             // 
-            // label4
+            // lblRazon
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(15, 62);
-            label4.Name = "label4";
-            label4.Size = new Size(73, 15);
-            label4.TabIndex = 1;
-            label4.Text = "Razon Social";
+            lblRazon.AutoSize = true;
+            lblRazon.Location = new Point(15, 62);
+            lblRazon.Name = "lblRazon";
+            lblRazon.Size = new Size(73, 15);
+            lblRazon.TabIndex = 1;
+            lblRazon.Text = "Razon Social";
             // 
-            // label3
+            // lblVendedor
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(15, 30);
-            label3.Name = "label3";
-            label3.Size = new Size(57, 15);
-            label3.TabIndex = 0;
-            label3.Text = "Vendedor";
+            lblVendedor.AutoSize = true;
+            lblVendedor.Location = new Point(15, 30);
+            lblVendedor.Name = "lblVendedor";
+            lblVendedor.Size = new Size(57, 15);
+            lblVendedor.TabIndex = 0;
+            lblVendedor.Text = "Vendedor";
             // 
             // menuStrip1
             // 
@@ -592,24 +591,24 @@
         private DateTimePicker dtpFechaInicio;
         private Button btnAgregar;
         private Button button2;
-        private Label label17;
+        private Label lblEstado;
         private Label label16;
         private Label label15;
         private TextBox txtUbicacion;
         private Label label14;
         private TextBox txtNumeroTarea;
-        private Label label13;
+        private Label lblTarea;
         private TextBox txtNumeroFactura;
-        private Label label11;
+        private Label lblFacturaAnticipo;
         private TextBox txtMonto;
-        private Label label10;
-        private Label label9;
-        private Label label8;
+        private Label lblPorcentaje;
+        private Label lblMonto;
+        private Label lblOferta;
         private TextBox txtContacto;
-        private Label label7;
+        private Label lblContacto;
         private Label label5;
-        private Label label4;
-        private Label label3;
+        private Label lblRazon;
+        private Label lblVendedor;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem archivoToolStripMenuItem;
         private ToolStripMenuItem exportarToolStripMenuItem;
