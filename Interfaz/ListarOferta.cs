@@ -38,10 +38,11 @@ namespace Interfaz
                 {
                     int IdUsuario = Temporal.UsuarioActivo.UsuarioId;
                     OfertaNegocio ofertaNegocio = new();
-                    ListaOfertas = await ofertaNegocio.ListaOfertasPorAñoAsync(DateTime.Now.Year);
+                    ListaOfertas = await ofertaNegocio.ListaOfertasPorAñoAsync(DateTime.Now.Year,IdUsuario);
                 }
                 if (ListaOfertas.Count > 0)
                 {
+                    // Add button to See
                     dgvOfertas.Columns.Clear();
                     DataGridViewButtonColumn botonVer = new DataGridViewButtonColumn();
                     botonVer.HeaderText = "Ver";
@@ -49,19 +50,17 @@ namespace Interfaz
                     botonVer.Name = "btnVer";
                     botonVer.UseColumnTextForButtonValue = true;
                     dgvOfertas.Columns.Add(botonVer);
-
-
+                    // Add Button to Edit
                     DataGridViewButtonColumn botonEditar = new DataGridViewButtonColumn();
                     botonEditar.HeaderText = "Editar";
                     botonEditar.Text = "Editar";
                     botonEditar.Name = "btnEditar";
                     botonEditar.UseColumnTextForButtonValue = true;
                     dgvOfertas.Columns.Add(botonEditar);
-
+                    /// Add Columns 
                     DataTable _tabla = new();
                     _tabla.Columns.Add("Oferta Id");
                     _tabla.Columns.Add("Fecha");
-                    //_tabla.Columns.Add("Codigo");
                     _tabla.Columns.Add("Sellador");
                     _tabla.Columns.Add("Asfalto");
                     _tabla.Columns.Add("SubBase");
@@ -71,7 +70,6 @@ namespace Interfaz
                     _tabla.Columns.Add("Cliente");
                     _tabla.Columns.Add("Encargado");
                     _tabla.Columns.Add("Cotizado Por");
-
 
                     foreach (Oferta item in ListaOfertas)
                     {
@@ -91,17 +89,12 @@ namespace Interfaz
                             );
                     }
                     dgvOfertas.DataSource = _tabla;
-
-
-
                 }
             }
             catch (Exception f)
             {
                 MessageBox.Show($"Error interno - {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
         private async Task CargarTablaAdministradores(List<Oferta> lista = null)
         {

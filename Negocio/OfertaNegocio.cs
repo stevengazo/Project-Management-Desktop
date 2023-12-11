@@ -195,7 +195,7 @@ namespace Negocio
                 using (var db = new DBContextProyectosAsfaltos())
                 {
                     keyValuePairs = (from i in db.Ofertas
-                                     where i.Fecha.Year == DateTime.Today.Year && (i.Fecha.Month == DateTime.Today.Month || i.Fecha.Month == DateTime.Today.AddMonths(-1).Month)
+                                     where i.Fecha.Year == DateTime.Today.Year && (i.Fecha.Month == DateTime.Today.Month || i.Fecha.Month == DateTime.Today.AddMonths(-1).Month || i.Fecha.Month == DateTime.Today.AddMonths(-2).Month)
                                      orderby i.OfertaId descending
                                      select i).ToDictionary(O => O.OfertaId, O => O.Cliente);
                 }
@@ -209,6 +209,40 @@ namespace Negocio
 
         }
 
+        public async Task<List<Oferta>?> ListaOfertasPorAñoAsync(int ano = 0, int idUsuario = 0)
+        {
+            try
+            {
+                List<Oferta> lista = new List<Oferta>();
+                if (ano != 0)
+                {
+                    using (var db = new DBContextProyectosAsfaltos())
+                    {
+                        lista = await (from i in db.Ofertas
+                                       where i.Fecha.Year == ano && i.UsuarioId == idUsuario
+                                       orderby i.OfertaId descending
+                                       select i).Include(O => O.Encargado).ToListAsync();
+                    }
+                }
+                else
+                {
+                    using (var db = new DBContextProyectosAsfaltos())
+                    {
+                        lista = await (from i in db.Ofertas
+                                       orderby i.OfertaId descending
+                                       where i.Fecha.Year == DateTime.Today.Year
+                                       select i).Include(O => O.Encargado).ToListAsync();
+                    }
+                }
+                return lista;
+            }
+            catch (Exception f)
+            {
+                Console.WriteLine(f.Message);
+                return null;
+            }
+
+        }
 
         public async Task<List<Oferta>?> ListaOfertasPorAñoAsync(int ano = 0)
         {
