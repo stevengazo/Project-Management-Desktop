@@ -49,24 +49,24 @@
             dateTimePickerInicio = new DateTimePicker();
             btnAgregar = new Button();
             btnLimpiar = new Button();
-            label17 = new Label();
-            label16 = new Label();
-            label15 = new Label();
+            lblEstado = new Label();
+            lblFechaFinalizacion = new Label();
+            lblFechaInicio = new Label();
             textBoxUbicacion = new TextBox();
-            label14 = new Label();
+            lblUbicacion = new Label();
             txtTareaBitrix = new TextBox();
-            label13 = new Label();
+            lblTarea = new Label();
             txtNumeroFacturaAnticipo = new TextBox();
-            label11 = new Label();
+            lblFacturaAnticipo = new Label();
             txtMonto = new TextBox();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
+            lblPorcentaje = new Label();
+            lblMonto = new Label();
+            lblOferta = new Label();
             txtContacto = new TextBox();
-            label7 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
+            lblContacto = new Label();
+            lblFechaOC = new Label();
+            lblRazon = new Label();
+            lblVendedor = new Label();
             groupBox2 = new GroupBox();
             limpar = new Button();
             btnBuscar = new Button();
@@ -158,24 +158,24 @@
             groupBox1.Controls.Add(dateTimePickerInicio);
             groupBox1.Controls.Add(btnAgregar);
             groupBox1.Controls.Add(btnLimpiar);
-            groupBox1.Controls.Add(label17);
-            groupBox1.Controls.Add(label16);
-            groupBox1.Controls.Add(label15);
+            groupBox1.Controls.Add(lblEstado);
+            groupBox1.Controls.Add(lblFechaFinalizacion);
+            groupBox1.Controls.Add(lblFechaInicio);
             groupBox1.Controls.Add(textBoxUbicacion);
-            groupBox1.Controls.Add(label14);
+            groupBox1.Controls.Add(lblUbicacion);
             groupBox1.Controls.Add(txtTareaBitrix);
-            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(lblTarea);
             groupBox1.Controls.Add(txtNumeroFacturaAnticipo);
-            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(lblFacturaAnticipo);
             groupBox1.Controls.Add(txtMonto);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(lblPorcentaje);
+            groupBox1.Controls.Add(lblMonto);
+            groupBox1.Controls.Add(lblOferta);
             groupBox1.Controls.Add(txtContacto);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(lblContacto);
+            groupBox1.Controls.Add(lblFechaOC);
+            groupBox1.Controls.Add(lblRazon);
+            groupBox1.Controls.Add(lblVendedor);
             groupBox1.Location = new Point(12, 27);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(429, 607);
@@ -267,32 +267,32 @@
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click_1;
             // 
-            // label17
+            // lblEstado
             // 
-            label17.AutoSize = true;
-            label17.Location = new Point(24, 433);
-            label17.Name = "label17";
-            label17.Size = new Size(42, 15);
-            label17.TabIndex = 28;
-            label17.Text = "Estado";
+            lblEstado.AutoSize = true;
+            lblEstado.Location = new Point(24, 433);
+            lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(42, 15);
+            lblEstado.TabIndex = 28;
+            lblEstado.Text = "Estado";
             // 
-            // label16
+            // lblFechaFinalizacion
             // 
-            label16.AutoSize = true;
-            label16.Location = new Point(24, 404);
-            label16.Name = "label16";
-            label16.Size = new Size(103, 15);
-            label16.TabIndex = 26;
-            label16.Text = "Fecha Finalización";
+            lblFechaFinalizacion.AutoSize = true;
+            lblFechaFinalizacion.Location = new Point(24, 404);
+            lblFechaFinalizacion.Name = "lblFechaFinalizacion";
+            lblFechaFinalizacion.Size = new Size(103, 15);
+            lblFechaFinalizacion.TabIndex = 26;
+            lblFechaFinalizacion.Text = "Fecha Finalización";
             // 
-            // label15
+            // lblFechaInicio
             // 
-            label15.AutoSize = true;
-            label15.Location = new Point(24, 375);
-            label15.Name = "label15";
-            label15.Size = new Size(70, 15);
-            label15.TabIndex = 24;
-            label15.Text = "Fecha Inicio";
+            lblFechaInicio.AutoSize = true;
+            lblFechaInicio.Location = new Point(24, 375);
+            lblFechaInicio.Name = "lblFechaInicio";
+            lblFechaInicio.Size = new Size(70, 15);
+            lblFechaInicio.TabIndex = 24;
+            lblFechaInicio.Text = "Fecha Inicio";
             // 
             // textBoxUbicacion
             // 
@@ -303,14 +303,14 @@
             textBoxUbicacion.Size = new Size(225, 75);
             textBoxUbicacion.TabIndex = 23;
             // 
-            // label14
+            // lblUbicacion
             // 
-            label14.AutoSize = true;
-            label14.Location = new Point(24, 297);
-            label14.Name = "label14";
-            label14.Size = new Size(60, 15);
-            label14.TabIndex = 22;
-            label14.Text = "Ubicación";
+            lblUbicacion.AutoSize = true;
+            lblUbicacion.Location = new Point(24, 297);
+            lblUbicacion.Name = "lblUbicacion";
+            lblUbicacion.Size = new Size(60, 15);
+            lblUbicacion.TabIndex = 22;
+            lblUbicacion.Text = "Ubicación";
             // 
             // txtTareaBitrix
             // 
@@ -320,14 +320,14 @@
             txtTareaBitrix.Size = new Size(225, 23);
             txtTareaBitrix.TabIndex = 21;
             // 
-            // label13
+            // lblTarea
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(24, 268);
-            label13.Name = "label13";
-            label13.Size = new Size(64, 15);
-            label13.TabIndex = 20;
-            label13.Text = "Tarea Bitrix";
+            lblTarea.AutoSize = true;
+            lblTarea.Location = new Point(24, 268);
+            lblTarea.Name = "lblTarea";
+            lblTarea.Size = new Size(64, 15);
+            lblTarea.TabIndex = 20;
+            lblTarea.Text = "Tarea Bitrix";
             // 
             // txtNumeroFacturaAnticipo
             // 
@@ -337,14 +337,14 @@
             txtNumeroFacturaAnticipo.Size = new Size(225, 23);
             txtNumeroFacturaAnticipo.TabIndex = 17;
             // 
-            // label11
+            // lblFacturaAnticipo
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(24, 239);
-            label11.Name = "label11";
-            label11.Size = new Size(141, 15);
-            label11.TabIndex = 16;
-            label11.Text = "Número Factura Anticipo";
+            lblFacturaAnticipo.AutoSize = true;
+            lblFacturaAnticipo.Location = new Point(24, 239);
+            lblFacturaAnticipo.Name = "lblFacturaAnticipo";
+            lblFacturaAnticipo.Size = new Size(141, 15);
+            lblFacturaAnticipo.TabIndex = 16;
+            lblFacturaAnticipo.Text = "Número Factura Anticipo";
             // 
             // txtMonto
             // 
@@ -355,32 +355,32 @@
             txtMonto.TabIndex = 15;
             txtMonto.Leave += txtMonto_Leave;
             // 
-            // label10
+            // lblPorcentaje
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(24, 210);
-            label10.Name = "label10";
-            label10.Size = new Size(111, 15);
-            label10.TabIndex = 14;
-            label10.Text = "Porcentaje Anticipo";
+            lblPorcentaje.AutoSize = true;
+            lblPorcentaje.Location = new Point(24, 210);
+            lblPorcentaje.Name = "lblPorcentaje";
+            lblPorcentaje.Size = new Size(111, 15);
+            lblPorcentaje.TabIndex = 14;
+            lblPorcentaje.Text = "Porcentaje Anticipo";
             // 
-            // label9
+            // lblMonto
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(24, 181);
-            label9.Name = "label9";
-            label9.Size = new Size(43, 15);
-            label9.TabIndex = 12;
-            label9.Text = "Monto";
+            lblMonto.AutoSize = true;
+            lblMonto.Location = new Point(24, 181);
+            lblMonto.Name = "lblMonto";
+            lblMonto.Size = new Size(43, 15);
+            lblMonto.TabIndex = 12;
+            lblMonto.Text = "Monto";
             // 
-            // label8
+            // lblOferta
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(24, 152);
-            label8.Name = "label8";
-            label8.Size = new Size(77, 15);
-            label8.TabIndex = 10;
-            label8.Text = "Oferta Mecsa";
+            lblOferta.AutoSize = true;
+            lblOferta.Location = new Point(24, 152);
+            lblOferta.Name = "lblOferta";
+            lblOferta.Size = new Size(77, 15);
+            lblOferta.TabIndex = 10;
+            lblOferta.Text = "Oferta Mecsa";
             // 
             // txtContacto
             // 
@@ -390,41 +390,41 @@
             txtContacto.Size = new Size(225, 23);
             txtContacto.TabIndex = 9;
             // 
-            // label7
+            // lblContacto
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(24, 123);
-            label7.Name = "label7";
-            label7.Size = new Size(56, 15);
-            label7.TabIndex = 8;
-            label7.Text = "Contacto";
+            lblContacto.AutoSize = true;
+            lblContacto.Location = new Point(24, 123);
+            lblContacto.Name = "lblContacto";
+            lblContacto.Size = new Size(56, 15);
+            lblContacto.TabIndex = 8;
+            lblContacto.Text = "Contacto";
             // 
-            // label5
+            // lblFechaOC
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(24, 94);
-            label5.Name = "label5";
-            label5.Size = new Size(120, 15);
-            label5.TabIndex = 2;
-            label5.Text = "Fecha Orden Compra";
+            lblFechaOC.AutoSize = true;
+            lblFechaOC.Location = new Point(24, 94);
+            lblFechaOC.Name = "lblFechaOC";
+            lblFechaOC.Size = new Size(120, 15);
+            lblFechaOC.TabIndex = 2;
+            lblFechaOC.Text = "Fecha Orden Compra";
             // 
-            // label4
+            // lblRazon
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(24, 62);
-            label4.Name = "label4";
-            label4.Size = new Size(73, 15);
-            label4.TabIndex = 1;
-            label4.Text = "Razon Social";
+            lblRazon.AutoSize = true;
+            lblRazon.Location = new Point(24, 62);
+            lblRazon.Name = "lblRazon";
+            lblRazon.Size = new Size(73, 15);
+            lblRazon.TabIndex = 1;
+            lblRazon.Text = "Razon Social";
             // 
-            // label3
+            // lblVendedor
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(24, 30);
-            label3.Name = "label3";
-            label3.Size = new Size(57, 15);
-            label3.TabIndex = 0;
-            label3.Text = "Vendedor";
+            lblVendedor.AutoSize = true;
+            lblVendedor.Location = new Point(24, 30);
+            lblVendedor.Name = "lblVendedor";
+            lblVendedor.Size = new Size(57, 15);
+            lblVendedor.TabIndex = 0;
+            lblVendedor.Text = "Vendedor";
             // 
             // groupBox2
             // 
@@ -546,24 +546,24 @@
         private GroupBox groupBox1;
         private Button btnAgregar;
         private Button btnLimpiar;
-        private Label label17;
-        private Label label16;
-        private Label label15;
+        private Label lblEstado;
+        private Label lblFechaFinalizacion;
+        private Label lblFechaInicio;
         private TextBox textBoxUbicacion;
-        private Label label14;
+        private Label lblUbicacion;
         private TextBox txtTareaBitrix;
-        private Label label13;
+        private Label lblTarea;
         private TextBox txtNumeroFacturaAnticipo;
-        private Label label11;
+        private Label lblFacturaAnticipo;
         private TextBox txtMonto;
-        private Label label10;
-        private Label label9;
-        private Label label8;
+        private Label lblPorcentaje;
+        private Label lblMonto;
+        private Label lblOferta;
         private TextBox txtContacto;
-        private Label label7;
-        private Label label5;
-        private Label label4;
-        private Label label3;
+        private Label lblContacto;
+        private Label lblFechaOC;
+        private Label lblRazon;
+        private Label lblVendedor;
         private GroupBox groupBox2;
         private Button btnBuscar;
         private TextBox txtNumeroPBuscar;

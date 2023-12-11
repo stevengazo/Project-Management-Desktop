@@ -1,8 +1,11 @@
+using Microsoft.IdentityModel.Tokens;
 using Modelos;
 using Negocio;
 using Negocios;
 using System.Data;
 using System.Globalization;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks.Dataflow;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Interfaz
@@ -243,7 +246,7 @@ namespace Interfaz
                     proyectoNuevo.FechaOC = dtpFechaOC.Value;
                     proyectoNuevo.Contacto = txtContacto.Text;
                     var oferta = comboBoxOfertas.Text.Split('-');
-                    proyectoNuevo.OfertaId = oferta[0];
+                    proyectoNuevo.OfertaId = oferta.First();
                     proyectoNuevo.Monto = float.Parse(txtMonto.Text);
                     proyectoNuevo.PorcentajeAnticipo = (int)numericUpDownPorcentaje.Value;
                     proyectoNuevo.FacturaAnticipoId = txtNumeroFacturaAnticipo.Text;
@@ -265,8 +268,8 @@ namespace Interfaz
                     if (resultado)
                     {
                         MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarTabla();
                         LimpiarDatos();
+                        CargarTabla();
                     }
                     else
                     {
@@ -280,61 +283,133 @@ namespace Interfaz
             }
         }
 
+
+        private void SetBackLabels()
+        {
+            lblVendedor.ForeColor = Color.Black;
+            lblRazon.ForeColor = Color.Black;
+            lblFechaOC.ForeColor = Color.Black;
+            lblContacto.ForeColor = Color.Black;
+            lblOferta.ForeColor = Color.Black;
+            lblMonto.ForeColor = Color.Black;
+            lblPorcentaje.ForeColor = Color.Black;
+            lblFacturaAnticipo.ForeColor = Color.Black;
+            lblTarea.ForeColor = Color.Black;
+            lblUbicacion.ForeColor = Color.Black;
+            lblFechaInicio.ForeColor = Color.Black;
+            lblFechaFinalizacion.ForeColor = Color.Black;
+            lblEstado.ForeColor = Color.Black;
+        }
+
         private bool ValidarCampos()
         {
             try
             {
+                SetBackLabels();
                 bool OfertaIDValido = int.TryParse(comboBoxOfertas.Text.Split('-').FirstOrDefault(), out int IDValido);
                 var VendedorSeleccionado = cbVendedores.Text;
-                if (string.IsNullOrEmpty(VendedorSeleccionado))
+                // Vendedor
+                if (string.IsNullOrEmpty(cbVendedores.Text))
                 {
-                    MessageBox.Show(" ", "", MessageBoxButtons.OK);
+                    lblVendedor.ForeColor = Color.Red;
+                    MessageBox.Show("No Seleccionó un vendedor", "Advertencia: Validación Vendedor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
+                // Razón Social
                 if (string.IsNullOrEmpty(txtRazonSocial.Text))
                 {
-                    MessageBox.Show("La Razón social no puede estar vacia\nIngrese \"No aplica\" Si este dato no es necesario", "Advertencia", MessageBoxButtons.OK);
+                    lblRazon.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó una razón social", "Advertencia: Validación de Razón Social", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                if (string.IsNullOrEmpty(txtContacto.Text))
+                /// Contacto
+                if(string.IsNullOrEmpty(txtContacto.Text)) {
+                    lblContacto.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó un contacto \nSi no posee, indicar: \"No aplica\"", "Advertencia: Validación de Contacto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                /// Oferta
+                if (string.IsNullOrEmpty(comboBoxOfertas.Text))
                 {
-                    MessageBox.Show("El contacto no puede estar vacio\nSi no aplica, ingrese \"No Aplica\" ", "Advertencia", MessageBoxButtons.OK);
+                    lblOferta.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó una oferta", "Advertencia: Validación Oferta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                var Oferta = comboBoxOfertas.Text;
-                if (string.IsNullOrEmpty(Oferta))
+                //  Monto
+                bool value = float.TryParse(txtMonto.Text, out float resultado);
+                if (!value)
                 {
-                    MessageBox.Show("Debe seleccionar una oferta", "Advertencia", MessageBoxButtons.OK);
+                    lblMonto.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó un monto", "Advertencia: Validación Monto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                float.TryParse(txtMonto.Text, out float monto);
-                if (monto == 0)
+                /// Porcentaje Anticipo
+                if (numericUpDownPorcentaje.Value < 0 )
                 {
-                    MessageBox.Show("Debe ingresar un monto superior a 0\nSi no dispone de un monto digite: 1", "Advertencia", MessageBoxButtons.OK);
-                    return false;
-                }
-                int.TryParse(txtNumeroFacturaAnticipo.Text, out int facturaanticipo);
-                if (facturaanticipo == 0)
+                   lblPorcentaje.ForeColor = Color.Red;
+                   MessageBox.Show("El porcentaje de anticipo no puede ser negativo.", "Advertencia: Validación Porcentaje de Anticipo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                   return false;
+                }else if(numericUpDownPorcentaje.Value == 0)
                 {
-                    MessageBox.Show("Debe ingresar un monto superior a 0\nSi no dispone de un monto de anticipo digite: 1", "Advertencia", MessageBoxButtons.OK);
-                    return false;
+                    var response = MessageBox.Show("El porcentaje de anticipo se dejó en 0. ¿Desea continuar?", "Advertencia: Validación Porcentaje Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if(response == DialogResult.No)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                       txtNumeroFacturaAnticipo.Text = "No hay anticipo";
+                    }
                 }
-                if (!OfertaIDValido)
+                // Numero Factura de anticipo
+                if(string.IsNullOrEmpty(txtNumeroFacturaAnticipo.Text))
                 {
-                    MessageBox.Show($"El Valor en el combo box de Ofertas,  '{comboBoxOfertas.Text}' no es valido, dele seleccionar un nuevo elemento, o ingrese un 1");
-                    return false;
+                    lblFacturaAnticipo.ForeColor = Color.Red;
+                    var response = MessageBox.Show("No indico una factura de anticipo \n¿Desea continuar?", "Advertencia: Validación Número Factura Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if(response == DialogResult.No)
+                    {
+                        return false;
+                    }
+                    else{
+                        txtNumeroFacturaAnticipo.Text = "No hay factura de anticipo";
+                    }            
                 }
-                int.TryParse(txtTareaBitrix.Text, out int tarea);
-                if (tarea == 0)
+                // Validación de Tarea 
+                var taskNumber = int.TryParse(txtTareaBitrix.Text, out int numberTask);
+                if (!taskNumber)
                 {
-                    MessageBox.Show("Debe ingregar un número de tarea.\nSi esta no esta asignada digite: 1", "Advertencia", MessageBoxButtons.OK);
+                    lblTarea.ForeColor = Color.Red;
+                    MessageBox.Show("No puede dejar el número de tarea en blanco.\nSi no posee, indique: 1", "Advertencia: Validación de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
+                // Ubicacion
+                if (string.IsNullOrEmpty(textBoxUbicacion.Text))
+                {
+                    var response = MessageBox.Show("No indico la ubicación del proyecto \n¿Desea continuar?", "Advertencia: Validación de Ubicación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                   if(response == DialogResult.Yes)
+                    {
+                        textBoxUbicacion.Text = "No se indica la ubicación del proyecto";
+                       
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                // Estado
                 if (string.IsNullOrEmpty(comboBoxEstado.Text))
                 {
-                    MessageBox.Show("Debe Seleccionar un estado inicial para el proyecto", "Advertencia", MessageBoxButtons.OK);
-                    return false;
+                    lblEstado.ForeColor = Color.Red;
+                    var response = MessageBox.Show("No indico el estado del proyecto \n¿Desea continuar?", "Advertencia: Estado del proyecto", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if(response == DialogResult.Yes) {
+                        comboBoxEstado.Text = "Pendiente de Ejecución";
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
+                SetBackLabels();
                 return true;
             }
             catch (Exception f)
