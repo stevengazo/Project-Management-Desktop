@@ -98,9 +98,9 @@
             groupBox2.Controls.Add(txtNombreBuscar);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(dgvProyectos);
-            groupBox2.Location = new Point(429, 24);
+            groupBox2.Location = new Point(435, 27);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(936, 623);
+            groupBox2.Size = new Size(930, 620);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Proyectos";
@@ -169,7 +169,7 @@
             dgvProyectos.Name = "dgvProyectos";
             dgvProyectos.ReadOnly = true;
             dgvProyectos.RowTemplate.Height = 25;
-            dgvProyectos.Size = new Size(918, 555);
+            dgvProyectos.Size = new Size(912, 552);
             dgvProyectos.TabIndex = 0;
             dgvProyectos.CellContentClick += dgvProyectos_CellContentClick;
             // 
@@ -555,7 +555,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLightLight;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(1365, 647);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
