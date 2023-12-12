@@ -1,620 +1,589 @@
 ﻿namespace Interfaz
 {
-	partial class ModuloVentas
-	{
-		/// <summary>
-		///  Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class ModuloVentas
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		///  Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		///  Required method for Designer support - do not modify
-		///  the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModuloVentas));
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.agregarCotizaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.verCotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.comboBoxOfertas = new System.Windows.Forms.ComboBox();
-			this.txtRazonSocial = new System.Windows.Forms.TextBox();
-			this.txtNumeroProyecto = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
-			this.dtpFechaOC = new System.Windows.Forms.DateTimePicker();
-			this.cbVendedores = new System.Windows.Forms.ComboBox();
-			this.comboBoxEstado = new System.Windows.Forms.ComboBox();
-			this.numericUpDownPorcentaje = new System.Windows.Forms.NumericUpDown();
-			this.dateTimePickerFinal = new System.Windows.Forms.DateTimePicker();
-			this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
-			this.btnAgregar = new System.Windows.Forms.Button();
-			this.btnLimpiar = new System.Windows.Forms.Button();
-			this.label17 = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
-			this.label15 = new System.Windows.Forms.Label();
-			this.textBoxUbicacion = new System.Windows.Forms.TextBox();
-			this.label14 = new System.Windows.Forms.Label();
-			this.txtTareaBitrix = new System.Windows.Forms.TextBox();
-			this.label13 = new System.Windows.Forms.Label();
-			this.txtNumeroFacturaAnticipo = new System.Windows.Forms.TextBox();
-			this.label11 = new System.Windows.Forms.Label();
-			this.txtMonto = new System.Windows.Forms.TextBox();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.txtContacto = new System.Windows.Forms.TextBox();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.limpar = new System.Windows.Forms.Button();
-			this.btnBuscar = new System.Windows.Forms.Button();
-			this.txtNumeroPBuscar = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.txtClienteBuscar = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.dgvProyectos = new System.Windows.Forms.DataGridView();
-			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-			this.menuStrip1.SuspendLayout();
-			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorcentaje)).BeginInit();
-			this.groupBox2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
-            this.ofertasToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1426, 24);
-			this.menuStrip1.TabIndex = 0;
-			this.menuStrip1.Text = "menuStrip1";
-			// 
-			// archivoToolStripMenuItem
-			// 
-			this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportarToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.salirToolStripMenuItem});
-			this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-			this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-			this.archivoToolStripMenuItem.Text = "Archivo";
-			// 
-			// exportarToolStripMenuItem
-			// 
-			this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.excelToolStripMenuItem});
-			this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-			this.exportarToolStripMenuItem.Text = "Exportar";
-			// 
-			// excelToolStripMenuItem
-			// 
-			this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-			this.excelToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-			this.excelToolStripMenuItem.Text = "Excel";
-			this.excelToolStripMenuItem.Click += new System.EventHandler(this.excelToolStripMenuItem_Click);
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
-			// 
-			// salirToolStripMenuItem
-			// 
-			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-			this.salirToolStripMenuItem.Text = "Salir";
-			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-			// 
-			// ofertasToolStripMenuItem
-			// 
-			this.ofertasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarCotizaciónToolStripMenuItem,
-            this.verCotizacionesToolStripMenuItem});
-			this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
-			this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-			this.ofertasToolStripMenuItem.Text = "Ofertas ";
-			// 
-			// agregarCotizaciónToolStripMenuItem
-			// 
-			this.agregarCotizaciónToolStripMenuItem.Name = "agregarCotizaciónToolStripMenuItem";
-			this.agregarCotizaciónToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-			this.agregarCotizaciónToolStripMenuItem.Text = "Agregar Cotización";
-			this.agregarCotizaciónToolStripMenuItem.Click += new System.EventHandler(this.agregarCotizaciónToolStripMenuItem_Click);
-			// 
-			// verCotizacionesToolStripMenuItem
-			// 
-			this.verCotizacionesToolStripMenuItem.Name = "verCotizacionesToolStripMenuItem";
-			this.verCotizacionesToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-			this.verCotizacionesToolStripMenuItem.Text = "Ver Cotizaciones";
-			this.verCotizacionesToolStripMenuItem.Click += new System.EventHandler(this.verCotizacionesToolStripMenuItem_Click);
-			// 
-			// groupBox1
-			// 
-			this.groupBox1.Controls.Add(this.comboBoxOfertas);
-			this.groupBox1.Controls.Add(this.txtRazonSocial);
-			this.groupBox1.Controls.Add(this.txtNumeroProyecto);
-			this.groupBox1.Controls.Add(this.label6);
-			this.groupBox1.Controls.Add(this.dtpFechaOC);
-			this.groupBox1.Controls.Add(this.cbVendedores);
-			this.groupBox1.Controls.Add(this.comboBoxEstado);
-			this.groupBox1.Controls.Add(this.numericUpDownPorcentaje);
-			this.groupBox1.Controls.Add(this.dateTimePickerFinal);
-			this.groupBox1.Controls.Add(this.dateTimePickerInicio);
-			this.groupBox1.Controls.Add(this.btnAgregar);
-			this.groupBox1.Controls.Add(this.btnLimpiar);
-			this.groupBox1.Controls.Add(this.label17);
-			this.groupBox1.Controls.Add(this.label16);
-			this.groupBox1.Controls.Add(this.label15);
-			this.groupBox1.Controls.Add(this.textBoxUbicacion);
-			this.groupBox1.Controls.Add(this.label14);
-			this.groupBox1.Controls.Add(this.txtTareaBitrix);
-			this.groupBox1.Controls.Add(this.label13);
-			this.groupBox1.Controls.Add(this.txtNumeroFacturaAnticipo);
-			this.groupBox1.Controls.Add(this.label11);
-			this.groupBox1.Controls.Add(this.txtMonto);
-			this.groupBox1.Controls.Add(this.label10);
-			this.groupBox1.Controls.Add(this.label9);
-			this.groupBox1.Controls.Add(this.label8);
-			this.groupBox1.Controls.Add(this.txtContacto);
-			this.groupBox1.Controls.Add(this.label7);
-			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Controls.Add(this.label4);
-			this.groupBox1.Controls.Add(this.label3);
-			this.groupBox1.Location = new System.Drawing.Point(12, 27);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(429, 607);
-			this.groupBox1.TabIndex = 1;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Agregar Proyecto";
-			// 
-			// comboBoxOfertas
-			// 
-			this.comboBoxOfertas.FormattingEnabled = true;
-			this.comboBoxOfertas.Location = new System.Drawing.Point(181, 191);
-			this.comboBoxOfertas.Name = "comboBoxOfertas";
-			this.comboBoxOfertas.Size = new System.Drawing.Size(225, 23);
-			this.comboBoxOfertas.TabIndex = 41;
-			// 
-			// txtRazonSocial
-			// 
-			this.txtRazonSocial.Location = new System.Drawing.Point(181, 98);
-			this.txtRazonSocial.Name = "txtRazonSocial";
-			this.txtRazonSocial.PlaceholderText = "Ejemplo S.A";
-			this.txtRazonSocial.Size = new System.Drawing.Size(225, 23);
-			this.txtRazonSocial.TabIndex = 6;
-			// 
-			// txtNumeroProyecto
-			// 
-			this.txtNumeroProyecto.Location = new System.Drawing.Point(181, 29);
-			this.txtNumeroProyecto.Name = "txtNumeroProyecto";
-			this.txtNumeroProyecto.ReadOnly = true;
-			this.txtNumeroProyecto.Size = new System.Drawing.Size(225, 23);
-			this.txtNumeroProyecto.TabIndex = 40;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(7, 32);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(117, 15);
-			this.label6.TabIndex = 39;
-			this.label6.Text = "Numero de Proyecto";
-			// 
-			// dtpFechaOC
-			// 
-			this.dtpFechaOC.Location = new System.Drawing.Point(181, 130);
-			this.dtpFechaOC.Name = "dtpFechaOC";
-			this.dtpFechaOC.Size = new System.Drawing.Size(225, 23);
-			this.dtpFechaOC.TabIndex = 38;
-			// 
-			// cbVendedores
-			// 
-			this.cbVendedores.FormattingEnabled = true;
-			this.cbVendedores.Location = new System.Drawing.Point(181, 61);
-			this.cbVendedores.Name = "cbVendedores";
-			this.cbVendedores.Size = new System.Drawing.Size(225, 23);
-			this.cbVendedores.TabIndex = 37;
-			// 
-			// comboBoxEstado
-			// 
-			this.comboBoxEstado.FormattingEnabled = true;
-			this.comboBoxEstado.Items.AddRange(new object[] {
-            "Pendiente de Ejecución",
-            "En ejecución",
-            "Finalizado con cobro",
-            "Finalizado sin cobro"});
-			this.comboBoxEstado.Location = new System.Drawing.Point(181, 472);
-			this.comboBoxEstado.Name = "comboBoxEstado";
-			this.comboBoxEstado.Size = new System.Drawing.Size(225, 23);
-			this.comboBoxEstado.TabIndex = 36;
-			this.comboBoxEstado.Text = "Pendiente de Ejecución";
-			// 
-			// numericUpDownPorcentaje
-			// 
-			this.numericUpDownPorcentaje.Location = new System.Drawing.Point(181, 249);
-			this.numericUpDownPorcentaje.Name = "numericUpDownPorcentaje";
-			this.numericUpDownPorcentaje.Size = new System.Drawing.Size(225, 23);
-			this.numericUpDownPorcentaje.TabIndex = 35;
-			// 
-			// dateTimePickerFinal
-			// 
-			this.dateTimePickerFinal.Location = new System.Drawing.Point(181, 443);
-			this.dateTimePickerFinal.Name = "dateTimePickerFinal";
-			this.dateTimePickerFinal.Size = new System.Drawing.Size(225, 23);
-			this.dateTimePickerFinal.TabIndex = 34;
-			// 
-			// dateTimePickerInicio
-			// 
-			this.dateTimePickerInicio.Location = new System.Drawing.Point(181, 414);
-			this.dateTimePickerInicio.Name = "dateTimePickerInicio";
-			this.dateTimePickerInicio.Size = new System.Drawing.Size(225, 23);
-			this.dateTimePickerInicio.TabIndex = 33;
-			// 
-			// btnAgregar
-			// 
-			this.btnAgregar.Location = new System.Drawing.Point(283, 507);
-			this.btnAgregar.Name = "btnAgregar";
-			this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-			this.btnAgregar.TabIndex = 31;
-			this.btnAgregar.Text = "Agregar";
-			this.btnAgregar.UseVisualStyleBackColor = true;
-			this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-			// 
-			// btnLimpiar
-			// 
-			this.btnLimpiar.Location = new System.Drawing.Point(181, 507);
-			this.btnLimpiar.Name = "btnLimpiar";
-			this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-			this.btnLimpiar.TabIndex = 30;
-			this.btnLimpiar.Text = "Limpiar";
-			this.btnLimpiar.UseVisualStyleBackColor = true;
-			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
-			// 
-			// label17
-			// 
-			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(7, 472);
-			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(42, 15);
-			this.label17.TabIndex = 28;
-			this.label17.Text = "Estado";
-			// 
-			// label16
-			// 
-			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(7, 443);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(103, 15);
-			this.label16.TabIndex = 26;
-			this.label16.Text = "Fecha Finalización";
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(7, 414);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(70, 15);
-			this.label15.TabIndex = 24;
-			this.label15.Text = "Fecha Inicio";
-			// 
-			// textBoxUbicacion
-			// 
-			this.textBoxUbicacion.Location = new System.Drawing.Point(181, 333);
-			this.textBoxUbicacion.Multiline = true;
-			this.textBoxUbicacion.Name = "textBoxUbicacion";
-			this.textBoxUbicacion.PlaceholderText = "Provincia, Canton, Distrito, Indicaciones";
-			this.textBoxUbicacion.Size = new System.Drawing.Size(225, 75);
-			this.textBoxUbicacion.TabIndex = 23;
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(7, 336);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(60, 15);
-			this.label14.TabIndex = 22;
-			this.label14.Text = "Ubicación";
-			// 
-			// txtTareaBitrix
-			// 
-			this.txtTareaBitrix.Location = new System.Drawing.Point(181, 304);
-			this.txtTareaBitrix.Name = "txtTareaBitrix";
-			this.txtTareaBitrix.PlaceholderText = "2155465";
-			this.txtTareaBitrix.Size = new System.Drawing.Size(225, 23);
-			this.txtTareaBitrix.TabIndex = 21;
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(7, 307);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(64, 15);
-			this.label13.TabIndex = 20;
-			this.label13.Text = "Tarea Bitrix";
-			// 
-			// txtNumeroFacturaAnticipo
-			// 
-			this.txtNumeroFacturaAnticipo.Location = new System.Drawing.Point(181, 275);
-			this.txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
-			this.txtNumeroFacturaAnticipo.PlaceholderText = "136548";
-			this.txtNumeroFacturaAnticipo.Size = new System.Drawing.Size(225, 23);
-			this.txtNumeroFacturaAnticipo.TabIndex = 17;
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(7, 278);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(141, 15);
-			this.label11.TabIndex = 16;
-			this.label11.Text = "Número Factura Anticipo";
-			// 
-			// txtMonto
-			// 
-			this.txtMonto.Location = new System.Drawing.Point(181, 220);
-			this.txtMonto.Name = "txtMonto";
-			this.txtMonto.PlaceholderText = "150000";
-			this.txtMonto.Size = new System.Drawing.Size(225, 23);
-			this.txtMonto.TabIndex = 15;
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(7, 249);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(111, 15);
-			this.label10.TabIndex = 14;
-			this.label10.Text = "Porcentaje Anticipo";
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(7, 220);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(43, 15);
-			this.label9.TabIndex = 12;
-			this.label9.Text = "Monto";
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(7, 191);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(77, 15);
-			this.label8.TabIndex = 10;
-			this.label8.Text = "Oferta Mecsa";
-			// 
-			// txtContacto
-			// 
-			this.txtContacto.Location = new System.Drawing.Point(181, 159);
-			this.txtContacto.Name = "txtContacto";
-			this.txtContacto.PlaceholderText = "Pepe";
-			this.txtContacto.Size = new System.Drawing.Size(225, 23);
-			this.txtContacto.TabIndex = 9;
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(7, 162);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(56, 15);
-			this.label7.TabIndex = 8;
-			this.label7.Text = "Contacto";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(7, 133);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(120, 15);
-			this.label5.TabIndex = 2;
-			this.label5.Text = "Fecha Orden Compra";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(7, 101);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(73, 15);
-			this.label4.TabIndex = 1;
-			this.label4.Text = "Razon Social";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(7, 69);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(57, 15);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "Vendedor";
-			// 
-			// groupBox2
-			// 
-			this.groupBox2.Controls.Add(this.limpar);
-			this.groupBox2.Controls.Add(this.btnBuscar);
-			this.groupBox2.Controls.Add(this.txtNumeroPBuscar);
-			this.groupBox2.Controls.Add(this.label2);
-			this.groupBox2.Controls.Add(this.txtClienteBuscar);
-			this.groupBox2.Controls.Add(this.label1);
-			this.groupBox2.Controls.Add(this.dgvProyectos);
-			this.groupBox2.Location = new System.Drawing.Point(447, 27);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(967, 607);
-			this.groupBox2.TabIndex = 2;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Proyectos";
-			// 
-			// limpar
-			// 
-			this.limpar.Location = new System.Drawing.Point(620, 29);
-			this.limpar.Name = "limpar";
-			this.limpar.Size = new System.Drawing.Size(141, 23);
-			this.limpar.TabIndex = 6;
-			this.limpar.Text = "Limpiar ";
-			this.limpar.UseVisualStyleBackColor = true;
-			this.limpar.Click += new System.EventHandler(this.limpar_Click);
-			// 
-			// btnBuscar
-			// 
-			this.btnBuscar.Location = new System.Drawing.Point(473, 28);
-			this.btnBuscar.Name = "btnBuscar";
-			this.btnBuscar.Size = new System.Drawing.Size(141, 23);
-			this.btnBuscar.TabIndex = 5;
-			this.btnBuscar.Text = "Buscar";
-			this.btnBuscar.UseVisualStyleBackColor = true;
-			this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-			// 
-			// txtNumeroPBuscar
-			// 
-			this.txtNumeroPBuscar.Location = new System.Drawing.Point(365, 29);
-			this.txtNumeroPBuscar.Name = "txtNumeroPBuscar";
-			this.txtNumeroPBuscar.Size = new System.Drawing.Size(102, 23);
-			this.txtNumeroPBuscar.TabIndex = 4;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(242, 32);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(117, 15);
-			this.label2.TabIndex = 3;
-			this.label2.Text = "Numero de Proyecto";
-			// 
-			// txtClienteBuscar
-			// 
-			this.txtClienteBuscar.Location = new System.Drawing.Point(56, 29);
-			this.txtClienteBuscar.Name = "txtClienteBuscar";
-			this.txtClienteBuscar.Size = new System.Drawing.Size(163, 23);
-			this.txtClienteBuscar.TabIndex = 2;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(6, 32);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(44, 15);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Cliente";
-			// 
-			// dgvProyectos
-			// 
-			this.dgvProyectos.AllowUserToAddRows = false;
-			this.dgvProyectos.AllowUserToDeleteRows = false;
-			this.dgvProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvProyectos.Location = new System.Drawing.Point(6, 61);
-			this.dgvProyectos.Name = "dgvProyectos";
-			this.dgvProyectos.ReadOnly = true;
-			this.dgvProyectos.RowTemplate.Height = 25;
-			this.dgvProyectos.Size = new System.Drawing.Size(955, 540);
-			this.dgvProyectos.TabIndex = 0;
-			this.dgvProyectos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProyectos_CellContentClick);
-			// 
-			// ModuloVentas
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.LightBlue;
-			this.ClientSize = new System.Drawing.Size(1426, 646);
-			this.Controls.Add(this.groupBox2);
-			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.menuStrip1);
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MainMenuStrip = this.menuStrip1;
-			this.Name = "ModuloVentas";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Modulo Ventas ";
-			this.Load += new System.EventHandler(this.Form1_Load);
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPorcentaje)).EndInit();
-			this.groupBox2.ResumeLayout(false);
-			this.groupBox2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModuloVentas));
+            menuStrip1 = new MenuStrip();
+            archivoToolStripMenuItem = new ToolStripMenuItem();
+            exportarToolStripMenuItem = new ToolStripMenuItem();
+            excelToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            salirToolStripMenuItem = new ToolStripMenuItem();
+            ofertasToolStripMenuItem = new ToolStripMenuItem();
+            agregarCotizaciónToolStripMenuItem = new ToolStripMenuItem();
+            verCotizacionesToolStripMenuItem = new ToolStripMenuItem();
+            groupBox1 = new GroupBox();
+            comboBoxOfertas = new ComboBox();
+            txtRazonSocial = new TextBox();
+            dtpFechaOC = new DateTimePicker();
+            cbVendedores = new ComboBox();
+            comboBoxEstado = new ComboBox();
+            numericUpDownPorcentaje = new NumericUpDown();
+            dateTimePickerFinal = new DateTimePicker();
+            dateTimePickerInicio = new DateTimePicker();
+            btnAgregar = new Button();
+            btnLimpiar = new Button();
+            lblEstado = new Label();
+            lblFechaFinalizacion = new Label();
+            lblFechaInicio = new Label();
+            textBoxUbicacion = new TextBox();
+            lblUbicacion = new Label();
+            txtTareaBitrix = new TextBox();
+            lblTarea = new Label();
+            txtNumeroFacturaAnticipo = new TextBox();
+            lblFacturaAnticipo = new Label();
+            txtMonto = new TextBox();
+            lblPorcentaje = new Label();
+            lblMonto = new Label();
+            lblOferta = new Label();
+            txtContacto = new TextBox();
+            lblContacto = new Label();
+            lblFechaOC = new Label();
+            lblRazon = new Label();
+            lblVendedor = new Label();
+            groupBox2 = new GroupBox();
+            limpar = new Button();
+            btnBuscar = new Button();
+            txtNumeroPBuscar = new TextBox();
+            label2 = new Label();
+            txtClienteBuscar = new TextBox();
+            label1 = new Label();
+            dgvProyectos = new DataGridView();
+            saveFileDialog = new SaveFileDialog();
+            menuStrip1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownPorcentaje).BeginInit();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProyectos).BeginInit();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, ofertasToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1336, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exportarToolStripMenuItem, toolStripSeparator1, salirToolStripMenuItem });
+            archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            archivoToolStripMenuItem.Size = new Size(60, 20);
+            archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // exportarToolStripMenuItem
+            // 
+            exportarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { excelToolStripMenuItem });
+            exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
+            exportarToolStripMenuItem.Size = new Size(118, 22);
+            exportarToolStripMenuItem.Text = "Exportar";
+            // 
+            // excelToolStripMenuItem
+            // 
+            excelToolStripMenuItem.Name = "excelToolStripMenuItem";
+            excelToolStripMenuItem.Size = new Size(101, 22);
+            excelToolStripMenuItem.Text = "Excel";
+            excelToolStripMenuItem.Click += excelToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(115, 6);
+            // 
+            // salirToolStripMenuItem
+            // 
+            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            salirToolStripMenuItem.Size = new Size(118, 22);
+            salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
+            // 
+            // ofertasToolStripMenuItem
+            // 
+            ofertasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarCotizaciónToolStripMenuItem, verCotizacionesToolStripMenuItem });
+            ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
+            ofertasToolStripMenuItem.Size = new Size(60, 20);
+            ofertasToolStripMenuItem.Text = "Ofertas ";
+            // 
+            // agregarCotizaciónToolStripMenuItem
+            // 
+            agregarCotizaciónToolStripMenuItem.Name = "agregarCotizaciónToolStripMenuItem";
+            agregarCotizaciónToolStripMenuItem.Size = new Size(175, 22);
+            agregarCotizaciónToolStripMenuItem.Text = "Agregar Cotización";
+            agregarCotizaciónToolStripMenuItem.Click += agregarCotizaciónToolStripMenuItem_Click;
+            // 
+            // verCotizacionesToolStripMenuItem
+            // 
+            verCotizacionesToolStripMenuItem.Name = "verCotizacionesToolStripMenuItem";
+            verCotizacionesToolStripMenuItem.Size = new Size(175, 22);
+            verCotizacionesToolStripMenuItem.Text = "Ver Cotizaciones";
+            verCotizacionesToolStripMenuItem.Click += verCotizacionesToolStripMenuItem_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(comboBoxOfertas);
+            groupBox1.Controls.Add(txtRazonSocial);
+            groupBox1.Controls.Add(dtpFechaOC);
+            groupBox1.Controls.Add(cbVendedores);
+            groupBox1.Controls.Add(comboBoxEstado);
+            groupBox1.Controls.Add(numericUpDownPorcentaje);
+            groupBox1.Controls.Add(dateTimePickerFinal);
+            groupBox1.Controls.Add(dateTimePickerInicio);
+            groupBox1.Controls.Add(btnAgregar);
+            groupBox1.Controls.Add(btnLimpiar);
+            groupBox1.Controls.Add(lblEstado);
+            groupBox1.Controls.Add(lblFechaFinalizacion);
+            groupBox1.Controls.Add(lblFechaInicio);
+            groupBox1.Controls.Add(textBoxUbicacion);
+            groupBox1.Controls.Add(lblUbicacion);
+            groupBox1.Controls.Add(txtTareaBitrix);
+            groupBox1.Controls.Add(lblTarea);
+            groupBox1.Controls.Add(txtNumeroFacturaAnticipo);
+            groupBox1.Controls.Add(lblFacturaAnticipo);
+            groupBox1.Controls.Add(txtMonto);
+            groupBox1.Controls.Add(lblPorcentaje);
+            groupBox1.Controls.Add(lblMonto);
+            groupBox1.Controls.Add(lblOferta);
+            groupBox1.Controls.Add(txtContacto);
+            groupBox1.Controls.Add(lblContacto);
+            groupBox1.Controls.Add(lblFechaOC);
+            groupBox1.Controls.Add(lblRazon);
+            groupBox1.Controls.Add(lblVendedor);
+            groupBox1.Location = new Point(12, 27);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(429, 607);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Agregar Proyecto";
+            // 
+            // comboBoxOfertas
+            // 
+            comboBoxOfertas.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxOfertas.FormattingEnabled = true;
+            comboBoxOfertas.Location = new Point(198, 152);
+            comboBoxOfertas.Name = "comboBoxOfertas";
+            comboBoxOfertas.Size = new Size(225, 23);
+            comboBoxOfertas.TabIndex = 41;
+            // 
+            // txtRazonSocial
+            // 
+            txtRazonSocial.Location = new Point(198, 59);
+            txtRazonSocial.Name = "txtRazonSocial";
+            txtRazonSocial.PlaceholderText = "Ejemplo S.A";
+            txtRazonSocial.Size = new Size(225, 23);
+            txtRazonSocial.TabIndex = 6;
+            // 
+            // dtpFechaOC
+            // 
+            dtpFechaOC.Location = new Point(198, 91);
+            dtpFechaOC.Name = "dtpFechaOC";
+            dtpFechaOC.Size = new Size(225, 23);
+            dtpFechaOC.TabIndex = 38;
+            // 
+            // cbVendedores
+            // 
+            cbVendedores.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbVendedores.FormattingEnabled = true;
+            cbVendedores.Location = new Point(198, 22);
+            cbVendedores.Name = "cbVendedores";
+            cbVendedores.Size = new Size(225, 23);
+            cbVendedores.TabIndex = 37;
+            // 
+            // comboBoxEstado
+            // 
+            comboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEstado.FormattingEnabled = true;
+            comboBoxEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
+            comboBoxEstado.Location = new Point(198, 433);
+            comboBoxEstado.Name = "comboBoxEstado";
+            comboBoxEstado.Size = new Size(225, 23);
+            comboBoxEstado.TabIndex = 36;
+            // 
+            // numericUpDownPorcentaje
+            // 
+            numericUpDownPorcentaje.Location = new Point(198, 210);
+            numericUpDownPorcentaje.Name = "numericUpDownPorcentaje";
+            numericUpDownPorcentaje.Size = new Size(225, 23);
+            numericUpDownPorcentaje.TabIndex = 35;
+            // 
+            // dateTimePickerFinal
+            // 
+            dateTimePickerFinal.Location = new Point(198, 404);
+            dateTimePickerFinal.Name = "dateTimePickerFinal";
+            dateTimePickerFinal.Size = new Size(225, 23);
+            dateTimePickerFinal.TabIndex = 34;
+            // 
+            // dateTimePickerInicio
+            // 
+            dateTimePickerInicio.Location = new Point(198, 375);
+            dateTimePickerInicio.Name = "dateTimePickerInicio";
+            dateTimePickerInicio.Size = new Size(225, 23);
+            dateTimePickerInicio.TabIndex = 33;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(300, 468);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.TabIndex = 31;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Location = new Point(198, 468);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(75, 23);
+            btnLimpiar.TabIndex = 30;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click_1;
+            // 
+            // lblEstado
+            // 
+            lblEstado.AutoSize = true;
+            lblEstado.Location = new Point(24, 433);
+            lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(42, 15);
+            lblEstado.TabIndex = 28;
+            lblEstado.Text = "Estado";
+            // 
+            // lblFechaFinalizacion
+            // 
+            lblFechaFinalizacion.AutoSize = true;
+            lblFechaFinalizacion.Location = new Point(24, 404);
+            lblFechaFinalizacion.Name = "lblFechaFinalizacion";
+            lblFechaFinalizacion.Size = new Size(103, 15);
+            lblFechaFinalizacion.TabIndex = 26;
+            lblFechaFinalizacion.Text = "Fecha Finalización";
+            // 
+            // lblFechaInicio
+            // 
+            lblFechaInicio.AutoSize = true;
+            lblFechaInicio.Location = new Point(24, 375);
+            lblFechaInicio.Name = "lblFechaInicio";
+            lblFechaInicio.Size = new Size(70, 15);
+            lblFechaInicio.TabIndex = 24;
+            lblFechaInicio.Text = "Fecha Inicio";
+            // 
+            // textBoxUbicacion
+            // 
+            textBoxUbicacion.Location = new Point(198, 294);
+            textBoxUbicacion.Multiline = true;
+            textBoxUbicacion.Name = "textBoxUbicacion";
+            textBoxUbicacion.PlaceholderText = "Provincia, Canton, Distrito, Indicaciones";
+            textBoxUbicacion.Size = new Size(225, 75);
+            textBoxUbicacion.TabIndex = 23;
+            // 
+            // lblUbicacion
+            // 
+            lblUbicacion.AutoSize = true;
+            lblUbicacion.Location = new Point(24, 297);
+            lblUbicacion.Name = "lblUbicacion";
+            lblUbicacion.Size = new Size(60, 15);
+            lblUbicacion.TabIndex = 22;
+            lblUbicacion.Text = "Ubicación";
+            // 
+            // txtTareaBitrix
+            // 
+            txtTareaBitrix.Location = new Point(198, 265);
+            txtTareaBitrix.Name = "txtTareaBitrix";
+            txtTareaBitrix.PlaceholderText = "2155465";
+            txtTareaBitrix.Size = new Size(225, 23);
+            txtTareaBitrix.TabIndex = 21;
+            // 
+            // lblTarea
+            // 
+            lblTarea.AutoSize = true;
+            lblTarea.Location = new Point(24, 268);
+            lblTarea.Name = "lblTarea";
+            lblTarea.Size = new Size(64, 15);
+            lblTarea.TabIndex = 20;
+            lblTarea.Text = "Tarea Bitrix";
+            // 
+            // txtNumeroFacturaAnticipo
+            // 
+            txtNumeroFacturaAnticipo.Location = new Point(198, 236);
+            txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
+            txtNumeroFacturaAnticipo.PlaceholderText = "136548";
+            txtNumeroFacturaAnticipo.Size = new Size(225, 23);
+            txtNumeroFacturaAnticipo.TabIndex = 17;
+            // 
+            // lblFacturaAnticipo
+            // 
+            lblFacturaAnticipo.AutoSize = true;
+            lblFacturaAnticipo.Location = new Point(24, 239);
+            lblFacturaAnticipo.Name = "lblFacturaAnticipo";
+            lblFacturaAnticipo.Size = new Size(141, 15);
+            lblFacturaAnticipo.TabIndex = 16;
+            lblFacturaAnticipo.Text = "Número Factura Anticipo";
+            // 
+            // txtMonto
+            // 
+            txtMonto.Location = new Point(198, 181);
+            txtMonto.Name = "txtMonto";
+            txtMonto.PlaceholderText = "150000";
+            txtMonto.Size = new Size(225, 23);
+            txtMonto.TabIndex = 15;
+            txtMonto.Leave += txtMonto_Leave;
+            // 
+            // lblPorcentaje
+            // 
+            lblPorcentaje.AutoSize = true;
+            lblPorcentaje.Location = new Point(24, 210);
+            lblPorcentaje.Name = "lblPorcentaje";
+            lblPorcentaje.Size = new Size(111, 15);
+            lblPorcentaje.TabIndex = 14;
+            lblPorcentaje.Text = "Porcentaje Anticipo";
+            // 
+            // lblMonto
+            // 
+            lblMonto.AutoSize = true;
+            lblMonto.Location = new Point(24, 181);
+            lblMonto.Name = "lblMonto";
+            lblMonto.Size = new Size(43, 15);
+            lblMonto.TabIndex = 12;
+            lblMonto.Text = "Monto";
+            // 
+            // lblOferta
+            // 
+            lblOferta.AutoSize = true;
+            lblOferta.Location = new Point(24, 152);
+            lblOferta.Name = "lblOferta";
+            lblOferta.Size = new Size(77, 15);
+            lblOferta.TabIndex = 10;
+            lblOferta.Text = "Oferta Mecsa";
+            // 
+            // txtContacto
+            // 
+            txtContacto.Location = new Point(198, 120);
+            txtContacto.Name = "txtContacto";
+            txtContacto.PlaceholderText = "Pepe";
+            txtContacto.Size = new Size(225, 23);
+            txtContacto.TabIndex = 9;
+            // 
+            // lblContacto
+            // 
+            lblContacto.AutoSize = true;
+            lblContacto.Location = new Point(24, 123);
+            lblContacto.Name = "lblContacto";
+            lblContacto.Size = new Size(56, 15);
+            lblContacto.TabIndex = 8;
+            lblContacto.Text = "Contacto";
+            // 
+            // lblFechaOC
+            // 
+            lblFechaOC.AutoSize = true;
+            lblFechaOC.Location = new Point(24, 94);
+            lblFechaOC.Name = "lblFechaOC";
+            lblFechaOC.Size = new Size(120, 15);
+            lblFechaOC.TabIndex = 2;
+            lblFechaOC.Text = "Fecha Orden Compra";
+            // 
+            // lblRazon
+            // 
+            lblRazon.AutoSize = true;
+            lblRazon.Location = new Point(24, 62);
+            lblRazon.Name = "lblRazon";
+            lblRazon.Size = new Size(73, 15);
+            lblRazon.TabIndex = 1;
+            lblRazon.Text = "Razon Social";
+            // 
+            // lblVendedor
+            // 
+            lblVendedor.AutoSize = true;
+            lblVendedor.Location = new Point(24, 30);
+            lblVendedor.Name = "lblVendedor";
+            lblVendedor.Size = new Size(57, 15);
+            lblVendedor.TabIndex = 0;
+            lblVendedor.Text = "Vendedor";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(limpar);
+            groupBox2.Controls.Add(btnBuscar);
+            groupBox2.Controls.Add(txtNumeroPBuscar);
+            groupBox2.Controls.Add(label2);
+            groupBox2.Controls.Add(txtClienteBuscar);
+            groupBox2.Controls.Add(label1);
+            groupBox2.Controls.Add(dgvProyectos);
+            groupBox2.Location = new Point(447, 27);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(877, 607);
+            groupBox2.TabIndex = 2;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Proyectos";
+            // 
+            // limpar
+            // 
+            limpar.Location = new Point(620, 29);
+            limpar.Name = "limpar";
+            limpar.Size = new Size(141, 23);
+            limpar.TabIndex = 6;
+            limpar.Text = "Limpiar ";
+            limpar.UseVisualStyleBackColor = true;
+            limpar.Click += limpar_Click;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(473, 28);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(141, 23);
+            btnBuscar.TabIndex = 5;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // txtNumeroPBuscar
+            // 
+            txtNumeroPBuscar.Location = new Point(365, 29);
+            txtNumeroPBuscar.Name = "txtNumeroPBuscar";
+            txtNumeroPBuscar.Size = new Size(102, 23);
+            txtNumeroPBuscar.TabIndex = 4;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(242, 32);
+            label2.Name = "label2";
+            label2.Size = new Size(117, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Numero de Proyecto";
+            // 
+            // txtClienteBuscar
+            // 
+            txtClienteBuscar.Location = new Point(56, 29);
+            txtClienteBuscar.Name = "txtClienteBuscar";
+            txtClienteBuscar.Size = new Size(163, 23);
+            txtClienteBuscar.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Cliente";
+            // 
+            // dgvProyectos
+            // 
+            dgvProyectos.AllowUserToAddRows = false;
+            dgvProyectos.AllowUserToDeleteRows = false;
+            dgvProyectos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvProyectos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProyectos.Location = new Point(6, 61);
+            dgvProyectos.Name = "dgvProyectos";
+            dgvProyectos.ReadOnly = true;
+            dgvProyectos.RowTemplate.Height = 25;
+            dgvProyectos.Size = new Size(865, 540);
+            dgvProyectos.TabIndex = 0;
+            dgvProyectos.CellContentClick += dgvProyectos_CellContentClick;
+            // 
+            // ModuloVentas
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightBlue;
+            ClientSize = new Size(1336, 646);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = menuStrip1;
+            Name = "ModuloVentas";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Modulo Ventas ";
+            Load += Form1_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownPorcentaje).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProyectos).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
 
-		}
+        #endregion
 
-		#endregion
-
-		private MenuStrip menuStrip1;
-		private ToolStripMenuItem archivoToolStripMenuItem;
-		private ToolStripMenuItem exportarToolStripMenuItem;
-		private ToolStripMenuItem excelToolStripMenuItem;
-		private ToolStripSeparator toolStripSeparator1;
-		private ToolStripMenuItem salirToolStripMenuItem;
-		private GroupBox groupBox1;
-		private Button btnAgregar;
-		private Button btnLimpiar;
-		private Label label17;
-		private Label label16;
-		private Label label15;
-		private TextBox textBoxUbicacion;
-		private Label label14;
-		private TextBox txtTareaBitrix;
-		private Label label13;
-		private TextBox txtNumeroFacturaAnticipo;
-		private Label label11;
-		private TextBox txtMonto;
-		private Label label10;
-		private Label label9;
-		private Label label8;
-		private TextBox txtContacto;
-		private Label label7;
-		private Label label5;
-		private Label label4;
-		private Label label3;
-		private GroupBox groupBox2;
-		private Button btnBuscar;
-		private TextBox txtNumeroPBuscar;
-		private Label label2;
-		private Label label1;
-		private DataGridView dgvProyectos;
-		private ComboBox comboBoxEstado;
-		private NumericUpDown numericUpDownPorcentaje;
-		private DateTimePicker dateTimePickerFinal;
-		private DateTimePicker dateTimePickerInicio;
-		private SaveFileDialog saveFileDialog;
-		private DateTimePicker dtpFechaOC;
-		private TextBox txtNumeroProyecto;
-		private Label label6;
-		private ToolStripMenuItem ofertasToolStripMenuItem;
-		private ToolStripMenuItem agregarCotizaciónToolStripMenuItem;
-		private ToolStripMenuItem verCotizacionesToolStripMenuItem;
-		private TextBox txtRazonSocial;
-		private ComboBox cbVendedores;
-		private TextBox txtClienteBuscar;
-		private ComboBox comboBoxOfertas;
-		private Button limpar;
-	}
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem archivoToolStripMenuItem;
+        private ToolStripMenuItem exportarToolStripMenuItem;
+        private ToolStripMenuItem excelToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem salirToolStripMenuItem;
+        private GroupBox groupBox1;
+        private Button btnAgregar;
+        private Button btnLimpiar;
+        private Label lblEstado;
+        private Label lblFechaFinalizacion;
+        private Label lblFechaInicio;
+        private TextBox textBoxUbicacion;
+        private Label lblUbicacion;
+        private TextBox txtTareaBitrix;
+        private Label lblTarea;
+        private TextBox txtNumeroFacturaAnticipo;
+        private Label lblFacturaAnticipo;
+        private TextBox txtMonto;
+        private Label lblPorcentaje;
+        private Label lblMonto;
+        private Label lblOferta;
+        private TextBox txtContacto;
+        private Label lblContacto;
+        private Label lblFechaOC;
+        private Label lblRazon;
+        private Label lblVendedor;
+        private GroupBox groupBox2;
+        private Button btnBuscar;
+        private TextBox txtNumeroPBuscar;
+        private Label label2;
+        private Label label1;
+        private DataGridView dgvProyectos;
+        private ComboBox comboBoxEstado;
+        private NumericUpDown numericUpDownPorcentaje;
+        private DateTimePicker dateTimePickerFinal;
+        private DateTimePicker dateTimePickerInicio;
+        private SaveFileDialog saveFileDialog;
+        private DateTimePicker dtpFechaOC;
+        private ToolStripMenuItem ofertasToolStripMenuItem;
+        private ToolStripMenuItem agregarCotizaciónToolStripMenuItem;
+        private ToolStripMenuItem verCotizacionesToolStripMenuItem;
+        private TextBox txtRazonSocial;
+        private ComboBox cbVendedores;
+        private TextBox txtClienteBuscar;
+        private ComboBox comboBoxOfertas;
+        private Button limpar;
+    }
 }

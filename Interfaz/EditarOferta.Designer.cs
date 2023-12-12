@@ -1,6 +1,6 @@
 ﻿namespace Interfaz
 {
-    partial class AgregarOferta
+    partial class EditarOferta
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            label13 = new Label();
-            ckdemarcado = new CheckBox();
             label12 = new Label();
             txtEncargado = new TextBox();
             label11 = new Label();
@@ -57,13 +55,15 @@
             label2 = new Label();
             dateTimePickerFecha = new DateTimePicker();
             label1 = new Label();
+            label13 = new Label();
+            ckDemarcacion = new CheckBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(ckDemarcacion);
             groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(ckdemarcado);
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(txtEncargado);
             groupBox1.Controls.Add(label11);
@@ -92,34 +92,15 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(309, 482);
-            groupBox1.TabIndex = 0;
+            groupBox1.Size = new Size(309, 458);
+            groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información de Ofeta";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(11, 173);
-            label13.Name = "label13";
-            label13.Size = new Size(68, 15);
-            label13.TabIndex = 28;
-            label13.Text = "Demarcado";
-            // 
-            // ckdemarcado
-            // 
-            ckdemarcado.AutoSize = true;
-            ckdemarcado.Location = new Point(103, 173);
-            ckdemarcado.Name = "ckdemarcado";
-            ckdemarcado.Size = new Size(143, 19);
-            ckdemarcado.TabIndex = 27;
-            ckdemarcado.Text = "Necesita demarcación";
-            ckdemarcado.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(19, 422);
+            label12.Location = new Point(19, 400);
             label12.Name = "label12";
             label12.Size = new Size(58, 15);
             label12.TabIndex = 26;
@@ -127,16 +108,16 @@
             // 
             // txtEncargado
             // 
-            txtEncargado.Location = new Point(103, 419);
+            txtEncargado.Location = new Point(103, 397);
             txtEncargado.Name = "txtEncargado";
-            txtEncargado.PlaceholderText = "Adrián Sólis";
+            txtEncargado.PlaceholderText = "Adrian ";
             txtEncargado.Size = new Size(184, 23);
             txtEncargado.TabIndex = 25;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(13, 195);
+            label11.Location = new Point(12, 197);
             label11.Name = "label11";
             label11.Size = new Size(44, 15);
             label11.TabIndex = 24;
@@ -144,7 +125,7 @@
             // 
             // txtCliente
             // 
-            txtCliente.Location = new Point(103, 198);
+            txtCliente.Location = new Point(103, 197);
             txtCliente.Name = "txtCliente";
             txtCliente.PlaceholderText = "Pepe";
             txtCliente.Size = new Size(184, 23);
@@ -152,7 +133,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(162, 452);
+            btnCancelar.Location = new Point(161, 426);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 22;
@@ -162,7 +143,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(57, 452);
+            btnAgregar.Location = new Point(56, 426);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 21;
@@ -172,9 +153,8 @@
             // 
             // cbEncargado
             // 
-            cbEncargado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEncargado.FormattingEnabled = true;
-            cbEncargado.Location = new Point(103, 390);
+            cbEncargado.Location = new Point(103, 368);
             cbEncargado.Name = "cbEncargado";
             cbEncargado.Size = new Size(184, 23);
             cbEncargado.TabIndex = 20;
@@ -182,7 +162,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(19, 393);
+            label10.Location = new Point(19, 371);
             label10.Name = "label10";
             label10.Size = new Size(63, 15);
             label10.TabIndex = 19;
@@ -191,7 +171,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(13, 329);
+            label9.Location = new Point(13, 307);
             label9.Name = "label9";
             label9.Size = new Size(69, 15);
             label9.TabIndex = 17;
@@ -199,17 +179,17 @@
             // 
             // txtObservaciones
             // 
-            txtObservaciones.Location = new Point(103, 326);
+            txtObservaciones.Location = new Point(103, 304);
             txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
-            txtObservaciones.PlaceholderText = "Descripción y ubicación";
+            txtObservaciones.PlaceholderText = "Descripción breve del trabajo";
             txtObservaciones.Size = new Size(184, 53);
             txtObservaciones.TabIndex = 16;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(13, 261);
+            label8.Location = new Point(13, 255);
             label8.Name = "label8";
             label8.Size = new Size(38, 15);
             label8.TabIndex = 15;
@@ -217,17 +197,17 @@
             // 
             // txtNotas
             // 
-            txtNotas.Location = new Point(103, 264);
+            txtNotas.Location = new Point(103, 255);
             txtNotas.Multiline = true;
             txtNotas.Name = "txtNotas";
-            txtNotas.PlaceholderText = "Notas e información varia";
-            txtNotas.Size = new Size(184, 53);
+            txtNotas.PlaceholderText = "Notas de relevancia, sobre la tarea";
+            txtNotas.Size = new Size(184, 33);
             txtNotas.TabIndex = 14;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(13, 232);
+            label7.Location = new Point(13, 226);
             label7.Name = "label7";
             label7.Size = new Size(43, 15);
             label7.TabIndex = 13;
@@ -235,7 +215,7 @@
             // 
             // txtMonto
             // 
-            txtMonto.Location = new Point(103, 235);
+            txtMonto.Location = new Point(103, 226);
             txtMonto.Name = "txtMonto";
             txtMonto.PlaceholderText = "150000";
             txtMonto.Size = new Size(184, 23);
@@ -342,7 +322,6 @@
             dateTimePickerFecha.Name = "dateTimePickerFecha";
             dateTimePickerFecha.Size = new Size(184, 23);
             dateTimePickerFecha.TabIndex = 1;
-            dateTimePickerFecha.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // label1
             // 
@@ -353,19 +332,38 @@
             label1.TabIndex = 0;
             label1.Text = "Fecha";
             // 
-            // AgregarOferta
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(13, 172);
+            label13.Name = "label13";
+            label13.Size = new Size(77, 15);
+            label13.TabIndex = 27;
+            label13.Text = "Demarcación";
+            // 
+            // ckDemarcacion
+            // 
+            ckDemarcacion.AutoSize = true;
+            ckDemarcacion.Location = new Point(103, 172);
+            ckDemarcacion.Name = "ckDemarcacion";
+            ckDemarcacion.Size = new Size(144, 19);
+            ckDemarcacion.TabIndex = 28;
+            ckDemarcacion.Text = "Necesita Demarcación";
+            ckDemarcacion.UseVisualStyleBackColor = true;
+            // 
+            // EditarOferta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(333, 499);
+            ClientSize = new Size(334, 475);
             Controls.Add(groupBox1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "AgregarOferta";
+            Name = "EditarOferta";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Agregar Oferta";
-            Load += AgregarOferta_Load;
+            Text = "Editar Oferta";
+            Load += EditarOferta_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -374,8 +372,10 @@
         #endregion
 
         private GroupBox groupBox1;
-        private DateTimePicker dateTimePickerFecha;
-        private Label label1;
+        private Label label12;
+        private TextBox txtEncargado;
+        private Label label11;
+        private TextBox txtCliente;
         private Button btnCancelar;
         private Button btnAgregar;
         private ComboBox cbEncargado;
@@ -396,11 +396,9 @@
         private Label label3;
         private CheckBox checkBoxSellador;
         private Label label2;
-        private Label label11;
-        private TextBox txtCliente;
-        private Label label12;
-        private TextBox txtEncargado;
+        private DateTimePicker dateTimePickerFecha;
+        private Label label1;
+        private CheckBox ckDemarcacion;
         private Label label13;
-        private CheckBox ckdemarcado;
     }
 }

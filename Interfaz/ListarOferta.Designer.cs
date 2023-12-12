@@ -1,104 +1,193 @@
 ﻿namespace Interfaz
 {
-	partial class ListarOferta
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class ListarOferta
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-			this.dgvOfertas = new System.Windows.Forms.DataGridView();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.agregarOfertaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			((System.ComponentModel.ISupportInitialize)(this.dgvOfertas)).BeginInit();
-			this.menuStrip1.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// dgvOfertas
-			// 
-			this.dgvOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvOfertas.Location = new System.Drawing.Point(12, 27);
-			this.dgvOfertas.Name = "dgvOfertas";
-			this.dgvOfertas.RowTemplate.Height = 25;
-			this.dgvOfertas.Size = new System.Drawing.Size(1213, 556);
-			this.dgvOfertas.TabIndex = 0;
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem,
-            this.agregarOfertaToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1237, 24);
-			this.menuStrip1.TabIndex = 1;
-			this.menuStrip1.Text = "menuStrip1";
-			// 
-			// salirToolStripMenuItem
-			// 
-			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
-			this.salirToolStripMenuItem.Text = "Salir";
-			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-			// 
-			// agregarOfertaToolStripMenuItem
-			// 
-			this.agregarOfertaToolStripMenuItem.Name = "agregarOfertaToolStripMenuItem";
-			this.agregarOfertaToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-			this.agregarOfertaToolStripMenuItem.Text = "Agregar Oferta";
-			this.agregarOfertaToolStripMenuItem.Click += new System.EventHandler(this.agregarOfertaToolStripMenuItem_Click);
-			// 
-			// ListarOferta
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1237, 595);
-			this.Controls.Add(this.dgvOfertas);
-			this.Controls.Add(this.menuStrip1);
-			this.MainMenuStrip = this.menuStrip1;
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.Name = "ListarOferta";
-			this.ShowIcon = false;
-			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Lista de Ofertas";
-			this.Load += new System.EventHandler(this.ListarOferta_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dgvOfertas)).EndInit();
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            dgvOfertas = new DataGridView();
+            menuStrip1 = new MenuStrip();
+            salirToolStripMenuItem = new ToolStripMenuItem();
+            agregarOfertaToolStripMenuItem = new ToolStripMenuItem();
+            groupBox1 = new GroupBox();
+            BtnLimpar = new Button();
+            btnBuscar = new Button();
+            txtCliente = new TextBox();
+            label3 = new Label();
+            txtNumeroOferta = new TextBox();
+            label1 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvOfertas).BeginInit();
+            menuStrip1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // dgvOfertas
+            // 
+            dgvOfertas.AllowUserToAddRows = false;
+            dgvOfertas.AllowUserToDeleteRows = false;
+            dgvOfertas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvOfertas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOfertas.Location = new Point(12, 92);
+            dgvOfertas.Name = "dgvOfertas";
+            dgvOfertas.ReadOnly = true;
+            dgvOfertas.RowTemplate.Height = 25;
+            dgvOfertas.Size = new Size(1277, 491);
+            dgvOfertas.TabIndex = 0;
+            dgvOfertas.CellContentClick += dgvOfertas_CellContentClick;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { salirToolStripMenuItem, agregarOfertaToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1301, 24);
+            menuStrip1.TabIndex = 1;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // salirToolStripMenuItem
+            // 
+            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            salirToolStripMenuItem.Size = new Size(41, 20);
+            salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
+            // 
+            // agregarOfertaToolStripMenuItem
+            // 
+            agregarOfertaToolStripMenuItem.Name = "agregarOfertaToolStripMenuItem";
+            agregarOfertaToolStripMenuItem.Size = new Size(97, 20);
+            agregarOfertaToolStripMenuItem.Text = "Agregar Oferta";
+            agregarOfertaToolStripMenuItem.Click += agregarOfertaToolStripMenuItem_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(BtnLimpar);
+            groupBox1.Controls.Add(btnBuscar);
+            groupBox1.Controls.Add(txtCliente);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(txtNumeroOferta);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new Point(12, 27);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1277, 59);
+            groupBox1.TabIndex = 2;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Buscar";
+            // 
+            // BtnLimpar
+            // 
+            BtnLimpar.Location = new Point(756, 24);
+            BtnLimpar.Name = "BtnLimpar";
+            BtnLimpar.Size = new Size(105, 23);
+            BtnLimpar.TabIndex = 7;
+            BtnLimpar.Text = "Limpiar";
+            BtnLimpar.UseVisualStyleBackColor = true;
+            BtnLimpar.Click += BtnLimpar_Click;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(632, 24);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(105, 23);
+            btnBuscar.TabIndex = 6;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // txtCliente
+            // 
+            txtCliente.Location = new Point(396, 24);
+            txtCliente.Name = "txtCliente";
+            txtCliente.PlaceholderText = "Mecsa";
+            txtCliente.Size = new Size(180, 23);
+            txtCliente.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(329, 28);
+            label3.Name = "label3";
+            label3.Size = new Size(44, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Cliente";
+            // 
+            // txtNumeroOferta
+            // 
+            txtNumeroOferta.Location = new Point(123, 24);
+            txtNumeroOferta.Name = "txtNumeroOferta";
+            txtNumeroOferta.PlaceholderText = "1234565";
+            txtNumeroOferta.Size = new Size(180, 23);
+            txtNumeroOferta.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(14, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(103, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Numero de Oferta";
+            // 
+            // ListarOferta
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1301, 595);
+            Controls.Add(groupBox1);
+            Controls.Add(dgvOfertas);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            MinimizeBox = false;
+            Name = "ListarOferta";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Lista de Ofertas";
+            Load += ListarOferta_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvOfertas).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
+        }
 
-		}
+        #endregion
 
-		#endregion
-
-		private DataGridView dgvOfertas;
-		private MenuStrip menuStrip1;
-		private ToolStripMenuItem salirToolStripMenuItem;
-		private ToolStripMenuItem agregarOfertaToolStripMenuItem;
-	}
+        private DataGridView dgvOfertas;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem salirToolStripMenuItem;
+        private ToolStripMenuItem agregarOfertaToolStripMenuItem;
+        private GroupBox groupBox1;
+        private Button BtnLimpar;
+        private Button btnBuscar;
+        private TextBox txtCliente;
+        private Label label3;
+        private TextBox txtNumeroOferta;
+        private Label label1;
+    }
 }
