@@ -1,5 +1,6 @@
 ﻿using Modelos;
 using Negocios;
+using System.Data;
 using System.Globalization;
 
 namespace Interfaz
@@ -29,6 +30,23 @@ namespace Interfaz
             }
 
         }
+
+        private void CargarNotas( List<Nota> notas )
+        {
+            dataGridViewComentarios.Columns.Clear();
+            DataTable _table = new();
+            _table.Columns.Add("Titulo Comentario");
+            foreach (Nota nota in notas )
+            {
+                _table.Rows.Add(nota.Titulo);
+            }
+            DataGridViewButtonColumn btnVer = new();
+            btnVer.HeaderText = "Ver";
+            btnVer.Text = "Ver";
+            btnVer.UseColumnTextForButtonValue = true;
+            dataGridViewComentarios.Columns.Add(btnVer);
+
+        }
         private void CargarProyectoDetallado()
         {
             try
@@ -53,7 +71,7 @@ namespace Interfaz
                     txtNumeroFacturaAnticipo.Text = proyectoTemporal.FacturaAnticipoId;
                     txtNumeroTarea.Text = proyectoTemporal.TareaId.ToString();
                     txtUbicacion.Text = proyectoTemporal.Ubicacion;
-                    txtNotas.Text = proyectoTemporal.Notas;
+                    txtNotas.Text = proyectoTemporal.Tipo;
                     txtFechaInicio.Text = proyectoTemporal.FechaInicio.ToLongDateString();
                     txtFechaFinal.Text = proyectoTemporal.FechaFinal.ToLongDateString();
 

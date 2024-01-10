@@ -140,8 +140,10 @@ namespace Negocios
         {
             try
             {
+               
                 using (var db = new DBContextProyectosAsfaltos())
                 {
+
                     var resultado = (from i in db.Usuarios
                                      where i.Login.ToLower() == login.ToLower()
                                      select i).FirstOrDefault();

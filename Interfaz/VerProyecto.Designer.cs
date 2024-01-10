@@ -58,11 +58,25 @@
             txtEstado = new TextBox();
             label1 = new Label();
             txtNotas = new TextBox();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            txtTitulo = new TextBox();
+            txtDescripcion = new TextBox();
+            label2 = new Label();
+            label12 = new Label();
+            btnAgregar = new Button();
+            btnLimpiar = new Button();
+            groupBox3 = new GroupBox();
+            dataGridViewComentarios = new DataGridView();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewComentarios).BeginInit();
             SuspendLayout();
             // 
             // txtRazonSocial
             // 
-            txtRazonSocial.Location = new Point(186, 90);
+            txtRazonSocial.Location = new Point(180, 85);
             txtRazonSocial.Name = "txtRazonSocial";
             txtRazonSocial.ReadOnly = true;
             txtRazonSocial.Size = new Size(225, 23);
@@ -71,7 +85,7 @@
             // 
             // txtNumeroProyecto
             // 
-            txtNumeroProyecto.Location = new Point(186, 21);
+            txtNumeroProyecto.Location = new Point(180, 16);
             txtNumeroProyecto.Name = "txtNumeroProyecto";
             txtNumeroProyecto.ReadOnly = true;
             txtNumeroProyecto.Size = new Size(225, 23);
@@ -81,7 +95,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 24);
+            label6.Location = new Point(6, 19);
             label6.Name = "label6";
             label6.Size = new Size(117, 15);
             label6.TabIndex = 69;
@@ -90,7 +104,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(12, 538);
+            label17.Location = new Point(6, 533);
             label17.Name = "label17";
             label17.Size = new Size(42, 15);
             label17.TabIndex = 60;
@@ -99,7 +113,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(12, 505);
+            label16.Location = new Point(6, 500);
             label16.Name = "label16";
             label16.Size = new Size(103, 15);
             label16.TabIndex = 59;
@@ -108,7 +122,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(12, 476);
+            label15.Location = new Point(6, 471);
             label15.Name = "label15";
             label15.Size = new Size(70, 15);
             label15.TabIndex = 58;
@@ -116,7 +130,7 @@
             // 
             // txtUbicacion
             // 
-            txtUbicacion.Location = new Point(186, 395);
+            txtUbicacion.Location = new Point(180, 390);
             txtUbicacion.Multiline = true;
             txtUbicacion.Name = "txtUbicacion";
             txtUbicacion.ReadOnly = true;
@@ -127,7 +141,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(12, 398);
+            label14.Location = new Point(6, 393);
             label14.Name = "label14";
             label14.Size = new Size(60, 15);
             label14.TabIndex = 56;
@@ -135,7 +149,7 @@
             // 
             // txtNumeroTarea
             // 
-            txtNumeroTarea.Location = new Point(186, 296);
+            txtNumeroTarea.Location = new Point(180, 291);
             txtNumeroTarea.Name = "txtNumeroTarea";
             txtNumeroTarea.ReadOnly = true;
             txtNumeroTarea.Size = new Size(225, 23);
@@ -145,7 +159,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(12, 299);
+            label13.Location = new Point(6, 294);
             label13.Name = "label13";
             label13.Size = new Size(64, 15);
             label13.TabIndex = 54;
@@ -153,7 +167,7 @@
             // 
             // txtNumeroFacturaAnticipo
             // 
-            txtNumeroFacturaAnticipo.Location = new Point(186, 267);
+            txtNumeroFacturaAnticipo.Location = new Point(180, 262);
             txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
             txtNumeroFacturaAnticipo.ReadOnly = true;
             txtNumeroFacturaAnticipo.Size = new Size(225, 23);
@@ -163,7 +177,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(12, 270);
+            label11.Location = new Point(6, 265);
             label11.Name = "label11";
             label11.Size = new Size(93, 15);
             label11.TabIndex = 52;
@@ -171,7 +185,7 @@
             // 
             // txtMontoProyecto
             // 
-            txtMontoProyecto.Location = new Point(186, 212);
+            txtMontoProyecto.Location = new Point(180, 207);
             txtMontoProyecto.Name = "txtMontoProyecto";
             txtMontoProyecto.ReadOnly = true;
             txtMontoProyecto.Size = new Size(225, 23);
@@ -181,7 +195,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(12, 241);
+            label10.Location = new Point(6, 236);
             label10.Name = "label10";
             label10.Size = new Size(111, 15);
             label10.TabIndex = 50;
@@ -190,7 +204,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(12, 212);
+            label9.Location = new Point(6, 207);
             label9.Name = "label9";
             label9.Size = new Size(43, 15);
             label9.TabIndex = 49;
@@ -198,7 +212,7 @@
             // 
             // txtOferta
             // 
-            txtOferta.Location = new Point(186, 180);
+            txtOferta.Location = new Point(180, 175);
             txtOferta.Name = "txtOferta";
             txtOferta.ReadOnly = true;
             txtOferta.Size = new Size(225, 23);
@@ -208,7 +222,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(12, 183);
+            label8.Location = new Point(6, 178);
             label8.Name = "label8";
             label8.Size = new Size(77, 15);
             label8.TabIndex = 47;
@@ -216,7 +230,7 @@
             // 
             // txtContacto
             // 
-            txtContacto.Location = new Point(186, 151);
+            txtContacto.Location = new Point(180, 146);
             txtContacto.Name = "txtContacto";
             txtContacto.ReadOnly = true;
             txtContacto.Size = new Size(225, 23);
@@ -226,7 +240,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(12, 154);
+            label7.Location = new Point(6, 149);
             label7.Name = "label7";
             label7.Size = new Size(56, 15);
             label7.TabIndex = 45;
@@ -235,7 +249,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 125);
+            label5.Location = new Point(6, 120);
             label5.Name = "label5";
             label5.Size = new Size(120, 15);
             label5.TabIndex = 43;
@@ -244,7 +258,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 93);
+            label4.Location = new Point(6, 88);
             label4.Name = "label4";
             label4.Size = new Size(73, 15);
             label4.TabIndex = 42;
@@ -253,7 +267,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 61);
+            label3.Location = new Point(6, 56);
             label3.Name = "label3";
             label3.Size = new Size(57, 15);
             label3.TabIndex = 41;
@@ -261,7 +275,7 @@
             // 
             // txtVendedor
             // 
-            txtVendedor.Location = new Point(186, 58);
+            txtVendedor.Location = new Point(180, 53);
             txtVendedor.Name = "txtVendedor";
             txtVendedor.ReadOnly = true;
             txtVendedor.Size = new Size(225, 23);
@@ -270,7 +284,7 @@
             // 
             // txtOC
             // 
-            txtOC.Location = new Point(186, 122);
+            txtOC.Location = new Point(180, 117);
             txtOC.Name = "txtOC";
             txtOC.ReadOnly = true;
             txtOC.Size = new Size(225, 23);
@@ -279,7 +293,7 @@
             // 
             // txtFechaInicio
             // 
-            txtFechaInicio.Location = new Point(186, 476);
+            txtFechaInicio.Location = new Point(180, 471);
             txtFechaInicio.Name = "txtFechaInicio";
             txtFechaInicio.ReadOnly = true;
             txtFechaInicio.Size = new Size(225, 23);
@@ -288,7 +302,7 @@
             // 
             // txtFechaFinal
             // 
-            txtFechaFinal.Location = new Point(186, 505);
+            txtFechaFinal.Location = new Point(180, 500);
             txtFechaFinal.Name = "txtFechaFinal";
             txtFechaFinal.ReadOnly = true;
             txtFechaFinal.Size = new Size(225, 23);
@@ -297,7 +311,7 @@
             // 
             // txtPorcentaje
             // 
-            txtPorcentaje.Location = new Point(186, 241);
+            txtPorcentaje.Location = new Point(180, 236);
             txtPorcentaje.Name = "txtPorcentaje";
             txtPorcentaje.ReadOnly = true;
             txtPorcentaje.Size = new Size(225, 23);
@@ -306,7 +320,7 @@
             // 
             // txtEstado
             // 
-            txtEstado.Location = new Point(186, 534);
+            txtEstado.Location = new Point(180, 529);
             txtEstado.Name = "txtEstado";
             txtEstado.ReadOnly = true;
             txtEstado.Size = new Size(225, 23);
@@ -316,7 +330,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 335);
+            label1.Location = new Point(6, 330);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
             label1.TabIndex = 79;
@@ -324,7 +338,7 @@
             // 
             // txtNotas
             // 
-            txtNotas.Location = new Point(186, 335);
+            txtNotas.Location = new Point(180, 330);
             txtNotas.Multiline = true;
             txtNotas.Name = "txtNotas";
             txtNotas.ReadOnly = true;
@@ -332,41 +346,138 @@
             txtNotas.TabIndex = 80;
             txtNotas.TextAlign = HorizontalAlignment.Right;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(txtNotas);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(txtEstado);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(txtPorcentaje);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(txtFechaFinal);
+            groupBox1.Controls.Add(txtContacto);
+            groupBox1.Controls.Add(txtFechaInicio);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(txtOC);
+            groupBox1.Controls.Add(txtOferta);
+            groupBox1.Controls.Add(txtVendedor);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(txtRazonSocial);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(txtNumeroProyecto);
+            groupBox1.Controls.Add(txtMontoProyecto);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(label17);
+            groupBox1.Controls.Add(txtNumeroFacturaAnticipo);
+            groupBox1.Controls.Add(label16);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(label15);
+            groupBox1.Controls.Add(txtNumeroTarea);
+            groupBox1.Controls.Add(txtUbicacion);
+            groupBox1.Controls.Add(label14);
+            groupBox1.Location = new Point(12, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(438, 568);
+            groupBox1.TabIndex = 81;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Proyecto";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(btnLimpiar);
+            groupBox2.Controls.Add(btnAgregar);
+            groupBox2.Controls.Add(label12);
+            groupBox2.Controls.Add(label2);
+            groupBox2.Controls.Add(txtDescripcion);
+            groupBox2.Controls.Add(txtTitulo);
+            groupBox2.Location = new Point(456, 12);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(298, 213);
+            groupBox2.TabIndex = 82;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Nuevo Comentario";
+            // 
+            // txtTitulo
+            // 
+            txtTitulo.Location = new Point(106, 31);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(177, 23);
+            txtTitulo.TabIndex = 0;
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Location = new Point(106, 66);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(177, 98);
+            txtDescripcion.TabIndex = 83;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(18, 39);
+            label2.Name = "label2";
+            label2.Size = new Size(37, 15);
+            label2.TabIndex = 84;
+            label2.Text = "Titulo";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(18, 66);
+            label12.Name = "label12";
+            label12.Size = new Size(69, 15);
+            label12.TabIndex = 85;
+            label12.Text = "Descripción";
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(181, 178);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(102, 23);
+            btnAgregar.TabIndex = 83;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Location = new Point(73, 178);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(102, 23);
+            btnLimpiar.TabIndex = 86;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(dataGridViewComentarios);
+            groupBox3.Location = new Point(456, 231);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(298, 349);
+            groupBox3.TabIndex = 83;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Comentarios";
+            // 
+            // dataGridViewComentarios
+            // 
+            dataGridViewComentarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewComentarios.Location = new Point(6, 22);
+            dataGridViewComentarios.Name = "dataGridViewComentarios";
+            dataGridViewComentarios.RowTemplate.Height = 25;
+            dataGridViewComentarios.Size = new Size(286, 321);
+            dataGridViewComentarios.TabIndex = 0;
+            // 
             // VerProyecto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(435, 603);
-            Controls.Add(txtNotas);
-            Controls.Add(label1);
-            Controls.Add(txtEstado);
-            Controls.Add(txtPorcentaje);
-            Controls.Add(txtFechaFinal);
-            Controls.Add(txtFechaInicio);
-            Controls.Add(txtOC);
-            Controls.Add(txtVendedor);
-            Controls.Add(txtRazonSocial);
-            Controls.Add(txtNumeroProyecto);
-            Controls.Add(label6);
-            Controls.Add(label17);
-            Controls.Add(label16);
-            Controls.Add(label15);
-            Controls.Add(txtUbicacion);
-            Controls.Add(label14);
-            Controls.Add(txtNumeroTarea);
-            Controls.Add(label13);
-            Controls.Add(txtNumeroFacturaAnticipo);
-            Controls.Add(label11);
-            Controls.Add(txtMontoProyecto);
-            Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(txtOferta);
-            Controls.Add(label8);
-            Controls.Add(txtContacto);
-            Controls.Add(label7);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
+            ClientSize = new Size(767, 598);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "VerProyecto";
@@ -374,8 +485,13 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Información del Proyecto";
             Load += VerProyecto_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewComentarios).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -410,5 +526,15 @@
         private TextBox txtEstado;
         private Label label1;
         private TextBox txtNotas;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private TextBox txtDescripcion;
+        private TextBox txtTitulo;
+        private Button btnLimpiar;
+        private Button btnAgregar;
+        private Label label12;
+        private Label label2;
+        private GroupBox groupBox3;
+        private DataGridView dataGridViewComentarios;
     }
 }

@@ -19,23 +19,12 @@ namespace Interfaz
             {
                 txtCliente.Text = oferta.Cliente;
                 txtFecha.Text = oferta.Fecha.ToLongDateString();
-                checkBoxSellador.Checked = oferta.Sellador;
-                checkBoxSellador.Enabled = false;
-                checkBoxAsfalto.Checked = oferta.Asfalto;
-                checkBoxAsfalto.Enabled = false;
-                checkBoxBase.Checked = oferta.Base;
-                checkBoxBase.Enabled = false;
-                checkBoxSubbase.Checked = oferta.SubBase;
-                checkBoxSubbase.Enabled = false;
-                checkBoxExcavacion.Checked = oferta.Excavacion;
-                checkBoxExcavacion.Enabled = false;
+
                 txtMonto.Text = oferta.Monto.ToString("C", CultureInfo.CurrentCulture);
                 txtNotas.Text = oferta.Notas;
                 txtObservaciones.Text = oferta.Observaciones;
                 textEncargado.Text = oferta.Encargado.Nombre;
                 txtCotizador.Text = oferta.EncargadoCotizador;
-                ckDemarcacion.Checked = oferta.Demarcado;
-                ckDemarcacion.Enabled = false;
             }
             else
             {

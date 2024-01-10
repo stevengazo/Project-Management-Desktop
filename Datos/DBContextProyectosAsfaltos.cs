@@ -23,6 +23,7 @@ namespace Modelos
         public DbSet<RolUsuario> RolUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Oferta> Ofertas { get; set; }
+        public DbSet<Nota> Notas { get; set; }
         //public DbSet<Cliente> Clientes { get; set; }	
 
         #endregion
@@ -97,6 +98,7 @@ namespace Modelos
                 FacturaFinalId = "No Existente",
                 TareaId = 2000,
                 Ubicacion = "Grupo Mecsa",
+                Tipo = "Instalación",
                 FechaInicio = DateTime.Today.AddDays(-1),
                 FechaFinal = DateTime.Today.AddDays(2),
                 Estado = "Finalizado",
@@ -114,11 +116,6 @@ namespace Modelos
                 OfertaId = 1,
                 Fecha = DateTime.Today,
                 Codigo = 1,
-                Sellador = true,
-                Asfalto = true,
-                Base = true,
-                SubBase = true,
-                Excavacion = true,
                 Monto = 100f,
                 Notas = string.Empty,
                 Observaciones = string.Empty,
@@ -132,7 +129,6 @@ namespace Modelos
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             base.OnModelCreating(modelBuilder);
             GenerateSeedOfData(modelBuilder);
         }
@@ -149,5 +145,24 @@ namespace Modelos
         {
             CadenaDeConexion = XMLConfiguraciones.LeerCadenaDeConexion();
         }
+
+        public void GenerateDB()
+        {
+            try
+            {
+                var connected = this.Database.CanConnect();
+                if (!connected)
+                {
+                    Console.WriteLine("Trying to generate the database...");
+                    this.Database.Migrate();
+                }
+
+            }
+            catch (Exception f)
+            {
+                Console.WriteLine("Error: " + f.Message);
+            }
+        }
+
     }
 }

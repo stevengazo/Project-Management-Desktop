@@ -107,7 +107,7 @@
             cbTipo.Name = "cbTipo";
             cbTipo.Size = new Size(125, 23);
             cbTipo.TabIndex = 6;
-            cbTipo.Text = "Vendedor";
+            cbTipo.Text = "Admin";
             // 
             // checkBoxContrasena
             // 

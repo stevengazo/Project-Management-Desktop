@@ -109,11 +109,6 @@ namespace Interfaz
                         else
                         {
                             dateTimePickerFecha.Value = Ofertatmp.Fecha;
-                            checkBoxSellador.Checked = Ofertatmp.Sellador;
-                            checkBoxAsfalto.Checked = Ofertatmp.Asfalto;
-                            checkBoxBase.Checked = Ofertatmp.Base;
-                            checkBoxSubbase.Checked = Ofertatmp.SubBase;
-                            checkBoxExcavacion.Checked = Ofertatmp.Excavacion;
                             txtCliente.Text = Ofertatmp.Cliente;
                             txtMonto.Text = Ofertatmp.Monto.ToString();
                             txtNotas.Text = Ofertatmp.Notas;
@@ -151,12 +146,6 @@ namespace Interfaz
                     Ofertatmp.AutorPrespuesto = Temporal.UsuarioActivo.Nombre;
                     Ofertatmp.UltimaModificacion = DateTime.Now;
                     Ofertatmp.Fecha = dateTimePickerFecha.Value;
-                    Ofertatmp.Sellador = checkBoxSellador.Checked;
-                    Ofertatmp.Asfalto = checkBoxAsfalto.Checked;
-                    Ofertatmp.Base = checkBoxBase.Checked;
-                    Ofertatmp.SubBase = checkBoxSubbase.Checked;
-                    Ofertatmp.Excavacion = checkBoxExcavacion.Checked;
-                    Ofertatmp.Demarcado = ckDemarcacion.Checked;
                     Ofertatmp.Cliente = txtCliente.Text;
                     float.TryParse(txtMonto.Text, out float tmpNumero);
                     Ofertatmp.Monto = tmpNumero;

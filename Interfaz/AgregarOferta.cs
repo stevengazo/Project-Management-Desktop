@@ -49,15 +49,9 @@ namespace Interfaz
                 ofertaTemporal.AutorPrespuesto = Temporal.UsuarioActivo.Nombre;
                 ofertaTemporal.UltimaModificacion = DateTime.Now;
                 ofertaTemporal.Fecha = dateTimePickerFecha.Value;
-                ofertaTemporal.Sellador = checkBoxSellador.Checked;
-                ofertaTemporal.Asfalto = checkBoxAsfalto.Checked;
-                ofertaTemporal.Base = checkBoxBase.Checked;
-                ofertaTemporal.SubBase = checkBoxSubbase.Checked;
-                ofertaTemporal.Excavacion = checkBoxExcavacion.Checked;
                 ofertaTemporal.Cliente = txtCliente.Text;
                 float.TryParse(txtMonto.Text, out float tmpNumero);
                 ofertaTemporal.Monto = tmpNumero;
-                ofertaTemporal.Demarcado = ckdemarcado.Checked;
                 ofertaTemporal.Notas = txtNotas.Text;
                 ofertaTemporal.Observaciones = txtObservaciones.Text;
                 ofertaTemporal.UsuarioId = (from i in usuarios

@@ -43,27 +43,13 @@
             txtNotas = new TextBox();
             label7 = new Label();
             txtMonto = new TextBox();
-            checkBoxExcavacion = new CheckBox();
-            label6 = new Label();
-            checkBoxSubbase = new CheckBox();
-            label5 = new Label();
-            checkBoxBase = new CheckBox();
-            label4 = new Label();
-            checkBoxAsfalto = new CheckBox();
-            label3 = new Label();
-            checkBoxSellador = new CheckBox();
-            label2 = new Label();
             dateTimePickerFecha = new DateTimePicker();
             label1 = new Label();
-            label13 = new Label();
-            ckDemarcacion = new CheckBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(ckDemarcacion);
-            groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(txtEncargado);
             groupBox1.Controls.Add(label11);
@@ -78,21 +64,11 @@
             groupBox1.Controls.Add(txtNotas);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(txtMonto);
-            groupBox1.Controls.Add(checkBoxExcavacion);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(checkBoxSubbase);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(checkBoxBase);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(checkBoxAsfalto);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(checkBoxSellador);
-            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(dateTimePickerFecha);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(309, 458);
+            groupBox1.Size = new Size(309, 315);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información de Ofeta";
@@ -100,7 +76,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(19, 400);
+            label12.Location = new Point(19, 254);
             label12.Name = "label12";
             label12.Size = new Size(58, 15);
             label12.TabIndex = 26;
@@ -108,7 +84,7 @@
             // 
             // txtEncargado
             // 
-            txtEncargado.Location = new Point(103, 397);
+            txtEncargado.Location = new Point(103, 251);
             txtEncargado.Name = "txtEncargado";
             txtEncargado.PlaceholderText = "Adrian ";
             txtEncargado.Size = new Size(184, 23);
@@ -117,7 +93,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(12, 197);
+            label11.Location = new Point(12, 51);
             label11.Name = "label11";
             label11.Size = new Size(44, 15);
             label11.TabIndex = 24;
@@ -125,7 +101,7 @@
             // 
             // txtCliente
             // 
-            txtCliente.Location = new Point(103, 197);
+            txtCliente.Location = new Point(103, 51);
             txtCliente.Name = "txtCliente";
             txtCliente.PlaceholderText = "Pepe";
             txtCliente.Size = new Size(184, 23);
@@ -133,7 +109,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(161, 426);
+            btnCancelar.Location = new Point(161, 280);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 22;
@@ -143,7 +119,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(56, 426);
+            btnAgregar.Location = new Point(56, 280);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 21;
@@ -154,7 +130,7 @@
             // cbEncargado
             // 
             cbEncargado.FormattingEnabled = true;
-            cbEncargado.Location = new Point(103, 368);
+            cbEncargado.Location = new Point(103, 222);
             cbEncargado.Name = "cbEncargado";
             cbEncargado.Size = new Size(184, 23);
             cbEncargado.TabIndex = 20;
@@ -162,7 +138,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(19, 371);
+            label10.Location = new Point(19, 225);
             label10.Name = "label10";
             label10.Size = new Size(63, 15);
             label10.TabIndex = 19;
@@ -171,7 +147,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(13, 307);
+            label9.Location = new Point(13, 161);
             label9.Name = "label9";
             label9.Size = new Size(69, 15);
             label9.TabIndex = 17;
@@ -179,7 +155,7 @@
             // 
             // txtObservaciones
             // 
-            txtObservaciones.Location = new Point(103, 304);
+            txtObservaciones.Location = new Point(103, 158);
             txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
             txtObservaciones.PlaceholderText = "Descripción breve del trabajo";
@@ -189,7 +165,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(13, 255);
+            label8.Location = new Point(13, 109);
             label8.Name = "label8";
             label8.Size = new Size(38, 15);
             label8.TabIndex = 15;
@@ -197,7 +173,7 @@
             // 
             // txtNotas
             // 
-            txtNotas.Location = new Point(103, 255);
+            txtNotas.Location = new Point(103, 109);
             txtNotas.Multiline = true;
             txtNotas.Name = "txtNotas";
             txtNotas.PlaceholderText = "Notas de relevancia, sobre la tarea";
@@ -207,7 +183,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(13, 226);
+            label7.Location = new Point(13, 80);
             label7.Name = "label7";
             label7.Size = new Size(43, 15);
             label7.TabIndex = 13;
@@ -215,106 +191,11 @@
             // 
             // txtMonto
             // 
-            txtMonto.Location = new Point(103, 226);
+            txtMonto.Location = new Point(103, 80);
             txtMonto.Name = "txtMonto";
             txtMonto.PlaceholderText = "150000";
             txtMonto.Size = new Size(184, 23);
             txtMonto.TabIndex = 12;
-            // 
-            // checkBoxExcavacion
-            // 
-            checkBoxExcavacion.AutoSize = true;
-            checkBoxExcavacion.Location = new Point(103, 151);
-            checkBoxExcavacion.Name = "checkBoxExcavacion";
-            checkBoxExcavacion.Size = new Size(133, 19);
-            checkBoxExcavacion.TabIndex = 11;
-            checkBoxExcavacion.Text = "Necesita Excavación";
-            checkBoxExcavacion.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(13, 146);
-            label6.Name = "label6";
-            label6.Size = new Size(66, 15);
-            label6.TabIndex = 10;
-            label6.Text = "Excavación";
-            // 
-            // checkBoxSubbase
-            // 
-            checkBoxSubbase.AutoSize = true;
-            checkBoxSubbase.Location = new Point(103, 126);
-            checkBoxSubbase.Name = "checkBoxSubbase";
-            checkBoxSubbase.Size = new Size(110, 19);
-            checkBoxSubbase.TabIndex = 9;
-            checkBoxSubbase.Text = "Aplicar Subbase";
-            checkBoxSubbase.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(13, 121);
-            label5.Name = "label5";
-            label5.Size = new Size(51, 15);
-            label5.TabIndex = 8;
-            label5.Text = "Subbase";
-            // 
-            // checkBoxBase
-            // 
-            checkBoxBase.AutoSize = true;
-            checkBoxBase.Location = new Point(103, 101);
-            checkBoxBase.Name = "checkBoxBase";
-            checkBoxBase.Size = new Size(90, 19);
-            checkBoxBase.TabIndex = 7;
-            checkBoxBase.Text = "Aplicar Base";
-            checkBoxBase.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(13, 96);
-            label4.Name = "label4";
-            label4.Size = new Size(31, 15);
-            label4.TabIndex = 6;
-            label4.Text = "Base";
-            // 
-            // checkBoxAsfalto
-            // 
-            checkBoxAsfalto.AutoSize = true;
-            checkBoxAsfalto.Location = new Point(103, 76);
-            checkBoxAsfalto.Name = "checkBoxAsfalto";
-            checkBoxAsfalto.Size = new Size(103, 19);
-            checkBoxAsfalto.TabIndex = 5;
-            checkBoxAsfalto.Text = "Aplicar Asfalto";
-            checkBoxAsfalto.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(13, 71);
-            label3.Name = "label3";
-            label3.Size = new Size(44, 15);
-            label3.TabIndex = 4;
-            label3.Text = "Asfalto";
-            // 
-            // checkBoxSellador
-            // 
-            checkBoxSellador.AutoSize = true;
-            checkBoxSellador.Location = new Point(103, 51);
-            checkBoxSellador.Name = "checkBoxSellador";
-            checkBoxSellador.Size = new Size(108, 19);
-            checkBoxSellador.TabIndex = 3;
-            checkBoxSellador.Text = "Aplicar Sellador";
-            checkBoxSellador.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(13, 46);
-            label2.Name = "label2";
-            label2.Size = new Size(49, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Sellador";
             // 
             // dateTimePickerFecha
             // 
@@ -332,30 +213,11 @@
             label1.TabIndex = 0;
             label1.Text = "Fecha";
             // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(13, 172);
-            label13.Name = "label13";
-            label13.Size = new Size(77, 15);
-            label13.TabIndex = 27;
-            label13.Text = "Demarcación";
-            // 
-            // ckDemarcacion
-            // 
-            ckDemarcacion.AutoSize = true;
-            ckDemarcacion.Location = new Point(103, 172);
-            ckDemarcacion.Name = "ckDemarcacion";
-            ckDemarcacion.Size = new Size(144, 19);
-            ckDemarcacion.TabIndex = 28;
-            ckDemarcacion.Text = "Necesita Demarcación";
-            ckDemarcacion.UseVisualStyleBackColor = true;
-            // 
             // EditarOferta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(334, 475);
+            ClientSize = new Size(334, 337);
             Controls.Add(groupBox1);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -386,19 +248,7 @@
         private TextBox txtNotas;
         private Label label7;
         private TextBox txtMonto;
-        private CheckBox checkBoxExcavacion;
-        private Label label6;
-        private CheckBox checkBoxSubbase;
-        private Label label5;
-        private CheckBox checkBoxBase;
-        private Label label4;
-        private CheckBox checkBoxAsfalto;
-        private Label label3;
-        private CheckBox checkBoxSellador;
-        private Label label2;
         private DateTimePicker dateTimePickerFecha;
         private Label label1;
-        private CheckBox ckDemarcacion;
-        private Label label13;
     }
 }

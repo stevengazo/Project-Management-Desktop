@@ -23,7 +23,7 @@ namespace Interfaz
         {
             try
             {
-                string urlArchivo = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Asphalt_Register_Dat");
+                string urlArchivo = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "temp_ElectricalManager_Dat");
                 if (File.Exists(urlArchivo))
                 {
                     var data = new FileStream(urlArchivo, FileMode.Open, FileAccess.Read);
@@ -66,7 +66,7 @@ namespace Interfaz
             try
             {
 
-                string urlArchivo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Asphalt_Register_Dat");
+                string urlArchivo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "temp_ElectricalManager_Dat");
                 string usuario = txtUsuario.Text;
                 string contraseña = txtContrasena.Text;
                 if (File.Exists(urlArchivo))

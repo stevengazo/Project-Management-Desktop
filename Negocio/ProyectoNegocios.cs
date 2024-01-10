@@ -78,7 +78,6 @@ namespace Negocios
             }
         }
 
-
         public bool ActualizarProyecto(Proyecto proyecto)
         {
             try
@@ -151,7 +150,6 @@ namespace Negocios
             }
         }
 
-
         public async Task<List<Proyecto>?> ListarProyectoAsync()
         {
             try
@@ -200,7 +198,10 @@ namespace Negocios
                 {
                     proyectos = (from proye in db.Proyectos
                                  where proye.ProyectoId == id
-                                 select proye).Include(P => P.Vendedor).FirstOrDefault();
+                                 select proye)
+                                 .Include(P => P.Vendedor)
+                                 .Include(P=>P.Notas)
+                                 .FirstOrDefault();
                 }
                 return proyectos;
             }

@@ -17,7 +17,7 @@ namespace Modelos
         public string FacturaFinalId { get; set; }
         public int TareaId { get; set; }
         public string Ubicacion { get; set; }
-        public string Notas { get; set; }
+        public string Tipo { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFinal { get; set; }
         public string Estado { get; set; }
@@ -27,7 +27,7 @@ namespace Modelos
         public Usuario Vendedor { get; set; }
         public int UsuarioId { get; set; }
         public bool Enable { get; set; }
-
+        public ICollection<Nota> Notas { get; set; }
         //public int ClienteID { get; set; }
         //public Cliente Cliente { get; set;}
 
