@@ -83,6 +83,8 @@
             ayudaToolStripMenuItem = new ToolStripMenuItem();
             agregarUsuarioToolStripMenuItem = new ToolStripDropDownMenu();
             saveFileDialog1 = new SaveFileDialog();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProyectos).BeginInit();
             groupBox1.SuspendLayout();
@@ -177,6 +179,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(cbTipoTrabajo);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(numberOfertas);
@@ -220,7 +224,7 @@
             cbTipoTrabajo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoTrabajo.FormattingEnabled = true;
             cbTipoTrabajo.Items.AddRange(new object[] { "DDCE - Instalación", "DDCE - Mantenimiento", "DDCE - Mejoras", "Ionizante - Instalación", "Ionizante - Mantenimiento", "Ionizante - Mejoras", "Mallas - Instalación", "Mallas - Mantenimiento", "Mallas - Mejora", "Supresores - Instalación", "Trabajo Eléctrico", "Otro" });
-            cbTipoTrabajo.Location = new Point(189, 439);
+            cbTipoTrabajo.Location = new Point(189, 472);
             cbTipoTrabajo.Name = "cbTipoTrabajo";
             cbTipoTrabajo.Size = new Size(225, 23);
             cbTipoTrabajo.TabIndex = 45;
@@ -228,7 +232,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(16, 439);
+            label3.Location = new Point(16, 472);
             label3.Name = "label3";
             label3.Size = new Size(71, 15);
             label3.TabIndex = 44;
@@ -271,7 +275,7 @@
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
             cbEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            cbEstado.Location = new Point(186, 471);
+            cbEstado.Location = new Point(186, 504);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(225, 23);
             cbEstado.TabIndex = 36;
@@ -285,21 +289,21 @@
             // 
             // dtpFechaFinal
             // 
-            dtpFechaFinal.Location = new Point(189, 404);
+            dtpFechaFinal.Location = new Point(189, 437);
             dtpFechaFinal.Name = "dtpFechaFinal";
             dtpFechaFinal.Size = new Size(225, 23);
             dtpFechaFinal.TabIndex = 34;
             // 
             // dtpFechaInicio
             // 
-            dtpFechaInicio.Location = new Point(189, 375);
+            dtpFechaInicio.Location = new Point(189, 408);
             dtpFechaInicio.Name = "dtpFechaInicio";
             dtpFechaInicio.Size = new Size(225, 23);
             dtpFechaInicio.TabIndex = 33;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(288, 506);
+            btnAgregar.Location = new Point(288, 539);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 31;
@@ -309,7 +313,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(186, 506);
+            button2.Location = new Point(186, 539);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 30;
@@ -320,7 +324,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(12, 471);
+            lblEstado.Location = new Point(12, 504);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(42, 15);
             lblEstado.TabIndex = 28;
@@ -329,7 +333,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(15, 404);
+            label16.Location = new Point(15, 437);
             label16.Name = "label16";
             label16.Size = new Size(103, 15);
             label16.TabIndex = 26;
@@ -338,7 +342,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(15, 375);
+            label15.Location = new Point(15, 408);
             label15.Name = "label15";
             label15.Size = new Size(70, 15);
             label15.TabIndex = 24;
@@ -349,7 +353,7 @@
             txtUbicacion.Location = new Point(189, 294);
             txtUbicacion.Multiline = true;
             txtUbicacion.Name = "txtUbicacion";
-            txtUbicacion.PlaceholderText = "Provincia, Canton, Distrito, Direcciones";
+            txtUbicacion.PlaceholderText = "Canton, Distrito, Direcciones";
             txtUbicacion.Size = new Size(225, 75);
             txtUbicacion.TabIndex = 23;
             // 
@@ -574,6 +578,25 @@
             agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
             agregarUsuarioToolStripMenuItem.Size = new Size(61, 4);
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(15, 378);
+            label4.Name = "label4";
+            label4.Size = new Size(56, 15);
+            label4.TabIndex = 46;
+            label4.Text = "Provincia";
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "San José", "Cartago", "Heredia", "Alajuela", "Limón", "Puntarenas", "Guanacaste", "Internacional" });
+            comboBox1.Location = new Point(189, 375);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(225, 23);
+            comboBox1.TabIndex = 47;
+            // 
             // ModuloAdministrador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -657,5 +680,7 @@
         private TextBox numberOfertas;
         private ComboBox cbTipoTrabajo;
         private Label label3;
+        private ComboBox comboBox1;
+        private Label label4;
     }
 }
