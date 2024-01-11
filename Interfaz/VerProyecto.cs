@@ -150,5 +150,10 @@ namespace Interfaz
 
             }
         }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

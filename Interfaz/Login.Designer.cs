@@ -124,7 +124,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.SteelBlue;
+            BackColor = Color.DarkGreen;
             ClientSize = new Size(309, 238);
             Controls.Add(checkBoxContrasena);
             Controls.Add(cbTipo);
@@ -139,7 +139,7 @@
             MinimizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Inicio de Sesión";
+            Text = "Inicio de Sesión | Division Electrica ";
             Load += Login_Load;
             KeyDown += Login_KeyDown;
             KeyUp += Login_KeyUp;

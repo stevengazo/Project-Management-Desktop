@@ -102,15 +102,18 @@
             groupBox2.Controls.Add(txtNombreBuscar);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(dgvProyectos);
+            groupBox2.ForeColor = SystemColors.ActiveCaptionText;
             groupBox2.Location = new Point(435, 27);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(930, 620);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Proyectos";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // btnLimpiarBusqueda
             // 
+            btnLimpiarBusqueda.ForeColor = SystemColors.ActiveCaptionText;
             btnLimpiarBusqueda.Location = new Point(620, 28);
             btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
             btnLimpiarBusqueda.Size = new Size(141, 23);
@@ -121,6 +124,7 @@
             // 
             // btnBuscar
             // 
+            btnBuscar.ForeColor = SystemColors.ActiveCaptionText;
             btnBuscar.Location = new Point(473, 28);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(141, 23);
@@ -140,6 +144,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(242, 32);
             label2.Name = "label2";
             label2.Size = new Size(117, 15);
@@ -157,6 +162,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(6, 32);
             label1.Name = "label1";
             label1.Size = new Size(44, 15);
@@ -212,6 +218,7 @@
             groupBox1.Controls.Add(lblRazon);
             groupBox1.Controls.Add(lblVendedor);
             groupBox1.Dock = DockStyle.Left;
+            groupBox1.ForeColor = SystemColors.ButtonFace;
             groupBox1.Location = new Point(0, 24);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(429, 623);
@@ -322,6 +329,7 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
             btnAgregar.Location = new Point(288, 539);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
@@ -332,6 +340,7 @@
             // 
             // button2
             // 
+            button2.ForeColor = SystemColors.ActiveCaptionText;
             button2.Location = new Point(186, 539);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
@@ -601,7 +610,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
+            BackColor = Color.ForestGreen;
             ClientSize = new Size(1365, 647);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);

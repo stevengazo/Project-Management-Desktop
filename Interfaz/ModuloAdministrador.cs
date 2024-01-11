@@ -224,7 +224,7 @@ namespace Interfaz
         {
             try
             {
-                
+
                 saveFileDialog1.Title = "Exportar a Excel";
                 saveFileDialog1.Filter = "Excel|*.xlsx";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -586,5 +586,10 @@ namespace Interfaz
         }
 
         #endregion
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

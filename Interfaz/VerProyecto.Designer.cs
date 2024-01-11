@@ -99,6 +99,7 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.ForeColor = SystemColors.ButtonHighlight;
             label6.Location = new Point(6, 19);
             label6.Name = "label6";
             label6.Size = new Size(117, 15);
@@ -108,6 +109,7 @@
             // label17
             // 
             label17.AutoSize = true;
+            label17.ForeColor = SystemColors.ButtonHighlight;
             label17.Location = new Point(6, 562);
             label17.Name = "label17";
             label17.Size = new Size(42, 15);
@@ -117,6 +119,7 @@
             // label16
             // 
             label16.AutoSize = true;
+            label16.ForeColor = SystemColors.ButtonHighlight;
             label16.Location = new Point(6, 529);
             label16.Name = "label16";
             label16.Size = new Size(103, 15);
@@ -126,6 +129,7 @@
             // label15
             // 
             label15.AutoSize = true;
+            label15.ForeColor = SystemColors.ButtonHighlight;
             label15.Location = new Point(6, 500);
             label15.Name = "label15";
             label15.Size = new Size(70, 15);
@@ -145,6 +149,7 @@
             // label14
             // 
             label14.AutoSize = true;
+            label14.ForeColor = SystemColors.ButtonHighlight;
             label14.Location = new Point(6, 393);
             label14.Name = "label14";
             label14.Size = new Size(60, 15);
@@ -163,6 +168,7 @@
             // label13
             // 
             label13.AutoSize = true;
+            label13.ForeColor = SystemColors.ButtonHighlight;
             label13.Location = new Point(6, 294);
             label13.Name = "label13";
             label13.Size = new Size(64, 15);
@@ -181,6 +187,7 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.ForeColor = SystemColors.ButtonHighlight;
             label11.Location = new Point(6, 265);
             label11.Name = "label11";
             label11.Size = new Size(93, 15);
@@ -199,6 +206,7 @@
             // label10
             // 
             label10.AutoSize = true;
+            label10.ForeColor = SystemColors.ButtonHighlight;
             label10.Location = new Point(6, 236);
             label10.Name = "label10";
             label10.Size = new Size(111, 15);
@@ -208,6 +216,7 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.ForeColor = SystemColors.ButtonHighlight;
             label9.Location = new Point(6, 207);
             label9.Name = "label9";
             label9.Size = new Size(43, 15);
@@ -226,6 +235,7 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.ForeColor = SystemColors.ButtonHighlight;
             label8.Location = new Point(6, 178);
             label8.Name = "label8";
             label8.Size = new Size(77, 15);
@@ -244,6 +254,7 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.ForeColor = SystemColors.ButtonHighlight;
             label7.Location = new Point(6, 149);
             label7.Name = "label7";
             label7.Size = new Size(56, 15);
@@ -253,6 +264,7 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.ForeColor = SystemColors.ButtonHighlight;
             label5.Location = new Point(6, 120);
             label5.Name = "label5";
             label5.Size = new Size(120, 15);
@@ -262,6 +274,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.ForeColor = SystemColors.ButtonHighlight;
             label4.Location = new Point(6, 88);
             label4.Name = "label4";
             label4.Size = new Size(73, 15);
@@ -271,6 +284,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = SystemColors.ButtonHighlight;
             label3.Location = new Point(6, 56);
             label3.Name = "label3";
             label3.Size = new Size(57, 15);
@@ -334,6 +348,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(6, 330);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
@@ -392,7 +407,6 @@
             groupBox1.Size = new Size(438, 622);
             groupBox1.TabIndex = 81;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Proyecto";
             // 
             // txtProvincia
             // 
@@ -406,6 +420,7 @@
             // label19
             // 
             label19.AutoSize = true;
+            label19.ForeColor = SystemColors.ButtonHighlight;
             label19.Location = new Point(6, 471);
             label19.Name = "label19";
             label19.Size = new Size(56, 15);
@@ -424,6 +439,7 @@
             // label18
             // 
             label18.AutoSize = true;
+            label18.ForeColor = SystemColors.ButtonHighlight;
             label18.Location = new Point(6, 591);
             label18.Name = "label18";
             label18.Size = new Size(80, 15);
@@ -441,10 +457,9 @@
             groupBox2.Controls.Add(txtTituloNota);
             groupBox2.Location = new Point(456, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(318, 267);
+            groupBox2.Size = new Size(318, 222);
             groupBox2.TabIndex = 82;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Nuevo Comentario";
             // 
             // btnLimpiar
             // 
@@ -468,6 +483,7 @@
             // label12
             // 
             label12.AutoSize = true;
+            label12.ForeColor = SystemColors.ButtonHighlight;
             label12.Location = new Point(18, 66);
             label12.Name = "label12";
             label12.Size = new Size(69, 15);
@@ -477,6 +493,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(18, 39);
             label2.Name = "label2";
             label2.Size = new Size(37, 15);
@@ -507,7 +524,7 @@
             groupBox3.Size = new Size(318, 403);
             groupBox3.TabIndex = 83;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Comentarios";
+            groupBox3.Enter += groupBox3_Enter;
             // 
             // dataGridViewComentarios
             // 
@@ -527,10 +544,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.ForestGreen;
             ClientSize = new Size(787, 652);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            ForeColor = SystemColors.ControlText;
             Name = "VerProyecto";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
