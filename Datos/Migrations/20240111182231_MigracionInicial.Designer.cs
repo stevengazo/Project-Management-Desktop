@@ -12,7 +12,7 @@ using Modelos;
 namespace Datos.Migrations
 {
     [DbContext(typeof(DBContextProyectosAsfaltos))]
-    [Migration("20240111155226_MigracionInicial")]
+    [Migration("20240111182231_MigracionInicial")]
     partial class MigracionInicial
     {
         /// <inheritdoc />
@@ -37,6 +37,9 @@ namespace Datos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("Creacion")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -45,6 +48,13 @@ namespace Datos.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UltimaModificacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UltimoEditor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -124,10 +134,7 @@ namespace Datos.Migrations
             modelBuilder.Entity("Modelos.Proyecto", b =>
                 {
                     b.Property<int>("ProyectoId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProyectoId"));
 
                     b.Property<string>("Autor")
                         .IsRequired()
@@ -215,7 +222,7 @@ namespace Datos.Migrations
                             FacturaFinalId = "No Existente",
                             FechaFinal = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             FechaInicio = new DateTime(2024, 1, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2024, 1, 11, 9, 52, 26, 231, DateTimeKind.Local).AddTicks(3967),
+                            FechaOC = new DateTime(2024, 1, 11, 12, 22, 31, 797, DateTimeKind.Local).AddTicks(6211),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,

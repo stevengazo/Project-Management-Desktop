@@ -476,6 +476,7 @@
             dataGridViewComentarios.RowTemplate.Height = 25;
             dataGridViewComentarios.Size = new Size(306, 321);
             dataGridViewComentarios.TabIndex = 0;
+            dataGridViewComentarios.CellContentClick += dataGridViewComentarios_CellContentClick;
             // 
             // VerProyecto
             // 

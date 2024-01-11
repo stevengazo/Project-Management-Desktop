@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Modelos
 {
     public class Proyecto
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ProyectoId { get; set; }
         //public int NumeroProyecto { get; set; }
         public DateTime FechaOC { get; set; }

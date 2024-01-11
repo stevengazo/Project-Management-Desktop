@@ -31,7 +31,6 @@ namespace Interfaz
         {
             await CargarVendedoresAsync();
             await CargarTablaAsync();
-            await cargarOfertas();
         }
 
         private void CargarClientes()
@@ -45,31 +44,7 @@ namespace Interfaz
             }
         }
 
-        /// <summary>
-        /// Carga las ofertas en el combobox
-        /// </summary>
-        /// <returns></returns>
-        private async Task cargarOfertas()
-        {
-            try
-            {
-                OfertaNegocio ofertaNegocio = new();
-                Ofertas = await ofertaNegocio.DiccionarioOfertasAsync();
-                if (Ofertas != null)
-                {
-                    cbOfertas.Items.Clear();
-                    cbOfertas.Items.Add($"1-No Asignado / No Disponible");
-                    foreach (var item in Ofertas)
-                    {
-                        cbOfertas.Items.Add($"{item.Key}-{item.Value}");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+
 
         /// <summary>
         /// Muestra la lista de Usuarios
@@ -231,7 +206,6 @@ namespace Interfaz
         {
             ListarOferta listarOferta = new();
             listarOferta.ShowDialog();
-            await cargarOfertas();
         }
 
 
@@ -239,7 +213,6 @@ namespace Interfaz
         {
             AgregarOferta agregarOferta = new();
             agregarOferta.ShowDialog();
-            await cargarOfertas();
         }
 
         /// <summary>
@@ -319,16 +292,16 @@ namespace Interfaz
                     proyectoTemporal.FechaOC = dtpOrdenCompra.Value;
                     proyectoTemporal.FechaInicio = dtpFechaInicio.Value;
                     proyectoTemporal.FechaFinal = dtpFechaFinal.Value;
-                    proyectoTemporal.Monto = int.Parse(txtMonto.Text);
+                    proyectoTemporal.Monto = float.Parse(txtMonto.Text);
                     proyectoTemporal.Ubicacion = txtUbicacion.Text;
                     proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
+                    proyectoTemporal.Tipo = cbTipoTrabajo.Text;
                     proyectoTemporal.Estado = cbEstado.Text;
                     proyectoTemporal.FacturaAnticipoId = txtNumeroFactura.Text;
                     proyectoTemporal.UsuarioId = (from i in Vendedores
                                                   where i.Nombre == cbVendedores.Text
                                                   select i.UsuarioId).FirstOrDefault();
-                    var ofertatmp = cbOfertas.Text.Split('-');
-                    proyectoTemporal.OfertaId = ofertatmp[0];
+                    proyectoTemporal.OfertaId = numberOfertas.Text;
                     proyectoTemporal.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                     proyectoTemporal.Autor = Temporal.UsuarioActivo.Nombre;
                     proyectoTemporal.FacturaFinalId = string.Empty;
@@ -360,7 +333,7 @@ namespace Interfaz
             try
             {
                 SetBackLabels();
-                bool OfertaIDValido = int.TryParse(cbOfertas.Text.Split('-').FirstOrDefault(), out int IDValido);
+
                 var VendedorSeleccionado = cbVendedores.Text;
                 // Vendedor
                 if (string.IsNullOrEmpty(cbVendedores.Text))
@@ -384,7 +357,7 @@ namespace Interfaz
                     return false;
                 }
                 /// Oferta
-                if (string.IsNullOrEmpty(cbOfertas.Text))
+                if (string.IsNullOrEmpty(numberOfertas.Text))
                 {
                     lblOferta.ForeColor = Color.Red;
                     MessageBox.Show("No indicó una oferta", "Advertencia: Validación Oferta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -454,6 +427,13 @@ namespace Interfaz
                     }
                 }
                 // Estado
+                if (string.IsNullOrEmpty(cbTipoTrabajo.Text))
+                {
+                    lblEstado.ForeColor = Color.Red;
+                    var response = MessageBox.Show("No Indico el tipo de proyecto", "Advertencia: Estado del proyecto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                // Estado
                 if (string.IsNullOrEmpty(cbEstado.Text))
                 {
                     lblEstado.ForeColor = Color.Red;
@@ -518,7 +498,7 @@ namespace Interfaz
             txtNombreCliente.Text = string.Empty;
             dtpOrdenCompra.Value = DateTime.Now;
             txtContacto.Text = string.Empty;
-            cbOfertas.Text = string.Empty;
+            numberOfertas.Text = string.Empty;
             txtMonto.Text = string.Empty;
             numericUpDownPorcentaje.Value = 0;
             txtNumeroFactura.Text = string.Empty;

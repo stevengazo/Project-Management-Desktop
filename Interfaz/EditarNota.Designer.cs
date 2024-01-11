@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
-            btnLimpiar = new Button();
             btnAgregar = new Button();
             label12 = new Label();
             label2 = new Label();
@@ -40,7 +39,6 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnLimpiar);
             groupBox2.Controls.Add(btnAgregar);
             groupBox2.Controls.Add(label12);
             groupBox2.Controls.Add(label2);
@@ -52,15 +50,6 @@
             groupBox2.TabIndex = 83;
             groupBox2.TabStop = false;
             // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Location = new Point(73, 178);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(102, 23);
-            btnLimpiar.TabIndex = 86;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            // 
             // btnAgregar
             // 
             btnAgregar.Location = new Point(181, 178);
@@ -69,6 +58,7 @@
             btnAgregar.TabIndex = 83;
             btnAgregar.Text = "Actualizar";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // label12
             // 
@@ -110,6 +100,8 @@
             ClientSize = new Size(322, 246);
             Controls.Add(groupBox2);
             MaximizeBox = false;
+            MinimizeBox = false;
+            MinimumSize = new Size(338, 285);
             Name = "EditarNota";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -122,7 +114,6 @@
         #endregion
 
         private GroupBox groupBox2;
-        private Button btnLimpiar;
         private Button btnAgregar;
         private Label label12;
         private Label label2;

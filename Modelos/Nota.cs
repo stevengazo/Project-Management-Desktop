@@ -13,6 +13,9 @@ namespace Modelos
         public string Descripcion { get; set; }
         public string Autor { get; set; }
         public int ProyectoId { get; set; }
+        public DateTime Creacion {  get; set; }
+        public DateTime UltimaModificacion { get; set; }
+        public string UltimoEditor { get; set; }
         public Proyecto Proyecto { get; set; }
 
     }

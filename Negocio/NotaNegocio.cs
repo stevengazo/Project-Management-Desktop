@@ -13,7 +13,16 @@ namespace Negocio
         {
             using (var db = new DBContextProyectosAsfaltos())
             {
-                    List<Nota> notas = db.Notas.Where(i=>i.ProyectoId == proyectoId).ToList();  
+                    List<Nota> notas = db.Notas.Where(i=>i.ProyectoId == proyectoId).OrderByDescending(i=>i.Creacion).ToList();  
+                return notas;
+            }
+        }
+
+        public static Nota GetNotaById(int id)
+        {
+            using (var db = new DBContextProyectosAsfaltos())
+            {
+                Nota notas = db.Notas.FirstOrDefault(i=>i.NotaId == id);
                 return notas;
             }
         }

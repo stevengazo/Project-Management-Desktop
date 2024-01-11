@@ -17,5 +17,7 @@ namespace Interfaz
         /// </summary>
         public static List<Rol> RolesDeUsuarioActivo { get; set; }
 
+        public static int NotaId { get; set; }
+
     }
 }

@@ -38,8 +38,10 @@
             label1 = new Label();
             dgvProyectos = new DataGridView();
             groupBox1 = new GroupBox();
+            cbTipoTrabajo = new ComboBox();
+            label3 = new Label();
+            numberOfertas = new TextBox();
             txtNombreCliente = new TextBox();
-            cbOfertas = new ComboBox();
             dtpOrdenCompra = new DateTimePicker();
             cbVendedores = new ComboBox();
             cbEstado = new ComboBox();
@@ -175,8 +177,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cbTipoTrabajo);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(numberOfertas);
             groupBox1.Controls.Add(txtNombreCliente);
-            groupBox1.Controls.Add(cbOfertas);
             groupBox1.Controls.Add(dtpOrdenCompra);
             groupBox1.Controls.Add(cbVendedores);
             groupBox1.Controls.Add(cbEstado);
@@ -211,6 +215,33 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Agregar Proyecto";
             // 
+            // cbTipoTrabajo
+            // 
+            cbTipoTrabajo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTipoTrabajo.FormattingEnabled = true;
+            cbTipoTrabajo.Items.AddRange(new object[] { "DDCE - Instalación", "DDCE - Mantenimiento", "DDCE - Mejoras", "Ionizante - Instalación", "Ionizante - Mantenimiento", "Ionizante - Mejoras", "Mallas - Instalación", "Mallas - Mantenimiento", "Mallas - Mejora", "Supresores - Instalación", "Trabajo Eléctrico", "Otro" });
+            cbTipoTrabajo.Location = new Point(189, 439);
+            cbTipoTrabajo.Name = "cbTipoTrabajo";
+            cbTipoTrabajo.Size = new Size(225, 23);
+            cbTipoTrabajo.TabIndex = 45;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(16, 439);
+            label3.Name = "label3";
+            label3.Size = new Size(71, 15);
+            label3.TabIndex = 44;
+            label3.Text = "Tipo Trabajo";
+            // 
+            // numberOfertas
+            // 
+            numberOfertas.Location = new Point(189, 149);
+            numberOfertas.Name = "numberOfertas";
+            numberOfertas.PlaceholderText = "125000";
+            numberOfertas.Size = new Size(225, 23);
+            numberOfertas.TabIndex = 43;
+            // 
             // txtNombreCliente
             // 
             txtNombreCliente.Location = new Point(189, 59);
@@ -218,14 +249,6 @@
             txtNombreCliente.PlaceholderText = "Ejemplo S.A";
             txtNombreCliente.Size = new Size(225, 23);
             txtNombreCliente.TabIndex = 42;
-            // 
-            // cbOfertas
-            // 
-            cbOfertas.FormattingEnabled = true;
-            cbOfertas.Location = new Point(189, 152);
-            cbOfertas.Name = "cbOfertas";
-            cbOfertas.Size = new Size(225, 23);
-            cbOfertas.TabIndex = 41;
             // 
             // dtpOrdenCompra
             // 
@@ -248,7 +271,7 @@
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
             cbEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            cbEstado.Location = new Point(189, 433);
+            cbEstado.Location = new Point(186, 471);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(225, 23);
             cbEstado.TabIndex = 36;
@@ -276,7 +299,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(291, 468);
+            btnAgregar.Location = new Point(288, 506);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 31;
@@ -286,7 +309,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(189, 468);
+            button2.Location = new Point(186, 506);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 30;
@@ -297,7 +320,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(15, 433);
+            lblEstado.Location = new Point(12, 471);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(42, 15);
             lblEstado.TabIndex = 28;
@@ -625,12 +648,14 @@
         private ToolStripMenuItem agregarUsuarioToolStripMenuItem1;
         private ToolStripDropDownMenu agregarUsuarioToolStripMenuItem;
         private SaveFileDialog saveFileDialog1;
-        private ComboBox cbOfertas;
         private TextBox txtNombreCliente;
         private Button btnLimpiarBusqueda;
         private Button btnBuscar;
         private TextBox txtNumeroProyectoBuscar;
         private Label label2;
         private TextBox txtNombreBuscar;
+        private TextBox numberOfertas;
+        private ComboBox cbTipoTrabajo;
+        private Label label3;
     }
 }

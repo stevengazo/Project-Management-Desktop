@@ -25,18 +25,19 @@ namespace Interfaz
             List<Nota> Notas = NotaNegocio.GetNotasByProyecto(id);
             if (Notas.Count > 0)
             {
-                //  dataGridViewComentarios.Columns.Clear();
+                 dataGridViewComentarios.Columns.Clear();
 
                 DataTable _dt = new();
 
                 _dt.Columns.Add("Titulo");
                 _dt.Columns.Add("Autor");
-
+                _dt.Columns.Add("ID");
                 foreach (Nota nota in Notas)
                 {
                     _dt.Rows.Add(
                             nota.Titulo,
-                            nota.Autor
+                            nota.Autor,
+                            nota.NotaId
                         );
                 }
                 dataGridViewComentarios.DataSource = _dt;
@@ -108,11 +109,43 @@ namespace Interfaz
                     Titulo = txtTituloNota.Text,
                     Descripcion = txtDescripcionNota.Text,
                     Autor = Temporal.UsuarioActivo.Nombre,
-                    ProyectoId = this.idProyecto
+                    ProyectoId = this.idProyecto,
+                    UltimoEditor = Temporal.UsuarioActivo.Nombre,
+                    Creacion = DateTime.Now,
+                    UltimaModificacion = DateTime.Now
                 };
+                
                 NotaNegocio.Add(nota);
                 MessageBox.Show("Nota Agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTituloNota.Text = string.Empty;
+                txtDescripcionNota.Text = string.Empty;
                 CargarNotas(this.idProyecto);
+            }
+        }
+
+        private void dataGridViewComentarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var idNota = int.Parse(dataGridViewComentarios.Rows[e.RowIndex].Cells[2].Value.ToString());
+                // View
+                Temporal.NotaId = idNota;
+                if (e.ColumnIndex == 3)
+                {
+                    VerNota verNota = new();
+                    verNota.ShowDialog();
+                }
+                else if (e.ColumnIndex == 4)
+                {
+                    // Update
+                    EditarNota editarNota = new();
+                    editarNota.ShowDialog();
+                    CargarNotas(this.idProyecto);
+                }
+            }
+            catch (Exception f)
+            {
+
             }
         }
     }

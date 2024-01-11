@@ -74,8 +74,7 @@ namespace Datos.Migrations
                 name: "Proyectos",
                 columns: table => new
                 {
-                    ProyectoId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProyectoId = table.Column<int>(type: "int", nullable: false),
                     FechaOC = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Contacto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -142,7 +141,10 @@ namespace Datos.Migrations
                     Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Autor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProyectoId = table.Column<int>(type: "int", nullable: false)
+                    ProyectoId = table.Column<int>(type: "int", nullable: false),
+                    Creacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UltimaModificacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UltimoEditor = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -177,7 +179,7 @@ namespace Datos.Migrations
             migrationBuilder.InsertData(
                 table: "Proyectos",
                 columns: new[] { "ProyectoId", "Autor", "Cliente", "Contacto", "Enable", "Estado", "FacturaAnticipoId", "FacturaFinalId", "FechaFinal", "FechaInicio", "FechaOC", "Monto", "OfertaId", "PorcentajeAnticipo", "TareaId", "Tipo", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
-                values: new object[] { 1, "Administrador", "Ejemplo de Cliente", "Ejemplo", true, "Finalizado", "No existente", "No Existente", new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 10, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 11, 9, 52, 26, 231, DateTimeKind.Local).AddTicks(3967), 100f, "PS-00001", 50, 2000, "Instalación", "Grupo Mecsa", new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
+                values: new object[] { 1, "Administrador", "Ejemplo de Cliente", "Ejemplo", true, "Finalizado", "No existente", "No Existente", new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 10, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 11, 12, 22, 31, 797, DateTimeKind.Local).AddTicks(6211), 100f, "PS-00001", 50, 2000, "Instalación", "Grupo Mecsa", new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
 
             migrationBuilder.InsertData(
                 table: "RolUsuarios",
