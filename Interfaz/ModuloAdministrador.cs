@@ -224,6 +224,7 @@ namespace Interfaz
         {
             try
             {
+                
                 saveFileDialog1.Title = "Exportar a Excel";
                 saveFileDialog1.Filter = "Excel|*.xlsx";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -244,6 +245,9 @@ namespace Interfaz
                     worksheet.Cells[1, "J"] = "Fecha Inicio";
                     worksheet.Cells[1, "K"] = "Fecha Final";
                     worksheet.Cells[1, "L"] = "Monto";
+                    worksheet.Cells[1, "M"] = "Tipo Trabajo";
+                    worksheet.Cells[1, "N"] = "Provincia";
+
                     int contador = 2;
                     foreach (Proyecto item in proyectos)
                     {
@@ -259,6 +263,9 @@ namespace Interfaz
                         worksheet.Cells[contador, 10] = item.FechaInicio.ToString("dd/MM/yy");
                         worksheet.Cells[contador, 11] = item.FechaFinal.ToString("dd/MM/yy");
                         worksheet.Cells[contador, 12] = item.Monto.ToString("C", CultureInfo.CurrentCulture);
+                        worksheet.Cells[contador, 13] = item.Tipo;
+                        worksheet.Cells[contador, 14] = item.Provincia;
+
                         contador++;
                     }
                     ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);

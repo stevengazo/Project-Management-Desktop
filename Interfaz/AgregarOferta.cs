@@ -53,6 +53,14 @@ namespace Interfaz
                 float.TryParse(txtMonto.Text, out float tmpNumero);
                 ofertaTemporal.Monto = tmpNumero;
                 ofertaTemporal.Notas = txtNotas.Text;
+                ofertaTemporal.DDCE = checkBoxDDCE.Checked;
+                ofertaTemporal.Ionizante = checkBoxIonizante.Checked;
+                ofertaTemporal.Supresor = checkBoxSupresor.Checked;
+                ofertaTemporal.Torre = checkBoxTorre.Checked;
+                ofertaTemporal.Malla = checkBoxMalla.Checked;
+                ofertaTemporal.Otros = checkBoxOtro.Checked;
+                ofertaTemporal.Provincia = comboBoxProvincia.Text;
+                ofertaTemporal.Categoria = comboBoxCategoria.Text;
                 ofertaTemporal.Observaciones = txtObservaciones.Text;
                 ofertaTemporal.UsuarioId = (from i in usuarios
                                             where i.Nombre == cbEncargado.Text
@@ -105,6 +113,18 @@ namespace Interfaz
                         return false;
                     }
                 }
+
+                if (string.IsNullOrEmpty(comboBoxProvincia.Text))
+                {
+                    MessageBox.Show($"Provincia no Selecionada", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                if (string.IsNullOrEmpty(comboBoxCategoria.Text))
+                {
+                    MessageBox.Show($"Categoria no seleccionada", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
                 if (string.IsNullOrEmpty(txtObservaciones.Text))
                 {
                     MessageBox.Show("Descripción del trabajo no mencionada", "Adventencia", MessageBoxButtons.OK);
@@ -132,6 +152,16 @@ namespace Interfaz
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

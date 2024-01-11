@@ -65,12 +65,13 @@ namespace Datos.Migrations
             modelBuilder.Entity("Modelos.Oferta", b =>
                 {
                     b.Property<int>("OfertaId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OfertaId"));
-
                     b.Property<string>("AutorPrespuesto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Categoria")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -81,12 +82,21 @@ namespace Datos.Migrations
                     b.Property<int>("Codigo")
                         .HasColumnType("int");
 
+                    b.Property<bool>("DDCE")
+                        .HasColumnType("bit");
+
                     b.Property<string>("EncargadoCotizador")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Ionizante")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Malla")
+                        .HasColumnType("bit");
 
                     b.Property<float>("Monto")
                         .HasColumnType("real");
@@ -98,6 +108,19 @@ namespace Datos.Migrations
                     b.Property<string>("Observaciones")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Otros")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Provincia")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Supresor")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Torre")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("UltimaModificacion")
                         .HasColumnType("datetime2");
@@ -116,13 +139,21 @@ namespace Datos.Migrations
                         {
                             OfertaId = 1,
                             AutorPrespuesto = "Administrador",
+                            Categoria = "Instalación",
                             Cliente = "Ejemplo",
                             Codigo = 1,
+                            DDCE = true,
                             EncargadoCotizador = "Gabriel",
                             Fecha = new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Ionizante = true,
+                            Malla = true,
                             Monto = 100f,
                             Notas = "",
                             Observaciones = "",
+                            Otros = true,
+                            Provincia = "San José",
+                            Supresor = true,
+                            Torre = true,
                             UltimaModificacion = new DateTime(2024, 1, 11, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
@@ -223,7 +254,7 @@ namespace Datos.Migrations
                             FacturaFinalId = "No Existente",
                             FechaFinal = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             FechaInicio = new DateTime(2024, 1, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2024, 1, 11, 13, 57, 3, 418, DateTimeKind.Local).AddTicks(277),
+                            FechaOC = new DateTime(2024, 1, 11, 15, 10, 4, 226, DateTimeKind.Local).AddTicks(6009),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,

@@ -54,31 +54,7 @@ namespace Interfaz
             }
         }
 
-        /// <summary>
-        /// Carga la lista de Ofertas en el combo box
-        /// </summary>
-        /// <returns></returns>
-        private async Task cargarOfertas()
-        {
-            try
-            {
-                OfertaNegocio ofertaNegocio = new();
-                Ofertas = await ofertaNegocio.DiccionarioOfertasAsync();
-                if (Ofertas != null)
-                {
-                    comboBoxOfertas.Items.Clear();
-                    comboBoxOfertas.Items.Add($"1-No asignado / No Asignado");
-                    foreach (var item in Ofertas)
-                    {
-                        comboBoxOfertas.Items.Add($"{item.Key}-{item.Value}");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+
 
         /// <summary>
         /// Funcion de Borrado
@@ -120,22 +96,10 @@ namespace Interfaz
                     dtpOC.Value = ProyectoActual.FechaOC;
                     txtContacto.Text = ProyectoActual.Cliente;
                     // oferta
-                    bool tryOferta = int.TryParse(ProyectoActual.OfertaId, out int idOferta);
-                    if (tryOferta)
-                    {
-                        var ofertaIdTemporal = int.Parse(ProyectoActual.OfertaId);
-                        OfertaNegocio ofertaNegocio = new();
-                        var oferta = ofertaNegocio.ObtenerOferta(idOferta);
-                        comboBoxOfertas.Text = (oferta == null) ? $"1-No Asignado/No Disponible" : $"{oferta.OfertaId}-{oferta.Cliente}";
+                    txtOferta.Text = ProyectoActual.Cliente;
 
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Error interno, el valor de {nameof(ProyectoActual.OfertaId)}, no es valido, contacta a un administrador", "Advertencia");
-                        comboBoxOfertas.Text = "1 - No Valido ";
-                    }
-
-
+                    cbProvincia.Text = ProyectoActual.Provincia;
+                    cbTipoTrabajo.Text = ProyectoActual.Tipo;
                     txtMonto.Text = ProyectoActual.Monto.ToString();
                     numericUpDownPorcentaje.Value = ProyectoActual.PorcentajeAnticipo;
                     txtNumeroFacturaAnticipo.Text = ProyectoActual.FacturaAnticipoId;
@@ -145,7 +109,6 @@ namespace Interfaz
                     dtpInicio.Value = ProyectoActual.FechaInicio;
                     dtpFinalizacion.Value = ProyectoActual.FechaFinal;
                     cbEstado.Text = ProyectoActual.Estado;
-                    await cargarOfertas();
                     CargarVendedores();
                 }
                 else
@@ -175,11 +138,11 @@ namespace Interfaz
                         ProyectoActual.UsuarioId = (from v in Vendedores
                                                     where v.Nombre == cbVendedores.Text
                                                     select v.UsuarioId).FirstOrDefault();
+
                         ProyectoActual.Cliente = txtRazonSocial.Text;
                         ProyectoActual.FechaOC = dtpOC.Value;
                         ProyectoActual.Contacto = txtContacto.Text;
-                        var oferta = comboBoxOfertas.Text.Split('-');
-                        ProyectoActual.OfertaId = oferta[0];
+                        ProyectoActual.OfertaId = txtOferta.Text;
                         ProyectoActual.Monto = float.Parse(txtMonto.Text);
                         ProyectoActual.PorcentajeAnticipo = int.Parse(numericUpDownPorcentaje.Value.ToString());
                         ProyectoActual.FacturaAnticipoId = txtNumeroFacturaAnticipo.Text;
@@ -191,7 +154,8 @@ namespace Interfaz
                         ProyectoActual.Estado = cbEstado.Text;
                         ProyectoActual.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                         ProyectoActual.UltimaEdicion = DateTime.Now;
-
+                        ProyectoActual.Provincia = cbProvincia.Text;
+                        ProyectoActual.Tipo = cbTipoTrabajo.Text;
                         ProyectoActual.Vendedor = null;
                         //Envio a la DB
 
@@ -226,11 +190,11 @@ namespace Interfaz
             try
             {
                 string VendedorSeleccionado = cbVendedores.Text;
-                string OfertaSeleccionada = comboBoxOfertas.Text;
+                string OfertaSeleccionada = txtOferta.Text;
                 bool isvalid = int.TryParse(OfertaSeleccionada.Split('-').FirstOrDefault(), out int number);
                 if (string.IsNullOrEmpty(OfertaSeleccionada) || !isvalid)
                 {
-                    MessageBox.Show($"Compruebe la oferta, el valor '{OfertaSeleccionada}' no es valido\nLa oferta debe tener este formado: [Numero Oferta]-[Nombre]\nSeleccione algún numero de oferta de los existentes o seleccione 1-No aplica/no disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Compruebe la oferta, el valor '{OfertaSeleccionada}' no es valido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
                 if (string.IsNullOrEmpty(VendedorSeleccionado))
@@ -285,5 +249,10 @@ namespace Interfaz
         }
 
         #endregion
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

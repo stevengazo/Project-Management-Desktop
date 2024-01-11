@@ -59,6 +59,10 @@
             label1 = new Label();
             txtNotas = new TextBox();
             groupBox1 = new GroupBox();
+            txtProvincia = new TextBox();
+            label19 = new Label();
+            txtTipoProyecto = new TextBox();
+            label18 = new Label();
             groupBox2 = new GroupBox();
             btnLimpiar = new Button();
             btnAgregar = new Button();
@@ -68,10 +72,6 @@
             txtTituloNota = new TextBox();
             groupBox3 = new GroupBox();
             dataGridViewComentarios = new DataGridView();
-            txtTipoProyecto = new TextBox();
-            label18 = new Label();
-            txtProvincia = new TextBox();
-            label19 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -394,6 +394,42 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Proyecto";
             // 
+            // txtProvincia
+            // 
+            txtProvincia.Location = new Point(180, 471);
+            txtProvincia.Name = "txtProvincia";
+            txtProvincia.ReadOnly = true;
+            txtProvincia.Size = new Size(225, 23);
+            txtProvincia.TabIndex = 84;
+            txtProvincia.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(6, 471);
+            label19.Name = "label19";
+            label19.Size = new Size(56, 15);
+            label19.TabIndex = 83;
+            label19.Text = "Provincia";
+            // 
+            // txtTipoProyecto
+            // 
+            txtTipoProyecto.Location = new Point(180, 587);
+            txtTipoProyecto.Name = "txtTipoProyecto";
+            txtTipoProyecto.ReadOnly = true;
+            txtTipoProyecto.Size = new Size(225, 23);
+            txtTipoProyecto.TabIndex = 82;
+            txtTipoProyecto.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(6, 591);
+            label18.Name = "label18";
+            label18.Size = new Size(80, 15);
+            label18.TabIndex = 81;
+            label18.Text = "Tipo Proyecto";
+            // 
             // groupBox2
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -487,42 +523,6 @@
             dataGridViewComentarios.TabIndex = 0;
             dataGridViewComentarios.CellContentClick += dataGridViewComentarios_CellContentClick;
             // 
-            // txtTipoProyecto
-            // 
-            txtTipoProyecto.Location = new Point(180, 587);
-            txtTipoProyecto.Name = "txtTipoProyecto";
-            txtTipoProyecto.ReadOnly = true;
-            txtTipoProyecto.Size = new Size(225, 23);
-            txtTipoProyecto.TabIndex = 82;
-            txtTipoProyecto.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new Point(6, 591);
-            label18.Name = "label18";
-            label18.Size = new Size(80, 15);
-            label18.TabIndex = 81;
-            label18.Text = "Tipo Proyecto";
-            // 
-            // txtProvincia
-            // 
-            txtProvincia.Location = new Point(180, 471);
-            txtProvincia.Name = "txtProvincia";
-            txtProvincia.ReadOnly = true;
-            txtProvincia.Size = new Size(225, 23);
-            txtProvincia.TabIndex = 84;
-            txtProvincia.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(6, 471);
-            label19.Name = "label19";
-            label19.Size = new Size(56, 15);
-            label19.TabIndex = 83;
-            label19.Text = "Provincia";
-            // 
             // VerProyecto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -531,8 +531,6 @@
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            MaximizeBox = false;
-            MinimizeBox = false;
             Name = "VerProyecto";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;

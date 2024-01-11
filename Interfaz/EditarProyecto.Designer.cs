@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            txtOferta = new TextBox();
+            cbProvincia = new ComboBox();
+            label18 = new Label();
+            cbTipoTrabajo = new ComboBox();
+            label12 = new Label();
             label2 = new Label();
             txtNota = new TextBox();
             txtFacturalFinalId = new TextBox();
             label1 = new Label();
-            comboBoxOfertas = new ComboBox();
             btnBorrar = new Button();
             txtRazonSocial = new TextBox();
             txtidProyecto = new TextBox();
@@ -70,11 +74,15 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtOferta);
+            groupBox1.Controls.Add(cbProvincia);
+            groupBox1.Controls.Add(label18);
+            groupBox1.Controls.Add(cbTipoTrabajo);
+            groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtNota);
             groupBox1.Controls.Add(txtFacturalFinalId);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(comboBoxOfertas);
             groupBox1.Controls.Add(btnBorrar);
             groupBox1.Controls.Add(txtRazonSocial);
             groupBox1.Controls.Add(txtidProyecto);
@@ -107,10 +115,56 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(429, 658);
+            groupBox1.Size = new Size(429, 731);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información del Proyecto";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // txtOferta
+            // 
+            txtOferta.Location = new Point(181, 188);
+            txtOferta.Name = "txtOferta";
+            txtOferta.Size = new Size(225, 23);
+            txtOferta.TabIndex = 51;
+            // 
+            // cbProvincia
+            // 
+            cbProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbProvincia.FormattingEnabled = true;
+            cbProvincia.Items.AddRange(new object[] { "San José", "Cartago", "Heredia", "Alajuela", "Limón", "Puntarenas", "Guanacaste", "Internacional" });
+            cbProvincia.Location = new Point(181, 521);
+            cbProvincia.Name = "cbProvincia";
+            cbProvincia.Size = new Size(225, 23);
+            cbProvincia.TabIndex = 50;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(7, 524);
+            label18.Name = "label18";
+            label18.Size = new Size(56, 15);
+            label18.TabIndex = 49;
+            label18.Text = "Provincia";
+            // 
+            // cbTipoTrabajo
+            // 
+            cbTipoTrabajo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTipoTrabajo.FormattingEnabled = true;
+            cbTipoTrabajo.Items.AddRange(new object[] { "DDCE - Instalación", "DDCE - Mantenimiento", "DDCE - Mejoras", "Ionizante - Instalación", "Ionizante - Mantenimiento", "Ionizante - Mejoras", "Mallas - Instalación", "Mallas - Mantenimiento", "Mallas - Mejora", "Supresores - Instalación", "Trabajo Eléctrico", "Otro" });
+            cbTipoTrabajo.Location = new Point(181, 614);
+            cbTipoTrabajo.Name = "cbTipoTrabajo";
+            cbTipoTrabajo.Size = new Size(225, 23);
+            cbTipoTrabajo.TabIndex = 48;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(8, 614);
+            label12.Name = "label12";
+            label12.Size = new Size(71, 15);
+            label12.TabIndex = 47;
+            label12.Text = "Tipo Trabajo";
             // 
             // label2
             // 
@@ -145,18 +199,10 @@
             label1.TabIndex = 43;
             label1.Text = "Numero Factural Final";
             // 
-            // comboBoxOfertas
-            // 
-            comboBoxOfertas.FormattingEnabled = true;
-            comboBoxOfertas.Location = new Point(181, 188);
-            comboBoxOfertas.Name = "comboBoxOfertas";
-            comboBoxOfertas.Size = new Size(225, 23);
-            comboBoxOfertas.TabIndex = 42;
-            // 
             // btnBorrar
             // 
             btnBorrar.BackColor = Color.LightCoral;
-            btnBorrar.Location = new Point(33, 618);
+            btnBorrar.Location = new Point(33, 685);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(106, 23);
             btnBorrar.TabIndex = 41;
@@ -208,7 +254,7 @@
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
             cbEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            cbEstado.Location = new Point(181, 579);
+            cbEstado.Location = new Point(181, 646);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(225, 23);
             cbEstado.TabIndex = 36;
@@ -222,14 +268,14 @@
             // 
             // dtpFinalizacion
             // 
-            dtpFinalizacion.Location = new Point(181, 550);
+            dtpFinalizacion.Location = new Point(180, 585);
             dtpFinalizacion.Name = "dtpFinalizacion";
             dtpFinalizacion.Size = new Size(225, 23);
             dtpFinalizacion.TabIndex = 34;
             // 
             // dtpInicio
             // 
-            dtpInicio.Location = new Point(181, 521);
+            dtpInicio.Location = new Point(181, 550);
             dtpInicio.Name = "dtpInicio";
             dtpInicio.Size = new Size(225, 23);
             dtpInicio.TabIndex = 33;
@@ -237,7 +283,7 @@
             // btnAgregar
             // 
             btnAgregar.BackColor = Color.SkyBlue;
-            btnAgregar.Location = new Point(270, 618);
+            btnAgregar.Location = new Point(270, 685);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(123, 23);
             btnAgregar.TabIndex = 31;
@@ -247,7 +293,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(168, 618);
+            button2.Location = new Point(168, 685);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 30;
@@ -257,7 +303,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(7, 579);
+            label17.Location = new Point(7, 646);
             label17.Name = "label17";
             label17.Size = new Size(42, 15);
             label17.TabIndex = 28;
@@ -266,7 +312,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(7, 550);
+            label16.Location = new Point(6, 585);
             label16.Name = "label16";
             label16.Size = new Size(103, 15);
             label16.TabIndex = 26;
@@ -275,7 +321,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(7, 521);
+            label15.Location = new Point(7, 550);
             label15.Name = "label15";
             label15.Size = new Size(70, 15);
             label15.TabIndex = 24;
@@ -411,7 +457,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(453, 681);
+            ClientSize = new Size(453, 751);
             Controls.Add(groupBox1);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -459,10 +505,14 @@
         private Label label4;
         private Label label3;
         private Button btnBorrar;
-        private ComboBox comboBoxOfertas;
         private TextBox txtFacturalFinalId;
         private Label label1;
         private Label label2;
         private TextBox txtNota;
+        private ComboBox cbTipoTrabajo;
+        private Label label12;
+        private ComboBox cbProvincia;
+        private Label label18;
+        private TextBox txtOferta;
     }
 }

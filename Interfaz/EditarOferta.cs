@@ -112,6 +112,14 @@ namespace Interfaz
                             txtCliente.Text = Ofertatmp.Cliente;
                             txtMonto.Text = Ofertatmp.Monto.ToString();
                             txtNotas.Text = Ofertatmp.Notas;
+                            checkBoxDDCE.Checked = Ofertatmp.DDCE;
+                            checkBoxIonizante.Checked = Ofertatmp.Ionizante;
+                            checkBoxSupresor.Checked = Ofertatmp.Supresor;
+                            checkBoxTorre.Checked = Ofertatmp.Torre;
+                            checkBoxMalla.Checked = Ofertatmp.Malla;
+                            checkBoxOtro.Checked = Ofertatmp.Otros;
+                            comboBoxCategoria.Text = Ofertatmp.Categoria;
+                            comboBoxProvincia.Text = Ofertatmp.Provincia;
                             txtObservaciones.Text = Ofertatmp.Observaciones;
                             cbEncargado.SelectedText = Ofertatmp.Encargado.Nombre;
                             txtEncargado.Text = Ofertatmp.EncargadoCotizador;
@@ -155,6 +163,16 @@ namespace Interfaz
                                            where i.Nombre == cbEncargado.Text
                                            select i.UsuarioId).FirstOrDefault();
                     Ofertatmp.EncargadoCotizador = txtEncargado.Text;
+                    Ofertatmp.DDCE = checkBoxDDCE.Checked;
+                    Ofertatmp.Ionizante = checkBoxIonizante.Checked;
+                    Ofertatmp.Supresor = checkBoxSupresor.Checked;
+                    Ofertatmp.Torre= checkBoxTorre.Checked;
+                    Ofertatmp.Malla = checkBoxMalla.Checked;
+                    Ofertatmp.Otros = checkBoxOtro.Checked;
+
+                    Ofertatmp.Categoria = comboBoxCategoria.Text;
+                    Ofertatmp.Provincia = comboBoxProvincia.Text;
+
                     OfertaNegocio negocioOferta = new();
                     bool Resultado = negocioOferta.ActualizarOferta(Ofertatmp, out int idOferta);
                     if (Resultado)

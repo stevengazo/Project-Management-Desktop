@@ -22,6 +22,15 @@ namespace Interfaz
 
                 txtMonto.Text = oferta.Monto.ToString("C", CultureInfo.CurrentCulture);
                 txtNotas.Text = oferta.Notas;
+
+                checkBoxDDCE.Checked = oferta.DDCE;
+                checkBoxIonizante.Checked = oferta.Ionizante;
+                checkBoxMalla.Checked = oferta.Malla;
+                checkBoxOtro.Checked = oferta.Otros;
+                checkBoxSupresor.Checked = oferta.Supresor;
+                checkBoxTorre.Checked = oferta.Torre;
+                textBoxProvincia.Text = oferta.Provincia;
+                textBoxCategoria.Text = oferta.Categoria;
                 txtObservaciones.Text = oferta.Observaciones;
                 textEncargado.Text = oferta.Encargado.Nombre;
                 txtCotizador.Text = oferta.EncargadoCotizador;

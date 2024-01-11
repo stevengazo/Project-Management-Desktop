@@ -45,11 +45,33 @@
             txtMonto = new TextBox();
             dateTimePickerFecha = new DateTimePicker();
             label1 = new Label();
+            comboBoxProvincia = new ComboBox();
+            label4 = new Label();
+            comboBoxCategoria = new ComboBox();
+            label3 = new Label();
+            checkBoxOtro = new CheckBox();
+            checkBoxMalla = new CheckBox();
+            checkBoxTorre = new CheckBox();
+            checkBoxSupresor = new CheckBox();
+            checkBoxIonizante = new CheckBox();
+            label2 = new Label();
+            checkBoxDDCE = new CheckBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(checkBoxOtro);
+            groupBox1.Controls.Add(checkBoxMalla);
+            groupBox1.Controls.Add(checkBoxTorre);
+            groupBox1.Controls.Add(checkBoxSupresor);
+            groupBox1.Controls.Add(checkBoxIonizante);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(checkBoxDDCE);
+            groupBox1.Controls.Add(comboBoxCategoria);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(comboBoxProvincia);
+            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(txtEncargado);
             groupBox1.Controls.Add(label11);
@@ -68,7 +90,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(309, 315);
+            groupBox1.Size = new Size(309, 448);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información de Ofeta";
@@ -76,7 +98,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(19, 254);
+            label12.Location = new Point(19, 372);
             label12.Name = "label12";
             label12.Size = new Size(58, 15);
             label12.TabIndex = 26;
@@ -84,7 +106,7 @@
             // 
             // txtEncargado
             // 
-            txtEncargado.Location = new Point(103, 251);
+            txtEncargado.Location = new Point(103, 369);
             txtEncargado.Name = "txtEncargado";
             txtEncargado.PlaceholderText = "Adrian ";
             txtEncargado.Size = new Size(184, 23);
@@ -109,7 +131,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(161, 280);
+            btnCancelar.Location = new Point(158, 411);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 22;
@@ -119,7 +141,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(56, 280);
+            btnAgregar.Location = new Point(53, 411);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 21;
@@ -130,7 +152,7 @@
             // cbEncargado
             // 
             cbEncargado.FormattingEnabled = true;
-            cbEncargado.Location = new Point(103, 222);
+            cbEncargado.Location = new Point(103, 340);
             cbEncargado.Name = "cbEncargado";
             cbEncargado.Size = new Size(184, 23);
             cbEncargado.TabIndex = 20;
@@ -138,7 +160,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(19, 225);
+            label10.Location = new Point(19, 343);
             label10.Name = "label10";
             label10.Size = new Size(63, 15);
             label10.TabIndex = 19;
@@ -147,7 +169,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(13, 161);
+            label9.Location = new Point(13, 255);
             label9.Name = "label9";
             label9.Size = new Size(69, 15);
             label9.TabIndex = 17;
@@ -155,7 +177,7 @@
             // 
             // txtObservaciones
             // 
-            txtObservaciones.Location = new Point(103, 158);
+            txtObservaciones.Location = new Point(103, 252);
             txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
             txtObservaciones.PlaceholderText = "Descripción breve del trabajo";
@@ -213,11 +235,118 @@
             label1.TabIndex = 0;
             label1.Text = "Fecha";
             // 
+            // comboBoxProvincia
+            // 
+            comboBoxProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxProvincia.FormattingEnabled = true;
+            comboBoxProvincia.Items.AddRange(new object[] { "San José", "Cartago", "Heredia", "Alajuela", "Puntarenas", "Guanacaste", "Limón", "No definido", "Internacional" });
+            comboBoxProvincia.Location = new Point(103, 311);
+            comboBoxProvincia.Name = "comboBoxProvincia";
+            comboBoxProvincia.Size = new Size(184, 23);
+            comboBoxProvincia.TabIndex = 39;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(10, 314);
+            label4.Name = "label4";
+            label4.Size = new Size(56, 15);
+            label4.TabIndex = 38;
+            label4.Text = "Provincia";
+            // 
+            // comboBoxCategoria
+            // 
+            comboBoxCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCategoria.FormattingEnabled = true;
+            comboBoxCategoria.Items.AddRange(new object[] { "Instalación", "Mantenimiento", "Mejora", "Otro" });
+            comboBoxCategoria.Location = new Point(103, 223);
+            comboBoxCategoria.Name = "comboBoxCategoria";
+            comboBoxCategoria.Size = new Size(184, 23);
+            comboBoxCategoria.TabIndex = 41;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(13, 226);
+            label3.Name = "label3";
+            label3.Size = new Size(58, 15);
+            label3.TabIndex = 40;
+            label3.Text = "Categoria";
+            // 
+            // checkBoxOtro
+            // 
+            checkBoxOtro.AutoSize = true;
+            checkBoxOtro.Location = new Point(190, 198);
+            checkBoxOtro.Name = "checkBoxOtro";
+            checkBoxOtro.Size = new Size(50, 19);
+            checkBoxOtro.TabIndex = 48;
+            checkBoxOtro.Text = "Otro";
+            checkBoxOtro.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxMalla
+            // 
+            checkBoxMalla.AutoSize = true;
+            checkBoxMalla.Location = new Point(103, 198);
+            checkBoxMalla.Name = "checkBoxMalla";
+            checkBoxMalla.Size = new Size(55, 19);
+            checkBoxMalla.TabIndex = 47;
+            checkBoxMalla.Text = "Malla";
+            checkBoxMalla.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxTorre
+            // 
+            checkBoxTorre.AutoSize = true;
+            checkBoxTorre.Location = new Point(190, 173);
+            checkBoxTorre.Name = "checkBoxTorre";
+            checkBoxTorre.Size = new Size(52, 19);
+            checkBoxTorre.TabIndex = 46;
+            checkBoxTorre.Text = "Torre";
+            checkBoxTorre.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSupresor
+            // 
+            checkBoxSupresor.AutoSize = true;
+            checkBoxSupresor.Location = new Point(103, 173);
+            checkBoxSupresor.Name = "checkBoxSupresor";
+            checkBoxSupresor.Size = new Size(72, 19);
+            checkBoxSupresor.TabIndex = 45;
+            checkBoxSupresor.Text = "Supresor";
+            checkBoxSupresor.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxIonizante
+            // 
+            checkBoxIonizante.AutoSize = true;
+            checkBoxIonizante.Location = new Point(190, 148);
+            checkBoxIonizante.Name = "checkBoxIonizante";
+            checkBoxIonizante.Size = new Size(74, 19);
+            checkBoxIonizante.TabIndex = 44;
+            checkBoxIonizante.Text = "Ionizante";
+            checkBoxIonizante.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(13, 148);
+            label2.Name = "label2";
+            label2.Size = new Size(59, 15);
+            label2.TabIndex = 43;
+            label2.Text = "Requiere: ";
+            // 
+            // checkBoxDDCE
+            // 
+            checkBoxDDCE.AutoSize = true;
+            checkBoxDDCE.Location = new Point(103, 148);
+            checkBoxDDCE.Name = "checkBoxDDCE";
+            checkBoxDDCE.Size = new Size(56, 19);
+            checkBoxDDCE.TabIndex = 42;
+            checkBoxDDCE.Text = "DDCE";
+            checkBoxDDCE.UseVisualStyleBackColor = true;
+            // 
             // EditarOferta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(334, 337);
+            ClientSize = new Size(334, 476);
             Controls.Add(groupBox1);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -250,5 +379,16 @@
         private TextBox txtMonto;
         private DateTimePicker dateTimePickerFecha;
         private Label label1;
+        private ComboBox comboBoxProvincia;
+        private Label label4;
+        private ComboBox comboBoxCategoria;
+        private Label label3;
+        private CheckBox checkBoxOtro;
+        private CheckBox checkBoxMalla;
+        private CheckBox checkBoxTorre;
+        private CheckBox checkBoxSupresor;
+        private CheckBox checkBoxIonizante;
+        private Label label2;
+        private CheckBox checkBoxDDCE;
     }
 }
