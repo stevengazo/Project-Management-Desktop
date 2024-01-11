@@ -118,7 +118,7 @@ namespace Interfaz
         /// </summary>
         /// <param name="proyectosFiltrados"></param>
         /// <returns></returns>
-        private async Task CargarTablaAsync(List<Proyecto> proyectosFiltrados = null)
+        private async Task CargarTablaAsync(List<Proyecto>? proyectosFiltrados = null)
         {
             if (proyectosFiltrados != null)
             {
@@ -323,14 +323,12 @@ namespace Interfaz
                     proyectoTemporal.Ubicacion = txtUbicacion.Text;
                     proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
                     proyectoTemporal.Estado = cbEstado.Text;
-                    proyectoTemporal.Notas = string.Empty;
                     proyectoTemporal.FacturaAnticipoId = txtNumeroFactura.Text;
                     proyectoTemporal.UsuarioId = (from i in Vendedores
                                                   where i.Nombre == cbVendedores.Text
                                                   select i.UsuarioId).FirstOrDefault();
                     var ofertatmp = cbOfertas.Text.Split('-');
                     proyectoTemporal.OfertaId = ofertatmp[0];
-                    proyectoTemporal.Notas = "Sin notas";
                     proyectoTemporal.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                     proyectoTemporal.Autor = Temporal.UsuarioActivo.Nombre;
                     proyectoTemporal.FacturaFinalId = string.Empty;

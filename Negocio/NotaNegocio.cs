@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public class NotaNegocio
+    public static class NotaNegocio
     {
-        public List<Nota> GetNotasByProyecto(int proyectoId)
+        public static List<Nota> GetNotasByProyecto(int proyectoId)
         {
             using (var db = new DBContextProyectosAsfaltos())
             {
@@ -17,7 +17,7 @@ namespace Negocio
                 return notas;
             }
         }
-        public void Add(Nota nota)
+        public static void Add(Nota nota)
         {
             using (var db = new DBContextProyectosAsfaltos())
             {
@@ -25,7 +25,7 @@ namespace Negocio
                 db.SaveChanges();
             }
         }
-        public void Edit(Nota nota)
+        public static void Edit(Nota nota)
         {
             using (var db = new DBContextProyectosAsfaltos())
             {

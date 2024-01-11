@@ -92,7 +92,6 @@ namespace Modelos
                 Cliente = "Ejemplo de Cliente",
                 OfertaId = "PS-00001",
                 Monto = 100f,
-                Notas = "",
                 PorcentajeAnticipo = 50,
                 FacturaAnticipoId = "No existente",
                 FacturaFinalId = "No Existente",

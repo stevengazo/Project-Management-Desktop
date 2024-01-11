@@ -1,4 +1,5 @@
 ﻿using Modelos;
+using Negocio;
 using Negocios;
 using System.Data;
 using System.Globalization;
@@ -18,35 +19,28 @@ namespace Interfaz
             CargarProyectoDetallado();
         }
 
-        private void CargarProyectoBasico()
-        {
-            if (idProyecto == 0)
-            {
-                MessageBox.Show("Error interno, no hay un proyecto especificado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
 
+        private async Task CargarNotas(int id)
+        {
+            List<Nota> Notas = NotaNegocio.GetNotasByProyecto(id);
+            if (Notas.Count > 0)
+            {
+                dataGridViewComentarios.Columns.Clear();
+                DataTable _table = new();
+                _table.Columns.Add("Titulo Comentario");
+                foreach (Nota nota in Notas)
+                {
+                    _table.Rows.Add(nota.Titulo);
+                }
+                DataGridViewButtonColumn btnVer = new();
+                btnVer.HeaderText = "Ver";
+                btnVer.Text = "Ver";
+                btnVer.UseColumnTextForButtonValue = true;
+                dataGridViewComentarios.Columns.Add(btnVer);
             }
 
         }
 
-        private void CargarNotas( List<Nota> notas )
-        {
-            dataGridViewComentarios.Columns.Clear();
-            DataTable _table = new();
-            _table.Columns.Add("Titulo Comentario");
-            foreach (Nota nota in notas )
-            {
-                _table.Rows.Add(nota.Titulo);
-            }
-            DataGridViewButtonColumn btnVer = new();
-            btnVer.HeaderText = "Ver";
-            btnVer.Text = "Ver";
-            btnVer.UseColumnTextForButtonValue = true;
-            dataGridViewComentarios.Columns.Add(btnVer);
-
-        }
         private void CargarProyectoDetallado()
         {
             try
@@ -59,7 +53,10 @@ namespace Interfaz
                 {
                     ProyectoNegocios proyectoNegocios = new();
                     Proyecto proyectoTemporal = proyectoNegocios.ObtenerProyecto(idProyecto);
-                    txtNumeroProyecto.Text = $"P-{proyectoTemporal.ProyectoId.ToString()}";
+                    this.idProyecto = proyectoTemporal.ProyectoId;
+                    Task.Run(() => CargarNotas(proyectoTemporal.ProyectoId));
+                    
+                    txtNumeroProyecto.Text = $"P-{proyectoTemporal.ProyectoId}";
                     txtEstado.Text = proyectoTemporal.Estado;
                     txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
                     txtRazonSocial.Text = proyectoTemporal.Cliente;
@@ -74,7 +71,6 @@ namespace Interfaz
                     txtNotas.Text = proyectoTemporal.Tipo;
                     txtFechaInicio.Text = proyectoTemporal.FechaInicio.ToLongDateString();
                     txtFechaFinal.Text = proyectoTemporal.FechaFinal.ToLongDateString();
-
                 }
             }
             catch (Exception f)
@@ -82,8 +78,26 @@ namespace Interfaz
                 MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
+        }
 
-
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTituloNota.Text) || string.IsNullOrEmpty(txtDescripcionNota.Text)) {
+                MessageBox.Show("Verifique los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Nota nota = new Nota()
+                {
+                    Titulo = txtTituloNota.Text,
+                    Descripcion = txtDescripcionNota.Text,
+                    Autor = Temporal.UsuarioActivo.Nombre,
+                    ProyectoId = this.idProyecto
+                };
+                NotaNegocio.Add(nota);
+                MessageBox.Show("Nota Agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Task.Run(() => CargarNotas(this.idProyecto));
+            }
         }
     }
 }

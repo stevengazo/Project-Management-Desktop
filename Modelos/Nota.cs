@@ -11,7 +11,7 @@ namespace Modelos
         public int NotaId { get; set; }
         public string Titulo { get; set; }
         public string Descripcion { get; set; }
-
+        public string Autor { get; set; }
         public int ProyectoId { get; set; }
         public Proyecto Proyecto { get; set; }
 

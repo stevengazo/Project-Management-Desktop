@@ -142,7 +142,6 @@ namespace Interfaz
                     txtTarea.Text = ProyectoActual.TareaId.ToString();
                     txtFacturalFinalId.Text = ProyectoActual.FacturaFinalId;
                     txtUbicacion.Text = ProyectoActual.Ubicacion;
-                    txtNota.Text = ProyectoActual.Notas;
                     dtpInicio.Value = ProyectoActual.FechaInicio;
                     dtpFinalizacion.Value = ProyectoActual.FechaFinal;
                     cbEstado.Text = ProyectoActual.Estado;

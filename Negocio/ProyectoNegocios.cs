@@ -200,7 +200,6 @@ namespace Negocios
                                  where proye.ProyectoId == id
                                  select proye)
                                  .Include(P => P.Vendedor)
-                                 .Include(P=>P.Notas)
                                  .FirstOrDefault();
                 }
                 return proyectos;

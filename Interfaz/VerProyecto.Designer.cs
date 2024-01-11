@@ -60,12 +60,12 @@
             txtNotas = new TextBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-            txtTitulo = new TextBox();
-            txtDescripcion = new TextBox();
-            label2 = new Label();
-            label12 = new Label();
-            btnAgregar = new Button();
             btnLimpiar = new Button();
+            btnAgregar = new Button();
+            label12 = new Label();
+            label2 = new Label();
+            txtDescripcionNota = new TextBox();
+            txtTituloNota = new TextBox();
             groupBox3 = new GroupBox();
             dataGridViewComentarios = new DataGridView();
             groupBox1.SuspendLayout();
@@ -391,8 +391,8 @@
             groupBox2.Controls.Add(btnAgregar);
             groupBox2.Controls.Add(label12);
             groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(txtDescripcion);
-            groupBox2.Controls.Add(txtTitulo);
+            groupBox2.Controls.Add(txtDescripcionNota);
+            groupBox2.Controls.Add(txtTituloNota);
             groupBox2.Location = new Point(456, 12);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(298, 213);
@@ -400,29 +400,24 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Nuevo Comentario";
             // 
-            // txtTitulo
+            // btnLimpiar
             // 
-            txtTitulo.Location = new Point(106, 31);
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(177, 23);
-            txtTitulo.TabIndex = 0;
+            btnLimpiar.Location = new Point(73, 178);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(102, 23);
+            btnLimpiar.TabIndex = 86;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
             // 
-            // txtDescripcion
+            // btnAgregar
             // 
-            txtDescripcion.Location = new Point(106, 66);
-            txtDescripcion.Multiline = true;
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(177, 98);
-            txtDescripcion.TabIndex = 83;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(18, 39);
-            label2.Name = "label2";
-            label2.Size = new Size(37, 15);
-            label2.TabIndex = 84;
-            label2.Text = "Titulo";
+            btnAgregar.Location = new Point(181, 178);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(102, 23);
+            btnAgregar.TabIndex = 83;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // label12
             // 
@@ -433,23 +428,29 @@
             label12.TabIndex = 85;
             label12.Text = "Descripción";
             // 
-            // btnAgregar
+            // label2
             // 
-            btnAgregar.Location = new Point(181, 178);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(102, 23);
-            btnAgregar.TabIndex = 83;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Location = new Point(18, 39);
+            label2.Name = "label2";
+            label2.Size = new Size(37, 15);
+            label2.TabIndex = 84;
+            label2.Text = "Titulo";
             // 
-            // btnLimpiar
+            // txtDescripcionNota
             // 
-            btnLimpiar.Location = new Point(73, 178);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(102, 23);
-            btnLimpiar.TabIndex = 86;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
+            txtDescripcionNota.Location = new Point(106, 66);
+            txtDescripcionNota.Multiline = true;
+            txtDescripcionNota.Name = "txtDescripcionNota";
+            txtDescripcionNota.Size = new Size(177, 98);
+            txtDescripcionNota.TabIndex = 83;
+            // 
+            // txtTituloNota
+            // 
+            txtTituloNota.Location = new Point(106, 31);
+            txtTituloNota.Name = "txtTituloNota";
+            txtTituloNota.Size = new Size(177, 23);
+            txtTituloNota.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -528,8 +529,8 @@
         private TextBox txtNotas;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private TextBox txtDescripcion;
-        private TextBox txtTitulo;
+        private TextBox txtDescripcionNota;
+        private TextBox txtTituloNota;
         private Button btnLimpiar;
         private Button btnAgregar;
         private Label label12;
