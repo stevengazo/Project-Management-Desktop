@@ -25,20 +25,36 @@ namespace Interfaz
             List<Nota> Notas = NotaNegocio.GetNotasByProyecto(id);
             if (Notas.Count > 0)
             {
-                dataGridViewComentarios.Columns.Clear();
-                DataTable _table = new();
-                _table.Columns.Add("Titulo Comentario");
+                //  dataGridViewComentarios.Columns.Clear();
+
+                DataTable _dt = new();
+
+                _dt.Columns.Add("Titulo");
+                _dt.Columns.Add("Autor");
+
                 foreach (Nota nota in Notas)
                 {
-                    _table.Rows.Add(nota.Titulo);
+                    _dt.Rows.Add(
+                            nota.Titulo,
+                            nota.Autor
+                        );
                 }
-                DataGridViewButtonColumn btnVer = new();
-                btnVer.HeaderText = "Ver";
-                btnVer.Text = "Ver";
-                btnVer.UseColumnTextForButtonValue = true;
-                dataGridViewComentarios.Columns.Add(btnVer);
-            }
+                dataGridViewComentarios.DataSource = _dt;
 
+                DataGridViewButtonColumn botonVer = new();
+                botonVer.HeaderText = "Ver";
+                botonVer.Text = "Ver";
+                botonVer.Name = "btnVerNota";
+                botonVer.UseColumnTextForButtonValue = true;
+                dataGridViewComentarios.Columns.Add(botonVer);
+
+                DataGridViewButtonColumn botonEditar = new();
+                botonEditar.HeaderText = "Editar";
+                botonEditar.Text = "Editar";
+                botonEditar.Name = "btnEditarNota";
+                botonEditar.UseColumnTextForButtonValue = true;
+                dataGridViewComentarios.Columns.Add(botonEditar);
+            }
         }
 
         private void CargarProyectoDetallado()
@@ -54,8 +70,7 @@ namespace Interfaz
                     ProyectoNegocios proyectoNegocios = new();
                     Proyecto proyectoTemporal = proyectoNegocios.ObtenerProyecto(idProyecto);
                     this.idProyecto = proyectoTemporal.ProyectoId;
-                    Task.Run(() => CargarNotas(proyectoTemporal.ProyectoId));
-                    
+                    CargarNotas(proyectoTemporal.ProyectoId);
                     txtNumeroProyecto.Text = $"P-{proyectoTemporal.ProyectoId}";
                     txtEstado.Text = proyectoTemporal.Estado;
                     txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
@@ -82,7 +97,8 @@ namespace Interfaz
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtTituloNota.Text) || string.IsNullOrEmpty(txtDescripcionNota.Text)) {
+            if (string.IsNullOrEmpty(txtTituloNota.Text) || string.IsNullOrEmpty(txtDescripcionNota.Text))
+            {
                 MessageBox.Show("Verifique los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
@@ -96,7 +112,7 @@ namespace Interfaz
                 };
                 NotaNegocio.Add(nota);
                 MessageBox.Show("Nota Agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Task.Run(() => CargarNotas(this.idProyecto));
+                CargarNotas(this.idProyecto);
             }
         }
     }

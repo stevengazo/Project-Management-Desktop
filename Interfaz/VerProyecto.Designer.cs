@@ -387,6 +387,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(btnLimpiar);
             groupBox2.Controls.Add(btnAgregar);
             groupBox2.Controls.Add(label12);
@@ -395,7 +396,7 @@
             groupBox2.Controls.Add(txtTituloNota);
             groupBox2.Location = new Point(456, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(298, 213);
+            groupBox2.Size = new Size(318, 213);
             groupBox2.TabIndex = 82;
             groupBox2.TabStop = false;
             groupBox2.Text = "Nuevo Comentario";
@@ -454,28 +455,33 @@
             // 
             // groupBox3
             // 
+            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox3.Controls.Add(dataGridViewComentarios);
             groupBox3.Location = new Point(456, 231);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(298, 349);
+            groupBox3.Size = new Size(318, 349);
             groupBox3.TabIndex = 83;
             groupBox3.TabStop = false;
             groupBox3.Text = "Comentarios";
             // 
             // dataGridViewComentarios
             // 
+            dataGridViewComentarios.AllowUserToAddRows = false;
+            dataGridViewComentarios.AllowUserToDeleteRows = false;
+            dataGridViewComentarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewComentarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewComentarios.Location = new Point(6, 22);
             dataGridViewComentarios.Name = "dataGridViewComentarios";
+            dataGridViewComentarios.ReadOnly = true;
             dataGridViewComentarios.RowTemplate.Height = 25;
-            dataGridViewComentarios.Size = new Size(286, 321);
+            dataGridViewComentarios.Size = new Size(306, 321);
             dataGridViewComentarios.TabIndex = 0;
             // 
             // VerProyecto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(767, 598);
+            ClientSize = new Size(787, 598);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
