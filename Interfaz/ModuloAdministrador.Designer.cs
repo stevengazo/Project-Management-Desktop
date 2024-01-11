@@ -38,6 +38,8 @@
             label1 = new Label();
             dgvProyectos = new DataGridView();
             groupBox1 = new GroupBox();
+            cbProvincia = new ComboBox();
+            label4 = new Label();
             cbTipoTrabajo = new ComboBox();
             label3 = new Label();
             numberOfertas = new TextBox();
@@ -83,8 +85,6 @@
             ayudaToolStripMenuItem = new ToolStripMenuItem();
             agregarUsuarioToolStripMenuItem = new ToolStripDropDownMenu();
             saveFileDialog1 = new SaveFileDialog();
-            label4 = new Label();
-            comboBox1 = new ComboBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProyectos).BeginInit();
             groupBox1.SuspendLayout();
@@ -179,7 +179,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(cbProvincia);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(cbTipoTrabajo);
             groupBox1.Controls.Add(label3);
@@ -218,6 +218,25 @@
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Agregar Proyecto";
+            // 
+            // cbProvincia
+            // 
+            cbProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbProvincia.FormattingEnabled = true;
+            cbProvincia.Items.AddRange(new object[] { "San José", "Cartago", "Heredia", "Alajuela", "Limón", "Puntarenas", "Guanacaste", "Internacional" });
+            cbProvincia.Location = new Point(189, 375);
+            cbProvincia.Name = "cbProvincia";
+            cbProvincia.Size = new Size(225, 23);
+            cbProvincia.TabIndex = 47;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(15, 378);
+            label4.Name = "label4";
+            label4.Size = new Size(56, 15);
+            label4.TabIndex = 46;
+            label4.Text = "Provincia";
             // 
             // cbTipoTrabajo
             // 
@@ -578,25 +597,6 @@
             agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
             agregarUsuarioToolStripMenuItem.Size = new Size(61, 4);
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(15, 378);
-            label4.Name = "label4";
-            label4.Size = new Size(56, 15);
-            label4.TabIndex = 46;
-            label4.Text = "Provincia";
-            // 
-            // comboBox1
-            // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "San José", "Cartago", "Heredia", "Alajuela", "Limón", "Puntarenas", "Guanacaste", "Internacional" });
-            comboBox1.Location = new Point(189, 375);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(225, 23);
-            comboBox1.TabIndex = 47;
-            // 
             // ModuloAdministrador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -680,7 +680,7 @@
         private TextBox numberOfertas;
         private ComboBox cbTipoTrabajo;
         private Label label3;
-        private ComboBox comboBox1;
+        private ComboBox cbProvincia;
         private Label label4;
     }
 }

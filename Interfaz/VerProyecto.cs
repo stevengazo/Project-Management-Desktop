@@ -25,7 +25,7 @@ namespace Interfaz
             List<Nota> Notas = NotaNegocio.GetNotasByProyecto(id);
             if (Notas.Count > 0)
             {
-                 dataGridViewComentarios.Columns.Clear();
+                dataGridViewComentarios.Columns.Clear();
 
                 DataTable _dt = new();
 
@@ -78,6 +78,8 @@ namespace Interfaz
                     txtRazonSocial.Text = proyectoTemporal.Cliente;
                     txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
                     txtContacto.Text = proyectoTemporal.Contacto;
+                    txtProvincia.Text = proyectoTemporal.Provincia;
+                    txtTipoProyecto.Text = proyectoTemporal.Tipo;
                     txtOferta.Text = proyectoTemporal.OfertaId;
                     txtMontoProyecto.Text = proyectoTemporal.Monto.ToString("C", CultureInfo.CurrentCulture);
                     txtPorcentaje.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
@@ -114,7 +116,7 @@ namespace Interfaz
                     Creacion = DateTime.Now,
                     UltimaModificacion = DateTime.Now
                 };
-                
+
                 NotaNegocio.Add(nota);
                 MessageBox.Show("Nota Agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtTituloNota.Text = string.Empty;

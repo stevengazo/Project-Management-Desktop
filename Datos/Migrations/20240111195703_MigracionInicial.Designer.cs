@@ -12,7 +12,7 @@ using Modelos;
 namespace Datos.Migrations
 {
     [DbContext(typeof(DBContextProyectosAsfaltos))]
-    [Migration("20240111182231_MigracionInicial")]
+    [Migration("20240111195703_MigracionInicial")]
     partial class MigracionInicial
     {
         /// <inheritdoc />
@@ -182,6 +182,10 @@ namespace Datos.Migrations
                     b.Property<int>("PorcentajeAnticipo")
                         .HasColumnType("int");
 
+                    b.Property<string>("Provincia")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("TareaId")
                         .HasColumnType("int");
 
@@ -222,10 +226,11 @@ namespace Datos.Migrations
                             FacturaFinalId = "No Existente",
                             FechaFinal = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             FechaInicio = new DateTime(2024, 1, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2024, 1, 11, 12, 22, 31, 797, DateTimeKind.Local).AddTicks(6211),
+                            FechaOC = new DateTime(2024, 1, 11, 13, 57, 3, 418, DateTimeKind.Local).AddTicks(277),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,
+                            Provincia = "",
                             TareaId = 2000,
                             Tipo = "Instalación",
                             Ubicacion = "Grupo Mecsa",

@@ -296,6 +296,7 @@ namespace Interfaz
                     proyectoTemporal.Ubicacion = txtUbicacion.Text;
                     proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
                     proyectoTemporal.Tipo = cbTipoTrabajo.Text;
+                    proyectoTemporal.Provincia = cbProvincia.Text;
                     proyectoTemporal.Estado = cbEstado.Text;
                     proyectoTemporal.FacturaAnticipoId = txtNumeroFactura.Text;
                     proyectoTemporal.UsuarioId = (from i in Vendedores
@@ -426,6 +427,12 @@ namespace Interfaz
                         return false;
                     }
                 }
+                // Provincia
+                if (string.IsNullOrEmpty(cbProvincia.Text))
+                {
+                    MessageBox.Show("No indico la provincia", "Advertencia: Validación de Provincia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
                 // Estado
                 if (string.IsNullOrEmpty(cbTipoTrabajo.Text))
                 {
@@ -449,8 +456,6 @@ namespace Interfaz
                 }
                 SetBackLabels();
                 return true;
-
-
             }
             catch (Exception f)
             {
@@ -469,7 +474,6 @@ namespace Interfaz
             lblPorcentaje.ForeColor = Color.Black;
             lblFacturaAnticipo.ForeColor = Color.Black;
             lblTarea.ForeColor = Color.Black;
-
         }
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)

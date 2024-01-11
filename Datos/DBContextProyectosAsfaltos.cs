@@ -101,6 +101,7 @@ namespace Modelos
                 FechaInicio = DateTime.Today.AddDays(-1),
                 FechaFinal = DateTime.Today.AddDays(2),
                 Estado = "Finalizado",
+                Provincia = "",
                 Autor = usuarioBase.Nombre,
                 UltimaEdicion = DateTime.Today,
                 UsuarioId = usuarioBase.UsuarioId,

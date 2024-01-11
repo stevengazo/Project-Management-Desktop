@@ -68,6 +68,10 @@
             txtTituloNota = new TextBox();
             groupBox3 = new GroupBox();
             dataGridViewComentarios = new DataGridView();
+            txtTipoProyecto = new TextBox();
+            label18 = new Label();
+            txtProvincia = new TextBox();
+            label19 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -104,7 +108,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(6, 533);
+            label17.Location = new Point(6, 562);
             label17.Name = "label17";
             label17.Size = new Size(42, 15);
             label17.TabIndex = 60;
@@ -113,7 +117,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(6, 500);
+            label16.Location = new Point(6, 529);
             label16.Name = "label16";
             label16.Size = new Size(103, 15);
             label16.TabIndex = 59;
@@ -122,7 +126,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(6, 471);
+            label15.Location = new Point(6, 500);
             label15.Name = "label15";
             label15.Size = new Size(70, 15);
             label15.TabIndex = 58;
@@ -293,7 +297,7 @@
             // 
             // txtFechaInicio
             // 
-            txtFechaInicio.Location = new Point(180, 471);
+            txtFechaInicio.Location = new Point(180, 500);
             txtFechaInicio.Name = "txtFechaInicio";
             txtFechaInicio.ReadOnly = true;
             txtFechaInicio.Size = new Size(225, 23);
@@ -302,7 +306,7 @@
             // 
             // txtFechaFinal
             // 
-            txtFechaFinal.Location = new Point(180, 500);
+            txtFechaFinal.Location = new Point(180, 529);
             txtFechaFinal.Name = "txtFechaFinal";
             txtFechaFinal.ReadOnly = true;
             txtFechaFinal.Size = new Size(225, 23);
@@ -320,7 +324,7 @@
             // 
             // txtEstado
             // 
-            txtEstado.Location = new Point(180, 529);
+            txtEstado.Location = new Point(180, 558);
             txtEstado.Name = "txtEstado";
             txtEstado.ReadOnly = true;
             txtEstado.Size = new Size(225, 23);
@@ -348,6 +352,11 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox1.Controls.Add(txtProvincia);
+            groupBox1.Controls.Add(label19);
+            groupBox1.Controls.Add(txtTipoProyecto);
+            groupBox1.Controls.Add(label18);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtNotas);
             groupBox1.Controls.Add(label3);
@@ -380,7 +389,7 @@
             groupBox1.Controls.Add(label14);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(438, 568);
+            groupBox1.Size = new Size(438, 622);
             groupBox1.TabIndex = 81;
             groupBox1.TabStop = false;
             groupBox1.Text = "Proyecto";
@@ -396,7 +405,7 @@
             groupBox2.Controls.Add(txtTituloNota);
             groupBox2.Location = new Point(456, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(318, 213);
+            groupBox2.Size = new Size(318, 267);
             groupBox2.TabIndex = 82;
             groupBox2.TabStop = false;
             groupBox2.Text = "Nuevo Comentario";
@@ -459,7 +468,7 @@
             groupBox3.Controls.Add(dataGridViewComentarios);
             groupBox3.Location = new Point(456, 231);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(318, 349);
+            groupBox3.Size = new Size(318, 403);
             groupBox3.TabIndex = 83;
             groupBox3.TabStop = false;
             groupBox3.Text = "Comentarios";
@@ -474,15 +483,51 @@
             dataGridViewComentarios.Name = "dataGridViewComentarios";
             dataGridViewComentarios.ReadOnly = true;
             dataGridViewComentarios.RowTemplate.Height = 25;
-            dataGridViewComentarios.Size = new Size(306, 321);
+            dataGridViewComentarios.Size = new Size(306, 375);
             dataGridViewComentarios.TabIndex = 0;
             dataGridViewComentarios.CellContentClick += dataGridViewComentarios_CellContentClick;
+            // 
+            // txtTipoProyecto
+            // 
+            txtTipoProyecto.Location = new Point(180, 587);
+            txtTipoProyecto.Name = "txtTipoProyecto";
+            txtTipoProyecto.ReadOnly = true;
+            txtTipoProyecto.Size = new Size(225, 23);
+            txtTipoProyecto.TabIndex = 82;
+            txtTipoProyecto.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(6, 591);
+            label18.Name = "label18";
+            label18.Size = new Size(80, 15);
+            label18.TabIndex = 81;
+            label18.Text = "Tipo Proyecto";
+            // 
+            // txtProvincia
+            // 
+            txtProvincia.Location = new Point(180, 471);
+            txtProvincia.Name = "txtProvincia";
+            txtProvincia.ReadOnly = true;
+            txtProvincia.Size = new Size(225, 23);
+            txtProvincia.TabIndex = 84;
+            txtProvincia.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(6, 471);
+            label19.Name = "label19";
+            label19.Size = new Size(56, 15);
+            label19.TabIndex = 83;
+            label19.Text = "Provincia";
             // 
             // VerProyecto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(787, 598);
+            ClientSize = new Size(787, 652);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -544,5 +589,9 @@
         private Label label2;
         private GroupBox groupBox3;
         private DataGridView dataGridViewComentarios;
+        private TextBox txtProvincia;
+        private Label label19;
+        private TextBox txtTipoProyecto;
+        private Label label18;
     }
 }

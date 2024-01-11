@@ -18,6 +18,7 @@ namespace Modelos
         public string FacturaAnticipoId { get; set; }
         public string FacturaFinalId { get; set; }
         public int TareaId { get; set; }
+        public string Provincia {  get; set; }
         public string Ubicacion { get; set; }
         public string Tipo { get; set; }
         public DateTime FechaInicio { get; set; }
