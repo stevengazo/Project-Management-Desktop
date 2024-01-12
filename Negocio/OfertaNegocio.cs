@@ -159,43 +159,17 @@ namespace Negocio
             }
         }
 
-        /// <summary>
-        /// Crea un diccionario con el nombre del cliente y el numero de oferta existente
-        /// </summary>
-        /// <param name="año"></param>
-        /// <returns></returns>
-        public async Task<Dictionary<int, string>?> DiccionarioOfertasAsync(int año = 0)
+      
+        public Dictionary<int, string>? DiccionarioOfertas(int PlazoDias = 20)
         {
             try
             {
                 Dictionary<int, string> keyValuePairs = new();
-                using (var db = new DBContextProyectosAsfaltos())
-                {
-                    keyValuePairs = await (from i in db.Ofertas
-                                           where i.Fecha.Year == DateTime.Today.Year && (i.Fecha.Month == DateTime.Today.Month || i.Fecha.Month == DateTime.Today.AddMonths(-1).Month)
-                                           orderby i.OfertaId descending
-                                           select i).ToDictionaryAsync(O => O.OfertaId, O => O.Cliente);
-                }
-                return keyValuePairs;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
-            }
-
-        }
-
-
-        public Dictionary<int, string>? DiccionarioOfertas(int año = 0)
-        {
-            try
-            {
-                Dictionary<int, string> keyValuePairs = new();
+                var fecha = DateTime.Now.AddDays(-PlazoDias);
                 using (var db = new DBContextProyectosAsfaltos())
                 {
                     keyValuePairs = (from i in db.Ofertas
-                                     where i.Fecha.Year == DateTime.Today.Year && (i.Fecha.Month == DateTime.Today.Month || i.Fecha.Month == DateTime.Today.AddMonths(-1).Month || i.Fecha.Month == DateTime.Today.AddMonths(-2).Month)
+                                     where i.Fecha >= fecha
                                      orderby i.OfertaId descending
                                      select i).ToDictionary(O => O.OfertaId, O => O.Cliente);
                 }

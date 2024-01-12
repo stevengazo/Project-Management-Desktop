@@ -1,6 +1,7 @@
 ﻿using Modelos;
 using Negocios;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -190,7 +191,37 @@ namespace Interfaz
                         }
 
                     }
+                    else if (cbTipo.Text.Equals("Asistente"))
+                    {
+                        int idRol = (from i in Rols where i.Nombre.Equals("Asistente") select i.RolId).FirstOrDefault();
+                        bool PermisoDeRol = rolUsuarioNegocio.VerificarRol(txtUsuario.Text, idRol);
+                        if (PermisoDeRol)
+                        {
+                            bool Autorizacion = usuarioNegocio.IniciarSesion(txtUsuario.Text, txtContrasena.Text);
+                            if (Autorizacion)
+                            {
+                                RecordarCredenciales();
+                                Temporal.UsuarioActivo = usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
+                                Temporal.TipoLogin = "Asistente";
+                                ListaCotizaciones listaCotizaciones = new();
+                                this.Hide();
+                                listaCotizaciones.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                lblErrorMessage.ForeColor = Color.White;
+                                lblErrorMessage.Text = "Información incorrecta";
+                            }
+                        }
+                        else
+                        {
+                            lblErrorMessage.ForeColor = Color.White;
+                            lblErrorMessage.Text = "No posee permisos de Asistente";
+                        }
+                    }
                 }
+                
             }
         }
 

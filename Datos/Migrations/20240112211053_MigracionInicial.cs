@@ -141,6 +141,46 @@ namespace Datos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Cotizaciones",
+                columns: table => new
+                {
+                    CotizacionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Cliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Provincia = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Canton = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Trabajadores = table.Column<int>(type: "int", nullable: false),
+                    DiasLaborales = table.Column<float>(type: "real", nullable: false),
+                    MontoMO = table.Column<float>(type: "real", nullable: false),
+                    MontoKM = table.Column<float>(type: "real", nullable: false),
+                    MontoMaterial = table.Column<float>(type: "real", nullable: false),
+                    MontoProductos = table.Column<float>(type: "real", nullable: false),
+                    MontoViaticos = table.Column<float>(type: "real", nullable: false),
+                    Imprevisto = table.Column<float>(type: "real", nullable: false),
+                    Autor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EsPublico = table.Column<bool>(type: "bit", nullable: false),
+                    Total = table.Column<float>(type: "real", nullable: false),
+                    Creación = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RutaArchivo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UltimoEditor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UltimaModificacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OfertaId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cotizaciones", x => x.CotizacionId);
+                    table.ForeignKey(
+                        name: "FK_Cotizaciones_Ofertas_OfertaId",
+                        column: x => x.OfertaId,
+                        principalTable: "Ofertas",
+                        principalColumn: "OfertaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Notas",
                 columns: table => new
                 {
@@ -171,7 +211,8 @@ namespace Datos.Migrations
                 values: new object[,]
                 {
                     { 1, "Admin" },
-                    { 2, "Vendedor" }
+                    { 2, "Vendedor" },
+                    { 3, "Asistente" }
                 });
 
             migrationBuilder.InsertData(
@@ -182,17 +223,22 @@ namespace Datos.Migrations
             migrationBuilder.InsertData(
                 table: "Ofertas",
                 columns: new[] { "OfertaId", "AutorPrespuesto", "Categoria", "Cliente", "Codigo", "DDCE", "EncargadoCotizador", "Fecha", "Ionizante", "Malla", "Monto", "Notas", "Observaciones", "Otros", "Provincia", "Supresor", "Torre", "UltimaModificacion", "UsuarioId" },
-                values: new object[] { 1, "Administrador", "Instalación", "Ejemplo", 1, true, "Gabriel", new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local), true, true, 100f, "", "", true, "San José", true, true, new DateTime(2024, 1, 11, 1, 0, 0, 0, DateTimeKind.Local), 1 });
+                values: new object[] { 1, "Administrador", "Instalación", "Ejemplo", 1, true, "Gabriel", new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Local), true, true, 100f, "", "", true, "San José", true, true, new DateTime(2024, 1, 12, 1, 0, 0, 0, DateTimeKind.Local), 1 });
 
             migrationBuilder.InsertData(
                 table: "Proyectos",
                 columns: new[] { "ProyectoId", "Autor", "Cliente", "Contacto", "Enable", "Estado", "FacturaAnticipoId", "FacturaFinalId", "FechaFinal", "FechaInicio", "FechaOC", "Monto", "OfertaId", "PorcentajeAnticipo", "Provincia", "TareaId", "Tipo", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
-                values: new object[] { 1, "Administrador", "Ejemplo de Cliente", "Ejemplo", true, "Finalizado", "No existente", "No Existente", new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 10, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 11, 15, 10, 4, 226, DateTimeKind.Local).AddTicks(6009), 100f, "PS-00001", 50, "", 2000, "Instalación", "Grupo Mecsa", new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
+                values: new object[] { 1, "Administrador", "Ejemplo de Cliente", "Ejemplo", true, "Finalizado", "No existente", "No Existente", new DateTime(2024, 1, 14, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 12, 15, 10, 53, 222, DateTimeKind.Local).AddTicks(3063), 100f, "PS-00001", 50, "", 2000, "Instalación", "Grupo Mecsa", new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
 
             migrationBuilder.InsertData(
                 table: "RolUsuarios",
                 columns: new[] { "RolUsuarioId", "RolId", "UsuarioId" },
                 values: new object[] { 1, 1, 1 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cotizaciones_OfertaId",
+                table: "Cotizaciones",
+                column: "OfertaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notas_ProyectoId",
@@ -224,13 +270,16 @@ namespace Datos.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Cotizaciones");
+
+            migrationBuilder.DropTable(
                 name: "Notas");
 
             migrationBuilder.DropTable(
-                name: "Ofertas");
+                name: "RolUsuarios");
 
             migrationBuilder.DropTable(
-                name: "RolUsuarios");
+                name: "Ofertas");
 
             migrationBuilder.DropTable(
                 name: "Proyectos");

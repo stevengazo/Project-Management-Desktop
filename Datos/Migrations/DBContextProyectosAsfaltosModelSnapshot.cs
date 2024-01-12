@@ -22,6 +22,96 @@ namespace Datos.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Modelos.Cotizacion", b =>
+                {
+                    b.Property<int>("CotizacionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CotizacionId"));
+
+                    b.Property<string>("Autor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Canton")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Categoria")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cliente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Creación")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("DiasLaborales")
+                        .HasColumnType("real");
+
+                    b.Property<bool>("EsPublico")
+                        .HasColumnType("bit");
+
+                    b.Property<float>("Imprevisto")
+                        .HasColumnType("real");
+
+                    b.Property<float>("MontoKM")
+                        .HasColumnType("real");
+
+                    b.Property<float>("MontoMO")
+                        .HasColumnType("real");
+
+                    b.Property<float>("MontoMaterial")
+                        .HasColumnType("real");
+
+                    b.Property<float>("MontoProductos")
+                        .HasColumnType("real");
+
+                    b.Property<float>("MontoViaticos")
+                        .HasColumnType("real");
+
+                    b.Property<int>("OfertaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Provincia")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RutaArchivo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Total")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Trabajadores")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UltimaModificacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UltimoEditor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CotizacionId");
+
+                    b.HasIndex("OfertaId");
+
+                    b.ToTable("Cotizaciones");
+                });
+
             modelBuilder.Entity("Modelos.Nota", b =>
                 {
                     b.Property<int>("NotaId")
@@ -144,7 +234,7 @@ namespace Datos.Migrations
                             Codigo = 1,
                             DDCE = true,
                             EncargadoCotizador = "Gabriel",
-                            Fecha = new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            Fecha = new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Local),
                             Ionizante = true,
                             Malla = true,
                             Monto = 100f,
@@ -154,7 +244,7 @@ namespace Datos.Migrations
                             Provincia = "San José",
                             Supresor = true,
                             Torre = true,
-                            UltimaModificacion = new DateTime(2024, 1, 11, 1, 0, 0, 0, DateTimeKind.Local),
+                            UltimaModificacion = new DateTime(2024, 1, 12, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
                 });
@@ -252,9 +342,9 @@ namespace Datos.Migrations
                             Estado = "Finalizado",
                             FacturaAnticipoId = "No existente",
                             FacturaFinalId = "No Existente",
-                            FechaFinal = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2024, 1, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2024, 1, 11, 15, 10, 4, 226, DateTimeKind.Local).AddTicks(6009),
+                            FechaFinal = new DateTime(2024, 1, 14, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaInicio = new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaOC = new DateTime(2024, 1, 12, 15, 10, 53, 222, DateTimeKind.Local).AddTicks(3063),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,
@@ -262,7 +352,7 @@ namespace Datos.Migrations
                             TareaId = 2000,
                             Tipo = "Instalación",
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });
@@ -294,6 +384,11 @@ namespace Datos.Migrations
                         {
                             RolId = 2,
                             Nombre = "Vendedor"
+                        },
+                        new
+                        {
+                            RolId = 3,
+                            Nombre = "Asistente"
                         });
                 });
 
@@ -366,6 +461,17 @@ namespace Datos.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Modelos.Cotizacion", b =>
+                {
+                    b.HasOne("Modelos.Oferta", "Oferta")
+                        .WithMany("Cotizaciones")
+                        .HasForeignKey("OfertaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Oferta");
+                });
+
             modelBuilder.Entity("Modelos.Nota", b =>
                 {
                     b.HasOne("Modelos.Proyecto", "Proyecto")
@@ -416,6 +522,11 @@ namespace Datos.Migrations
                     b.Navigation("Rol");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Modelos.Oferta", b =>
+                {
+                    b.Navigation("Cotizaciones");
                 });
 
             modelBuilder.Entity("Modelos.Proyecto", b =>

@@ -77,6 +77,13 @@ namespace Interfaz
                     botonRolAdmin.Name = "btnRolAdmin";
                     botonRolAdmin.UseColumnTextForButtonValue = true;
                     dgvUsuarios.Columns.Add(botonRolAdmin);
+
+                    DataGridViewButtonColumn botonRolAsistente = new();
+                    botonRolAsistente.HeaderText = "Rol Asistente";
+                    botonRolAsistente.Text = "Rol Asistente";
+                    botonRolAsistente.Name = "botonRolAsistente";
+                    botonRolAsistente.UseColumnTextForButtonValue = true;
+                    dgvUsuarios.Columns.Add(botonRolAsistente);
                 }
                 else
                 {
@@ -211,6 +218,51 @@ namespace Interfaz
                             RolUsuario rol = new RolUsuario()
                             {
                                 RolId = 1,
+                                UsuarioId = usuario.UsuarioId
+                            };
+                            var d = RolUsuario.AgregarRolUsuario(rol);
+                            if (d)
+                            {
+                                MessageBox.Show("Rol Añadido al usuario", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                CargarUsuarios();
+                            }
+                        }
+                    }
+                }
+                else if (e.ColumnIndex == 8)
+                {
+                    UsuarioNegocio usuarioNegocio = new();
+                    var id = int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    var usuario = usuarioNegocio.ObtenerUsuario(id);
+                    int rolid = 3;
+
+                    bool PoseeRol = RolUsuario.VerificarRol(usuario.UsuarioId, rolid);
+                    if (PoseeRol)
+                    {
+                        var respuesta = MessageBox.Show("El usuario posee el rol de asistente, deseas quitarlo?", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (respuesta == DialogResult.Yes)
+                        {
+                            var rol = RolUsuario.ObtenerRolUsuario(usuario.UsuarioId, rolid);
+                            if (rol != null)
+                            {
+                                var resultado = RolUsuario.BorrarRolUsuario(rol);
+                                if (resultado)
+                                {
+                                    MessageBox.Show("Rol Borrado", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    CargarUsuarios();
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // CONSULTAR SI AÑADIR ROL
+                        var respuesta = MessageBox.Show("El usuario no posee el rol de asistente, deseas añadirlo?", "Adventencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (respuesta == DialogResult.Yes)
+                        {
+                            RolUsuario rol = new RolUsuario()
+                            {
+                                RolId = rolid,
                                 UsuarioId = usuario.UsuarioId
                             };
                             var d = RolUsuario.AgregarRolUsuario(rol);

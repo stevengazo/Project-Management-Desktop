@@ -591,5 +591,11 @@ namespace Interfaz
         {
 
         }
+
+        private void cotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaCotizaciones listaCotizaciones = new();
+            listaCotizaciones.Show();
+        }
     }
 }

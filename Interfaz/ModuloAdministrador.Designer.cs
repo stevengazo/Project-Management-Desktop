@@ -85,6 +85,7 @@
             ayudaToolStripMenuItem = new ToolStripMenuItem();
             agregarUsuarioToolStripMenuItem = new ToolStripDropDownMenu();
             saveFileDialog1 = new SaveFileDialog();
+            cotizacionesToolStripMenuItem = new ToolStripMenuItem();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProyectos).BeginInit();
             groupBox1.SuspendLayout();
@@ -510,7 +511,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, ofertasToolStripMenuItem, usuariosToolStripMenuItem, ayudaToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, ofertasToolStripMenuItem, cotizacionesToolStripMenuItem, usuariosToolStripMenuItem, ayudaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1365, 24);
@@ -582,14 +583,14 @@
             // listarVendedoresToolStripMenuItem
             // 
             listarVendedoresToolStripMenuItem.Name = "listarVendedoresToolStripMenuItem";
-            listarVendedoresToolStripMenuItem.Size = new Size(159, 22);
+            listarVendedoresToolStripMenuItem.Size = new Size(180, 22);
             listarVendedoresToolStripMenuItem.Text = "Listar Usuarios";
             listarVendedoresToolStripMenuItem.Click += listarVendedoresToolStripMenuItem_Click;
             // 
             // agregarUsuarioToolStripMenuItem1
             // 
             agregarUsuarioToolStripMenuItem1.Name = "agregarUsuarioToolStripMenuItem1";
-            agregarUsuarioToolStripMenuItem1.Size = new Size(159, 22);
+            agregarUsuarioToolStripMenuItem1.Size = new Size(180, 22);
             agregarUsuarioToolStripMenuItem1.Text = "Agregar Usuario";
             agregarUsuarioToolStripMenuItem1.Click += agregarUsuarioToolStripMenuItem1_Click;
             // 
@@ -605,6 +606,13 @@
             agregarUsuarioToolStripMenuItem.AutoClose = false;
             agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
             agregarUsuarioToolStripMenuItem.Size = new Size(61, 4);
+            // 
+            // cotizacionesToolStripMenuItem
+            // 
+            cotizacionesToolStripMenuItem.Name = "cotizacionesToolStripMenuItem";
+            cotizacionesToolStripMenuItem.Size = new Size(86, 20);
+            cotizacionesToolStripMenuItem.Text = "Cotizaciones";
+            cotizacionesToolStripMenuItem.Click += cotizacionesToolStripMenuItem_Click;
             // 
             // ModuloAdministrador
             // 
@@ -691,5 +699,6 @@
         private Label label3;
         private ComboBox cbProvincia;
         private Label label4;
+        private ToolStripMenuItem cotizacionesToolStripMenuItem;
     }
 }

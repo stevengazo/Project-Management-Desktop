@@ -32,5 +32,7 @@ namespace Modelos
         public int UsuarioId { get; set; }
 
 
+        public ICollection<Cotizacion> Cotizaciones { get; set; }
+
     }
 }

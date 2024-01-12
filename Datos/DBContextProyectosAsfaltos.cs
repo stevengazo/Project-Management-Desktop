@@ -20,6 +20,7 @@ namespace Modelos
         #region Atributos Publicos
         public DbSet<Proyecto> Proyectos { get; set; }
         public DbSet<Rol> Roles { get; set; }
+        public DbSet<Cotizacion> Cotizaciones { get; set; } 
         public DbSet<RolUsuario> RolUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Oferta> Ofertas { get; set; }
@@ -74,6 +75,14 @@ namespace Modelos
                 Nombre = "Vendedor"
             };
             model.Entity<Rol>().HasData(Vendedor);
+
+            Rol Asistente = new() 
+            { 
+                RolId=3,
+                Nombre="Asistente"
+            };
+            model.Entity<Rol>().HasData(Asistente);
+
 
             RolUsuario rolUsuarioBase = new()
             {

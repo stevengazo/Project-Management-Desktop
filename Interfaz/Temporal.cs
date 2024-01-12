@@ -19,5 +19,7 @@ namespace Interfaz
 
         public static int NotaId { get; set; }
 
+        public static int CotizacioId {  get; set; }
+
     }
 }
