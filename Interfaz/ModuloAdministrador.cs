@@ -597,5 +597,11 @@ namespace Interfaz
             ListaCotizaciones listaCotizaciones = new();
             listaCotizaciones.Show();
         }
+
+        private void listaDeInformesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaInforme listaInforme =new ListaInforme();
+            listaInforme.Show();
+        }
     }
 }

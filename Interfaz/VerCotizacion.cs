@@ -21,6 +21,7 @@ namespace Interfaz
             d = CotizacionNegocio.Get(Temporal.CotizacioId);
             if (d != null)
             {
+                this.Text = $"Cotizacion {d.Cliente}-{d.Titulo}";
                 txtCliente.Text = d.Cliente;
                 txtTitulo.Text = d.Titulo;
                 txtDireccion.Text = d.Canton;

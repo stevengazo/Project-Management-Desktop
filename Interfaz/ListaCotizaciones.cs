@@ -37,7 +37,7 @@ namespace Interfaz
                 cotizacion.Cliente = txtCliente.Text;
                 cotizacion.Titulo = txtTitulo.Text;
                 cotizacion.Descripcion = txtDescripcion.Text;
-                //cotizacion.OfertaID 
+
                 cotizacion.Provincia = cbProvincia.Text;
                 cotizacion.Canton = txtDireccion.Text;
                 cotizacion.EsPublico = ckPuPri.Checked;
@@ -59,7 +59,6 @@ namespace Interfaz
                 cotizacion.RutaArchivo = "";
                 var result = CotizacionNegocio.Add(cotizacion);
                 MessageBox.Show("Cotización ingresada\nNúmero de cotizacion: " + result.CotizacionId, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //load data
                 CargarCotizaciones();
             }
         }
@@ -153,7 +152,9 @@ namespace Interfaz
                 // Editar
                 else if (e.ColumnIndex == 1)
                 {
-
+                    Temporal.CotizacioId = int.Parse(datoid);
+                    EditarCotizacion editarCotizacion = new();
+                    editarCotizacion.ShowDialog();
                 }
 
             }

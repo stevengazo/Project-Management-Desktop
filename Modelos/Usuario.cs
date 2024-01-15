@@ -19,6 +19,7 @@ namespace Modelos
         public ICollection<RolUsuario> RolUsuarios { get; set; }
         public ICollection<Oferta> Ofertas { get; set; }
         public ICollection<Proyecto> Proyectos { get; set; }
+        public ICollection<Informe > Informes { get; set;}
 
     }
 }

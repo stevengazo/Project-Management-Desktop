@@ -236,8 +236,10 @@
             // 
             // txtCliente
             // 
+            txtCliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtCliente.Location = new Point(133, 22);
             txtCliente.Name = "txtCliente";
+            txtCliente.ReadOnly = true;
             txtCliente.Size = new Size(208, 23);
             txtCliente.TabIndex = 53;
             txtCliente.TextAlign = HorizontalAlignment.Right;
@@ -245,150 +247,168 @@
             // txtTitulo
             // 
             txtTitulo.AccessibleRole = AccessibleRole.SplitButton;
+            txtTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtTitulo.Location = new Point(133, 51);
             txtTitulo.Name = "txtTitulo";
+            txtTitulo.ReadOnly = true;
             txtTitulo.Size = new Size(208, 23);
             txtTitulo.TabIndex = 54;
             txtTitulo.TextAlign = HorizontalAlignment.Right;
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtDescripcion.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtDescripcion.Location = new Point(133, 80);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.ReadOnly = true;
             txtDescripcion.Size = new Size(208, 68);
             txtDescripcion.TabIndex = 55;
             txtDescripcion.TextAlign = HorizontalAlignment.Right;
             // 
             // txtProvincia
             // 
-            txtProvincia.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtProvincia.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtProvincia.Location = new Point(133, 154);
             txtProvincia.Name = "txtProvincia";
+            txtProvincia.ReadOnly = true;
             txtProvincia.Size = new Size(208, 23);
             txtProvincia.TabIndex = 56;
             txtProvincia.TextAlign = HorizontalAlignment.Right;
             // 
             // txtDireccion
             // 
-            txtDireccion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtDireccion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtDireccion.Location = new Point(133, 183);
             txtDireccion.Name = "txtDireccion";
+            txtDireccion.ReadOnly = true;
             txtDireccion.Size = new Size(208, 23);
             txtDireccion.TabIndex = 57;
             txtDireccion.TextAlign = HorizontalAlignment.Right;
             // 
             // txtTipo
             // 
-            txtTipo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtTipo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTipo.Location = new Point(133, 213);
             txtTipo.Name = "txtTipo";
+            txtTipo.ReadOnly = true;
             txtTipo.Size = new Size(208, 23);
             txtTipo.TabIndex = 58;
             txtTipo.TextAlign = HorizontalAlignment.Right;
             // 
             // txtTrabajadores
             // 
-            txtTrabajadores.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtTrabajadores.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTrabajadores.Location = new Point(133, 242);
             txtTrabajadores.Name = "txtTrabajadores";
+            txtTrabajadores.ReadOnly = true;
             txtTrabajadores.Size = new Size(208, 23);
             txtTrabajadores.TabIndex = 59;
             txtTrabajadores.TextAlign = HorizontalAlignment.Right;
             // 
             // txtDias
             // 
-            txtDias.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtDias.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtDias.Location = new Point(133, 271);
             txtDias.Name = "txtDias";
+            txtDias.ReadOnly = true;
             txtDias.Size = new Size(208, 23);
             txtDias.TabIndex = 60;
             txtDias.TextAlign = HorizontalAlignment.Right;
             // 
             // txtMO
             // 
-            txtMO.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtMO.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtMO.Location = new Point(133, 300);
             txtMO.Name = "txtMO";
+            txtMO.ReadOnly = true;
             txtMO.Size = new Size(208, 23);
             txtMO.TabIndex = 61;
             txtMO.TextAlign = HorizontalAlignment.Right;
             // 
             // txtKM
             // 
-            txtKM.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtKM.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtKM.Location = new Point(133, 329);
             txtKM.Name = "txtKM";
+            txtKM.ReadOnly = true;
             txtKM.Size = new Size(208, 23);
             txtKM.TabIndex = 62;
             txtKM.TextAlign = HorizontalAlignment.Right;
             // 
             // txtMaterial
             // 
-            txtMaterial.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtMaterial.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtMaterial.Location = new Point(133, 358);
             txtMaterial.Name = "txtMaterial";
+            txtMaterial.ReadOnly = true;
             txtMaterial.Size = new Size(208, 23);
             txtMaterial.TabIndex = 63;
             txtMaterial.TextAlign = HorizontalAlignment.Right;
             // 
             // txtProductos
             // 
-            txtProductos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtProductos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtProductos.Location = new Point(133, 387);
             txtProductos.Name = "txtProductos";
+            txtProductos.ReadOnly = true;
             txtProductos.Size = new Size(208, 23);
             txtProductos.TabIndex = 64;
             txtProductos.TextAlign = HorizontalAlignment.Right;
             // 
             // txtViaticos
             // 
-            txtViaticos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtViaticos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtViaticos.Location = new Point(133, 416);
             txtViaticos.Name = "txtViaticos";
+            txtViaticos.ReadOnly = true;
             txtViaticos.Size = new Size(208, 23);
             txtViaticos.TabIndex = 65;
             txtViaticos.TextAlign = HorizontalAlignment.Right;
             // 
             // txtImprevistos
             // 
-            txtImprevistos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtImprevistos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtImprevistos.Location = new Point(133, 445);
             txtImprevistos.Name = "txtImprevistos";
+            txtImprevistos.ReadOnly = true;
             txtImprevistos.Size = new Size(208, 23);
             txtImprevistos.TabIndex = 66;
             txtImprevistos.TextAlign = HorizontalAlignment.Right;
             // 
             // txtTotal
             // 
-            txtTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTotal.Location = new Point(133, 474);
             txtTotal.Name = "txtTotal";
+            txtTotal.ReadOnly = true;
             txtTotal.Size = new Size(208, 23);
             txtTotal.TabIndex = 67;
             txtTotal.TextAlign = HorizontalAlignment.Right;
             // 
             // txtNumeroOferta
             // 
-            txtNumeroOferta.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtNumeroOferta.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtNumeroOferta.Location = new Point(133, 503);
             txtNumeroOferta.Name = "txtNumeroOferta";
+            txtNumeroOferta.ReadOnly = true;
             txtNumeroOferta.Size = new Size(208, 23);
             txtNumeroOferta.TabIndex = 68;
             txtNumeroOferta.TextAlign = HorizontalAlignment.Right;
             // 
             // txtTipoCotizacion
             // 
-            txtTipoCotizacion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtTipoCotizacion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtTipoCotizacion.Location = new Point(133, 532);
             txtTipoCotizacion.Name = "txtTipoCotizacion";
+            txtTipoCotizacion.ReadOnly = true;
             txtTipoCotizacion.Size = new Size(208, 23);
             txtTipoCotizacion.TabIndex = 69;
             txtTipoCotizacion.TextAlign = HorizontalAlignment.Right;
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(txtCliente);
             groupBox1.Controls.Add(txtTipoCotizacion);
             groupBox1.Controls.Add(label3);

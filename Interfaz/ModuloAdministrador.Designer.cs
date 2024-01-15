@@ -79,13 +79,17 @@
             ofertasToolStripMenuItem = new ToolStripMenuItem();
             listarOfertasToolStripMenuItem = new ToolStripMenuItem();
             agregarOfertaToolStripMenuItem = new ToolStripMenuItem();
+            cotizacionesToolStripMenuItem = new ToolStripMenuItem();
             usuariosToolStripMenuItem = new ToolStripMenuItem();
             listarVendedoresToolStripMenuItem = new ToolStripMenuItem();
             agregarUsuarioToolStripMenuItem1 = new ToolStripMenuItem();
             ayudaToolStripMenuItem = new ToolStripMenuItem();
             agregarUsuarioToolStripMenuItem = new ToolStripDropDownMenu();
             saveFileDialog1 = new SaveFileDialog();
-            cotizacionesToolStripMenuItem = new ToolStripMenuItem();
+            informesToolStripMenuItem = new ToolStripMenuItem();
+            listaDeInformesToolStripMenuItem = new ToolStripMenuItem();
+            informesPendientesToolStripMenuItem = new ToolStripMenuItem();
+            crearInformeToolStripMenuItem = new ToolStripMenuItem();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProyectos).BeginInit();
             groupBox1.SuspendLayout();
@@ -511,7 +515,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, ofertasToolStripMenuItem, cotizacionesToolStripMenuItem, usuariosToolStripMenuItem, ayudaToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, ofertasToolStripMenuItem, cotizacionesToolStripMenuItem, informesToolStripMenuItem, usuariosToolStripMenuItem, ayudaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1365, 24);
@@ -573,6 +577,13 @@
             agregarOfertaToolStripMenuItem.Text = "Agregar Oferta";
             agregarOfertaToolStripMenuItem.Click += agregarOfertaToolStripMenuItem_Click;
             // 
+            // cotizacionesToolStripMenuItem
+            // 
+            cotizacionesToolStripMenuItem.Name = "cotizacionesToolStripMenuItem";
+            cotizacionesToolStripMenuItem.Size = new Size(86, 20);
+            cotizacionesToolStripMenuItem.Text = "Cotizaciones";
+            cotizacionesToolStripMenuItem.Click += cotizacionesToolStripMenuItem_Click;
+            // 
             // usuariosToolStripMenuItem
             // 
             usuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listarVendedoresToolStripMenuItem, agregarUsuarioToolStripMenuItem1 });
@@ -607,12 +618,31 @@
             agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
             agregarUsuarioToolStripMenuItem.Size = new Size(61, 4);
             // 
-            // cotizacionesToolStripMenuItem
+            // informesToolStripMenuItem
             // 
-            cotizacionesToolStripMenuItem.Name = "cotizacionesToolStripMenuItem";
-            cotizacionesToolStripMenuItem.Size = new Size(86, 20);
-            cotizacionesToolStripMenuItem.Text = "Cotizaciones";
-            cotizacionesToolStripMenuItem.Click += cotizacionesToolStripMenuItem_Click;
+            informesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaDeInformesToolStripMenuItem, informesPendientesToolStripMenuItem, crearInformeToolStripMenuItem });
+            informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            informesToolStripMenuItem.Size = new Size(66, 20);
+            informesToolStripMenuItem.Text = "Informes";
+            // 
+            // listaDeInformesToolStripMenuItem
+            // 
+            listaDeInformesToolStripMenuItem.Name = "listaDeInformesToolStripMenuItem";
+            listaDeInformesToolStripMenuItem.Size = new Size(182, 22);
+            listaDeInformesToolStripMenuItem.Text = "Lista de Informes";
+            listaDeInformesToolStripMenuItem.Click += listaDeInformesToolStripMenuItem_Click;
+            // 
+            // informesPendientesToolStripMenuItem
+            // 
+            informesPendientesToolStripMenuItem.Name = "informesPendientesToolStripMenuItem";
+            informesPendientesToolStripMenuItem.Size = new Size(182, 22);
+            informesPendientesToolStripMenuItem.Text = "Informes Pendientes";
+            // 
+            // crearInformeToolStripMenuItem
+            // 
+            crearInformeToolStripMenuItem.Name = "crearInformeToolStripMenuItem";
+            crearInformeToolStripMenuItem.Size = new Size(182, 22);
+            crearInformeToolStripMenuItem.Text = "Crear Informe";
             // 
             // ModuloAdministrador
             // 
@@ -700,5 +730,9 @@
         private ComboBox cbProvincia;
         private Label label4;
         private ToolStripMenuItem cotizacionesToolStripMenuItem;
+        private ToolStripMenuItem informesToolStripMenuItem;
+        private ToolStripMenuItem listaDeInformesToolStripMenuItem;
+        private ToolStripMenuItem informesPendientesToolStripMenuItem;
+        private ToolStripMenuItem crearInformeToolStripMenuItem;
     }
 }

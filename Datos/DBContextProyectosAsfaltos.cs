@@ -21,6 +21,7 @@ namespace Modelos
         public DbSet<Proyecto> Proyectos { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Cotizacion> Cotizaciones { get; set; } 
+        public DbSet<Informe> Informes { get; set; }
         public DbSet<RolUsuario> RolUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Oferta> Ofertas { get; set; }

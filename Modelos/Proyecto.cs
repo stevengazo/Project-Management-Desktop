@@ -31,6 +31,7 @@ namespace Modelos
         public int UsuarioId { get; set; }
         public bool Enable { get; set; }
         public ICollection<Nota> Notas { get; set; }
+        public ICollection<Informe> Informes { get; set; }  
         //public int ClienteID { get; set; }
         //public Cliente Cliente { get; set;}
 
