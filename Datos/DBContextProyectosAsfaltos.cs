@@ -140,6 +140,8 @@ namespace Modelos
                 AutorPrespuesto = usuarioBase.Nombre,
                 UltimaModificacion = DateTime.Today.AddHours(1),
                 UsuarioId = usuarioBase.UsuarioId,
+                Estado = "Pendiente",
+                Concluida = true,
                 Cliente = "Ejemplo",
                 EncargadoCotizador = "Gabriel"
             };

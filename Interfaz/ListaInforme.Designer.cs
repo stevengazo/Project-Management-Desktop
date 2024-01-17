@@ -29,28 +29,27 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            dataGridViewInformes = new DataGridView();
             menuStrip1 = new MenuStrip();
             crearInformeToolStripMenuItem = new ToolStripMenuItem();
             informesPendientesToolStripMenuItem = new ToolStripMenuItem();
             calificacionesToolStripMenuItem = new ToolStripMenuItem();
             groupBox2 = new GroupBox();
-            splitter1 = new Splitter();
-            button1 = new Button();
-            textBox2 = new TextBox();
+            btnBuscar = new Button();
+            txtClienteBusqueda = new TextBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtNumeroBusqueda = new TextBox();
             label1 = new Label();
             groupBox3 = new GroupBox();
+            dateTimePickerFinalizacion = new DateTimePicker();
+            label13 = new Label();
             label12 = new Label();
             label11 = new Label();
             trackBarCalificacion = new TrackBar();
             comboBoxAutor = new ComboBox();
             dateTimePickerEntrega = new DateTimePicker();
             btnActualizar = new Button();
-            comboBoxProyectoId = new ComboBox();
             comboBoxEstado = new ComboBox();
-            label10 = new Label();
             label9 = new Label();
             txtComentarios = new TextBox();
             label8 = new Label();
@@ -61,10 +60,8 @@
             label4 = new Label();
             label3 = new Label();
             txtIdInforme = new TextBox();
-            dateTimePickerFinalizacion = new DateTimePicker();
-            label13 = new Label();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -74,7 +71,7 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(dataGridViewInformes);
             groupBox1.Location = new Point(12, 100);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(775, 445);
@@ -82,15 +79,16 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Lista de Informes";
             // 
-            // dataGridView1
+            // dataGridViewInformes
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(10, 28);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(759, 411);
-            dataGridView1.TabIndex = 0;
+            dataGridViewInformes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewInformes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewInformes.Location = new Point(10, 28);
+            dataGridViewInformes.Name = "dataGridViewInformes";
+            dataGridViewInformes.RowTemplate.Height = 25;
+            dataGridViewInformes.Size = new Size(759, 411);
+            dataGridViewInformes.TabIndex = 0;
+            dataGridViewInformes.CellClick += dataGridViewInformes_CellClick;
             // 
             // menuStrip1
             // 
@@ -106,12 +104,14 @@
             crearInformeToolStripMenuItem.Name = "crearInformeToolStripMenuItem";
             crearInformeToolStripMenuItem.Size = new Size(92, 20);
             crearInformeToolStripMenuItem.Text = "Crear Informe";
+            crearInformeToolStripMenuItem.Click += crearInformeToolStripMenuItem_Click;
             // 
             // informesPendientesToolStripMenuItem
             // 
             informesPendientesToolStripMenuItem.Name = "informesPendientesToolStripMenuItem";
             informesPendientesToolStripMenuItem.Size = new Size(127, 20);
             informesPendientesToolStripMenuItem.Text = "Informes Pendientes";
+            informesPendientesToolStripMenuItem.Click += informesPendientesToolStripMenuItem_Click;
             // 
             // calificacionesToolStripMenuItem
             // 
@@ -122,11 +122,10 @@
             // groupBox2
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox2.Controls.Add(splitter1);
-            groupBox2.Controls.Add(button1);
-            groupBox2.Controls.Add(textBox2);
+            groupBox2.Controls.Add(btnBuscar);
+            groupBox2.Controls.Add(txtClienteBusqueda);
             groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(txtNumeroBusqueda);
             groupBox2.Controls.Add(label1);
             groupBox2.Location = new Point(12, 27);
             groupBox2.Name = "groupBox2";
@@ -135,29 +134,21 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Busqueda";
             // 
-            // splitter1
+            // btnBuscar
             // 
-            splitter1.Location = new Point(3, 19);
-            splitter1.Name = "splitter1";
-            splitter1.Size = new Size(3, 45);
-            splitter1.TabIndex = 5;
-            splitter1.TabStop = false;
+            btnBuscar.Location = new Point(495, 30);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(132, 23);
+            btnBuscar.TabIndex = 4;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // txtClienteBusqueda
             // 
-            button1.Location = new Point(495, 30);
-            button1.Name = "button1";
-            button1.Size = new Size(132, 23);
-            button1.TabIndex = 4;
-            button1.Text = "Buscar";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(305, 30);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(170, 23);
-            textBox2.TabIndex = 3;
+            txtClienteBusqueda.Location = new Point(305, 30);
+            txtClienteBusqueda.Name = "txtClienteBusqueda";
+            txtClienteBusqueda.Size = new Size(170, 23);
+            txtClienteBusqueda.TabIndex = 3;
             // 
             // label2
             // 
@@ -168,12 +159,12 @@
             label2.TabIndex = 2;
             label2.Text = "Cliente";
             // 
-            // textBox1
+            // txtNumeroBusqueda
             // 
-            textBox1.Location = new Point(73, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(170, 23);
-            textBox1.TabIndex = 1;
+            txtNumeroBusqueda.Location = new Point(73, 27);
+            txtNumeroBusqueda.Name = "txtNumeroBusqueda";
+            txtNumeroBusqueda.Size = new Size(170, 23);
+            txtNumeroBusqueda.TabIndex = 1;
             // 
             // label1
             // 
@@ -195,9 +186,7 @@
             groupBox3.Controls.Add(comboBoxAutor);
             groupBox3.Controls.Add(dateTimePickerEntrega);
             groupBox3.Controls.Add(btnActualizar);
-            groupBox3.Controls.Add(comboBoxProyectoId);
             groupBox3.Controls.Add(comboBoxEstado);
-            groupBox3.Controls.Add(label10);
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(txtComentarios);
             groupBox3.Controls.Add(label8);
@@ -214,6 +203,26 @@
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
             groupBox3.Text = "Informacion";
+            // 
+            // dateTimePickerFinalizacion
+            // 
+            dateTimePickerFinalizacion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dateTimePickerFinalizacion.CustomFormat = "\"YY/MM/DD\"";
+            dateTimePickerFinalizacion.Location = new Point(116, 130);
+            dateTimePickerFinalizacion.Name = "dateTimePickerFinalizacion";
+            dateTimePickerFinalizacion.Size = new Size(151, 23);
+            dateTimePickerFinalizacion.TabIndex = 24;
+            dateTimePickerFinalizacion.Value = new DateTime(2024, 1, 15, 17, 29, 38, 0);
+            // 
+            // label13
+            // 
+            label13.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label13.AutoSize = true;
+            label13.Location = new Point(9, 134);
+            label13.Name = "label13";
+            label13.Size = new Size(69, 15);
+            label13.TabIndex = 23;
+            label13.Text = "Finalizacion";
             // 
             // label12
             // 
@@ -240,9 +249,11 @@
             trackBarCalificacion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             trackBarCalificacion.Location = new Point(60, 239);
             trackBarCalificacion.Maximum = 5;
+            trackBarCalificacion.Minimum = 1;
             trackBarCalificacion.Name = "trackBarCalificacion";
             trackBarCalificacion.Size = new Size(144, 45);
             trackBarCalificacion.TabIndex = 20;
+            trackBarCalificacion.Value = 1;
             // 
             // comboBoxAutor
             // 
@@ -272,15 +283,7 @@
             btnActualizar.TabIndex = 17;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxProyectoId
-            // 
-            comboBoxProyectoId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBoxProyectoId.FormattingEnabled = true;
-            comboBoxProyectoId.Location = new Point(116, 430);
-            comboBoxProyectoId.Name = "comboBoxProyectoId";
-            comboBoxProyectoId.Size = new Size(151, 23);
-            comboBoxProyectoId.TabIndex = 16;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // comboBoxEstado
             // 
@@ -291,16 +294,6 @@
             comboBoxEstado.Name = "comboBoxEstado";
             comboBoxEstado.Size = new Size(151, 23);
             comboBoxEstado.TabIndex = 15;
-            // 
-            // label10
-            // 
-            label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label10.AutoSize = true;
-            label10.Location = new Point(9, 433);
-            label10.Name = "label10";
-            label10.Size = new Size(101, 15);
-            label10.TabIndex = 14;
-            label10.Text = "Número Proyecto";
             // 
             // label9
             // 
@@ -394,28 +387,9 @@
             txtIdInforme.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtIdInforme.Location = new Point(116, 44);
             txtIdInforme.Name = "txtIdInforme";
+            txtIdInforme.ReadOnly = true;
             txtIdInforme.Size = new Size(151, 23);
             txtIdInforme.TabIndex = 0;
-            // 
-            // dateTimePickerFinalizacion
-            // 
-            dateTimePickerFinalizacion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            dateTimePickerFinalizacion.CustomFormat = "\"YY/MM/DD\"";
-            dateTimePickerFinalizacion.Location = new Point(116, 130);
-            dateTimePickerFinalizacion.Name = "dateTimePickerFinalizacion";
-            dateTimePickerFinalizacion.Size = new Size(151, 23);
-            dateTimePickerFinalizacion.TabIndex = 24;
-            dateTimePickerFinalizacion.Value = new DateTime(2024, 1, 15, 17, 29, 38, 0);
-            // 
-            // label13
-            // 
-            label13.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label13.AutoSize = true;
-            label13.Location = new Point(9, 134);
-            label13.Name = "label13";
-            label13.Size = new Size(69, 15);
-            label13.TabIndex = 23;
-            label13.Text = "Finalizacion";
             // 
             // ListaInforme
             // 
@@ -432,7 +406,7 @@
             Text = "Lista Informe";
             Load += ListaInforme_Load;
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -447,16 +421,16 @@
         #endregion
 
         private GroupBox groupBox1;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewInformes;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem crearInformeToolStripMenuItem;
         private ToolStripMenuItem calificacionesToolStripMenuItem;
         private GroupBox groupBox2;
         private ToolStripMenuItem informesPendientesToolStripMenuItem;
-        private Button button1;
-        private TextBox textBox2;
+        private Button btnBuscar;
+        private TextBox txtClienteBusqueda;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtNumeroBusqueda;
         private Label label1;
         private GroupBox groupBox3;
         private Label label3;
@@ -471,10 +445,7 @@
         private Label label4;
         private DateTimePicker dateTimePickerEntrega;
         private Button btnActualizar;
-        private ComboBox comboBoxProyectoId;
         private ComboBox comboBoxEstado;
-        private Label label10;
-        private Splitter splitter1;
         private TrackBar trackBarCalificacion;
         private ComboBox comboBoxAutor;
         private Label label12;

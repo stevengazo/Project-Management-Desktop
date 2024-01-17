@@ -24,7 +24,8 @@ namespace Modelos
         public string EncargadoCotizador { get; set; }
         public string AutorPrespuesto { get; set; }
         public string Cliente { get; set; }
-
+        public string Estado { get; set; }
+        public bool Concluida { get; set; }
         public DateTime UltimaModificacion { get; set; }
 
         // Relacion

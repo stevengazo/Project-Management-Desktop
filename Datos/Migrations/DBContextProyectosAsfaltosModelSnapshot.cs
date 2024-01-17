@@ -112,6 +112,60 @@ namespace Datos.Migrations
                     b.ToTable("Cotizaciones");
                 });
 
+            modelBuilder.Entity("Modelos.Informe", b =>
+                {
+                    b.Property<int>("InformeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InformeId"));
+
+                    b.Property<int>("Calificacion")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comentarios")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Concluido")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaMaxima")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProyectoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tecnico")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UltimaModificacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UltimoEditor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("InformeId");
+
+                    b.HasIndex("ProyectoId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Informes");
+                });
+
             modelBuilder.Entity("Modelos.Nota", b =>
                 {
                     b.Property<int>("NotaId")
@@ -172,10 +226,17 @@ namespace Datos.Migrations
                     b.Property<int>("Codigo")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Concluida")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("DDCE")
                         .HasColumnType("bit");
 
                     b.Property<string>("EncargadoCotizador")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -232,9 +293,11 @@ namespace Datos.Migrations
                             Categoria = "Instalación",
                             Cliente = "Ejemplo",
                             Codigo = 1,
+                            Concluida = true,
                             DDCE = true,
                             EncargadoCotizador = "Gabriel",
-                            Fecha = new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            Estado = "Pendiente",
+                            Fecha = new DateTime(2024, 1, 16, 0, 0, 0, 0, DateTimeKind.Local),
                             Ionizante = true,
                             Malla = true,
                             Monto = 100f,
@@ -244,7 +307,7 @@ namespace Datos.Migrations
                             Provincia = "San José",
                             Supresor = true,
                             Torre = true,
-                            UltimaModificacion = new DateTime(2024, 1, 12, 1, 0, 0, 0, DateTimeKind.Local),
+                            UltimaModificacion = new DateTime(2024, 1, 16, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
                 });
@@ -342,9 +405,9 @@ namespace Datos.Migrations
                             Estado = "Finalizado",
                             FacturaAnticipoId = "No existente",
                             FacturaFinalId = "No Existente",
-                            FechaFinal = new DateTime(2024, 1, 14, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2024, 1, 12, 15, 10, 53, 222, DateTimeKind.Local).AddTicks(3063),
+                            FechaFinal = new DateTime(2024, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaInicio = new DateTime(2024, 1, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaOC = new DateTime(2024, 1, 16, 15, 10, 18, 743, DateTimeKind.Local).AddTicks(5314),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,
@@ -352,7 +415,7 @@ namespace Datos.Migrations
                             TareaId = 2000,
                             Tipo = "Instalación",
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2024, 1, 16, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });
@@ -472,6 +535,23 @@ namespace Datos.Migrations
                     b.Navigation("Oferta");
                 });
 
+            modelBuilder.Entity("Modelos.Informe", b =>
+                {
+                    b.HasOne("Modelos.Proyecto", "Proyecto")
+                        .WithMany("Informes")
+                        .HasForeignKey("ProyectoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Modelos.Usuario", "Usuario")
+                        .WithMany("Informes")
+                        .HasForeignKey("UsuarioId");
+
+                    b.Navigation("Proyecto");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("Modelos.Nota", b =>
                 {
                     b.HasOne("Modelos.Proyecto", "Proyecto")
@@ -531,6 +611,8 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Modelos.Proyecto", b =>
                 {
+                    b.Navigation("Informes");
+
                     b.Navigation("Notas");
                 });
 
@@ -541,6 +623,8 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Modelos.Usuario", b =>
                 {
+                    b.Navigation("Informes");
+
                     b.Navigation("Ofertas");
 
                     b.Navigation("Proyectos");

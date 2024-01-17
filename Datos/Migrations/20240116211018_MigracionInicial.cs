@@ -63,6 +63,8 @@ namespace Datos.Migrations
                     EncargadoCotizador = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AutorPrespuesto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Concluida = table.Column<bool>(type: "bit", nullable: false),
                     UltimaModificacion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UsuarioId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -181,6 +183,40 @@ namespace Datos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Informes",
+                columns: table => new
+                {
+                    InformeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaRegistro = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaMaxima = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Tecnico = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Calificacion = table.Column<int>(type: "int", nullable: false),
+                    Comentarios = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Concluido = table.Column<bool>(type: "bit", nullable: false),
+                    UltimoEditor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UltimaModificacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProyectoId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Informes", x => x.InformeId);
+                    table.ForeignKey(
+                        name: "FK_Informes_Proyectos_ProyectoId",
+                        column: x => x.ProyectoId,
+                        principalTable: "Proyectos",
+                        principalColumn: "ProyectoId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Informes_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "UsuarioId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Notas",
                 columns: table => new
                 {
@@ -222,13 +258,13 @@ namespace Datos.Migrations
 
             migrationBuilder.InsertData(
                 table: "Ofertas",
-                columns: new[] { "OfertaId", "AutorPrespuesto", "Categoria", "Cliente", "Codigo", "DDCE", "EncargadoCotizador", "Fecha", "Ionizante", "Malla", "Monto", "Notas", "Observaciones", "Otros", "Provincia", "Supresor", "Torre", "UltimaModificacion", "UsuarioId" },
-                values: new object[] { 1, "Administrador", "Instalación", "Ejemplo", 1, true, "Gabriel", new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Local), true, true, 100f, "", "", true, "San José", true, true, new DateTime(2024, 1, 12, 1, 0, 0, 0, DateTimeKind.Local), 1 });
+                columns: new[] { "OfertaId", "AutorPrespuesto", "Categoria", "Cliente", "Codigo", "Concluida", "DDCE", "EncargadoCotizador", "Estado", "Fecha", "Ionizante", "Malla", "Monto", "Notas", "Observaciones", "Otros", "Provincia", "Supresor", "Torre", "UltimaModificacion", "UsuarioId" },
+                values: new object[] { 1, "Administrador", "Instalación", "Ejemplo", 1, true, true, "Gabriel", "Pendiente", new DateTime(2024, 1, 16, 0, 0, 0, 0, DateTimeKind.Local), true, true, 100f, "", "", true, "San José", true, true, new DateTime(2024, 1, 16, 1, 0, 0, 0, DateTimeKind.Local), 1 });
 
             migrationBuilder.InsertData(
                 table: "Proyectos",
                 columns: new[] { "ProyectoId", "Autor", "Cliente", "Contacto", "Enable", "Estado", "FacturaAnticipoId", "FacturaFinalId", "FechaFinal", "FechaInicio", "FechaOC", "Monto", "OfertaId", "PorcentajeAnticipo", "Provincia", "TareaId", "Tipo", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
-                values: new object[] { 1, "Administrador", "Ejemplo de Cliente", "Ejemplo", true, "Finalizado", "No existente", "No Existente", new DateTime(2024, 1, 14, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 12, 15, 10, 53, 222, DateTimeKind.Local).AddTicks(3063), 100f, "PS-00001", 50, "", 2000, "Instalación", "Grupo Mecsa", new DateTime(2024, 1, 12, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
+                values: new object[] { 1, "Administrador", "Ejemplo de Cliente", "Ejemplo", true, "Finalizado", "No existente", "No Existente", new DateTime(2024, 1, 18, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 15, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 1, 16, 15, 10, 18, 743, DateTimeKind.Local).AddTicks(5314), 100f, "PS-00001", 50, "", 2000, "Instalación", "Grupo Mecsa", new DateTime(2024, 1, 16, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
 
             migrationBuilder.InsertData(
                 table: "RolUsuarios",
@@ -239,6 +275,16 @@ namespace Datos.Migrations
                 name: "IX_Cotizaciones_OfertaId",
                 table: "Cotizaciones",
                 column: "OfertaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Informes_ProyectoId",
+                table: "Informes",
+                column: "ProyectoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Informes_UsuarioId",
+                table: "Informes",
+                column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notas_ProyectoId",
@@ -271,6 +317,9 @@ namespace Datos.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Cotizaciones");
+
+            migrationBuilder.DropTable(
+                name: "Informes");
 
             migrationBuilder.DropTable(
                 name: "Notas");

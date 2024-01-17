@@ -319,6 +319,22 @@ namespace Interfaz
                     var resultado = proyectoNegocios.CrearProyecto(proyectoTemporal, out int idProyecto);
                     if (resultado)
                     {
+                        Informe nuevoInforme = new();
+                        //nuevoInforme.InformeId = InformeNegocio.LastNumber() + 1;
+                        nuevoInforme.Calificacion = 0;
+                        nuevoInforme.FechaMaxima = proyectoTemporal.FechaOC.AddDays(10);
+                        nuevoInforme.FechaRegistro = DateTime.Today;
+                        nuevoInforme.Tecnico = "No Especificado";
+                        nuevoInforme.Comentarios = "";
+                        nuevoInforme.Concluido = false;
+                        nuevoInforme.ProyectoId = idProyecto;
+                        nuevoInforme.Estado = "Pendiente";
+                        nuevoInforme.UltimaModificacion = DateTime.Today;
+                        nuevoInforme.UltimoEditor = Temporal.UsuarioActivo.Nombre;
+                        //nuevoInforme.UsuarioId = 0;
+
+                        InformeNegocio.Add(nuevoInforme);
+
                         MessageBox.Show($"Proyecto agregado. Id: {idProyecto}", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await CargarTablaAsync();
                         Limpiar();

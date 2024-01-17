@@ -31,6 +31,21 @@ namespace Negocios
             }
         }
 
+        public int GetIdByName(string nombre)
+        {
+            if (!string.IsNullOrEmpty(nombre))
+            {
+                using (var db = new DBContextProyectosAsfaltos())
+                {
+                    return db.Usuarios.FirstOrDefault(i => i.Nombre == nombre).UsuarioId;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public List<Usuario> ListarVendedores()
         {
             try
@@ -134,7 +149,7 @@ namespace Negocios
         /// <summary>
         /// Comprueba si un username ya esta registrado en la DB
         /// </summary>
-        /// <param name="login">logins para comprobar</param>
+        /// <param nombre="login">logins para comprobar</param>
         /// <returns></returns>
         public bool ComprobarLogin(string login)
         {
