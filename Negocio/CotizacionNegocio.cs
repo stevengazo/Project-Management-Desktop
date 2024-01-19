@@ -1,6 +1,7 @@
 ﻿using Modelos;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -64,6 +65,41 @@ namespace Negocio
             }
         }
 
-
+        public static List<Cotizacion> Buscar(int? Oferta= 0, string? Cliente = null)
+        {
+            List<Cotizacion> resultados = new List<Cotizacion>();
+            using (var db = new DBContextProyectosAsfaltos())
+            {
+                if( Oferta != 0 && !string.IsNullOrEmpty(Cliente))
+                {
+                    // Busqueda de Ambos
+                    resultados = (from c in db.Cotizaciones
+                                  where c.OfertaId == Oferta && c.Cliente == Cliente    
+                                  orderby c.CotizacionId descending
+                                  select c
+                                  ).ToList();   
+                }
+                else if (Oferta == 0 && !string.IsNullOrEmpty(Cliente))
+                {
+                    // Busqueda de Oferta
+                    resultados = (from c in db.Cotizaciones
+                                  where c.Cliente.ToLower()== Cliente.ToLower() 
+                                  orderby c.CotizacionId descending
+                                  select c
+                                  ).ToList();
+                }
+                else if (Oferta != 0 && string.IsNullOrEmpty(Cliente))
+                {
+                    // Busqueda de cliente
+                    resultados = (from c in db.Cotizaciones
+                                  where c.OfertaId == Oferta
+                                  orderby c.CotizacionId descending
+                                  select c
+                                  ).ToList();
+                }
+                return resultados;
+            }
+            
+        }
     }
 }

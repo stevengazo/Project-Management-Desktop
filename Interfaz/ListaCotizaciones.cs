@@ -42,7 +42,7 @@ namespace Interfaz
                 cotizacion.Canton = txtDireccion.Text;
                 cotizacion.EsPublico = ckPuPri.Checked;
                 cotizacion.Trabajadores = int.Parse(numTrabajadores.Value.ToString());
-                cotizacion.DiasLaborales = int.Parse(numDiasLaborales.Value.ToString());
+                cotizacion.DiasLaborales = float.Parse(numDiasLaborales.Value.ToString());
                 cotizacion.MontoMO = float.Parse(numMO.Value.ToString());
                 cotizacion.MontoKM = float.Parse(numKilometraje.Value.ToString());
                 cotizacion.MontoMaterial = float.Parse(numMaterial.Value.ToString());
@@ -59,6 +59,7 @@ namespace Interfaz
                 cotizacion.RutaArchivo = "";
                 var result = CotizacionNegocio.Add(cotizacion);
                 MessageBox.Show("Cotización ingresada\nNúmero de cotizacion: " + result.CotizacionId, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiar();
                 CargarCotizaciones();
             }
         }
@@ -181,6 +182,95 @@ namespace Interfaz
             {
                 ckPuPri.Text = "Es Privado";
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
+        }
+        private void limpiar()
+        {
+            txtCliente.Text = string.Empty;
+            txtTitulo.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            cbProvincia.SelectedIndex = -1;
+            txtDireccion.Text = string.Empty;
+            ckPuPri.Checked = false;
+            ckPuPri.Text = "Es Público";
+            numTrabajadores.Value = 0;
+            numDiasLaborales.Value = 0;
+            numMO.Value = 0;
+            numKilometraje.Value = 0;
+            numMaterial.Value = 0;
+            numProductos.Value = 0;
+            numViaticos.Value = 0;
+            numImprevisto.Value = 0;
+            numTotal.Value = 0;
+            cbOferta.SelectedIndex = -1;
+            comboBoxCategoria.SelectedIndex = -1;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int Oferta = (!string.IsNullOrEmpty(txtBuscarOferta.Text)) ? int.Parse(txtBuscarOferta.Text) : 0;
+                string Cliente = (!string.IsNullOrEmpty(txtBuscarCLiente.Text)) ? txtBuscarCLiente.Text : string.Empty;
+                var resultados = CotizacionNegocio.Buscar(Oferta, Cliente);
+
+
+                dataGridViewCotizaciones.Columns.Clear();
+
+                DataTable _dt = new();
+                _dt.Columns.Add("ID");
+                _dt.Columns.Add("Cliente");
+                _dt.Columns.Add("Titulo");
+                _dt.Columns.Add("Autor");
+                _dt.Columns.Add("Tipo");
+                _dt.Columns.Add("Categoria");
+                _dt.Columns.Add("Fecha");
+                _dt.Columns.Add("Monto");
+
+                var cotizaciones = CotizacionNegocio.UltimasCotizaciones(40);
+
+                foreach (var i in resultados)
+                {
+
+                    _dt.Rows.Add(
+                        i.CotizacionId,
+                        i.Cliente,
+                        i.Titulo,
+                        i.Autor,
+                        (i.EsPublico) ? "PUblico" : "Privado",
+                        i.Categoria,
+                        i.Creación.ToShortDateString(),
+                        i.Total.ToString()
+                        );
+                }
+
+                // Add button to See
+                DataGridViewButtonColumn botonVer = new DataGridViewButtonColumn();
+                botonVer.HeaderText = "Ver";
+                botonVer.Text = "Ver";
+                botonVer.Name = "btnVer";
+                botonVer.UseColumnTextForButtonValue = true;
+                dataGridViewCotizaciones.Columns.Add(botonVer);
+
+                DataGridViewButtonColumn _btnEditar = new();
+                _btnEditar.HeaderText = "Editar";
+                _btnEditar.Text = "Editar";
+                _btnEditar.Name = "btnEditar";
+                _btnEditar.UseColumnTextForButtonValue = true;
+
+                dataGridViewCotizaciones.Columns.Add(_btnEditar);
+
+                dataGridViewCotizaciones.DataSource = _dt;
+            }
+            catch (FormatException f)
+            {
+                MessageBox.Show("Verifique los campos", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

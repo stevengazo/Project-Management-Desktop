@@ -68,7 +68,7 @@
             label3 = new Label();
             groupBox2 = new GroupBox();
             label18 = new Label();
-            textBox1 = new TextBox();
+            txtBuscarOferta = new TextBox();
             btnBuscarLimpiar = new Button();
             btnBuscar = new Button();
             label2 = new Label();
@@ -144,6 +144,7 @@
             // 
             // comboBoxCategoria
             // 
+            comboBoxCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCategoria.ForeColor = SystemColors.ActiveCaptionText;
             comboBoxCategoria.FormattingEnabled = true;
             comboBoxCategoria.Items.AddRange(new object[] { "DDCE - Instalación", "DDCE - Mejoras", "DDCE - Mantenimiento", "Ionizante - Instalación", "Ionizante - Mejoras", "Ionizante - Mantenimiento", "Torre - Instalación ", "Torre - Mantenimiento", "Torre - Mejoras ", "Torre - Desinstalación", "Supresores - Instalación", "Malla - Instalación", "Trabajos Eléctricos", "Otros" });
@@ -157,9 +158,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(15, 542);
             label1.Name = "label1";
-            label1.Size = new Size(89, 15);
+            label1.Size = new Size(58, 15);
             label1.TabIndex = 35;
-            label1.Text = "Tipo Cotización";
+            label1.Text = "Categoría";
             // 
             // txtDireccion
             // 
@@ -168,9 +169,11 @@
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(167, 23);
             txtDireccion.TabIndex = 34;
+            txtDireccion.TextAlign = HorizontalAlignment.Right;
             // 
             // cbProvincia
             // 
+            cbProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProvincia.ForeColor = SystemColors.ActiveCaptionText;
             cbProvincia.FormattingEnabled = true;
             cbProvincia.Items.AddRange(new object[] { "San José", "Cartago", "Alajuela", "Heredia", "Puntarenas", "Guanacaste", "Limón" });
@@ -206,6 +209,7 @@
             numTotal.Name = "numTotal";
             numTotal.Size = new Size(167, 23);
             numTotal.TabIndex = 30;
+            numTotal.TextAlign = HorizontalAlignment.Right;
             // 
             // ckPuPri
             // 
@@ -237,6 +241,7 @@
             btnLimpiar.TabIndex = 27;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnAgregar
             // 
@@ -267,6 +272,7 @@
             numImprevisto.Name = "numImprevisto";
             numImprevisto.Size = new Size(167, 23);
             numImprevisto.TabIndex = 24;
+            numImprevisto.TextAlign = HorizontalAlignment.Right;
             // 
             // label14
             // 
@@ -286,6 +292,7 @@
             numViaticos.Name = "numViaticos";
             numViaticos.Size = new Size(167, 23);
             numViaticos.TabIndex = 22;
+            numViaticos.TextAlign = HorizontalAlignment.Right;
             // 
             // label13
             // 
@@ -305,6 +312,7 @@
             numProductos.Name = "numProductos";
             numProductos.Size = new Size(167, 23);
             numProductos.TabIndex = 20;
+            numProductos.TextAlign = HorizontalAlignment.Right;
             // 
             // label12
             // 
@@ -324,6 +332,7 @@
             numMaterial.Name = "numMaterial";
             numMaterial.Size = new Size(167, 23);
             numMaterial.TabIndex = 18;
+            numMaterial.TextAlign = HorizontalAlignment.Right;
             // 
             // label11
             // 
@@ -343,6 +352,7 @@
             numKilometraje.Name = "numKilometraje";
             numKilometraje.Size = new Size(167, 23);
             numKilometraje.TabIndex = 16;
+            numKilometraje.TextAlign = HorizontalAlignment.Right;
             // 
             // label10
             // 
@@ -362,6 +372,7 @@
             numMO.Name = "numMO";
             numMO.Size = new Size(167, 23);
             numMO.TabIndex = 14;
+            numMO.TextAlign = HorizontalAlignment.Right;
             // 
             // label9
             // 
@@ -381,6 +392,7 @@
             numDiasLaborales.Name = "numDiasLaborales";
             numDiasLaborales.Size = new Size(167, 23);
             numDiasLaborales.TabIndex = 12;
+            numDiasLaborales.TextAlign = HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -393,13 +405,13 @@
             // 
             // numTrabajadores
             // 
-            numTrabajadores.DecimalPlaces = 2;
             numTrabajadores.ForeColor = SystemColors.ActiveCaptionText;
             numTrabajadores.Location = new Point(140, 249);
             numTrabajadores.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             numTrabajadores.Name = "numTrabajadores";
             numTrabajadores.Size = new Size(167, 23);
             numTrabajadores.TabIndex = 10;
+            numTrabajadores.TextAlign = HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -412,6 +424,7 @@
             // 
             // cbOferta
             // 
+            cbOferta.DropDownStyle = ComboBoxStyle.DropDownList;
             cbOferta.ForeColor = SystemColors.ActiveCaptionText;
             cbOferta.FormattingEnabled = true;
             cbOferta.Location = new Point(140, 510);
@@ -427,6 +440,7 @@
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(167, 71);
             txtDescripcion.TabIndex = 6;
+            txtDescripcion.TextAlign = HorizontalAlignment.Right;
             // 
             // txtTitulo
             // 
@@ -435,6 +449,7 @@
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(167, 23);
             txtTitulo.TabIndex = 5;
+            txtTitulo.TextAlign = HorizontalAlignment.Right;
             // 
             // txtCliente
             // 
@@ -443,6 +458,7 @@
             txtCliente.Name = "txtCliente";
             txtCliente.Size = new Size(167, 23);
             txtCliente.TabIndex = 4;
+            txtCliente.TextAlign = HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -484,7 +500,7 @@
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label18);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(txtBuscarOferta);
             groupBox2.Controls.Add(btnBuscarLimpiar);
             groupBox2.Controls.Add(btnBuscar);
             groupBox2.Controls.Add(label2);
@@ -506,13 +522,13 @@
             label18.TabIndex = 7;
             label18.Text = "Oferta";
             // 
-            // textBox1
+            // txtBuscarOferta
             // 
-            textBox1.ForeColor = SystemColors.ActiveCaptionText;
-            textBox1.Location = new Point(249, 29);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(87, 23);
-            textBox1.TabIndex = 6;
+            txtBuscarOferta.ForeColor = SystemColors.ActiveCaptionText;
+            txtBuscarOferta.Location = new Point(249, 29);
+            txtBuscarOferta.Name = "txtBuscarOferta";
+            txtBuscarOferta.Size = new Size(87, 23);
+            txtBuscarOferta.TabIndex = 6;
             // 
             // btnBuscarLimpiar
             // 
@@ -533,6 +549,7 @@
             btnBuscar.TabIndex = 4;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // label2
             // 
@@ -676,7 +693,7 @@
         private Label label17;
         private NumericUpDown numTotal;
         private Label label18;
-        private TextBox textBox1;
+        private TextBox txtBuscarOferta;
         private ComboBox cbProvincia;
         private Label label19;
         private TextBox txtDireccion;
