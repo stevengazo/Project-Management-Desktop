@@ -37,6 +37,8 @@
             txtTecnico = new TextBox();
             label5 = new Label();
             label4 = new Label();
+            label1 = new Label();
+            txtDescripcion = new TextBox();
             SuspendLayout();
             // 
             // dateTimePickerEntrega
@@ -52,16 +54,18 @@
             // btnCrear
             // 
             btnCrear.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnCrear.Location = new Point(86, 139);
+            btnCrear.Location = new Point(99, 168);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(109, 23);
             btnCrear.TabIndex = 38;
             btnCrear.Text = "Crear";
             btnCrear.UseVisualStyleBackColor = true;
+            btnCrear.Click += btnCrear_Click;
             // 
             // comboBoxProyectoId
             // 
             comboBoxProyectoId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxProyectoId.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxProyectoId.FormattingEnabled = true;
             comboBoxProyectoId.Location = new Point(126, 98);
             comboBoxProyectoId.Name = "comboBoxProyectoId";
@@ -71,6 +75,7 @@
             // comboBoxEstado
             // 
             comboBoxEstado.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxEstado.FormattingEnabled = true;
             comboBoxEstado.Items.AddRange(new object[] { "Pendiente", "En Ejecución", "En revisión", "Finalizado" });
             comboBoxEstado.Location = new Point(126, 12);
@@ -126,11 +131,31 @@
             label4.TabIndex = 27;
             label4.Text = "Estado";
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Location = new Point(19, 130);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 15);
+            label1.TabIndex = 41;
+            label1.Text = "Descripción";
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtDescripcion.Location = new Point(126, 127);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(177, 23);
+            txtDescripcion.TabIndex = 40;
+            // 
             // CrearInforme
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(315, 173);
+            ClientSize = new Size(315, 205);
+            Controls.Add(label1);
+            Controls.Add(txtDescripcion);
             Controls.Add(dateTimePickerEntrega);
             Controls.Add(btnCrear);
             Controls.Add(comboBoxProyectoId);
@@ -146,6 +171,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Crear Informe";
+            Load += CrearInforme_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -160,5 +186,7 @@
         private TextBox txtTecnico;
         private Label label5;
         private Label label4;
+        private Label label1;
+        private TextBox txtDescripcion;
     }
 }

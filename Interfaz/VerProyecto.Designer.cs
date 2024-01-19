@@ -63,19 +63,21 @@
             label19 = new Label();
             txtTipoProyecto = new TextBox();
             label18 = new Label();
-            groupBox2 = new GroupBox();
             btnLimpiar = new Button();
             btnAgregar = new Button();
             label12 = new Label();
             label2 = new Label();
             txtDescripcionNota = new TextBox();
             txtTituloNota = new TextBox();
-            groupBox3 = new GroupBox();
             dataGridViewComentarios = new DataGridView();
+            dataGridViewInformes = new DataGridView();
+            groupBox5 = new GroupBox();
+            groupBox2 = new GroupBox();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewComentarios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).BeginInit();
+            groupBox5.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // txtRazonSocial
@@ -404,7 +406,7 @@
             groupBox1.Controls.Add(label14);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(438, 622);
+            groupBox1.Size = new Size(438, 675);
             groupBox1.TabIndex = 81;
             groupBox1.TabStop = false;
             // 
@@ -446,24 +448,9 @@
             label18.TabIndex = 81;
             label18.Text = "Tipo Proyecto";
             // 
-            // groupBox2
-            // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox2.Controls.Add(btnLimpiar);
-            groupBox2.Controls.Add(btnAgregar);
-            groupBox2.Controls.Add(label12);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(txtDescripcionNota);
-            groupBox2.Controls.Add(txtTituloNota);
-            groupBox2.Location = new Point(456, 12);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(318, 222);
-            groupBox2.TabIndex = 82;
-            groupBox2.TabStop = false;
-            // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(73, 178);
+            btnLimpiar.Location = new Point(78, 178);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(102, 23);
             btnLimpiar.TabIndex = 86;
@@ -472,7 +459,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(181, 178);
+            btnAgregar.Location = new Point(186, 178);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(102, 23);
             btnAgregar.TabIndex = 83;
@@ -484,7 +471,7 @@
             // 
             label12.AutoSize = true;
             label12.ForeColor = SystemColors.ButtonHighlight;
-            label12.Location = new Point(18, 66);
+            label12.Location = new Point(23, 66);
             label12.Name = "label12";
             label12.Size = new Size(69, 15);
             label12.TabIndex = 85;
@@ -494,7 +481,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(18, 39);
+            label2.Location = new Point(23, 39);
             label2.Name = "label2";
             label2.Size = new Size(37, 15);
             label2.TabIndex = 84;
@@ -502,7 +489,7 @@
             // 
             // txtDescripcionNota
             // 
-            txtDescripcionNota.Location = new Point(106, 66);
+            txtDescripcionNota.Location = new Point(111, 66);
             txtDescripcionNota.Multiline = true;
             txtDescripcionNota.Name = "txtDescripcionNota";
             txtDescripcionNota.Size = new Size(177, 98);
@@ -510,21 +497,10 @@
             // 
             // txtTituloNota
             // 
-            txtTituloNota.Location = new Point(106, 31);
+            txtTituloNota.Location = new Point(111, 31);
             txtTituloNota.Name = "txtTituloNota";
             txtTituloNota.Size = new Size(177, 23);
             txtTituloNota.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox3.Controls.Add(dataGridViewComentarios);
-            groupBox3.Location = new Point(456, 231);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(318, 403);
-            groupBox3.TabIndex = 83;
-            groupBox3.TabStop = false;
-            groupBox3.Enter += groupBox3_Enter;
             // 
             // dataGridViewComentarios
             // 
@@ -532,22 +508,60 @@
             dataGridViewComentarios.AllowUserToDeleteRows = false;
             dataGridViewComentarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewComentarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewComentarios.Location = new Point(6, 22);
+            dataGridViewComentarios.Location = new Point(306, 16);
             dataGridViewComentarios.Name = "dataGridViewComentarios";
             dataGridViewComentarios.ReadOnly = true;
             dataGridViewComentarios.RowTemplate.Height = 25;
-            dataGridViewComentarios.Size = new Size(306, 375);
+            dataGridViewComentarios.Size = new Size(378, 287);
             dataGridViewComentarios.TabIndex = 0;
             dataGridViewComentarios.CellContentClick += dataGridViewComentarios_CellContentClick;
+            // 
+            // dataGridViewInformes
+            // 
+            dataGridViewInformes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewInformes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewInformes.Location = new Point(6, 22);
+            dataGridViewInformes.Name = "dataGridViewInformes";
+            dataGridViewInformes.RowTemplate.Height = 25;
+            dataGridViewInformes.Size = new Size(678, 323);
+            dataGridViewInformes.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox5.Controls.Add(dataGridViewComentarios);
+            groupBox5.Controls.Add(btnLimpiar);
+            groupBox5.Controls.Add(btnAgregar);
+            groupBox5.Controls.Add(label12);
+            groupBox5.Controls.Add(txtDescripcionNota);
+            groupBox5.Controls.Add(label2);
+            groupBox5.Controls.Add(txtTituloNota);
+            groupBox5.Location = new Point(456, 12);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(696, 309);
+            groupBox5.TabIndex = 88;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Notas";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(dataGridViewInformes);
+            groupBox2.Location = new Point(456, 327);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(696, 360);
+            groupBox2.TabIndex = 89;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Informes";
             // 
             // VerProyecto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.ForestGreen;
-            ClientSize = new Size(787, 652);
-            Controls.Add(groupBox3);
+            ClientSize = new Size(1164, 705);
             Controls.Add(groupBox2);
+            Controls.Add(groupBox5);
             Controls.Add(groupBox1);
             ForeColor = SystemColors.ControlText;
             Name = "VerProyecto";
@@ -557,10 +571,11 @@
             Load += VerProyecto_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewComentarios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -597,18 +612,19 @@
         private Label label1;
         private TextBox txtNotas;
         private GroupBox groupBox1;
-        private GroupBox groupBox2;
         private TextBox txtDescripcionNota;
         private TextBox txtTituloNota;
         private Button btnLimpiar;
         private Button btnAgregar;
         private Label label12;
         private Label label2;
-        private GroupBox groupBox3;
         private DataGridView dataGridViewComentarios;
         private TextBox txtProvincia;
         private Label label19;
         private TextBox txtTipoProyecto;
         private Label label18;
+        private DataGridView dataGridViewInformes;
+        private GroupBox groupBox5;
+        private GroupBox groupBox2;
     }
 }

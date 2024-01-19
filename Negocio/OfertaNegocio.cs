@@ -135,6 +135,7 @@ namespace Negocio
                 {
                     if (idTmp != -1)
                     {
+                        ofertaNueva.Concluida = false;
                         ofertaNueva.OfertaId = idTmp + 1;
                         db.Ofertas.Add(ofertaNueva);
                         db.SaveChanges();

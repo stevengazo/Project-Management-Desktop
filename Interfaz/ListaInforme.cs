@@ -15,6 +15,7 @@ namespace Interfaz
 {
     public partial class ListaInforme : Form
     {
+        private Thread CargarInformes;
         private Informe informe = new();
         public ListaInforme()
         {
@@ -36,31 +37,46 @@ namespace Interfaz
 
         private void CargarTabla()
         {
-            var informes = InformeNegocio.GetList(DateTime.Today.Year);
-            if (informes != null)
+            if (CargarInformes == null || CargarInformes.ThreadState == ThreadState.Stopped)
             {
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Id");
-                dt.Columns.Add("Cliente");
-                dt.Columns.Add("Tipo Informe");
-                dt.Columns.Add("Fecha Finalizacion");
-                dt.Columns.Add("Técnico");
-                dt.Columns.Add("Calificación");
-                dt.Columns.Add("Autor");
-                foreach (var item in informes)
+                CargarInformes = new Thread(new ThreadStart(() =>
                 {
-                    dt.Rows.Add(
-                          item.InformeId,
-                          item.Proyecto.Cliente,
-                          item.Proyecto.Tipo,
-                          (item.Concluido) ? item.FechaRegistro.ToLongDateString() : "Sin Finalizar",
-                          item.Tecnico,
-                          item.Calificacion,
-                          (item.Usuario != null) ? item.Usuario.Nombre : "No Asignado"
-                        );
-                }
-                dataGridViewInformes.DataSource = dt;
+                    dataGridViewInformes.Invoke(new Action(() =>
+                    {
+                        var informes = InformeNegocio.GetList(DateTime.Today.Year);
+                        if (informes != null)
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Columns.Add("Id");
+                            dt.Columns.Add("Cliente");
+                            dt.Columns.Add("ID Proyecto");
+                            dt.Columns.Add("Tipo Informe");
+                            dt.Columns.Add("Estado");
+                            dt.Columns.Add("Fecha Finalizacion");
+                            dt.Columns.Add("Técnico");
+                            dt.Columns.Add("Calificación");
+                            dt.Columns.Add("Autor");
+                            foreach (var item in informes)
+                            {
+                                dt.Rows.Add(
+                                      item.InformeId,
+                                      item.Proyecto.Cliente,
+                                      item.ProyectoId,
+                                      item.Proyecto.Tipo,
+                                      item.Estado,
+                                      (item.Concluido) ? item.FechaRegistro.ToLongDateString() : "Sin Finalizar",
+                                      item.Tecnico,
+                                      item.Calificacion,
+                                      (item.Usuario != null) ? item.Usuario.Nombre : "No Asignado"
+                                    );
+                            }
+                            dataGridViewInformes.DataSource = dt;
+                        }
+                    }));
+                }));
+                CargarInformes.Start();
             }
+
         }
 
         private void informesPendientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,7 +107,7 @@ namespace Interfaz
                 txtComentarios.Text = informe.Comentarios;
                 dateTimePickerEntrega.Value = informe.FechaMaxima;
                 dateTimePickerFinalizacion.Value = informe.FechaRegistro;
-            
+
             }
             catch (Exception j)
             {
@@ -107,28 +123,28 @@ namespace Interfaz
                 informe.Estado = comboBoxEstado.Text;
                 // set the conclude report
                 informe.Concluido = (comboBoxEstado.Text.ToLower().Equals("finalizado")) ? true : false;
-                UsuarioNegocio usuarioNegocio = new(); 
+                UsuarioNegocio usuarioNegocio = new();
                 // get user id
                 var id = usuarioNegocio.GetIdByName(comboBoxAutor.Text);
                 informe.UsuarioId = (id != 0) ? id : null;
 
                 informe.Comentarios = txtComentarios.Text;
                 informe.Tecnico = txtTecnico.Text;
+                informe.Usuario = null;
                 informe.Calificacion = trackBarCalificacion.Value;
                 informe.FechaMaxima = dateTimePickerEntrega.Value;
                 informe.FechaRegistro = dateTimePickerFinalizacion.Value;
                 InformeNegocio.Update(informe);
-                MessageBox.Show("Informe actualizado","Informacion",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
+                MessageBox.Show("Informe actualizado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception f)
             {
 
             }
-            finally 
+            finally
             {
                 CargarTabla();
-            } 
+            }
         }
     }
 }

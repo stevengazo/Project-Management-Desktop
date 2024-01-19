@@ -17,6 +17,8 @@ namespace Interfaz
         private void VerProyecto_Load(object sender, EventArgs e)
         {
             CargarProyectoDetallado();
+            CargarInforme();
+
         }
 
 
@@ -153,6 +155,43 @@ namespace Interfaz
 
         private void groupBox3_Enter(object sender, EventArgs e)
         {
+
+        }
+        private void CargarInforme()
+        {
+
+            var Informes = InformeNegocio.GetListByProyect(idProyecto);
+            if (Informes != null)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Id");
+                dt.Columns.Add(" Entrega Maxima");
+                dt.Columns.Add(" Finalizacion");
+                dt.Columns.Add("Cliente");
+                dt.Columns.Add("Proyecto Id");
+                dt.Columns.Add("Tipo Trabajo");
+                dt.Columns.Add("Técnico");
+                dt.Columns.Add("Encargado");
+                dt.Columns.Add("Estado");
+                dt.Columns.Add("Descripción");
+                foreach (var item in Informes)
+                {
+                    dt.Rows.Add(
+                        item.InformeId,
+                        item.FechaMaxima.ToLongDateString(),
+                        (item.Concluido) ? item.FechaRegistro.ToLongDateString() : "Sin Finalizar",
+                        item.Proyecto.Cliente,
+                        item.ProyectoId,
+                        item.Proyecto.Tipo,
+                        (string.IsNullOrEmpty(item.Tecnico)) ? "Sin Dato" : item.Tecnico,
+                        (item.Usuario != null) ? item.Usuario.Nombre : "Sin Asignar",
+                        item.Estado,
+                        item.Descripcion
+
+                        );
+                }
+                dataGridViewInformes.DataSource = dt;
+            }
 
         }
     }

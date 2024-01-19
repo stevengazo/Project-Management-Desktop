@@ -11,6 +11,8 @@ namespace Interfaz
     public partial class ModuloAdministrador : Form
     {
         #region Propiedades
+        private Thread Proyectos;
+
         private List<Usuario> Vendedores = new();
         private List<Proyecto> proyectos = new();
         private List<Cliente> clientes = new();
@@ -37,6 +39,7 @@ namespace Interfaz
         {
             try
             {
+
             }
             catch (Exception ex)
             {
@@ -93,61 +96,74 @@ namespace Interfaz
         /// </summary>
         /// <param name="proyectosFiltrados"></param>
         /// <returns></returns>
+        /// 
         private async Task CargarTablaAsync(List<Proyecto>? proyectosFiltrados = null)
         {
-            if (proyectosFiltrados != null)
+            if (Proyectos == null || Proyectos.ThreadState == ThreadState.Stopped)
             {
-                proyectos = proyectosFiltrados;
-            }
-            else
-            {
-                var proyectosNegocio = new ProyectoNegocios();
-                proyectos = await proyectosNegocio.ListarProyectoAsync();
-            }
-            if (proyectos.Count > 0)
-            {
-                dgvProyectos.Columns.Clear();
-                DataTable _tabla = new();
-                _tabla.Columns.Add("Id Interno");
-                _tabla.Columns.Add("Vendedor");
-                _tabla.Columns.Add("Cliente");
-                _tabla.Columns.Add("Fecha OC");
-                _tabla.Columns.Add("Factura Anticipo");
-                _tabla.Columns.Add("Tarea");
-                _tabla.Columns.Add("Oferta");
-                _tabla.Columns.Add("Fecha Inicio");
-                _tabla.Columns.Add("Fecha Final");
-                _tabla.Columns.Add("Monto");
-                _tabla.Columns.Add("Estado");
-                foreach (Proyecto i in proyectos)
+                Proyectos = new Thread(new ThreadStart(async () =>
                 {
-                    _tabla.Rows.Add(
-                        i.ProyectoId,
-                        i.Vendedor.Nombre,
-                        i.Cliente,
-                        i.FechaOC.ToString("dd MMM yy"),
-                        i.FacturaAnticipoId.ToString(),
-                        i.TareaId,
-                        i.OfertaId,
-                        i.FechaInicio.ToString("dd MMM yy"),
-                        i.FechaFinal.ToString("dd MMM yy"),
-                        i.Monto.ToString("C", CultureInfo.CurrentCulture),
-                        i.Estado
-                        );
-                }
-                DataGridViewButtonColumn botonVer = new();
-                botonVer.HeaderText = "Ver";
-                botonVer.Text = "Ver";
-                botonVer.Name = "btnVerProyecto";
-                botonVer.UseColumnTextForButtonValue = true;
-                dgvProyectos.Columns.Add(botonVer);
-                DataGridViewButtonColumn botonEditar = new();
-                botonEditar.HeaderText = "Editar";
-                botonEditar.Text = "Editar";
-                botonEditar.Name = "btnEditarProyecto";
-                botonEditar.UseColumnTextForButtonValue = true;
-                dgvProyectos.Columns.Add(botonEditar);
-                dgvProyectos.DataSource = _tabla;
+
+                    if (proyectosFiltrados != null)
+                    {
+                        proyectos = proyectosFiltrados;
+                    }
+                    else
+                    {
+                        var proyectosNegocio = new ProyectoNegocios();
+                        proyectos = await proyectosNegocio.ListarProyectoAsync();
+                    }
+                    if (proyectos.Count > 0)
+                    {
+                        dgvProyectos.Invoke(new Action(() =>
+                        {
+                            dgvProyectos.Columns.Clear();
+                            DataTable _tabla = new();
+                            _tabla.Columns.Add("Id Interno");
+                            _tabla.Columns.Add("Vendedor");
+                            _tabla.Columns.Add("Cliente");
+                            _tabla.Columns.Add("Fecha OC");
+                            _tabla.Columns.Add("Factura Anticipo");
+                            _tabla.Columns.Add("Tarea");
+                            _tabla.Columns.Add("Oferta");
+                            _tabla.Columns.Add("Fecha Inicio");
+                            _tabla.Columns.Add("Fecha Final");
+                            _tabla.Columns.Add("Monto");
+                            _tabla.Columns.Add("Estado");
+                            foreach (Proyecto i in proyectos)
+                            {
+                                _tabla.Rows.Add(
+                                    i.ProyectoId,
+                                    i.Vendedor.Nombre,
+                                    i.Cliente,
+                                    i.FechaOC.ToString("dd MMM yy"),
+                                    i.FacturaAnticipoId.ToString(),
+                                    i.TareaId,
+                                    i.OfertaId,
+                                    i.FechaInicio.ToString("dd MMM yy"),
+                                    i.FechaFinal.ToString("dd MMM yy"),
+                                    i.Monto.ToString("C", CultureInfo.CurrentCulture),
+                                    i.Estado
+                                    );
+                            }
+                            DataGridViewButtonColumn botonVer = new();
+                            botonVer.HeaderText = "Ver";
+                            botonVer.Text = "Ver";
+                            botonVer.Name = "btnVerProyecto";
+                            botonVer.UseColumnTextForButtonValue = true;
+                            dgvProyectos.Columns.Add(botonVer);
+                            DataGridViewButtonColumn botonEditar = new();
+                            botonEditar.HeaderText = "Editar";
+                            botonEditar.Text = "Editar";
+                            botonEditar.Name = "btnEditarProyecto";
+                            botonEditar.UseColumnTextForButtonValue = true;
+                            dgvProyectos.Columns.Add(botonEditar);
+                            dgvProyectos.DataSource = _tabla;
+                        }));
+
+                    }
+                }));
+                Proyectos.Start();
             }
         }
 
@@ -156,7 +172,7 @@ namespace Interfaz
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -173,7 +189,7 @@ namespace Interfaz
                     EditarProyecto editarProyecto = new();
                     editarProyecto.ProyectoId = id;
                     editarProyecto.ShowDialog();
-                    CargarTablaAsync();
+                    await CargarTablaAsync();
                 }
                 else
                 {
@@ -328,6 +344,7 @@ namespace Interfaz
                         nuevoInforme.Comentarios = "";
                         nuevoInforme.Concluido = false;
                         nuevoInforme.ProyectoId = idProyecto;
+                        nuevoInforme.Descripcion = proyectoTemporal.Tipo;
                         nuevoInforme.Estado = "Pendiente";
                         nuevoInforme.UltimaModificacion = DateTime.Today;
                         nuevoInforme.UltimoEditor = Temporal.UsuarioActivo.Nombre;
@@ -584,11 +601,11 @@ namespace Interfaz
             }
         }
 
-        private void btnLimpiarBusqueda_Click(object sender, EventArgs e)
+        private async void btnLimpiarBusqueda_Click(object sender, EventArgs e)
         {
             txtNombreBuscar.Text = string.Empty;
             txtNumeroProyectoBuscar.Text = string.Empty;
-            CargarTablaAsync();
+            await CargarTablaAsync();
         }
 
         private void txtMonto_Leave(object sender, EventArgs e)
@@ -616,8 +633,38 @@ namespace Interfaz
 
         private void listaDeInformesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListaInforme listaInforme =new ListaInforme();
+            ListaInforme listaInforme = new ListaInforme();
             listaInforme.Show();
+        }
+
+        private void informesPendientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformesPendientes informesPendientes = new();
+            informesPendientes.Show();
+        }
+
+        private void crearInformeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CrearInforme crearInforme = new();
+            crearInforme.ShowDialog();
+        }
+
+        private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Configuracion configuracion = new();
+            configuracion.ShowDialog();
+        }
+
+        private void listaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListarUsuario n = new();
+            n.ShowDialog();
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarUsuario s = new AgregarUsuario();
+            s.ShowDialog();
         }
     }
 }

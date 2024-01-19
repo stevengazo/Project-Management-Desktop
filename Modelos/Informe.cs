@@ -13,6 +13,7 @@ namespace Modelos
         [Key]       
         public int InformeId { get; set; }
         public  string Estado { get; set; }
+        public string Descripcion {  get; set; }
         public DateTime FechaRegistro { get; set; }
         public DateTime FechaMaxima { get; set; }
         public string Tecnico { get; set; }

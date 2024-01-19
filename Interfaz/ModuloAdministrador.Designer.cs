@@ -75,21 +75,23 @@
             exportarToolStripMenuItem = new ToolStripMenuItem();
             excelToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
+            usuariosToolStripMenuItem = new ToolStripMenuItem();
+            listaToolStripMenuItem = new ToolStripMenuItem();
+            agregarToolStripMenuItem = new ToolStripMenuItem();
+            configuraciónToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             ofertasToolStripMenuItem = new ToolStripMenuItem();
             listarOfertasToolStripMenuItem = new ToolStripMenuItem();
             agregarOfertaToolStripMenuItem = new ToolStripMenuItem();
             cotizacionesToolStripMenuItem = new ToolStripMenuItem();
-            usuariosToolStripMenuItem = new ToolStripMenuItem();
-            listarVendedoresToolStripMenuItem = new ToolStripMenuItem();
-            agregarUsuarioToolStripMenuItem1 = new ToolStripMenuItem();
-            ayudaToolStripMenuItem = new ToolStripMenuItem();
-            agregarUsuarioToolStripMenuItem = new ToolStripDropDownMenu();
-            saveFileDialog1 = new SaveFileDialog();
             informesToolStripMenuItem = new ToolStripMenuItem();
             listaDeInformesToolStripMenuItem = new ToolStripMenuItem();
             informesPendientesToolStripMenuItem = new ToolStripMenuItem();
             crearInformeToolStripMenuItem = new ToolStripMenuItem();
+            ayudaToolStripMenuItem = new ToolStripMenuItem();
+            agregarUsuarioToolStripMenuItem = new ToolStripDropDownMenu();
+            saveFileDialog1 = new SaveFileDialog();
+            toolStripSeparator2 = new ToolStripSeparator();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProyectos).BeginInit();
             groupBox1.SuspendLayout();
@@ -515,7 +517,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, ofertasToolStripMenuItem, cotizacionesToolStripMenuItem, informesToolStripMenuItem, usuariosToolStripMenuItem, ayudaToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, ofertasToolStripMenuItem, cotizacionesToolStripMenuItem, informesToolStripMenuItem, ayudaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1365, 24);
@@ -524,7 +526,7 @@
             // 
             // archivoToolStripMenuItem
             // 
-            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exportarToolStripMenuItem, toolStripSeparator1, salirToolStripMenuItem });
+            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exportarToolStripMenuItem, toolStripSeparator1, usuariosToolStripMenuItem, configuraciónToolStripMenuItem, toolStripSeparator2, salirToolStripMenuItem });
             archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             archivoToolStripMenuItem.Size = new Size(60, 20);
             archivoToolStripMenuItem.Text = "Archivo";
@@ -534,25 +536,53 @@
             // 
             exportarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { excelToolStripMenuItem });
             exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            exportarToolStripMenuItem.Size = new Size(118, 22);
-            exportarToolStripMenuItem.Text = "Exportar";
+            exportarToolStripMenuItem.Size = new Size(180, 22);
+            exportarToolStripMenuItem.Text = "Exportar Proyectos";
             // 
             // excelToolStripMenuItem
             // 
             excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-            excelToolStripMenuItem.Size = new Size(101, 22);
+            excelToolStripMenuItem.Size = new Size(180, 22);
             excelToolStripMenuItem.Text = "Excel";
             excelToolStripMenuItem.Click += excelToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(115, 6);
+            toolStripSeparator1.Size = new Size(177, 6);
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            usuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaToolStripMenuItem, agregarToolStripMenuItem });
+            usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            usuariosToolStripMenuItem.Size = new Size(180, 22);
+            usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // listaToolStripMenuItem
+            // 
+            listaToolStripMenuItem.Name = "listaToolStripMenuItem";
+            listaToolStripMenuItem.Size = new Size(180, 22);
+            listaToolStripMenuItem.Text = "Lista ";
+            listaToolStripMenuItem.Click += listaToolStripMenuItem_Click;
+            // 
+            // agregarToolStripMenuItem
+            // 
+            agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
+            agregarToolStripMenuItem.Size = new Size(180, 22);
+            agregarToolStripMenuItem.Text = "Agregar";
+            agregarToolStripMenuItem.Click += agregarToolStripMenuItem_Click;
+            // 
+            // configuraciónToolStripMenuItem
+            // 
+            configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            configuraciónToolStripMenuItem.Size = new Size(180, 22);
+            configuraciónToolStripMenuItem.Text = "Configuración";
+            configuraciónToolStripMenuItem.Click += configuraciónToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(118, 22);
+            salirToolStripMenuItem.Size = new Size(180, 22);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -584,40 +614,6 @@
             cotizacionesToolStripMenuItem.Text = "Cotizaciones";
             cotizacionesToolStripMenuItem.Click += cotizacionesToolStripMenuItem_Click;
             // 
-            // usuariosToolStripMenuItem
-            // 
-            usuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listarVendedoresToolStripMenuItem, agregarUsuarioToolStripMenuItem1 });
-            usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            usuariosToolStripMenuItem.Size = new Size(64, 20);
-            usuariosToolStripMenuItem.Text = "Usuarios";
-            // 
-            // listarVendedoresToolStripMenuItem
-            // 
-            listarVendedoresToolStripMenuItem.Name = "listarVendedoresToolStripMenuItem";
-            listarVendedoresToolStripMenuItem.Size = new Size(180, 22);
-            listarVendedoresToolStripMenuItem.Text = "Listar Usuarios";
-            listarVendedoresToolStripMenuItem.Click += listarVendedoresToolStripMenuItem_Click;
-            // 
-            // agregarUsuarioToolStripMenuItem1
-            // 
-            agregarUsuarioToolStripMenuItem1.Name = "agregarUsuarioToolStripMenuItem1";
-            agregarUsuarioToolStripMenuItem1.Size = new Size(180, 22);
-            agregarUsuarioToolStripMenuItem1.Text = "Agregar Usuario";
-            agregarUsuarioToolStripMenuItem1.Click += agregarUsuarioToolStripMenuItem1_Click;
-            // 
-            // ayudaToolStripMenuItem
-            // 
-            ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            ayudaToolStripMenuItem.Size = new Size(53, 20);
-            ayudaToolStripMenuItem.Text = "Ayuda";
-            ayudaToolStripMenuItem.Click += ayudaToolStripMenuItem_Click;
-            // 
-            // agregarUsuarioToolStripMenuItem
-            // 
-            agregarUsuarioToolStripMenuItem.AutoClose = false;
-            agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            agregarUsuarioToolStripMenuItem.Size = new Size(61, 4);
-            // 
             // informesToolStripMenuItem
             // 
             informesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaDeInformesToolStripMenuItem, informesPendientesToolStripMenuItem, crearInformeToolStripMenuItem });
@@ -637,12 +633,32 @@
             informesPendientesToolStripMenuItem.Name = "informesPendientesToolStripMenuItem";
             informesPendientesToolStripMenuItem.Size = new Size(182, 22);
             informesPendientesToolStripMenuItem.Text = "Informes Pendientes";
+            informesPendientesToolStripMenuItem.Click += informesPendientesToolStripMenuItem_Click;
             // 
             // crearInformeToolStripMenuItem
             // 
             crearInformeToolStripMenuItem.Name = "crearInformeToolStripMenuItem";
             crearInformeToolStripMenuItem.Size = new Size(182, 22);
             crearInformeToolStripMenuItem.Text = "Crear Informe";
+            crearInformeToolStripMenuItem.Click += crearInformeToolStripMenuItem_Click;
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            ayudaToolStripMenuItem.Size = new Size(53, 20);
+            ayudaToolStripMenuItem.Text = "Ayuda";
+            ayudaToolStripMenuItem.Click += ayudaToolStripMenuItem_Click;
+            // 
+            // agregarUsuarioToolStripMenuItem
+            // 
+            agregarUsuarioToolStripMenuItem.AutoClose = false;
+            agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
+            agregarUsuarioToolStripMenuItem.Size = new Size(61, 4);
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(177, 6);
             // 
             // ModuloAdministrador
             // 
@@ -713,9 +729,6 @@
         private ToolStripMenuItem ofertasToolStripMenuItem;
         private ToolStripMenuItem listarOfertasToolStripMenuItem;
         private ToolStripMenuItem agregarOfertaToolStripMenuItem;
-        private ToolStripMenuItem usuariosToolStripMenuItem;
-        private ToolStripMenuItem listarVendedoresToolStripMenuItem;
-        private ToolStripMenuItem agregarUsuarioToolStripMenuItem1;
         private ToolStripDropDownMenu agregarUsuarioToolStripMenuItem;
         private SaveFileDialog saveFileDialog1;
         private TextBox txtNombreCliente;
@@ -734,5 +747,10 @@
         private ToolStripMenuItem listaDeInformesToolStripMenuItem;
         private ToolStripMenuItem informesPendientesToolStripMenuItem;
         private ToolStripMenuItem crearInformeToolStripMenuItem;
+        private ToolStripMenuItem configuraciónToolStripMenuItem;
+        private ToolStripMenuItem usuariosToolStripMenuItem;
+        private ToolStripMenuItem listaToolStripMenuItem;
+        private ToolStripMenuItem agregarToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
     }
 }

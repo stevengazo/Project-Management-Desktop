@@ -59,6 +59,7 @@ namespace Interfaz
                 ofertaTemporal.Torre = checkBoxTorre.Checked;
                 ofertaTemporal.Malla = checkBoxMalla.Checked;
                 ofertaTemporal.Otros = checkBoxOtro.Checked;
+                ofertaTemporal.Estado = "Pendiente";
                 ofertaTemporal.Provincia = comboBoxProvincia.Text;
                 ofertaTemporal.Categoria = comboBoxCategoria.Text;
                 ofertaTemporal.Observaciones = txtObservaciones.Text;

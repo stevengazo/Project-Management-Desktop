@@ -33,13 +33,6 @@
             menuStrip1 = new MenuStrip();
             crearInformeToolStripMenuItem = new ToolStripMenuItem();
             informesPendientesToolStripMenuItem = new ToolStripMenuItem();
-            calificacionesToolStripMenuItem = new ToolStripMenuItem();
-            groupBox2 = new GroupBox();
-            btnBuscar = new Button();
-            txtClienteBusqueda = new TextBox();
-            label2 = new Label();
-            txtNumeroBusqueda = new TextBox();
-            label1 = new Label();
             groupBox3 = new GroupBox();
             dateTimePickerFinalizacion = new DateTimePicker();
             label13 = new Label();
@@ -63,7 +56,6 @@
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).BeginInit();
             menuStrip1.SuspendLayout();
-            groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarCalificacion).BeginInit();
             SuspendLayout();
@@ -72,9 +64,9 @@
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(dataGridViewInformes);
-            groupBox1.Location = new Point(12, 100);
+            groupBox1.Location = new Point(12, 27);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(775, 445);
+            groupBox1.Size = new Size(775, 518);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Lista de Informes";
@@ -86,13 +78,13 @@
             dataGridViewInformes.Location = new Point(10, 28);
             dataGridViewInformes.Name = "dataGridViewInformes";
             dataGridViewInformes.RowTemplate.Height = 25;
-            dataGridViewInformes.Size = new Size(759, 411);
+            dataGridViewInformes.Size = new Size(759, 484);
             dataGridViewInformes.TabIndex = 0;
             dataGridViewInformes.CellClick += dataGridViewInformes_CellClick;
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { crearInformeToolStripMenuItem, informesPendientesToolStripMenuItem, calificacionesToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { crearInformeToolStripMenuItem, informesPendientesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1078, 24);
@@ -112,68 +104,6 @@
             informesPendientesToolStripMenuItem.Size = new Size(127, 20);
             informesPendientesToolStripMenuItem.Text = "Informes Pendientes";
             informesPendientesToolStripMenuItem.Click += informesPendientesToolStripMenuItem_Click;
-            // 
-            // calificacionesToolStripMenuItem
-            // 
-            calificacionesToolStripMenuItem.Name = "calificacionesToolStripMenuItem";
-            calificacionesToolStripMenuItem.Size = new Size(92, 20);
-            calificacionesToolStripMenuItem.Text = "Calificaciones";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox2.Controls.Add(btnBuscar);
-            groupBox2.Controls.Add(txtClienteBusqueda);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(txtNumeroBusqueda);
-            groupBox2.Controls.Add(label1);
-            groupBox2.Location = new Point(12, 27);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(775, 67);
-            groupBox2.TabIndex = 2;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Busqueda";
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.Location = new Point(495, 30);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(132, 23);
-            btnBuscar.TabIndex = 4;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txtClienteBusqueda
-            // 
-            txtClienteBusqueda.Location = new Point(305, 30);
-            txtClienteBusqueda.Name = "txtClienteBusqueda";
-            txtClienteBusqueda.Size = new Size(170, 23);
-            txtClienteBusqueda.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(251, 33);
-            label2.Name = "label2";
-            label2.Size = new Size(44, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Cliente";
-            // 
-            // txtNumeroBusqueda
-            // 
-            txtNumeroBusqueda.Location = new Point(73, 27);
-            txtNumeroBusqueda.Name = "txtNumeroBusqueda";
-            txtNumeroBusqueda.Size = new Size(170, 23);
-            txtNumeroBusqueda.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(19, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Número";
             // 
             // groupBox3
             // 
@@ -397,7 +327,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1078, 565);
             Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -409,8 +338,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarCalificacion).EndInit();
@@ -424,14 +351,7 @@
         private DataGridView dataGridViewInformes;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem crearInformeToolStripMenuItem;
-        private ToolStripMenuItem calificacionesToolStripMenuItem;
-        private GroupBox groupBox2;
         private ToolStripMenuItem informesPendientesToolStripMenuItem;
-        private Button btnBuscar;
-        private TextBox txtClienteBusqueda;
-        private Label label2;
-        private TextBox txtNumeroBusqueda;
-        private Label label1;
         private GroupBox groupBox3;
         private Label label3;
         private TextBox txtIdInforme;

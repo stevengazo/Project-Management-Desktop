@@ -77,6 +77,7 @@
             dataGridViewCotizaciones = new DataGridView();
             menuStrip1 = new MenuStrip();
             agToolStripMenuItem = new ToolStripMenuItem();
+            informesToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numTotal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numImprevisto).BeginInit();
@@ -216,6 +217,7 @@
             ckPuPri.TabIndex = 29;
             ckPuPri.Text = "Privado";
             ckPuPri.UseVisualStyleBackColor = true;
+            ckPuPri.CheckedChanged += ckPuPri_CheckedChanged;
             // 
             // label16
             // 
@@ -574,7 +576,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { agToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { agToolStripMenuItem, informesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1093, 24);
@@ -587,6 +589,13 @@
             agToolStripMenuItem.Size = new Size(97, 20);
             agToolStripMenuItem.Text = "Agregar Oferta";
             agToolStripMenuItem.Click += agToolStripMenuItem_Click;
+            // 
+            // informesToolStripMenuItem
+            // 
+            informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            informesToolStripMenuItem.Size = new Size(66, 20);
+            informesToolStripMenuItem.Text = "Informes";
+            informesToolStripMenuItem.Click += informesToolStripMenuItem_Click;
             // 
             // ListaCotizaciones
             // 
@@ -602,7 +611,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "ListaCotizaciones";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Lista Cotizaciones";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -675,5 +684,6 @@
         private Label label1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem agToolStripMenuItem;
+        private ToolStripMenuItem informesToolStripMenuItem;
     }
 }

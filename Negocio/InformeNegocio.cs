@@ -10,6 +10,20 @@ namespace Negocio
 {
     public class InformeNegocio
     {
+
+        public static List<Informe> GetListByProyect(int id)
+        {
+            using (var db = new DBContextProyectosAsfaltos())
+            {
+                return db.Informes
+                     .Where(i => i.ProyectoId== id)
+                     .OrderByDescending(i => i.InformeId)
+                     .Include(i => i.Proyecto)
+                     .Include(i => i.Usuario)
+                     .ToList();
+            }
+        }
+
         public static List<Informe> ListUnfinished()
         {
             using (var db = new DBContextProyectosAsfaltos())
@@ -99,7 +113,9 @@ namespace Negocio
         {
             using (var db = new DBContextProyectosAsfaltos())
             {
-                return db.Informes.FirstOrDefault(i=>i.InformeId == id);
+                return db.Informes
+                    .Include(i=>i.Usuario)
+                    .FirstOrDefault(i=>i.InformeId == id);
             }
         }
 

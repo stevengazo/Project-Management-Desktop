@@ -164,5 +164,23 @@ namespace Interfaz
 
             }
         }
+
+        private void informesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaInforme listaInforme = new ListaInforme();
+            listaInforme.Show();
+        }
+
+        private void ckPuPri_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckPuPri.Checked)
+            {
+                ckPuPri.Text = "Es Publico";
+            }
+            else
+            {
+                ckPuPri.Text = "Es Privado";
+            }
+        }
     }
 }

@@ -7,6 +7,13 @@ namespace Negocios
     {
         private DBContextProyectosAsfaltos dBContext = new DBContextProyectosAsfaltos();
 
+        public int[] ArregloIds()
+        {
+            var d = (from p in dBContext.Proyectos
+                     orderby p.ProyectoId descending
+                     select p.ProyectoId).ToArray();
+                     return d;
+        }
 
         public int ObtenerUltimoNumero()
         {

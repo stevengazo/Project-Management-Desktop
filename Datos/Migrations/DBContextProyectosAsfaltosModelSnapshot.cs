@@ -130,6 +130,10 @@ namespace Datos.Migrations
                     b.Property<bool>("Concluido")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -297,7 +301,7 @@ namespace Datos.Migrations
                             DDCE = true,
                             EncargadoCotizador = "Gabriel",
                             Estado = "Pendiente",
-                            Fecha = new DateTime(2024, 1, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            Fecha = new DateTime(2024, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
                             Ionizante = true,
                             Malla = true,
                             Monto = 100f,
@@ -307,7 +311,7 @@ namespace Datos.Migrations
                             Provincia = "San José",
                             Supresor = true,
                             Torre = true,
-                            UltimaModificacion = new DateTime(2024, 1, 16, 1, 0, 0, 0, DateTimeKind.Local),
+                            UltimaModificacion = new DateTime(2024, 1, 18, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
                 });
@@ -405,9 +409,9 @@ namespace Datos.Migrations
                             Estado = "Finalizado",
                             FacturaAnticipoId = "No existente",
                             FacturaFinalId = "No Existente",
-                            FechaFinal = new DateTime(2024, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2024, 1, 15, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2024, 1, 16, 15, 10, 18, 743, DateTimeKind.Local).AddTicks(5314),
+                            FechaFinal = new DateTime(2024, 1, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaInicio = new DateTime(2024, 1, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaOC = new DateTime(2024, 1, 18, 16, 50, 38, 290, DateTimeKind.Local).AddTicks(1496),
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,
@@ -415,7 +419,7 @@ namespace Datos.Migrations
                             TareaId = 2000,
                             Tipo = "Instalación",
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2024, 1, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2024, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });
