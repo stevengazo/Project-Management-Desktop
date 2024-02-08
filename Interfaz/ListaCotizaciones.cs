@@ -272,5 +272,12 @@ namespace Interfaz
             }
 
         }
+
+        private void btnBuscarLimpiar_Click(object sender, EventArgs e)
+        {
+            txtBuscarCLiente.Text = string.Empty;
+            txtBuscarOferta.Text = string.Empty;
+            CargarCotizaciones();
+        }
     }
 }

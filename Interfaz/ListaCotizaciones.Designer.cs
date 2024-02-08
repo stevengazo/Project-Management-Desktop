@@ -539,6 +539,7 @@
             btnBuscarLimpiar.TabIndex = 5;
             btnBuscarLimpiar.Text = "Limpiar";
             btnBuscarLimpiar.UseVisualStyleBackColor = true;
+            btnBuscarLimpiar.Click += btnBuscarLimpiar_Click;
             // 
             // btnBuscar
             // 
