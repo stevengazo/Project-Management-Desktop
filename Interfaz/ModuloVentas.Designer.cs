@@ -39,6 +39,8 @@
             agregarCotizaciónToolStripMenuItem = new ToolStripMenuItem();
             verCotizacionesToolStripMenuItem = new ToolStripMenuItem();
             groupBox1 = new GroupBox();
+            txtCedula = new TextBox();
+            label3 = new Label();
             comboBoxOfertas = new ComboBox();
             txtRazonSocial = new TextBox();
             dtpFechaOC = new DateTimePicker();
@@ -148,6 +150,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtCedula);
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(comboBoxOfertas);
             groupBox1.Controls.Add(txtRazonSocial);
             groupBox1.Controls.Add(dtpFechaOC);
@@ -183,11 +187,28 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Agregar Proyecto";
             // 
+            // txtCedula
+            // 
+            txtCedula.Location = new Point(198, 88);
+            txtCedula.Name = "txtCedula";
+            txtCedula.PlaceholderText = "1111111111111111";
+            txtCedula.Size = new Size(225, 23);
+            txtCedula.TabIndex = 43;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(24, 91);
+            label3.Name = "label3";
+            label3.Size = new Size(44, 15);
+            label3.TabIndex = 42;
+            label3.Text = "Cedula";
+            // 
             // comboBoxOfertas
             // 
             comboBoxOfertas.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxOfertas.FormattingEnabled = true;
-            comboBoxOfertas.Location = new Point(198, 152);
+            comboBoxOfertas.Location = new Point(198, 184);
             comboBoxOfertas.Name = "comboBoxOfertas";
             comboBoxOfertas.Size = new Size(225, 23);
             comboBoxOfertas.TabIndex = 41;
@@ -202,7 +223,7 @@
             // 
             // dtpFechaOC
             // 
-            dtpFechaOC.Location = new Point(198, 91);
+            dtpFechaOC.Location = new Point(198, 123);
             dtpFechaOC.Name = "dtpFechaOC";
             dtpFechaOC.Size = new Size(225, 23);
             dtpFechaOC.TabIndex = 38;
@@ -221,35 +242,35 @@
             comboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxEstado.FormattingEnabled = true;
             comboBoxEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            comboBoxEstado.Location = new Point(198, 433);
+            comboBoxEstado.Location = new Point(198, 465);
             comboBoxEstado.Name = "comboBoxEstado";
             comboBoxEstado.Size = new Size(225, 23);
             comboBoxEstado.TabIndex = 36;
             // 
             // numericUpDownPorcentaje
             // 
-            numericUpDownPorcentaje.Location = new Point(198, 210);
+            numericUpDownPorcentaje.Location = new Point(198, 242);
             numericUpDownPorcentaje.Name = "numericUpDownPorcentaje";
             numericUpDownPorcentaje.Size = new Size(225, 23);
             numericUpDownPorcentaje.TabIndex = 35;
             // 
             // dateTimePickerFinal
             // 
-            dateTimePickerFinal.Location = new Point(198, 404);
+            dateTimePickerFinal.Location = new Point(198, 436);
             dateTimePickerFinal.Name = "dateTimePickerFinal";
             dateTimePickerFinal.Size = new Size(225, 23);
             dateTimePickerFinal.TabIndex = 34;
             // 
             // dateTimePickerInicio
             // 
-            dateTimePickerInicio.Location = new Point(198, 375);
+            dateTimePickerInicio.Location = new Point(198, 407);
             dateTimePickerInicio.Name = "dateTimePickerInicio";
             dateTimePickerInicio.Size = new Size(225, 23);
             dateTimePickerInicio.TabIndex = 33;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(300, 468);
+            btnAgregar.Location = new Point(300, 500);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 31;
@@ -259,7 +280,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(198, 468);
+            btnLimpiar.Location = new Point(198, 500);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(75, 23);
             btnLimpiar.TabIndex = 30;
@@ -270,7 +291,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(24, 433);
+            lblEstado.Location = new Point(24, 465);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(42, 15);
             lblEstado.TabIndex = 28;
@@ -279,7 +300,7 @@
             // lblFechaFinalizacion
             // 
             lblFechaFinalizacion.AutoSize = true;
-            lblFechaFinalizacion.Location = new Point(24, 404);
+            lblFechaFinalizacion.Location = new Point(24, 436);
             lblFechaFinalizacion.Name = "lblFechaFinalizacion";
             lblFechaFinalizacion.Size = new Size(103, 15);
             lblFechaFinalizacion.TabIndex = 26;
@@ -288,7 +309,7 @@
             // lblFechaInicio
             // 
             lblFechaInicio.AutoSize = true;
-            lblFechaInicio.Location = new Point(24, 375);
+            lblFechaInicio.Location = new Point(24, 407);
             lblFechaInicio.Name = "lblFechaInicio";
             lblFechaInicio.Size = new Size(70, 15);
             lblFechaInicio.TabIndex = 24;
@@ -296,7 +317,7 @@
             // 
             // textBoxUbicacion
             // 
-            textBoxUbicacion.Location = new Point(198, 294);
+            textBoxUbicacion.Location = new Point(198, 326);
             textBoxUbicacion.Multiline = true;
             textBoxUbicacion.Name = "textBoxUbicacion";
             textBoxUbicacion.PlaceholderText = "Provincia, Canton, Distrito, Indicaciones";
@@ -306,7 +327,7 @@
             // lblUbicacion
             // 
             lblUbicacion.AutoSize = true;
-            lblUbicacion.Location = new Point(24, 297);
+            lblUbicacion.Location = new Point(24, 329);
             lblUbicacion.Name = "lblUbicacion";
             lblUbicacion.Size = new Size(60, 15);
             lblUbicacion.TabIndex = 22;
@@ -314,7 +335,7 @@
             // 
             // txtTareaBitrix
             // 
-            txtTareaBitrix.Location = new Point(198, 265);
+            txtTareaBitrix.Location = new Point(198, 297);
             txtTareaBitrix.Name = "txtTareaBitrix";
             txtTareaBitrix.PlaceholderText = "2155465";
             txtTareaBitrix.Size = new Size(225, 23);
@@ -323,7 +344,7 @@
             // lblTarea
             // 
             lblTarea.AutoSize = true;
-            lblTarea.Location = new Point(24, 268);
+            lblTarea.Location = new Point(24, 300);
             lblTarea.Name = "lblTarea";
             lblTarea.Size = new Size(64, 15);
             lblTarea.TabIndex = 20;
@@ -331,7 +352,7 @@
             // 
             // txtNumeroFacturaAnticipo
             // 
-            txtNumeroFacturaAnticipo.Location = new Point(198, 236);
+            txtNumeroFacturaAnticipo.Location = new Point(198, 268);
             txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
             txtNumeroFacturaAnticipo.PlaceholderText = "136548";
             txtNumeroFacturaAnticipo.Size = new Size(225, 23);
@@ -340,7 +361,7 @@
             // lblFacturaAnticipo
             // 
             lblFacturaAnticipo.AutoSize = true;
-            lblFacturaAnticipo.Location = new Point(24, 239);
+            lblFacturaAnticipo.Location = new Point(24, 271);
             lblFacturaAnticipo.Name = "lblFacturaAnticipo";
             lblFacturaAnticipo.Size = new Size(141, 15);
             lblFacturaAnticipo.TabIndex = 16;
@@ -348,7 +369,7 @@
             // 
             // txtMonto
             // 
-            txtMonto.Location = new Point(198, 181);
+            txtMonto.Location = new Point(198, 213);
             txtMonto.Name = "txtMonto";
             txtMonto.PlaceholderText = "150000";
             txtMonto.Size = new Size(225, 23);
@@ -358,7 +379,7 @@
             // lblPorcentaje
             // 
             lblPorcentaje.AutoSize = true;
-            lblPorcentaje.Location = new Point(24, 210);
+            lblPorcentaje.Location = new Point(24, 242);
             lblPorcentaje.Name = "lblPorcentaje";
             lblPorcentaje.Size = new Size(111, 15);
             lblPorcentaje.TabIndex = 14;
@@ -367,7 +388,7 @@
             // lblMonto
             // 
             lblMonto.AutoSize = true;
-            lblMonto.Location = new Point(24, 181);
+            lblMonto.Location = new Point(24, 213);
             lblMonto.Name = "lblMonto";
             lblMonto.Size = new Size(43, 15);
             lblMonto.TabIndex = 12;
@@ -376,7 +397,7 @@
             // lblOferta
             // 
             lblOferta.AutoSize = true;
-            lblOferta.Location = new Point(24, 152);
+            lblOferta.Location = new Point(24, 184);
             lblOferta.Name = "lblOferta";
             lblOferta.Size = new Size(77, 15);
             lblOferta.TabIndex = 10;
@@ -384,7 +405,7 @@
             // 
             // txtContacto
             // 
-            txtContacto.Location = new Point(198, 120);
+            txtContacto.Location = new Point(198, 152);
             txtContacto.Name = "txtContacto";
             txtContacto.PlaceholderText = "Pepe";
             txtContacto.Size = new Size(225, 23);
@@ -393,7 +414,7 @@
             // lblContacto
             // 
             lblContacto.AutoSize = true;
-            lblContacto.Location = new Point(24, 123);
+            lblContacto.Location = new Point(24, 155);
             lblContacto.Name = "lblContacto";
             lblContacto.Size = new Size(56, 15);
             lblContacto.TabIndex = 8;
@@ -402,7 +423,7 @@
             // lblFechaOC
             // 
             lblFechaOC.AutoSize = true;
-            lblFechaOC.Location = new Point(24, 94);
+            lblFechaOC.Location = new Point(24, 126);
             lblFechaOC.Name = "lblFechaOC";
             lblFechaOC.Size = new Size(120, 15);
             lblFechaOC.TabIndex = 2;
@@ -585,5 +606,7 @@
         private TextBox txtClienteBuscar;
         private ComboBox comboBoxOfertas;
         private Button limpar;
+        private TextBox txtCedula;
+        private Label label3;
     }
 }

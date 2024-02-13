@@ -122,6 +122,7 @@ namespace Interfaz
                             _tabla.Columns.Add("Id Interno");
                             _tabla.Columns.Add("Vendedor");
                             _tabla.Columns.Add("Cliente");
+                            _tabla.Columns.Add("Tipo Trabajo");
                             _tabla.Columns.Add("Fecha OC");
                             _tabla.Columns.Add("Factura Anticipo");
                             _tabla.Columns.Add("Tarea");
@@ -136,6 +137,7 @@ namespace Interfaz
                                     i.ProyectoId,
                                     i.Vendedor.Nombre,
                                     i.Cliente,
+                                    i.Tipo,
                                     i.FechaOC.ToString("dd MMM yy"),
                                     i.FacturaAnticipoId.ToString(),
                                     i.TareaId,
@@ -317,6 +319,7 @@ namespace Interfaz
                     proyectoTemporal.FechaFinal = dtpFechaFinal.Value;
                     proyectoTemporal.Monto = float.Parse(txtMonto.Text);
                     proyectoTemporal.Ubicacion = txtUbicacion.Text;
+                    proyectoTemporal.Cedula = txtCedula.Text;
                     proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
                     proyectoTemporal.Tipo = cbTipoTrabajo.Text;
                     proyectoTemporal.Provincia = cbProvincia.Text;
@@ -665,6 +668,12 @@ namespace Interfaz
         {
             AgregarUsuario s = new AgregarUsuario();
             s.ShowDialog();
+        }
+
+        private void resumenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Resumen resumen = new Resumen();
+            resumen.Show();
         }
     }
 }

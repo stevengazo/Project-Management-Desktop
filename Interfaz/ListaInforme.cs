@@ -43,7 +43,7 @@ namespace Interfaz
                 {
                     dataGridViewInformes.Invoke(new Action(() =>
                     {
-                        var informes = InformeNegocio.GetList(DateTime.Today.Year);
+                        var informes = InformeNegocio.GetList(DateTime.Today.AddYears(-4).Year);
                         if (informes != null)
                         {
                             DataTable dt = new DataTable();
@@ -56,6 +56,7 @@ namespace Interfaz
                             dt.Columns.Add("Técnico");
                             dt.Columns.Add("Calificación");
                             dt.Columns.Add("Autor");
+                            dt.Columns.Add("Descripción");
                             foreach (var item in informes)
                             {
                                 dt.Rows.Add(
@@ -67,7 +68,8 @@ namespace Interfaz
                                       (item.Concluido) ? item.FechaRegistro.ToLongDateString() : "Sin Finalizar",
                                       item.Tecnico,
                                       item.Calificacion,
-                                      (item.Usuario != null) ? item.Usuario.Nombre : "No Asignado"
+                                      (item.Usuario != null) ? item.Usuario.Nombre : "No Asignado",
+                                      (item.Descripcion.Length > 20) ? $"{String.Join("", item.Descripcion.Take(20))}..." : item.Descripcion
                                     );
                             }
                             dataGridViewInformes.DataSource = dt;
@@ -76,7 +78,6 @@ namespace Interfaz
                 }));
                 CargarInformes.Start();
             }
-
         }
 
         private void informesPendientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,6 +90,7 @@ namespace Interfaz
         {
             CrearInforme crearInforme = new();
             crearInforme.Show();
+            CargarTabla();
         }
 
         private void dataGridViewInformes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -105,9 +107,9 @@ namespace Interfaz
                 txtTecnico.Text = informe.Tecnico;
                 trackBarCalificacion.Value = informe.Calificacion;
                 txtComentarios.Text = informe.Comentarios;
+                txtDescripcion.Text = informe.Descripcion;
                 dateTimePickerEntrega.Value = informe.FechaMaxima;
                 dateTimePickerFinalizacion.Value = informe.FechaRegistro;
-
             }
             catch (Exception j)
             {
@@ -131,6 +133,7 @@ namespace Interfaz
                 informe.Comentarios = txtComentarios.Text;
                 informe.Tecnico = txtTecnico.Text;
                 informe.Usuario = null;
+                informe.Descripcion = txtDescripcion.Text;
                 informe.Calificacion = trackBarCalificacion.Value;
                 informe.FechaMaxima = dateTimePickerEntrega.Value;
                 informe.FechaRegistro = dateTimePickerFinalizacion.Value;

@@ -301,7 +301,7 @@ namespace Datos.Migrations
                             DDCE = true,
                             EncargadoCotizador = "Gabriel",
                             Estado = "Pendiente",
-                            Fecha = new DateTime(2024, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            Fecha = new DateTime(2024, 2, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             Ionizante = true,
                             Malla = true,
                             Monto = 100f,
@@ -311,7 +311,7 @@ namespace Datos.Migrations
                             Provincia = "San José",
                             Supresor = true,
                             Torre = true,
-                            UltimaModificacion = new DateTime(2024, 1, 18, 1, 0, 0, 0, DateTimeKind.Local),
+                            UltimaModificacion = new DateTime(2024, 2, 13, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
                 });
@@ -322,6 +322,10 @@ namespace Datos.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Autor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cedula")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -356,6 +360,9 @@ namespace Datos.Migrations
 
                     b.Property<DateTime>("FechaOC")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Finalizado")
+                        .HasColumnType("bit");
 
                     b.Property<float>("Monto")
                         .HasColumnType("real");
@@ -403,15 +410,17 @@ namespace Datos.Migrations
                         {
                             ProyectoId = 1,
                             Autor = "Administrador",
+                            Cedula = "2894043",
                             Cliente = "Ejemplo de Cliente",
                             Contacto = "Ejemplo",
                             Enable = true,
                             Estado = "Finalizado",
                             FacturaAnticipoId = "No existente",
                             FacturaFinalId = "No Existente",
-                            FechaFinal = new DateTime(2024, 1, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2024, 1, 17, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2024, 1, 18, 16, 50, 38, 290, DateTimeKind.Local).AddTicks(1496),
+                            FechaFinal = new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaInicio = new DateTime(2024, 2, 12, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaOC = new DateTime(2024, 2, 13, 16, 6, 13, 690, DateTimeKind.Local).AddTicks(9961),
+                            Finalizado = false,
                             Monto = 100f,
                             OfertaId = "PS-00001",
                             PorcentajeAnticipo = 50,
@@ -419,7 +428,7 @@ namespace Datos.Migrations
                             TareaId = 2000,
                             Tipo = "Instalación",
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2024, 1, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2024, 2, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });

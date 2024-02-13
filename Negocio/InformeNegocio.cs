@@ -56,7 +56,7 @@ namespace Negocio
             using (var db = new DBContextProyectosAsfaltos())
             {
                return db.Informes
-                    .Where(i=>i.FechaRegistro.Year  == year  || !i.Concluido)
+                    .Where(i=>i.FechaRegistro.Year  >= year  || !i.Concluido)
                     .OrderByDescending(i=>i.InformeId)
                     .Include(i=>i.Proyecto)
                     .Include(i=>i.Usuario)

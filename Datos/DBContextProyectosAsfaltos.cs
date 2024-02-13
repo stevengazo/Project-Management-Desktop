@@ -102,6 +102,7 @@ namespace Modelos
                 Cliente = "Ejemplo de Cliente",
                 OfertaId = "PS-00001",
                 Monto = 100f,
+                Cedula= "2894043",
                 PorcentajeAnticipo = 50,
                 FacturaAnticipoId = "No existente",
                 FacturaFinalId = "No Existente",
@@ -116,7 +117,8 @@ namespace Modelos
                 UltimaEdicion = DateTime.Today,
                 UsuarioId = usuarioBase.UsuarioId,
                 UltimoEditor = usuarioBase.Nombre,
-                Enable = true
+                Enable = true,
+                Finalizado = false
                 //ClienteID = clienteBase.ClienteID
             };
             model.Entity<Proyecto>().HasData(ProyectoBase);

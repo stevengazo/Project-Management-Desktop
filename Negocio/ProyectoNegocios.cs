@@ -15,6 +15,9 @@ namespace Negocios
                      return d;
         }
 
+
+
+
         public int ObtenerUltimoNumero()
         {
             try
@@ -28,6 +31,43 @@ namespace Negocios
             {
                 Console.WriteLine(ex.Message);
                 return -1;
+            }
+        }
+
+        public async Task<List<Proyecto>> ListaFinalizados()
+        {
+            try
+            {
+                List<Proyecto> query = await (from i in dBContext.Proyectos
+                                              where i.Finalizado == true && i.FechaOC.Year >= (DateTime.Now.AddYears(-1).Year)
+                                              orderby  i.Estado descending, i.ProyectoId descending
+                                              select i)
+                                    .Include(I => I.Vendedor)
+                                    .ToListAsync();
+                return query;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+        public async Task<List<Proyecto>> ListaPendientes()
+        {
+            try
+            {
+                List<Proyecto> query = await (from i in dBContext.Proyectos
+                                              where i.Finalizado == false
+                                              orderby i.ProyectoId descending
+                                              select i)
+                                              .Include(I=>I.Vendedor)
+                                              .ToListAsync();
+                return query;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
             }
         }
 
@@ -165,6 +205,7 @@ namespace Negocios
                 using (var db = dBContext)
                 {
                     proyectos = await (from proye in db.Proyectos
+                                       where proye.FechaOC.Year >= (DateTime.Now.AddYears(-2).Year)
                                        orderby proye.ProyectoId descending
                                        select proye).Include(P => P.Vendedor).ToListAsync();
                 }

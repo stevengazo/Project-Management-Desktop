@@ -12,6 +12,7 @@ namespace Modelos
         public DateTime FechaOC { get; set; }
         public string Contacto { get; set; }
         public string Cliente { get; set; }
+        public string Cedula { get; set; }
         public string OfertaId { get; set; }
         public float Monto { get; set; }
         public int PorcentajeAnticipo { get; set; }
@@ -30,6 +31,7 @@ namespace Modelos
         public Usuario Vendedor { get; set; }
         public int UsuarioId { get; set; }
         public bool Enable { get; set; }
+        public bool Finalizado { get; set; }
         public ICollection<Nota> Notas { get; set; }
         public ICollection<Informe> Informes { get; set; }  
         //public int ClienteID { get; set; }

@@ -186,76 +186,25 @@ namespace Interfaz
             try
             {
                 int.TryParse(txtNumeroOferta.Text, out int numeroOferta);
-                var cliente = txtCliente.Text;
-                if (!string.IsNullOrEmpty(cliente))
+                var cliente = (string.IsNullOrEmpty(txtCliente.Text)) ? string.Empty : txtCliente.Text;
+                List<Oferta> busqueda = new List<Oferta>(); 
+                OfertaNegocio tmp = new OfertaNegocio();
+                if (Temporal.TipoLogin.Equals("Administrador"))
                 {
-                    OfertaNegocio tmp = new OfertaNegocio();
-                    ListaOfertas = tmp.BuscarOferta(numeroOferta, cliente);
-                    if (ListaOfertas.Count > 0)
-                    {
-                        if (Temporal.TipoLogin.Equals("Administrador"))
-                        {
-                            CargarTablaAdministradores(ListaOfertas);
-                        }
-                        else
-                        {
-                            CargarTablaVendedores(ListaOfertas);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Busqueda sin resultados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if (Temporal.TipoLogin.Equals("Administrador"))
-                        {
-                            CargarTablaAdministradores();
-                        }
-                        else
-                        {
-                            CargarTablaVendedores();
-                        }
-                    }
+                    busqueda = tmp.BuscarOferta(numeroOferta: numeroOferta, Cliente: cliente);
+                    CargarTablaAdministradores(busqueda);
                 }
                 else
                 {
-                    OfertaNegocio tmp = new OfertaNegocio();
-                    ListaOfertas = tmp.BuscarOferta(numeroOferta);
-                    if (ListaOfertas.Count > 0)
-                    {
-                        if (Temporal.TipoLogin.Equals("Administrador"))
-                        {
-                            CargarTablaAdministradores(ListaOfertas);
-                        }
-                        else
-                        {
-                            CargarTablaVendedores(ListaOfertas);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Busqueda sin resultados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if (Temporal.TipoLogin.Equals("Administrador"))
-                        {
-                            CargarTablaAdministradores();
-                        }
-                        else
-                        {
-                            CargarTablaVendedores();
-                        }
-                    }
-
+                    busqueda = tmp.BuscarOferta(numeroOferta: numeroOferta, Cliente: cliente, idUser: Temporal.UsuarioActivo.UsuarioId);
+                    CargarTablaVendedores(busqueda);
                 }
-
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
-
-
         }
 
         private void dgvOfertas_CellContentClick(object sender, DataGridViewCellEventArgs e)

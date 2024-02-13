@@ -31,26 +31,19 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             btnContrasena = new Button();
-            btnDesactivarUsuario = new Button();
             btnActualizarUsuario = new Button();
             txtNombre = new TextBox();
             label2 = new Label();
             txtUsuario = new TextBox();
             label1 = new Label();
-            tabPage2 = new TabPage();
-            btnActualizarConexion = new Button();
-            txtConexion = new TextBox();
-            label3 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -60,7 +53,6 @@
             // tabPage1
             // 
             tabPage1.Controls.Add(btnContrasena);
-            tabPage1.Controls.Add(btnDesactivarUsuario);
             tabPage1.Controls.Add(btnActualizarUsuario);
             tabPage1.Controls.Add(txtNombre);
             tabPage1.Controls.Add(label2);
@@ -84,15 +76,6 @@
             btnContrasena.Text = "Cambiar Contraseña";
             btnContrasena.UseVisualStyleBackColor = true;
             btnContrasena.Click += button5_Click;
-            // 
-            // btnDesactivarUsuario
-            // 
-            btnDesactivarUsuario.Location = new Point(316, 97);
-            btnDesactivarUsuario.Name = "btnDesactivarUsuario";
-            btnDesactivarUsuario.Size = new Size(117, 23);
-            btnDesactivarUsuario.TabIndex = 5;
-            btnDesactivarUsuario.Text = "Desactivar Usuario";
-            btnDesactivarUsuario.UseVisualStyleBackColor = true;
             // 
             // btnActualizarUsuario
             // 
@@ -137,45 +120,6 @@
             label1.TabIndex = 0;
             label1.Text = "Nombre de Usuario";
             // 
-            // tabPage2
-            // 
-            tabPage2.Controls.Add(btnActualizarConexion);
-            tabPage2.Controls.Add(txtConexion);
-            tabPage2.Controls.Add(label3);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(471, 134);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Base Datos";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnActualizarConexion
-            // 
-            btnActualizarConexion.Location = new Point(163, 69);
-            btnActualizarConexion.Name = "btnActualizarConexion";
-            btnActualizarConexion.Size = new Size(117, 23);
-            btnActualizarConexion.TabIndex = 8;
-            btnActualizarConexion.Text = "Actualizar Cadena";
-            btnActualizarConexion.UseVisualStyleBackColor = true;
-            btnActualizarConexion.Click += button4_Click;
-            // 
-            // txtConexion
-            // 
-            txtConexion.Location = new Point(148, 27);
-            txtConexion.Name = "txtConexion";
-            txtConexion.Size = new Size(289, 23);
-            txtConexion.TabIndex = 7;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(18, 30);
-            label3.Name = "label3";
-            label3.Size = new Size(101, 15);
-            label3.TabIndex = 6;
-            label3.Text = "Cadena Conexión";
-            // 
             // Configuracion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -191,8 +135,6 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -202,14 +144,9 @@
         private TabPage tabPage1;
         private TextBox txtUsuario;
         private Label label1;
-        private TabPage tabPage2;
-        private Button btnDesactivarUsuario;
         private Button btnActualizarUsuario;
         private TextBox txtNombre;
         private Label label2;
-        private Button btnActualizarConexion;
-        private TextBox txtConexion;
-        private Label label3;
         private Button btnContrasena;
     }
 }

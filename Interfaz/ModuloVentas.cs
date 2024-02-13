@@ -242,6 +242,7 @@ namespace Interfaz
                                     select v.UsuarioId).FirstOrDefault();
                     proyectoNuevo.UsuarioId = vendedor;
                     proyectoNuevo.Cliente = txtRazonSocial.Text;
+                    proyectoNuevo.Cedula = txtCedula.Text;
                     proyectoNuevo.FechaOC = dtpFechaOC.Value;
                     proyectoNuevo.Contacto = txtContacto.Text;
                     var oferta = comboBoxOfertas.Text.Split('-');

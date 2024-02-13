@@ -50,7 +50,6 @@ namespace Interfaz
                 {
                     cbVendedores.Items.Add(item.Nombre);
                 }
-
             }
         }
 
@@ -96,9 +95,10 @@ namespace Interfaz
                     dtpOC.Value = ProyectoActual.FechaOC;
                     txtContacto.Text = ProyectoActual.Cliente;
                     // oferta
-                    txtOferta.Text = ProyectoActual.Cliente;
+                    txtOferta.Text = ProyectoActual.OfertaId;
 
                     cbProvincia.Text = ProyectoActual.Provincia;
+                    txtCedula.Text = ProyectoActual.Cedula;
                     cbTipoTrabajo.Text = ProyectoActual.Tipo;
                     txtMonto.Text = ProyectoActual.Monto.ToString();
                     numericUpDownPorcentaje.Value = ProyectoActual.PorcentajeAnticipo;
@@ -142,6 +142,7 @@ namespace Interfaz
                         ProyectoActual.Cliente = txtRazonSocial.Text;
                         ProyectoActual.FechaOC = dtpOC.Value;
                         ProyectoActual.Contacto = txtContacto.Text;
+                        ProyectoActual.Cedula = txtCedula.Text;
                         ProyectoActual.OfertaId = txtOferta.Text;
                         ProyectoActual.Monto = float.Parse(txtMonto.Text);
                         ProyectoActual.PorcentajeAnticipo = int.Parse(numericUpDownPorcentaje.Value.ToString());
@@ -156,6 +157,7 @@ namespace Interfaz
                         ProyectoActual.UltimaEdicion = DateTime.Now;
                         ProyectoActual.Provincia = cbProvincia.Text;
                         ProyectoActual.Tipo = cbTipoTrabajo.Text;
+                        ProyectoActual.Finalizado = (cbEstado.Text == "Finalizado sin cobro" || cbEstado.Text == "Finalizado con cobro") ? true : false;
                         ProyectoActual.Vendedor = null;
                         //Envio a la DB
 

@@ -101,6 +101,51 @@ namespace Negocio
             }
         }
 
+
+        public List<Oferta> BuscarOferta(int numeroOferta = 0, string Cliente = "", int idUser = 0)
+        {
+            try
+            {
+                List<Oferta> lista = new List<Oferta>();
+                using (var db = new DBContextProyectosAsfaltos())
+                {
+                    if (numeroOferta > 0 && !string.IsNullOrEmpty(Cliente))
+                    {
+                        lista = (from i in db.Ofertas
+                                 where i.OfertaId == numeroOferta && i.Cliente.Contains(Cliente) && i.UsuarioId == idUser
+                                 orderby i.OfertaId descending
+                                 select i).Include(V => V.Encargado).ToList();
+
+                    }
+                    else if (numeroOferta == 0 && !string.IsNullOrEmpty(Cliente))
+                    {
+                        lista = (from i in db.Ofertas
+                                 where i.Cliente.Contains(Cliente) && i.UsuarioId == idUser
+                                 orderby i.OfertaId descending
+                                 select i).Include(V => V.Encargado).ToList();
+
+                    }
+                    else if (numeroOferta > 0 && string.IsNullOrEmpty(Cliente))
+                    {
+                        lista = (from i in db.Ofertas
+                                 where i.OfertaId == numeroOferta && i.UsuarioId == idUser
+                                 orderby i.OfertaId descending
+                                 select i).Include(V => V.Encargado).ToList();
+                    }
+                    else
+                    {
+                        return lista;
+                    }
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return new List<Oferta>();
+            }
+        }
+
+
         public int ObtenerUltimoId()
         {
             try

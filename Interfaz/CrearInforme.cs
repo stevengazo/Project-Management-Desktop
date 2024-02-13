@@ -38,7 +38,7 @@ namespace Interfaz
                 nuevoInforme.Concluido = false;
                 nuevoInforme.FechaRegistro = DateTime.Now;
                 nuevoInforme.ProyectoId = int.Parse(comboBoxProyectoId.Text);
-                nuevoInforme.Estado = "";
+                nuevoInforme.Estado = "Pendiente";
                 nuevoInforme.Descripcion = txtDescripcion.Text;
                 InformeNegocio.Add(nuevoInforme);
                 MessageBox.Show("Informe Agregado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

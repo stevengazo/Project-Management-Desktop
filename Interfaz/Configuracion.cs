@@ -29,23 +29,6 @@ namespace Interfaz
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtConexion.Text))
-            {
-                MessageBox.Show("El campo no puede estar vacío", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                // Ruta del archivo XML
-                string pathFile = Path.Combine(Directory.GetCurrentDirectory(), "Configuracion.xml");
-                try
-                {
-                    
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al actualizar la cadena de conexión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -75,5 +58,7 @@ namespace Interfaz
                 MessageBox.Show("El campo no puede estar vacio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+     
     }
 }

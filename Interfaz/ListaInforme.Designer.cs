@@ -53,6 +53,8 @@
             label4 = new Label();
             label3 = new Label();
             txtIdInforme = new TextBox();
+            label1 = new Label();
+            txtDescripcion = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).BeginInit();
             menuStrip1.SuspendLayout();
@@ -108,6 +110,8 @@
             // groupBox3
             // 
             groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            groupBox3.Controls.Add(label1);
+            groupBox3.Controls.Add(txtDescripcion);
             groupBox3.Controls.Add(dateTimePickerFinalizacion);
             groupBox3.Controls.Add(label13);
             groupBox3.Controls.Add(label12);
@@ -229,7 +233,7 @@
             // 
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label9.AutoSize = true;
-            label9.Location = new Point(15, 287);
+            label9.Location = new Point(9, 287);
             label9.Name = "label9";
             label9.Size = new Size(75, 15);
             label9.TabIndex = 13;
@@ -241,7 +245,7 @@
             txtComentarios.Location = new Point(9, 305);
             txtComentarios.Multiline = true;
             txtComentarios.Name = "txtComentarios";
-            txtComentarios.Size = new Size(258, 119);
+            txtComentarios.Size = new Size(258, 66);
             txtComentarios.TabIndex = 12;
             // 
             // label8
@@ -321,6 +325,25 @@
             txtIdInforme.Size = new Size(151, 23);
             txtIdInforme.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Location = new Point(9, 381);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 15);
+            label1.TabIndex = 26;
+            label1.Text = "Descripción";
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtDescripcion.Location = new Point(9, 399);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(258, 66);
+            txtDescripcion.TabIndex = 25;
+            // 
             // ListaInforme
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -372,5 +395,7 @@
         private Label label11;
         private DateTimePicker dateTimePickerFinalizacion;
         private Label label13;
+        private Label label1;
+        private TextBox txtDescripcion;
     }
 }

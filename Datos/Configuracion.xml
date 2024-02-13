@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <datos>
 	<cadenasdeconexion>
-		<DBAsfaltos>Data Source=localhost;Initial Catalog=ProyectosElectricos;User ID=sa;Password=Password123;encrypt=false</DBAsfaltos>
+		<DBAsfaltos>Data Source=192.168.1.2;Initial Catalog=ProyectosElectricos;User ID=Stgazo;Password=Gazo.23;encrypt=false</DBAsfaltos>
 	</cadenasdeconexion>
 </datos>

@@ -76,11 +76,13 @@ namespace Interfaz
                     CargarNotas(proyectoTemporal.ProyectoId);
                     txtNumeroProyecto.Text = $"P-{proyectoTemporal.ProyectoId}";
                     txtEstado.Text = proyectoTemporal.Estado;
+
                     txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
                     txtRazonSocial.Text = proyectoTemporal.Cliente;
                     txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
                     txtContacto.Text = proyectoTemporal.Contacto;
                     txtProvincia.Text = proyectoTemporal.Provincia;
+                    txtCedula.Text = proyectoTemporal.Cedula;   
                     txtTipoProyecto.Text = proyectoTemporal.Tipo;
                     txtOferta.Text = proyectoTemporal.OfertaId;
                     txtMontoProyecto.Text = proyectoTemporal.Monto.ToString("C", CultureInfo.CurrentCulture);

@@ -73,6 +73,8 @@
             dataGridViewInformes = new DataGridView();
             groupBox5 = new GroupBox();
             groupBox2 = new GroupBox();
+            label20 = new Label();
+            txtCedula = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewComentarios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).BeginInit();
@@ -82,7 +84,7 @@
             // 
             // txtRazonSocial
             // 
-            txtRazonSocial.Location = new Point(180, 85);
+            txtRazonSocial.Location = new Point(180, 112);
             txtRazonSocial.Name = "txtRazonSocial";
             txtRazonSocial.ReadOnly = true;
             txtRazonSocial.Size = new Size(225, 23);
@@ -112,7 +114,7 @@
             // 
             label17.AutoSize = true;
             label17.ForeColor = SystemColors.ButtonHighlight;
-            label17.Location = new Point(6, 562);
+            label17.Location = new Point(6, 589);
             label17.Name = "label17";
             label17.Size = new Size(42, 15);
             label17.TabIndex = 60;
@@ -122,7 +124,7 @@
             // 
             label16.AutoSize = true;
             label16.ForeColor = SystemColors.ButtonHighlight;
-            label16.Location = new Point(6, 529);
+            label16.Location = new Point(6, 556);
             label16.Name = "label16";
             label16.Size = new Size(103, 15);
             label16.TabIndex = 59;
@@ -132,7 +134,7 @@
             // 
             label15.AutoSize = true;
             label15.ForeColor = SystemColors.ButtonHighlight;
-            label15.Location = new Point(6, 500);
+            label15.Location = new Point(6, 527);
             label15.Name = "label15";
             label15.Size = new Size(70, 15);
             label15.TabIndex = 58;
@@ -140,7 +142,7 @@
             // 
             // txtUbicacion
             // 
-            txtUbicacion.Location = new Point(180, 390);
+            txtUbicacion.Location = new Point(180, 417);
             txtUbicacion.Multiline = true;
             txtUbicacion.Name = "txtUbicacion";
             txtUbicacion.ReadOnly = true;
@@ -152,7 +154,7 @@
             // 
             label14.AutoSize = true;
             label14.ForeColor = SystemColors.ButtonHighlight;
-            label14.Location = new Point(6, 393);
+            label14.Location = new Point(6, 420);
             label14.Name = "label14";
             label14.Size = new Size(60, 15);
             label14.TabIndex = 56;
@@ -160,7 +162,7 @@
             // 
             // txtNumeroTarea
             // 
-            txtNumeroTarea.Location = new Point(180, 291);
+            txtNumeroTarea.Location = new Point(180, 318);
             txtNumeroTarea.Name = "txtNumeroTarea";
             txtNumeroTarea.ReadOnly = true;
             txtNumeroTarea.Size = new Size(225, 23);
@@ -171,7 +173,7 @@
             // 
             label13.AutoSize = true;
             label13.ForeColor = SystemColors.ButtonHighlight;
-            label13.Location = new Point(6, 294);
+            label13.Location = new Point(6, 321);
             label13.Name = "label13";
             label13.Size = new Size(64, 15);
             label13.TabIndex = 54;
@@ -179,7 +181,7 @@
             // 
             // txtNumeroFacturaAnticipo
             // 
-            txtNumeroFacturaAnticipo.Location = new Point(180, 262);
+            txtNumeroFacturaAnticipo.Location = new Point(180, 289);
             txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
             txtNumeroFacturaAnticipo.ReadOnly = true;
             txtNumeroFacturaAnticipo.Size = new Size(225, 23);
@@ -190,7 +192,7 @@
             // 
             label11.AutoSize = true;
             label11.ForeColor = SystemColors.ButtonHighlight;
-            label11.Location = new Point(6, 265);
+            label11.Location = new Point(6, 292);
             label11.Name = "label11";
             label11.Size = new Size(93, 15);
             label11.TabIndex = 52;
@@ -198,7 +200,7 @@
             // 
             // txtMontoProyecto
             // 
-            txtMontoProyecto.Location = new Point(180, 207);
+            txtMontoProyecto.Location = new Point(180, 234);
             txtMontoProyecto.Name = "txtMontoProyecto";
             txtMontoProyecto.ReadOnly = true;
             txtMontoProyecto.Size = new Size(225, 23);
@@ -209,7 +211,7 @@
             // 
             label10.AutoSize = true;
             label10.ForeColor = SystemColors.ButtonHighlight;
-            label10.Location = new Point(6, 236);
+            label10.Location = new Point(6, 263);
             label10.Name = "label10";
             label10.Size = new Size(111, 15);
             label10.TabIndex = 50;
@@ -219,7 +221,7 @@
             // 
             label9.AutoSize = true;
             label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(6, 207);
+            label9.Location = new Point(6, 234);
             label9.Name = "label9";
             label9.Size = new Size(43, 15);
             label9.TabIndex = 49;
@@ -227,7 +229,7 @@
             // 
             // txtOferta
             // 
-            txtOferta.Location = new Point(180, 175);
+            txtOferta.Location = new Point(180, 202);
             txtOferta.Name = "txtOferta";
             txtOferta.ReadOnly = true;
             txtOferta.Size = new Size(225, 23);
@@ -238,7 +240,7 @@
             // 
             label8.AutoSize = true;
             label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(6, 178);
+            label8.Location = new Point(6, 205);
             label8.Name = "label8";
             label8.Size = new Size(77, 15);
             label8.TabIndex = 47;
@@ -246,7 +248,7 @@
             // 
             // txtContacto
             // 
-            txtContacto.Location = new Point(180, 146);
+            txtContacto.Location = new Point(180, 173);
             txtContacto.Name = "txtContacto";
             txtContacto.ReadOnly = true;
             txtContacto.Size = new Size(225, 23);
@@ -257,7 +259,7 @@
             // 
             label7.AutoSize = true;
             label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(6, 149);
+            label7.Location = new Point(6, 176);
             label7.Name = "label7";
             label7.Size = new Size(56, 15);
             label7.TabIndex = 45;
@@ -267,7 +269,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(6, 120);
+            label5.Location = new Point(6, 147);
             label5.Name = "label5";
             label5.Size = new Size(120, 15);
             label5.TabIndex = 43;
@@ -277,7 +279,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(6, 88);
+            label4.Location = new Point(6, 115);
             label4.Name = "label4";
             label4.Size = new Size(73, 15);
             label4.TabIndex = 42;
@@ -304,7 +306,7 @@
             // 
             // txtOC
             // 
-            txtOC.Location = new Point(180, 117);
+            txtOC.Location = new Point(180, 144);
             txtOC.Name = "txtOC";
             txtOC.ReadOnly = true;
             txtOC.Size = new Size(225, 23);
@@ -313,7 +315,7 @@
             // 
             // txtFechaInicio
             // 
-            txtFechaInicio.Location = new Point(180, 500);
+            txtFechaInicio.Location = new Point(180, 527);
             txtFechaInicio.Name = "txtFechaInicio";
             txtFechaInicio.ReadOnly = true;
             txtFechaInicio.Size = new Size(225, 23);
@@ -322,7 +324,7 @@
             // 
             // txtFechaFinal
             // 
-            txtFechaFinal.Location = new Point(180, 529);
+            txtFechaFinal.Location = new Point(180, 556);
             txtFechaFinal.Name = "txtFechaFinal";
             txtFechaFinal.ReadOnly = true;
             txtFechaFinal.Size = new Size(225, 23);
@@ -331,7 +333,7 @@
             // 
             // txtPorcentaje
             // 
-            txtPorcentaje.Location = new Point(180, 236);
+            txtPorcentaje.Location = new Point(180, 263);
             txtPorcentaje.Name = "txtPorcentaje";
             txtPorcentaje.ReadOnly = true;
             txtPorcentaje.Size = new Size(225, 23);
@@ -340,7 +342,7 @@
             // 
             // txtEstado
             // 
-            txtEstado.Location = new Point(180, 558);
+            txtEstado.Location = new Point(180, 585);
             txtEstado.Name = "txtEstado";
             txtEstado.ReadOnly = true;
             txtEstado.Size = new Size(225, 23);
@@ -351,7 +353,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(6, 330);
+            label1.Location = new Point(6, 357);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
             label1.TabIndex = 79;
@@ -359,7 +361,7 @@
             // 
             // txtNotas
             // 
-            txtNotas.Location = new Point(180, 330);
+            txtNotas.Location = new Point(180, 357);
             txtNotas.Multiline = true;
             txtNotas.Name = "txtNotas";
             txtNotas.ReadOnly = true;
@@ -370,6 +372,8 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox1.Controls.Add(label20);
+            groupBox1.Controls.Add(txtCedula);
             groupBox1.Controls.Add(txtProvincia);
             groupBox1.Controls.Add(label19);
             groupBox1.Controls.Add(txtTipoProyecto);
@@ -412,7 +416,7 @@
             // 
             // txtProvincia
             // 
-            txtProvincia.Location = new Point(180, 471);
+            txtProvincia.Location = new Point(180, 498);
             txtProvincia.Name = "txtProvincia";
             txtProvincia.ReadOnly = true;
             txtProvincia.Size = new Size(225, 23);
@@ -423,7 +427,7 @@
             // 
             label19.AutoSize = true;
             label19.ForeColor = SystemColors.ButtonHighlight;
-            label19.Location = new Point(6, 471);
+            label19.Location = new Point(6, 498);
             label19.Name = "label19";
             label19.Size = new Size(56, 15);
             label19.TabIndex = 83;
@@ -431,7 +435,7 @@
             // 
             // txtTipoProyecto
             // 
-            txtTipoProyecto.Location = new Point(180, 587);
+            txtTipoProyecto.Location = new Point(180, 614);
             txtTipoProyecto.Name = "txtTipoProyecto";
             txtTipoProyecto.ReadOnly = true;
             txtTipoProyecto.Size = new Size(225, 23);
@@ -442,7 +446,7 @@
             // 
             label18.AutoSize = true;
             label18.ForeColor = SystemColors.ButtonHighlight;
-            label18.Location = new Point(6, 591);
+            label18.Location = new Point(6, 618);
             label18.Name = "label18";
             label18.Size = new Size(80, 15);
             label18.TabIndex = 81;
@@ -554,6 +558,25 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Informes";
             // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.ForeColor = SystemColors.ButtonHighlight;
+            label20.Location = new Point(6, 86);
+            label20.Name = "label20";
+            label20.Size = new Size(44, 15);
+            label20.TabIndex = 85;
+            label20.Text = "Cedula";
+            // 
+            // txtCedula
+            // 
+            txtCedula.Location = new Point(180, 83);
+            txtCedula.Name = "txtCedula";
+            txtCedula.ReadOnly = true;
+            txtCedula.Size = new Size(225, 23);
+            txtCedula.TabIndex = 86;
+            txtCedula.TextAlign = HorizontalAlignment.Right;
+            // 
             // VerProyecto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -626,5 +649,7 @@
         private DataGridView dataGridViewInformes;
         private GroupBox groupBox5;
         private GroupBox groupBox2;
+        private Label label20;
+        private TextBox txtCedula;
     }
 }
