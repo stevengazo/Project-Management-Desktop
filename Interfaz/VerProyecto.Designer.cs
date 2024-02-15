@@ -28,41 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtRazonSocial = new TextBox();
             txtNumeroProyecto = new TextBox();
             label6 = new Label();
-            label17 = new Label();
-            label16 = new Label();
-            label15 = new Label();
-            txtUbicacion = new TextBox();
-            label14 = new Label();
-            txtNumeroTarea = new TextBox();
-            label13 = new Label();
-            txtNumeroFacturaAnticipo = new TextBox();
-            label11 = new Label();
-            txtMontoProyecto = new TextBox();
-            label10 = new Label();
-            label9 = new Label();
-            txtOferta = new TextBox();
-            label8 = new Label();
-            txtContacto = new TextBox();
-            label7 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            txtVendedor = new TextBox();
-            txtOC = new TextBox();
-            txtFechaInicio = new TextBox();
-            txtFechaFinal = new TextBox();
-            txtPorcentaje = new TextBox();
-            txtEstado = new TextBox();
-            label1 = new Label();
-            txtNotas = new TextBox();
             groupBox1 = new GroupBox();
-            txtProvincia = new TextBox();
             label19 = new Label();
-            txtTipoProyecto = new TextBox();
+            txtUbicacion = new TextBox();
             label18 = new Label();
+            txtEstado = new TextBox();
+            label17 = new Label();
+            txtVendedor = new TextBox();
+            label16 = new Label();
+            txtTarea = new TextBox();
+            label15 = new Label();
+            txtProvincia = new TextBox();
+            label14 = new Label();
+            txtDescripcion = new TextBox();
+            label13 = new Label();
+            txtTipoTrabajo = new TextBox();
+            label11 = new Label();
+            txtPorcentajeAnticipo = new TextBox();
+            label10 = new Label();
+            txtMontoIVA = new TextBox();
+            label9 = new Label();
+            txtMonto = new TextBox();
+            label8 = new Label();
+            txtTipoMoneda = new TextBox();
+            label7 = new Label();
+            txtFechaOC = new TextBox();
+            label5 = new Label();
+            txtOrdenCompra = new TextBox();
+            label4 = new Label();
+            txtOfertaId = new TextBox();
+            label3 = new Label();
+            txtSector = new TextBox();
+            label1 = new Label();
+            txtCedula = new TextBox();
             btnLimpiar = new Button();
             btnAgregar = new Button();
             label12 = new Label();
@@ -73,23 +73,12 @@
             dataGridViewInformes = new DataGridView();
             groupBox5 = new GroupBox();
             groupBox2 = new GroupBox();
-            label20 = new Label();
-            txtCedula = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewComentarios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).BeginInit();
             groupBox5.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
-            // 
-            // txtRazonSocial
-            // 
-            txtRazonSocial.Location = new Point(180, 112);
-            txtRazonSocial.Name = "txtRazonSocial";
-            txtRazonSocial.ReadOnly = true;
-            txtRazonSocial.Size = new Size(225, 23);
-            txtRazonSocial.TabIndex = 44;
-            txtRazonSocial.TextAlign = HorizontalAlignment.Right;
             // 
             // txtNumeroProyecto
             // 
@@ -110,347 +99,354 @@
             label6.TabIndex = 69;
             label6.Text = "Numero de Proyecto";
             // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.ForeColor = SystemColors.ButtonHighlight;
-            label17.Location = new Point(6, 589);
-            label17.Name = "label17";
-            label17.Size = new Size(42, 15);
-            label17.TabIndex = 60;
-            label17.Text = "Estado";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.ForeColor = SystemColors.ButtonHighlight;
-            label16.Location = new Point(6, 556);
-            label16.Name = "label16";
-            label16.Size = new Size(103, 15);
-            label16.TabIndex = 59;
-            label16.Text = "Fecha Finalización";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.ForeColor = SystemColors.ButtonHighlight;
-            label15.Location = new Point(6, 527);
-            label15.Name = "label15";
-            label15.Size = new Size(70, 15);
-            label15.TabIndex = 58;
-            label15.Text = "Fecha Inicio";
-            // 
-            // txtUbicacion
-            // 
-            txtUbicacion.Location = new Point(180, 417);
-            txtUbicacion.Multiline = true;
-            txtUbicacion.Name = "txtUbicacion";
-            txtUbicacion.ReadOnly = true;
-            txtUbicacion.Size = new Size(225, 75);
-            txtUbicacion.TabIndex = 57;
-            txtUbicacion.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.ForeColor = SystemColors.ButtonHighlight;
-            label14.Location = new Point(6, 420);
-            label14.Name = "label14";
-            label14.Size = new Size(60, 15);
-            label14.TabIndex = 56;
-            label14.Text = "Ubicación";
-            // 
-            // txtNumeroTarea
-            // 
-            txtNumeroTarea.Location = new Point(180, 318);
-            txtNumeroTarea.Name = "txtNumeroTarea";
-            txtNumeroTarea.ReadOnly = true;
-            txtNumeroTarea.Size = new Size(225, 23);
-            txtNumeroTarea.TabIndex = 55;
-            txtNumeroTarea.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.ForeColor = SystemColors.ButtonHighlight;
-            label13.Location = new Point(6, 321);
-            label13.Name = "label13";
-            label13.Size = new Size(64, 15);
-            label13.TabIndex = 54;
-            label13.Text = "Tarea Bitrix";
-            // 
-            // txtNumeroFacturaAnticipo
-            // 
-            txtNumeroFacturaAnticipo.Location = new Point(180, 289);
-            txtNumeroFacturaAnticipo.Name = "txtNumeroFacturaAnticipo";
-            txtNumeroFacturaAnticipo.ReadOnly = true;
-            txtNumeroFacturaAnticipo.Size = new Size(225, 23);
-            txtNumeroFacturaAnticipo.TabIndex = 53;
-            txtNumeroFacturaAnticipo.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.ForeColor = SystemColors.ButtonHighlight;
-            label11.Location = new Point(6, 292);
-            label11.Name = "label11";
-            label11.Size = new Size(93, 15);
-            label11.TabIndex = 52;
-            label11.Text = "Número Factura";
-            // 
-            // txtMontoProyecto
-            // 
-            txtMontoProyecto.Location = new Point(180, 234);
-            txtMontoProyecto.Name = "txtMontoProyecto";
-            txtMontoProyecto.ReadOnly = true;
-            txtMontoProyecto.Size = new Size(225, 23);
-            txtMontoProyecto.TabIndex = 51;
-            txtMontoProyecto.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.ForeColor = SystemColors.ButtonHighlight;
-            label10.Location = new Point(6, 263);
-            label10.Name = "label10";
-            label10.Size = new Size(111, 15);
-            label10.TabIndex = 50;
-            label10.Text = "Porcentaje Anticipo";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(6, 234);
-            label9.Name = "label9";
-            label9.Size = new Size(43, 15);
-            label9.TabIndex = 49;
-            label9.Text = "Monto";
-            // 
-            // txtOferta
-            // 
-            txtOferta.Location = new Point(180, 202);
-            txtOferta.Name = "txtOferta";
-            txtOferta.ReadOnly = true;
-            txtOferta.Size = new Size(225, 23);
-            txtOferta.TabIndex = 48;
-            txtOferta.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(6, 205);
-            label8.Name = "label8";
-            label8.Size = new Size(77, 15);
-            label8.TabIndex = 47;
-            label8.Text = "Oferta Mecsa";
-            // 
-            // txtContacto
-            // 
-            txtContacto.Location = new Point(180, 173);
-            txtContacto.Name = "txtContacto";
-            txtContacto.ReadOnly = true;
-            txtContacto.Size = new Size(225, 23);
-            txtContacto.TabIndex = 46;
-            txtContacto.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(6, 176);
-            label7.Name = "label7";
-            label7.Size = new Size(56, 15);
-            label7.TabIndex = 45;
-            label7.Text = "Contacto";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(6, 147);
-            label5.Name = "label5";
-            label5.Size = new Size(120, 15);
-            label5.TabIndex = 43;
-            label5.Text = "Fecha Orden Compra";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(6, 115);
-            label4.Name = "label4";
-            label4.Size = new Size(73, 15);
-            label4.TabIndex = 42;
-            label4.Text = "Razon Social";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(6, 56);
-            label3.Name = "label3";
-            label3.Size = new Size(57, 15);
-            label3.TabIndex = 41;
-            label3.Text = "Vendedor";
-            // 
-            // txtVendedor
-            // 
-            txtVendedor.Location = new Point(180, 53);
-            txtVendedor.Name = "txtVendedor";
-            txtVendedor.ReadOnly = true;
-            txtVendedor.Size = new Size(225, 23);
-            txtVendedor.TabIndex = 73;
-            txtVendedor.TextAlign = HorizontalAlignment.Right;
-            // 
-            // txtOC
-            // 
-            txtOC.Location = new Point(180, 144);
-            txtOC.Name = "txtOC";
-            txtOC.ReadOnly = true;
-            txtOC.Size = new Size(225, 23);
-            txtOC.TabIndex = 74;
-            txtOC.TextAlign = HorizontalAlignment.Right;
-            // 
-            // txtFechaInicio
-            // 
-            txtFechaInicio.Location = new Point(180, 527);
-            txtFechaInicio.Name = "txtFechaInicio";
-            txtFechaInicio.ReadOnly = true;
-            txtFechaInicio.Size = new Size(225, 23);
-            txtFechaInicio.TabIndex = 75;
-            txtFechaInicio.TextAlign = HorizontalAlignment.Right;
-            // 
-            // txtFechaFinal
-            // 
-            txtFechaFinal.Location = new Point(180, 556);
-            txtFechaFinal.Name = "txtFechaFinal";
-            txtFechaFinal.ReadOnly = true;
-            txtFechaFinal.Size = new Size(225, 23);
-            txtFechaFinal.TabIndex = 76;
-            txtFechaFinal.TextAlign = HorizontalAlignment.Right;
-            // 
-            // txtPorcentaje
-            // 
-            txtPorcentaje.Location = new Point(180, 263);
-            txtPorcentaje.Name = "txtPorcentaje";
-            txtPorcentaje.ReadOnly = true;
-            txtPorcentaje.Size = new Size(225, 23);
-            txtPorcentaje.TabIndex = 77;
-            txtPorcentaje.TextAlign = HorizontalAlignment.Right;
-            // 
-            // txtEstado
-            // 
-            txtEstado.Location = new Point(180, 585);
-            txtEstado.Name = "txtEstado";
-            txtEstado.ReadOnly = true;
-            txtEstado.Size = new Size(225, 23);
-            txtEstado.TabIndex = 78;
-            txtEstado.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(6, 357);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 79;
-            label1.Text = "Notas";
-            // 
-            // txtNotas
-            // 
-            txtNotas.Location = new Point(180, 357);
-            txtNotas.Multiline = true;
-            txtNotas.Name = "txtNotas";
-            txtNotas.ReadOnly = true;
-            txtNotas.Size = new Size(225, 54);
-            txtNotas.TabIndex = 80;
-            txtNotas.TextAlign = HorizontalAlignment.Right;
-            // 
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            groupBox1.Controls.Add(label20);
-            groupBox1.Controls.Add(txtCedula);
-            groupBox1.Controls.Add(txtProvincia);
             groupBox1.Controls.Add(label19);
-            groupBox1.Controls.Add(txtTipoProyecto);
-            groupBox1.Controls.Add(label18);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(txtNotas);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(txtEstado);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(txtPorcentaje);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(txtFechaFinal);
-            groupBox1.Controls.Add(txtContacto);
-            groupBox1.Controls.Add(txtFechaInicio);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(txtOC);
-            groupBox1.Controls.Add(txtOferta);
-            groupBox1.Controls.Add(txtVendedor);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(txtRazonSocial);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(txtNumeroProyecto);
-            groupBox1.Controls.Add(txtMontoProyecto);
-            groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(label17);
-            groupBox1.Controls.Add(txtNumeroFacturaAnticipo);
-            groupBox1.Controls.Add(label16);
-            groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(label15);
-            groupBox1.Controls.Add(txtNumeroTarea);
             groupBox1.Controls.Add(txtUbicacion);
+            groupBox1.Controls.Add(label18);
+            groupBox1.Controls.Add(txtEstado);
+            groupBox1.Controls.Add(label17);
+            groupBox1.Controls.Add(txtVendedor);
+            groupBox1.Controls.Add(label16);
+            groupBox1.Controls.Add(txtTarea);
+            groupBox1.Controls.Add(label15);
+            groupBox1.Controls.Add(txtProvincia);
             groupBox1.Controls.Add(label14);
+            groupBox1.Controls.Add(txtDescripcion);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(txtTipoTrabajo);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(txtPorcentajeAnticipo);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(txtMontoIVA);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(txtMonto);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(txtTipoMoneda);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(txtFechaOC);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(txtOrdenCompra);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(txtOfertaId);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(txtSector);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(txtCedula);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(txtNumeroProyecto);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(438, 675);
             groupBox1.TabIndex = 81;
             groupBox1.TabStop = false;
             // 
-            // txtProvincia
-            // 
-            txtProvincia.Location = new Point(180, 498);
-            txtProvincia.Name = "txtProvincia";
-            txtProvincia.ReadOnly = true;
-            txtProvincia.Size = new Size(225, 23);
-            txtProvincia.TabIndex = 84;
-            txtProvincia.TextAlign = HorizontalAlignment.Right;
-            // 
             // label19
             // 
             label19.AutoSize = true;
             label19.ForeColor = SystemColors.ButtonHighlight;
-            label19.Location = new Point(6, 498);
+            label19.Location = new Point(6, 440);
             label19.Name = "label19";
-            label19.Size = new Size(56, 15);
-            label19.TabIndex = 83;
-            label19.Text = "Provincia";
+            label19.Size = new Size(60, 15);
+            label19.TabIndex = 101;
+            label19.Text = "Ubicación";
             // 
-            // txtTipoProyecto
+            // txtUbicacion
             // 
-            txtTipoProyecto.Location = new Point(180, 614);
-            txtTipoProyecto.Name = "txtTipoProyecto";
-            txtTipoProyecto.ReadOnly = true;
-            txtTipoProyecto.Size = new Size(225, 23);
-            txtTipoProyecto.TabIndex = 82;
-            txtTipoProyecto.TextAlign = HorizontalAlignment.Right;
+            txtUbicacion.Location = new Point(180, 437);
+            txtUbicacion.Multiline = true;
+            txtUbicacion.Name = "txtUbicacion";
+            txtUbicacion.ReadOnly = true;
+            txtUbicacion.Size = new Size(225, 71);
+            txtUbicacion.TabIndex = 102;
+            txtUbicacion.TextAlign = HorizontalAlignment.Right;
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.ForeColor = SystemColors.ButtonHighlight;
-            label18.Location = new Point(6, 618);
+            label18.Location = new Point(6, 575);
             label18.Name = "label18";
-            label18.Size = new Size(80, 15);
-            label18.TabIndex = 81;
-            label18.Text = "Tipo Proyecto";
+            label18.Size = new Size(42, 15);
+            label18.TabIndex = 99;
+            label18.Text = "Estado";
+            // 
+            // txtEstado
+            // 
+            txtEstado.Location = new Point(180, 572);
+            txtEstado.Name = "txtEstado";
+            txtEstado.ReadOnly = true;
+            txtEstado.Size = new Size(225, 23);
+            txtEstado.TabIndex = 100;
+            txtEstado.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.ForeColor = SystemColors.ButtonHighlight;
+            label17.Location = new Point(6, 546);
+            label17.Name = "label17";
+            label17.Size = new Size(57, 15);
+            label17.TabIndex = 97;
+            label17.Text = "Vendedor";
+            // 
+            // txtVendedor
+            // 
+            txtVendedor.Location = new Point(180, 543);
+            txtVendedor.Name = "txtVendedor";
+            txtVendedor.ReadOnly = true;
+            txtVendedor.Size = new Size(225, 23);
+            txtVendedor.TabIndex = 98;
+            txtVendedor.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.ForeColor = SystemColors.ButtonHighlight;
+            label16.Location = new Point(6, 517);
+            label16.Name = "label16";
+            label16.Size = new Size(64, 15);
+            label16.TabIndex = 95;
+            label16.Text = "Tarea Bitrix";
+            // 
+            // txtTarea
+            // 
+            txtTarea.Location = new Point(180, 514);
+            txtTarea.Name = "txtTarea";
+            txtTarea.ReadOnly = true;
+            txtTarea.Size = new Size(225, 23);
+            txtTarea.TabIndex = 96;
+            txtTarea.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.ForeColor = SystemColors.ButtonHighlight;
+            label15.Location = new Point(6, 411);
+            label15.Name = "label15";
+            label15.Size = new Size(56, 15);
+            label15.TabIndex = 93;
+            label15.Text = "Provincia";
+            // 
+            // txtProvincia
+            // 
+            txtProvincia.Location = new Point(180, 408);
+            txtProvincia.Name = "txtProvincia";
+            txtProvincia.ReadOnly = true;
+            txtProvincia.Size = new Size(225, 23);
+            txtProvincia.TabIndex = 94;
+            txtProvincia.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.ForeColor = SystemColors.ButtonHighlight;
+            label14.Location = new Point(6, 338);
+            label14.Name = "label14";
+            label14.Size = new Size(69, 15);
+            label14.TabIndex = 91;
+            label14.Text = "Descripcion";
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Location = new Point(180, 335);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.ReadOnly = true;
+            txtDescripcion.Size = new Size(225, 67);
+            txtDescripcion.TabIndex = 92;
+            txtDescripcion.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.ForeColor = SystemColors.ButtonHighlight;
+            label13.Location = new Point(6, 309);
+            label13.Name = "label13";
+            label13.Size = new Size(71, 15);
+            label13.TabIndex = 89;
+            label13.Text = "Tipo Trabajo";
+            // 
+            // txtTipoTrabajo
+            // 
+            txtTipoTrabajo.Location = new Point(180, 306);
+            txtTipoTrabajo.Name = "txtTipoTrabajo";
+            txtTipoTrabajo.ReadOnly = true;
+            txtTipoTrabajo.Size = new Size(225, 23);
+            txtTipoTrabajo.TabIndex = 90;
+            txtTipoTrabajo.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ForeColor = SystemColors.ButtonHighlight;
+            label11.Location = new Point(6, 280);
+            label11.Name = "label11";
+            label11.Size = new Size(111, 15);
+            label11.TabIndex = 87;
+            label11.Text = "Porcentaje Anticipo";
+            // 
+            // txtPorcentajeAnticipo
+            // 
+            txtPorcentajeAnticipo.Location = new Point(180, 277);
+            txtPorcentajeAnticipo.Name = "txtPorcentajeAnticipo";
+            txtPorcentajeAnticipo.ReadOnly = true;
+            txtPorcentajeAnticipo.Size = new Size(225, 23);
+            txtPorcentajeAnticipo.TabIndex = 88;
+            txtPorcentajeAnticipo.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = SystemColors.ButtonHighlight;
+            label10.Location = new Point(6, 251);
+            label10.Name = "label10";
+            label10.Size = new Size(63, 15);
+            label10.TabIndex = 85;
+            label10.Text = "Monto IVA";
+            // 
+            // txtMontoIVA
+            // 
+            txtMontoIVA.Location = new Point(180, 248);
+            txtMontoIVA.Name = "txtMontoIVA";
+            txtMontoIVA.ReadOnly = true;
+            txtMontoIVA.Size = new Size(225, 23);
+            txtMontoIVA.TabIndex = 86;
+            txtMontoIVA.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = SystemColors.ButtonHighlight;
+            label9.Location = new Point(6, 222);
+            label9.Name = "label9";
+            label9.Size = new Size(43, 15);
+            label9.TabIndex = 83;
+            label9.Text = "Monto";
+            // 
+            // txtMonto
+            // 
+            txtMonto.Location = new Point(180, 219);
+            txtMonto.Name = "txtMonto";
+            txtMonto.ReadOnly = true;
+            txtMonto.Size = new Size(225, 23);
+            txtMonto.TabIndex = 84;
+            txtMonto.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = SystemColors.ButtonHighlight;
+            label8.Location = new Point(6, 193);
+            label8.Name = "label8";
+            label8.Size = new Size(77, 15);
+            label8.TabIndex = 81;
+            label8.Text = "Tipo Moneda";
+            // 
+            // txtTipoMoneda
+            // 
+            txtTipoMoneda.Location = new Point(180, 190);
+            txtTipoMoneda.Name = "txtTipoMoneda";
+            txtTipoMoneda.ReadOnly = true;
+            txtTipoMoneda.Size = new Size(225, 23);
+            txtTipoMoneda.TabIndex = 82;
+            txtTipoMoneda.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = SystemColors.ButtonHighlight;
+            label7.Location = new Point(6, 164);
+            label7.Name = "label7";
+            label7.Size = new Size(120, 15);
+            label7.TabIndex = 79;
+            label7.Text = "Fecha Orden Compra";
+            // 
+            // txtFechaOC
+            // 
+            txtFechaOC.Location = new Point(180, 161);
+            txtFechaOC.Name = "txtFechaOC";
+            txtFechaOC.ReadOnly = true;
+            txtFechaOC.Size = new Size(225, 23);
+            txtFechaOC.TabIndex = 80;
+            txtFechaOC.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(6, 135);
+            label5.Name = "label5";
+            label5.Size = new Size(102, 15);
+            label5.TabIndex = 77;
+            label5.Text = "Orden de Compra";
+            // 
+            // txtOrdenCompra
+            // 
+            txtOrdenCompra.Location = new Point(180, 132);
+            txtOrdenCompra.Name = "txtOrdenCompra";
+            txtOrdenCompra.ReadOnly = true;
+            txtOrdenCompra.Size = new Size(225, 23);
+            txtOrdenCompra.TabIndex = 78;
+            txtOrdenCompra.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = SystemColors.ButtonHighlight;
+            label4.Location = new Point(6, 106);
+            label4.Name = "label4";
+            label4.Size = new Size(77, 15);
+            label4.TabIndex = 75;
+            label4.Text = "Oferta Mecsa";
+            // 
+            // txtOfertaId
+            // 
+            txtOfertaId.Location = new Point(180, 103);
+            txtOfertaId.Name = "txtOfertaId";
+            txtOfertaId.ReadOnly = true;
+            txtOfertaId.Size = new Size(225, 23);
+            txtOfertaId.TabIndex = 76;
+            txtOfertaId.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(6, 77);
+            label3.Name = "label3";
+            label3.Size = new Size(40, 15);
+            label3.TabIndex = 73;
+            label3.Text = "Sector";
+            // 
+            // txtSector
+            // 
+            txtSector.Location = new Point(180, 74);
+            txtSector.Name = "txtSector";
+            txtSector.ReadOnly = true;
+            txtSector.Size = new Size(225, 23);
+            txtSector.TabIndex = 74;
+            txtSector.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(6, 48);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 15);
+            label1.TabIndex = 71;
+            label1.Text = "Cedula";
+            // 
+            // txtCedula
+            // 
+            txtCedula.Location = new Point(180, 45);
+            txtCedula.Name = "txtCedula";
+            txtCedula.ReadOnly = true;
+            txtCedula.Size = new Size(225, 23);
+            txtCedula.TabIndex = 72;
+            txtCedula.TextAlign = HorizontalAlignment.Right;
             // 
             // btnLimpiar
             // 
@@ -558,25 +554,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Informes";
             // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.ForeColor = SystemColors.ButtonHighlight;
-            label20.Location = new Point(6, 86);
-            label20.Name = "label20";
-            label20.Size = new Size(44, 15);
-            label20.TabIndex = 85;
-            label20.Text = "Cedula";
-            // 
-            // txtCedula
-            // 
-            txtCedula.Location = new Point(180, 83);
-            txtCedula.Name = "txtCedula";
-            txtCedula.ReadOnly = true;
-            txtCedula.Size = new Size(225, 23);
-            txtCedula.TabIndex = 86;
-            txtCedula.TextAlign = HorizontalAlignment.Right;
-            // 
             // VerProyecto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -603,37 +580,8 @@
         }
 
         #endregion
-
-        private TextBox txtRazonSocial;
         private TextBox txtNumeroProyecto;
         private Label label6;
-        private Label label17;
-        private Label label16;
-        private Label label15;
-        private TextBox txtUbicacion;
-        private Label label14;
-        private TextBox txtNumeroTarea;
-        private Label label13;
-        private TextBox txtNumeroFacturaAnticipo;
-        private Label label11;
-        private TextBox txtMontoProyecto;
-        private Label label10;
-        private Label label9;
-        private TextBox txtOferta;
-        private Label label8;
-        private TextBox txtContacto;
-        private Label label7;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private TextBox txtVendedor;
-        private TextBox txtOC;
-        private TextBox txtFechaInicio;
-        private TextBox txtFechaFinal;
-        private TextBox txtPorcentaje;
-        private TextBox txtEstado;
-        private Label label1;
-        private TextBox txtNotas;
         private GroupBox groupBox1;
         private TextBox txtDescripcionNota;
         private TextBox txtTituloNota;
@@ -642,14 +590,40 @@
         private Label label12;
         private Label label2;
         private DataGridView dataGridViewComentarios;
-        private TextBox txtProvincia;
-        private Label label19;
-        private TextBox txtTipoProyecto;
-        private Label label18;
         private DataGridView dataGridViewInformes;
         private GroupBox groupBox5;
         private GroupBox groupBox2;
-        private Label label20;
+        private Label label5;
+        private TextBox txtOrdenCompra;
+        private Label label4;
+        private TextBox txtOfertaId;
+        private Label label3;
+        private TextBox txtSector;
+        private Label label1;
         private TextBox txtCedula;
+        private Label label9;
+        private TextBox txtMonto;
+        private Label label8;
+        private TextBox txtTipoMoneda;
+        private Label label7;
+        private TextBox txtFechaOC;
+        private Label label14;
+        private TextBox txtDescripcion;
+        private Label label13;
+        private TextBox txtTipoTrabajo;
+        private Label label11;
+        private TextBox txtPorcentajeAnticipo;
+        private Label label10;
+        private TextBox txtMontoIVA;
+        private Label label19;
+        private TextBox txtUbicacion;
+        private Label label18;
+        private TextBox txtEstado;
+        private Label label17;
+        private TextBox txtVendedor;
+        private Label label16;
+        private TextBox txtTarea;
+        private Label label15;
+        private TextBox txtProvincia;
     }
 }

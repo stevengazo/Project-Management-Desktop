@@ -38,17 +38,12 @@ namespace Interfaz
         {
             UsuarioNegocio usuarioNegocio = new();
             Vendedores = usuarioNegocio.ListarVendedores();
-            bool Exist = Vendedores.Exists(D => D.UsuarioId == ProyectoActual.UsuarioId);
-            if (!Exist)
-            {
-                Vendedores.Add(ProyectoActual.Vendedor);
-            }
             if (Vendedores.Count > 0)
             {
-                cbVendedores.Items.Clear();
+                comboBoxVendedores.Items.Clear();
                 foreach (var item in Vendedores)
                 {
-                    cbVendedores.Items.Add(item.Nombre);
+                    comboBoxVendedores.Items.Add(item.Nombre);
                 }
             }
         }
@@ -86,30 +81,30 @@ namespace Interfaz
             {
                 if (ProyectoId != 0)
                 {
+                    CargarVendedores();
+
                     ProyectoNegocios proyectoNegocios = new();
                     ProyectoActual = proyectoNegocios.ObtenerProyecto(ProyectoId);
                     txtidProyecto.Text = $"P-{ProyectoActual.ProyectoId.ToString()}";
-                    // vendedor
-                    cbVendedores.Text = ProyectoActual.Vendedor.Nombre;
                     txtRazonSocial.Text = ProyectoActual.Cliente;
-                    dtpOC.Value = ProyectoActual.FechaOC;
-                    txtContacto.Text = ProyectoActual.Cliente;
-                    // oferta
-                    txtOferta.Text = ProyectoActual.OfertaId;
-
-                    cbProvincia.Text = ProyectoActual.Provincia;
                     txtCedula.Text = ProyectoActual.Cedula;
-                    cbTipoTrabajo.Text = ProyectoActual.Tipo;
-                    txtMonto.Text = ProyectoActual.Monto.ToString();
+                    checkBoxPublico.Checked = ProyectoActual.EsPublico;
+                    numericUpDownOfertaID.Value = decimal.Parse(ProyectoActual.OfertaId.ToString());
+                    txtOrdenCompra.Text = ProyectoActual.OrdenCompra;
+                    dtpOrdenCompra.Value = ProyectoActual.FechaOC;
+                    comboBoxTipoMoneda.Text = ProyectoActual.TipoMoneda;
+                    numericUpDownMonto.Value = decimal.Parse(ProyectoActual.Monto.ToString());
+                    numericUpDownMontoIVA.Value = decimal.Parse(ProyectoActual.MontoIVA.ToString());
                     numericUpDownPorcentaje.Value = ProyectoActual.PorcentajeAnticipo;
-                    txtNumeroFacturaAnticipo.Text = ProyectoActual.FacturaAnticipoId;
-                    txtTarea.Text = ProyectoActual.TareaId.ToString();
-                    txtFacturalFinalId.Text = ProyectoActual.FacturaFinalId;
+                    txtDescripcion.Text = ProyectoActual.Descripcion;
                     txtUbicacion.Text = ProyectoActual.Ubicacion;
-                    dtpInicio.Value = ProyectoActual.FechaInicio;
-                    dtpFinalizacion.Value = ProyectoActual.FechaFinal;
+                    numericUpDownTarea.Value = decimal.Parse(ProyectoActual.TareaId.ToString());
+                    cbTipoTrabajo.Text = ProyectoActual.Tipo;
+                    cbProvincia.Text = ProyectoActual.Provincia;
+                    var nombre = ProyectoActual.Vendedor.Nombre.ToString();
+                    comboBoxVendedores.Text = nombre;
                     cbEstado.Text = ProyectoActual.Estado;
-                    CargarVendedores();
+
                 }
                 else
                 {
@@ -135,31 +130,36 @@ namespace Interfaz
                     ProyectoNegocios proyectoNegocios = new();
                     if (ProyectoActual != null)
                     {
-                        ProyectoActual.UsuarioId = (from v in Vendedores
-                                                    where v.Nombre == cbVendedores.Text
-                                                    select v.UsuarioId).FirstOrDefault();
+
 
                         ProyectoActual.Cliente = txtRazonSocial.Text;
-                        ProyectoActual.FechaOC = dtpOC.Value;
-                        ProyectoActual.Contacto = txtContacto.Text;
                         ProyectoActual.Cedula = txtCedula.Text;
-                        ProyectoActual.OfertaId = txtOferta.Text;
-                        ProyectoActual.Monto = float.Parse(txtMonto.Text);
-                        ProyectoActual.PorcentajeAnticipo = int.Parse(numericUpDownPorcentaje.Value.ToString());
-                        ProyectoActual.FacturaAnticipoId = txtNumeroFacturaAnticipo.Text;
-                        ProyectoActual.FacturaFinalId = (string.IsNullOrEmpty(txtFacturalFinalId.Text)) ? "No ingresado" : txtFacturalFinalId.Text;
-                        ProyectoActual.TareaId = int.Parse(txtTarea.Text);
-                        ProyectoActual.Ubicacion = (string.IsNullOrEmpty(txtUbicacion.Text)) ? "No Ingresado" : txtUbicacion.Text;
-                        ProyectoActual.FechaInicio = dtpInicio.Value;
-                        ProyectoActual.FechaFinal = dtpFinalizacion.Value;
+                        ProyectoActual.EsPublico = checkBoxPublico.Checked;
+                        ProyectoActual.OfertaId = numericUpDownOfertaID.Text;
+                        ProyectoActual.OrdenCompra = txtOrdenCompra.Text;
+                        ProyectoActual.FechaOC = dtpOrdenCompra.Value;
+                        ProyectoActual.TipoMoneda = comboBoxTipoMoneda.Text;
+                        ProyectoActual.Monto = (float)numericUpDownMonto.Value;
+                        ProyectoActual.MontoIVA = (int)numericUpDownMontoIVA.Value;
+                        ProyectoActual.PorcentajeAnticipo = (int)numericUpDownPorcentaje.Value;
+                        ProyectoActual.Tipo = cbTipoTrabajo.Text;
+                        ProyectoActual.Descripcion = txtDescripcion.Text;
+                        ProyectoActual.Provincia = cbProvincia.Text;
+                        ProyectoActual.Ubicacion = txtUbicacion.Text;
+                        ProyectoActual.TareaId = (int)numericUpDownTarea.Value;
+                        ProyectoActual.Vendedor = null;
+                        ProyectoActual.UsuarioId = (from v in Vendedores
+                                                    where v.Nombre == comboBoxVendedores.Text
+                                                    select v.UsuarioId).FirstOrDefault();
                         ProyectoActual.Estado = cbEstado.Text;
+                        ProyectoActual.Finalizado = (cbEstado.Text == "Finalizado sin cobro" || cbEstado.Text == "Finalizado con cobro") ? true : false;
+
+                        // Metadata
                         ProyectoActual.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                         ProyectoActual.UltimaEdicion = DateTime.Now;
                         ProyectoActual.Provincia = cbProvincia.Text;
                         ProyectoActual.Tipo = cbTipoTrabajo.Text;
-                        ProyectoActual.Finalizado = (cbEstado.Text == "Finalizado sin cobro" || cbEstado.Text == "Finalizado con cobro") ? true : false;
-                        ProyectoActual.Vendedor = null;
-                        //Envio a la DB
+
 
                         bool resultado = proyectoNegocios.ActualizarProyecto(ProyectoActual);
                         if (resultado)
@@ -191,43 +191,9 @@ namespace Interfaz
         {
             try
             {
-                string VendedorSeleccionado = cbVendedores.Text;
-                string OfertaSeleccionada = txtOferta.Text;
-                bool isvalid = int.TryParse(OfertaSeleccionada.Split('-').FirstOrDefault(), out int number);
-                if (string.IsNullOrEmpty(OfertaSeleccionada) || !isvalid)
-                {
-                    MessageBox.Show($"Compruebe la oferta, el valor '{OfertaSeleccionada}' no es valido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                if (string.IsNullOrEmpty(VendedorSeleccionado))
-                {
-                    MessageBox.Show("No ha seleccionado un vendedor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
                 if (string.IsNullOrEmpty(txtRazonSocial.Text))
                 {
                     MessageBox.Show("No ha digitado una razón social o nombre del cliente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                if (string.IsNullOrEmpty(txtContacto.Text))
-                {
-                    MessageBox.Show("No ha digitado un contacto del ProyectoActual", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                float.TryParse(txtMonto.Text, out float Monto);
-                if (Monto == 0)
-                {
-                    MessageBox.Show("Revise el campo monto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                if (string.IsNullOrEmpty(txtFacturalFinalId.Text))
-                {
-                    MessageBox.Show("No hay datos ingresados de la factura final", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                int.TryParse(txtTarea.Text, out int numeroTarea);
-                if (numeroTarea == 0)
-                {
-                    MessageBox.Show("Revise el numero de tarea digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
                 if (string.IsNullOrEmpty(txtUbicacion.Text))
@@ -253,6 +219,11 @@ namespace Interfaz
         #endregion
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

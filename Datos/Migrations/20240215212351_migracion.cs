@@ -84,28 +84,29 @@ namespace Datos.Migrations
                 columns: table => new
                 {
                     ProyectoId = table.Column<int>(type: "int", nullable: false),
-                    FechaOC = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Contacto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cedula = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EsPublico = table.Column<bool>(type: "bit", nullable: false),
                     OfertaId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrdenCompra = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaOC = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TipoMoneda = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Monto = table.Column<float>(type: "real", nullable: false),
+                    MontoIVA = table.Column<float>(type: "real", nullable: false),
                     PorcentajeAnticipo = table.Column<int>(type: "int", nullable: false),
-                    FacturaAnticipoId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FacturaFinalId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TareaId = table.Column<int>(type: "int", nullable: false),
+                    Tipo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Provincia = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ubicacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Tipo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FechaInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechaFinal = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TareaId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false),
                     Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Finalizado = table.Column<bool>(type: "bit", nullable: false),
                     Autor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaIngreso = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UltimaEdicion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UltimoEditor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UsuarioId = table.Column<int>(type: "int", nullable: false),
-                    Enable = table.Column<bool>(type: "bit", nullable: false),
-                    Finalizado = table.Column<bool>(type: "bit", nullable: false)
+                    Enable = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -262,17 +263,21 @@ namespace Datos.Migrations
             migrationBuilder.InsertData(
                 table: "Ofertas",
                 columns: new[] { "OfertaId", "AutorPrespuesto", "Categoria", "Cliente", "Codigo", "Concluida", "DDCE", "EncargadoCotizador", "Estado", "Fecha", "Ionizante", "Malla", "Monto", "Notas", "Observaciones", "Otros", "Provincia", "Supresor", "Torre", "UltimaModificacion", "UsuarioId" },
-                values: new object[] { 1, "Administrador", "Instalación", "Ejemplo", 1, true, true, "Gabriel", "Pendiente", new DateTime(2024, 2, 13, 0, 0, 0, 0, DateTimeKind.Local), true, true, 100f, "", "", true, "San José", true, true, new DateTime(2024, 2, 13, 1, 0, 0, 0, DateTimeKind.Local), 1 });
+                values: new object[] { 1, "Administrador", "Instalación", "Ejemplo", 1, true, true, "Gabriel", "Pendiente", new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Local), true, true, 100f, "", "", true, "San José", true, true, new DateTime(2024, 2, 15, 1, 0, 0, 0, DateTimeKind.Local), 1 });
 
             migrationBuilder.InsertData(
                 table: "Proyectos",
-                columns: new[] { "ProyectoId", "Autor", "Cedula", "Cliente", "Contacto", "Enable", "Estado", "FacturaAnticipoId", "FacturaFinalId", "FechaFinal", "FechaInicio", "FechaOC", "Finalizado", "Monto", "OfertaId", "PorcentajeAnticipo", "Provincia", "TareaId", "Tipo", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
-                values: new object[] { 1, "Administrador", "2894043", "Ejemplo de Cliente", "Ejemplo", true, "Finalizado", "No existente", "No Existente", new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 2, 12, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2024, 2, 13, 16, 6, 13, 690, DateTimeKind.Local).AddTicks(9961), false, 100f, "PS-00001", 50, "", 2000, "Instalación", "Grupo Mecsa", new DateTime(2024, 2, 13, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
+                columns: new[] { "ProyectoId", "Autor", "Cedula", "Cliente", "Descripcion", "Enable", "EsPublico", "Estado", "FechaIngreso", "FechaOC", "Finalizado", "Monto", "MontoIVA", "OfertaId", "OrdenCompra", "PorcentajeAnticipo", "Provincia", "TareaId", "Tipo", "TipoMoneda", "Ubicacion", "UltimaEdicion", "UltimoEditor", "UsuarioId" },
+                values: new object[] { 1, "Administrador", "2894043", "Ejemplo de Cliente", "Proyecto de ejemplo", true, true, "Finalizado", new DateTime(2024, 2, 15, 15, 23, 51, 521, DateTimeKind.Local).AddTicks(7692), new DateTime(2024, 2, 15, 15, 23, 51, 521, DateTimeKind.Local).AddTicks(7678), false, 100f, 13f, "PS-00001", "Numero Orden", 50, "", 2000, "Instalación", "Colon", "Grupo Mecsa", new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Local), "Administrador", 1 });
 
             migrationBuilder.InsertData(
                 table: "RolUsuarios",
                 columns: new[] { "RolUsuarioId", "RolId", "UsuarioId" },
-                values: new object[] { 1, 1, 1 });
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 1 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cotizaciones_OfertaId",

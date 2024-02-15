@@ -91,26 +91,34 @@ namespace Modelos
                 RolId = Admin.RolId,
                 UsuarioId = usuarioBase.UsuarioId
             };
+            RolUsuario rolUsuarioOferta = new()
+            {
+                RolUsuarioId = 2,
+                RolId = Vendedor.RolId,
+                UsuarioId = usuarioBase.UsuarioId
+            };
             model.Entity<RolUsuario>().HasData(rolUsuarioBase);
+            model.Entity<RolUsuario>().HasData(rolUsuarioOferta);
 
 
             Proyecto ProyectoBase = new()
             {
                 ProyectoId = 1,
                 FechaOC = DateTime.Now,
-                Contacto = "Ejemplo",
+                Descripcion= "Proyecto de ejemplo",
                 Cliente = "Ejemplo de Cliente",
+                OrdenCompra = "Numero Orden",
                 OfertaId = "PS-00001",
+                TipoMoneda = "Colon",
                 Monto = 100f,
-                Cedula= "2894043",
+                Cedula = "2894043",
                 PorcentajeAnticipo = 50,
-                FacturaAnticipoId = "No existente",
-                FacturaFinalId = "No Existente",
+                MontoIVA= 13,
+                EsPublico = true,
                 TareaId = 2000,
                 Ubicacion = "Grupo Mecsa",
                 Tipo = "Instalación",
-                FechaInicio = DateTime.Today.AddDays(-1),
-                FechaFinal = DateTime.Today.AddDays(2),
+                FechaIngreso = DateTime.Now,
                 Estado = "Finalizado",
                 Provincia = "",
                 Autor = usuarioBase.Nombre,

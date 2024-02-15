@@ -41,12 +41,9 @@ namespace Interfaz
                     _tabla.Columns.Add("Provincia");
                     _tabla.Columns.Add("Tipo Trabajo");
                     _tabla.Columns.Add("Fecha OC");
-                    _tabla.Columns.Add("Factura Anticipo");
                     _tabla.Columns.Add("Porcentaje de Anticipo");
                     _tabla.Columns.Add("Tarea");
                     _tabla.Columns.Add("Oferta");
-                    _tabla.Columns.Add("Fecha Inicio");
-                    _tabla.Columns.Add("Fecha Final");
                     _tabla.Columns.Add("Monto");
                     _tabla.Columns.Add("Estado");
                     foreach (Proyecto i in _Proyectos)
@@ -58,13 +55,10 @@ namespace Interfaz
                             i.Provincia,
                             i.Tipo,
                             i.FechaOC.ToString("dd MMM yy"),
-                            i.FacturaAnticipoId.ToString(),
                             $"{i.PorcentajeAnticipo}%",
                             i.TareaId,
                             i.OfertaId,
-                            i.FechaInicio.ToString("dd MMM yy"),
-                            i.FechaFinal.ToString("dd MMM yy"),
-                            i.Monto.ToString("C", CultureInfo.CurrentCulture),
+                            i.Monto.ToString(),
                             i.Estado
                             );
                     }
@@ -108,13 +102,10 @@ namespace Interfaz
                             i.Cliente,
                             i.Tipo,
                             i.FechaOC.ToString("dd MMM yy"),
-                            i.FacturaAnticipoId.ToString(),
                             $"{i.PorcentajeAnticipo}%",
                             i.TareaId,
                             i.OfertaId,
-                            i.FechaInicio.ToString("dd MMM yy"),
-                            i.FechaFinal.ToString("dd MMM yy"),
-                            i.Monto.ToString("C", CultureInfo.CurrentCulture),
+                            i.Monto.ToString(),
                             i.Estado
                             );
                     }

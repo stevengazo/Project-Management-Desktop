@@ -13,15 +13,12 @@ namespace Interfaz
         {
             InitializeComponent();
         }
-
         private void VerProyecto_Load(object sender, EventArgs e)
         {
             CargarProyectoDetallado();
             CargarInforme();
 
         }
-
-
         private async Task CargarNotas(int id)
         {
             List<Nota> Notas = NotaNegocio.GetNotasByProyecto(id);
@@ -74,25 +71,24 @@ namespace Interfaz
                     Proyecto proyectoTemporal = proyectoNegocios.ObtenerProyecto(idProyecto);
                     this.idProyecto = proyectoTemporal.ProyectoId;
                     CargarNotas(proyectoTemporal.ProyectoId);
+                    // Carga Informacion
                     txtNumeroProyecto.Text = $"P-{proyectoTemporal.ProyectoId}";
-                    txtEstado.Text = proyectoTemporal.Estado;
-
-                    txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
-                    txtRazonSocial.Text = proyectoTemporal.Cliente;
-                    txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
-                    txtContacto.Text = proyectoTemporal.Contacto;
+                    txtCedula.Text = proyectoTemporal.Cedula;
+                    txtSector.Text = (proyectoTemporal.EsPublico) ? "Proyecto Sector Publico" : "Proyecto Sector Privado";
+                    txtOfertaId.Text = proyectoTemporal.OfertaId;
+                    txtOrdenCompra.Text = proyectoTemporal.OrdenCompra;
+                    txtFechaOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
+                    txtTipoMoneda.Text = proyectoTemporal.TipoMoneda;
+                    txtMonto.Text = proyectoTemporal.Monto.ToString();
+                    txtMontoIVA.Text = proyectoTemporal.MontoIVA.ToString();
+                    txtPorcentajeAnticipo.Text =$"{proyectoTemporal.PorcentajeAnticipo}%";
+                    txtTipoTrabajo.Text = proyectoTemporal.Tipo;
+                    txtDescripcion.Text = proyectoTemporal.Descripcion;
                     txtProvincia.Text = proyectoTemporal.Provincia;
-                    txtCedula.Text = proyectoTemporal.Cedula;   
-                    txtTipoProyecto.Text = proyectoTemporal.Tipo;
-                    txtOferta.Text = proyectoTemporal.OfertaId;
-                    txtMontoProyecto.Text = proyectoTemporal.Monto.ToString("C", CultureInfo.CurrentCulture);
-                    txtPorcentaje.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
-                    txtNumeroFacturaAnticipo.Text = proyectoTemporal.FacturaAnticipoId;
-                    txtNumeroTarea.Text = proyectoTemporal.TareaId.ToString();
                     txtUbicacion.Text = proyectoTemporal.Ubicacion;
-                    txtNotas.Text = proyectoTemporal.Tipo;
-                    txtFechaInicio.Text = proyectoTemporal.FechaInicio.ToLongDateString();
-                    txtFechaFinal.Text = proyectoTemporal.FechaFinal.ToLongDateString();
+                    txtTarea.Text = proyectoTemporal.TareaId.ToString();
+                    txtVendedor.Text = proyectoTemporal.Vendedor.Nombre;
+                    txtEstado.Text = proyectoTemporal.Estado;
                 }
             }
             catch (Exception f)

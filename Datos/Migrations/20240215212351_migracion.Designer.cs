@@ -12,7 +12,7 @@ using Modelos;
 namespace Datos.Migrations
 {
     [DbContext(typeof(DBContextProyectosAsfaltos))]
-    [Migration("20240213220613_migracion")]
+    [Migration("20240215212351_migracion")]
     partial class migracion
     {
         /// <inheritdoc />
@@ -304,7 +304,7 @@ namespace Datos.Migrations
                             DDCE = true,
                             EncargadoCotizador = "Gabriel",
                             Estado = "Pendiente",
-                            Fecha = new DateTime(2024, 2, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            Fecha = new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Local),
                             Ionizante = true,
                             Malla = true,
                             Monto = 100f,
@@ -314,7 +314,7 @@ namespace Datos.Migrations
                             Provincia = "San José",
                             Supresor = true,
                             Torre = true,
-                            UltimaModificacion = new DateTime(2024, 2, 13, 1, 0, 0, 0, DateTimeKind.Local),
+                            UltimaModificacion = new DateTime(2024, 2, 15, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
                 });
@@ -336,29 +336,21 @@ namespace Datos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Contacto")
+                    b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Enable")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("EsPublico")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FacturaAnticipoId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FacturaFinalId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("FechaFinal")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaInicio")
+                    b.Property<DateTime>("FechaIngreso")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("FechaOC")
@@ -370,7 +362,14 @@ namespace Datos.Migrations
                     b.Property<float>("Monto")
                         .HasColumnType("real");
 
+                    b.Property<float>("MontoIVA")
+                        .HasColumnType("real");
+
                     b.Property<string>("OfertaId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrdenCompra")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -385,6 +384,10 @@ namespace Datos.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TipoMoneda")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -415,23 +418,24 @@ namespace Datos.Migrations
                             Autor = "Administrador",
                             Cedula = "2894043",
                             Cliente = "Ejemplo de Cliente",
-                            Contacto = "Ejemplo",
+                            Descripcion = "Proyecto de ejemplo",
                             Enable = true,
+                            EsPublico = true,
                             Estado = "Finalizado",
-                            FacturaAnticipoId = "No existente",
-                            FacturaFinalId = "No Existente",
-                            FechaFinal = new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaInicio = new DateTime(2024, 2, 12, 0, 0, 0, 0, DateTimeKind.Local),
-                            FechaOC = new DateTime(2024, 2, 13, 16, 6, 13, 690, DateTimeKind.Local).AddTicks(9961),
+                            FechaIngreso = new DateTime(2024, 2, 15, 15, 23, 51, 521, DateTimeKind.Local).AddTicks(7692),
+                            FechaOC = new DateTime(2024, 2, 15, 15, 23, 51, 521, DateTimeKind.Local).AddTicks(7678),
                             Finalizado = false,
                             Monto = 100f,
+                            MontoIVA = 13f,
                             OfertaId = "PS-00001",
+                            OrdenCompra = "Numero Orden",
                             PorcentajeAnticipo = 50,
                             Provincia = "",
                             TareaId = 2000,
                             Tipo = "Instalación",
+                            TipoMoneda = "Colon",
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2024, 2, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });
@@ -498,6 +502,12 @@ namespace Datos.Migrations
                         {
                             RolUsuarioId = 1,
                             RolId = 1,
+                            UsuarioId = 1
+                        },
+                        new
+                        {
+                            RolUsuarioId = 2,
+                            RolId = 2,
                             UsuarioId = 1
                         });
                 });

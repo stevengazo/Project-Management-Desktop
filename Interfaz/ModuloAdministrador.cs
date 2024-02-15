@@ -12,6 +12,7 @@ namespace Interfaz
     {
         #region Propiedades
         private Thread Proyectos;
+        private Thread Exportado;
 
         private List<Usuario> Vendedores = new();
         private List<Proyecto> proyectos = new();
@@ -120,31 +121,31 @@ namespace Interfaz
                             dgvProyectos.Columns.Clear();
                             DataTable _tabla = new();
                             _tabla.Columns.Add("Id Interno");
-                            _tabla.Columns.Add("Vendedor");
-                            _tabla.Columns.Add("Cliente");
-                            _tabla.Columns.Add("Tipo Trabajo");
-                            _tabla.Columns.Add("Fecha OC");
-                            _tabla.Columns.Add("Factura Anticipo");
                             _tabla.Columns.Add("Tarea");
-                            _tabla.Columns.Add("Oferta");
-                            _tabla.Columns.Add("Fecha Inicio");
-                            _tabla.Columns.Add("Fecha Final");
+                            _tabla.Columns.Add("Cliente");
+                            _tabla.Columns.Add("Cedula");
+                            _tabla.Columns.Add("Fecha Ingreso");
+                            _tabla.Columns.Add("Tipo");
+                            _tabla.Columns.Add("Ubicación");
+                            _tabla.Columns.Add("Orden Compra");
+                            _tabla.Columns.Add("Oferta Id");
                             _tabla.Columns.Add("Monto");
+                            _tabla.Columns.Add("Moneda");
                             _tabla.Columns.Add("Estado");
+
                             foreach (Proyecto i in proyectos)
                             {
                                 _tabla.Rows.Add(
                                     i.ProyectoId,
-                                    i.Vendedor.Nombre,
-                                    i.Cliente,
-                                    i.Tipo,
-                                    i.FechaOC.ToString("dd MMM yy"),
-                                    i.FacturaAnticipoId.ToString(),
                                     i.TareaId,
-                                    i.OfertaId,
-                                    i.FechaInicio.ToString("dd MMM yy"),
-                                    i.FechaFinal.ToString("dd MMM yy"),
-                                    i.Monto.ToString("C", CultureInfo.CurrentCulture),
+                                    i.Cliente,
+                                    i.Cedula,
+                                    i.FechaIngreso.ToShortDateString(),
+                                    i.Tipo,
+                                    i.Ubicacion,
+                                    i.OrdenCompra,
+                                    i.Monto,
+                                    i.TipoMoneda,
                                     i.Estado
                                     );
                             }
@@ -242,7 +243,6 @@ namespace Interfaz
         {
             try
             {
-
                 saveFileDialog1.Title = "Exportar a Excel";
                 saveFileDialog1.Filter = "Excel|*.xlsx";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -251,39 +251,54 @@ namespace Interfaz
                     var ExcelApp = new Excel.Application();
                     ExcelApp.Workbooks.Add();
                     Excel._Worksheet worksheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
-                    worksheet.Cells[1, "A"] = "Numero Proyecto";
-                    worksheet.Cells[1, "B"] = "Vendedor";
-                    worksheet.Cells[1, "C"] = "Cliente";
-                    worksheet.Cells[1, "D"] = "Factura Anticipo";
-                    worksheet.Cells[1, "E"] = "Factura Final";
-                    worksheet.Cells[1, "F"] = "Porcentaje Anticipo";
-                    worksheet.Cells[1, "G"] = "Tarea Bitrix";
-                    worksheet.Cells[1, "H"] = "Fecha OC";
-                    worksheet.Cells[1, "I"] = "Oferta";
-                    worksheet.Cells[1, "J"] = "Fecha Inicio";
-                    worksheet.Cells[1, "K"] = "Fecha Final";
-                    worksheet.Cells[1, "L"] = "Monto";
-                    worksheet.Cells[1, "M"] = "Tipo Trabajo";
+                    worksheet.Cells[1, "A"] = "ID";
+                    worksheet.Cells[1, "B"] = "Cliente";
+                    worksheet.Cells[1, "C"] = "Cedula";
+                    worksheet.Cells[1, "D"] = "Sector";
+                    worksheet.Cells[1, "E"] = "Oferta Id";
+                    worksheet.Cells[1, "F"] = "Orden de Compra";
+                    worksheet.Cells[1, "G"] = "Fecha OC";
+                    worksheet.Cells[1, "H"] = "Tipo Moneda";
+                    worksheet.Cells[1, "I"] = "Monto";
+                    worksheet.Cells[1, "J"] = "IVA";
+                    worksheet.Cells[1, "K"] = "Porcentaje de Anticipo";
+                    worksheet.Cells[1, "L"] = "Tarea";
+                    worksheet.Cells[1, "M"] = "Descripciones";
                     worksheet.Cells[1, "N"] = "Provincia";
+                    worksheet.Cells[1, "O"] = "Ubicación";
+                    worksheet.Cells[1, "P"] = "Tarea";
+                    worksheet.Cells[1, "Q"] = "Vendedor";
+                    worksheet.Cells[1, "R"] = "Estado";
+                    worksheet.Cells[1, "S"] = "Fecha Ingreso";
+                    worksheet.Cells[1, "T"] = "Creado Por";
+                    worksheet.Cells[1, "U"] = "Ultima Edición";
+                    worksheet.Cells[1, "V"] = "Ultimo Editor";
 
                     int contador = 2;
                     foreach (Proyecto item in proyectos)
                     {
-                        worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
-                        worksheet.Cells[contador, 2] = item.Vendedor.Nombre;
-                        worksheet.Cells[contador, 3] = item.Cliente;
-                        worksheet.Cells[contador, 4] = item.FacturaAnticipoId;
-                        worksheet.Cells[contador, 5] = item.FacturaFinalId;
-                        worksheet.Cells[contador, 6] = item.PorcentajeAnticipo;
-                        worksheet.Cells[contador, 7] = item.TareaId;
-                        worksheet.Cells[contador, 8] = item.FechaOC.ToString("dd/MM/yy");
-                        worksheet.Cells[contador, 9] = item.OfertaId.ToString();
-                        worksheet.Cells[contador, 10] = item.FechaInicio.ToString("dd/MM/yy");
-                        worksheet.Cells[contador, 11] = item.FechaFinal.ToString("dd/MM/yy");
-                        worksheet.Cells[contador, 12] = item.Monto.ToString("C", CultureInfo.CurrentCulture);
-                        worksheet.Cells[contador, 13] = item.Tipo;
-                        worksheet.Cells[contador, 14] = item.Provincia;
-
+                        worksheet.Cells[contador, 1] = item.ProyectoId.ToString(); // id
+                        worksheet.Cells[contador, 2] = item.Cliente; // cLIENTE
+                        worksheet.Cells[contador, 3] = item.Cedula.ToLower(); // CEDULA
+                        worksheet.Cells[contador, 4] = (!item.EsPublico) ? "Privado" : "Público"; // SECTOR
+                        worksheet.Cells[contador, 5] = item.OfertaId.ToString(); // OFERTA ID
+                        worksheet.Cells[contador, 6] = item.OrdenCompra; // ORDEN COMPRA
+                        worksheet.Cells[contador, 7] = item.FechaOC.ToShortDateString(); // FECHA ORDEN COMPRA
+                        worksheet.Cells[contador, 8] = item.TipoMoneda; // TIPO MONEDA
+                        worksheet.Cells[contador, 9] = item.Monto.ToString(); // MONTO
+                        worksheet.Cells[contador, 10] = item.MontoIVA.ToString(); // MONTO IVA
+                        worksheet.Cells[contador, 11] = item.PorcentajeAnticipo.ToString(); // PORCENTAJE ANTICIPO
+                        worksheet.Cells[contador, 12] = item.TareaId.ToString(); // TAREA
+                        worksheet.Cells[contador, 13] = item.Descripcion.ToLower(); // DESCRIPCIONES
+                        worksheet.Cells[contador, 14] = item.Provincia; // PROVINCIA
+                        worksheet.Cells[contador, 15] = item.Ubicacion.ToLower(); // Ubicación
+                        worksheet.Cells[contador, 16] = item.TareaId.ToString(); // Tarea
+                        worksheet.Cells[contador, 17] = item.Vendedor.Nombre; // Vendedor
+                        worksheet.Cells[contador, 18] = item.Estado; // Estado
+                        worksheet.Cells[contador, 19] = item.FechaIngreso.ToShortDateString(); // Fecha Ingreso
+                        worksheet.Cells[contador, 20] = item.Autor; // Creado Por
+                        worksheet.Cells[contador, 21] = item.UltimaEdicion.ToShortDateString(); // Ultima Edicion
+                        worksheet.Cells[contador, 22] = item.UltimoEditor; // Ultimo Editor
                         contador++;
                     }
                     ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
@@ -313,25 +328,25 @@ namespace Interfaz
                 if (Resultado)
                 {
                     Proyecto proyectoTemporal = new Proyecto();
-                    proyectoTemporal.Contacto = txtContacto.Text;
+                    proyectoTemporal.OrdenCompra = txtOrdenCompra.Text;
                     proyectoTemporal.FechaOC = dtpOrdenCompra.Value;
-                    proyectoTemporal.FechaInicio = dtpFechaInicio.Value;
-                    proyectoTemporal.FechaFinal = dtpFechaFinal.Value;
-                    proyectoTemporal.Monto = float.Parse(txtMonto.Text);
+                    proyectoTemporal.EsPublico = checkBoxPublico.Checked;
+                    proyectoTemporal.Monto = (float)numericUpDownMonto.Value;
+                    proyectoTemporal.MontoIVA = (int)numericUpDownMontoIVA.Value;
                     proyectoTemporal.Ubicacion = txtUbicacion.Text;
                     proyectoTemporal.Cedula = txtCedula.Text;
-                    proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
+                    proyectoTemporal.TareaId = (int) numericUpDownTarea.Value;
                     proyectoTemporal.Tipo = cbTipoTrabajo.Text;
+                    proyectoTemporal.Descripcion = txtDescripcion.Text.ToLower();
+                    proyectoTemporal.TipoMoneda = comboBoxTipoMoneda.Text;
                     proyectoTemporal.Provincia = cbProvincia.Text;
                     proyectoTemporal.Estado = cbEstado.Text;
-                    proyectoTemporal.FacturaAnticipoId = txtNumeroFactura.Text;
                     proyectoTemporal.UsuarioId = (from i in Vendedores
                                                   where i.Nombre == cbVendedores.Text
                                                   select i.UsuarioId).FirstOrDefault();
-                    proyectoTemporal.OfertaId = numberOfertas.Text;
+                    proyectoTemporal.OfertaId =  numericUpDownOferta.Value.ToString();
                     proyectoTemporal.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                     proyectoTemporal.Autor = Temporal.UsuarioActivo.Nombre;
-                    proyectoTemporal.FacturaFinalId = string.Empty;
                     proyectoTemporal.UltimaEdicion = DateTime.Today;
                     proyectoTemporal.Cliente = txtNombreCliente.Text;
                     proyectoTemporal.Enable = true;
@@ -393,28 +408,8 @@ namespace Interfaz
                     MessageBox.Show("No indicó una razón social", "Advertencia: Validación de Razón Social", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                /// Contacto
-                if (string.IsNullOrEmpty(txtContacto.Text))
-                {
-                    lblContacto.ForeColor = Color.Red;
-                    MessageBox.Show("No indicó un contacto \nSi no posee, indicar: \"No aplica\"", "Advertencia: Validación de Contacto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-                /// Oferta
-                if (string.IsNullOrEmpty(numberOfertas.Text))
-                {
-                    lblOferta.ForeColor = Color.Red;
-                    MessageBox.Show("No indicó una oferta", "Advertencia: Validación Oferta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-                //  Monto
-                bool value = float.TryParse(txtMonto.Text, out float resultado);
-                if (!value)
-                {
-                    lblMonto.ForeColor = Color.Red;
-                    MessageBox.Show("No indicó un monto", "Advertencia: Validación Monto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
+                
+
                 /// Porcentaje Anticipo
                 if (numericUpDownPorcentaje.Value < 0)
                 {
@@ -429,33 +424,8 @@ namespace Interfaz
                     {
                         return false;
                     }
-                    else
-                    {
-                        txtNumeroFactura.Text = "No hay anticipo";
-                    }
                 }
-                // Numero Factura de anticipo
-                if (string.IsNullOrEmpty(txtNumeroFactura.Text))
-                {
-                    lblFacturaAnticipo.ForeColor = Color.Red;
-                    var response = MessageBox.Show("No indico una factura de anticipo \n¿Desea continuar?", "Advertencia: Validación Número Factura Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (response == DialogResult.No)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        txtNumeroFactura.Text = "No hay factura de anticipo";
-                    }
-                }
-                // Validación de Tarea 
-                var taskNumber = int.TryParse(txtNumeroTarea.Text, out int numberTask);
-                if (!taskNumber)
-                {
-                    lblTarea.ForeColor = Color.Red;
-                    MessageBox.Show("No puede dejar el número de tarea en blanco.\nSi no posee, indique: 1", "Advertencia: Validación de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
+                
                 // Ubicacion
                 if (string.IsNullOrEmpty(txtUbicacion.Text))
                 {
@@ -509,14 +479,12 @@ namespace Interfaz
 
         private void SetBackLabels()
         {
-            lblVendedor.ForeColor = Color.Black;
-            lblRazon.ForeColor = Color.Black;
-            lblContacto.ForeColor = Color.Black;
-            lblOferta.ForeColor = Color.Black;
-            lblMonto.ForeColor = Color.Black;
-            lblPorcentaje.ForeColor = Color.Black;
-            lblFacturaAnticipo.ForeColor = Color.Black;
-            lblTarea.ForeColor = Color.Black;
+            lblVendedor.ForeColor = Color.White;
+            lblRazon.ForeColor = Color.White;
+            lblOferta.ForeColor = Color.White;
+            lblMonto.ForeColor = Color.White;
+            lblPorcentaje.ForeColor = Color.White;
+            lblTarea.ForeColor = Color.White;
         }
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -541,19 +509,23 @@ namespace Interfaz
 
         private void Limpiar()
         {
-            cbVendedores.Text = string.Empty;
             txtNombreCliente.Text = string.Empty;
-            dtpOrdenCompra.Value = DateTime.Now;
-            txtContacto.Text = string.Empty;
-            numberOfertas.Text = string.Empty;
-            txtMonto.Text = string.Empty;
+            txtCedula.Text = string.Empty;
+            checkBoxPublico.Checked = false;
+            numericUpDownOferta.Value = 0;
+            txtOrdenCompra.Text = string.Empty;
+            dtpOrdenCompra.Value = DateTime.Today;
+            comboBoxTipoMoneda.SelectedIndex = -1;
+            numericUpDownMonto.Value = 0;
+            numericUpDownMontoIVA.Value = 0;
             numericUpDownPorcentaje.Value = 0;
-            txtNumeroFactura.Text = string.Empty;
-            txtNumeroTarea.Text = string.Empty;
+            cbTipoTrabajo.SelectedIndex = -1;
+            txtDescripcion.Text = string.Empty;
+            cbProvincia.SelectedIndex =-1;
             txtUbicacion.Text = string.Empty;
-            dtpFechaInicio.Value = DateTime.Now;
-            dtpFechaFinal.Value = DateTime.Now;
-            cbEstado.Text = string.Empty;
+            numericUpDownTarea.Value = 0;
+            cbVendedores.SelectedIndex = -1;
+            cbEstado.SelectedIndex = -1;    
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)
@@ -613,11 +585,6 @@ namespace Interfaz
 
         private void txtMonto_Leave(object sender, EventArgs e)
         {
-            bool parseable = float.TryParse(txtMonto.Text, out float resultado);
-            if (!parseable)
-            {
-                MessageBox.Show($"El valor '{txtMonto.Text}' no es válido, Reviselo e intente de nuevo\nEjemplo de valor aceptable: 1520,25", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
 
         }
 
@@ -674,6 +641,16 @@ namespace Interfaz
         {
             Resumen resumen = new Resumen();
             resumen.Show();
+        }
+
+        private void checkBoxPublico_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

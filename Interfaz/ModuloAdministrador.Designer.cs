@@ -38,35 +38,37 @@
             label1 = new Label();
             dgvProyectos = new DataGridView();
             groupBox1 = new GroupBox();
+            numericUpDownMontoIVA = new NumericUpDown();
+            numericUpDownMonto = new NumericUpDown();
+            label11 = new Label();
+            txtDescripcion = new TextBox();
+            label10 = new Label();
+            comboBoxTipoMoneda = new ComboBox();
+            label9 = new Label();
+            txtOrdenCompra = new TextBox();
+            label8 = new Label();
+            checkBoxPublico = new CheckBox();
+            label7 = new Label();
+            txtCedula = new TextBox();
+            label6 = new Label();
             cbProvincia = new ComboBox();
             label4 = new Label();
             cbTipoTrabajo = new ComboBox();
             label3 = new Label();
-            numberOfertas = new TextBox();
             txtNombreCliente = new TextBox();
             dtpOrdenCompra = new DateTimePicker();
             cbVendedores = new ComboBox();
             cbEstado = new ComboBox();
             numericUpDownPorcentaje = new NumericUpDown();
-            dtpFechaFinal = new DateTimePicker();
-            dtpFechaInicio = new DateTimePicker();
             btnAgregar = new Button();
             button2 = new Button();
             lblEstado = new Label();
-            label16 = new Label();
-            label15 = new Label();
             txtUbicacion = new TextBox();
             label14 = new Label();
-            txtNumeroTarea = new TextBox();
             lblTarea = new Label();
-            txtNumeroFactura = new TextBox();
-            lblFacturaAnticipo = new Label();
-            txtMonto = new TextBox();
             lblPorcentaje = new Label();
             lblMonto = new Label();
             lblOferta = new Label();
-            txtContacto = new TextBox();
-            lblContacto = new Label();
             label5 = new Label();
             lblRazon = new Label();
             lblVendedor = new Label();
@@ -93,13 +95,17 @@
             ayudaToolStripMenuItem = new ToolStripMenuItem();
             agregarUsuarioToolStripMenuItem = new ToolStripDropDownMenu();
             saveFileDialog1 = new SaveFileDialog();
-            txtCedula = new TextBox();
-            label6 = new Label();
+            numericUpDownTarea = new NumericUpDown();
+            numericUpDownOferta = new NumericUpDown();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProyectos).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMontoIVA).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMonto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPorcentaje).BeginInit();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTarea).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownOferta).BeginInit();
             SuspendLayout();
             // 
             // groupBox2
@@ -115,7 +121,7 @@
             groupBox2.ForeColor = SystemColors.ActiveCaptionText;
             groupBox2.Location = new Point(435, 27);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(930, 620);
+            groupBox2.Size = new Size(930, 711);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Proyectos";
@@ -189,43 +195,45 @@
             dgvProyectos.Name = "dgvProyectos";
             dgvProyectos.ReadOnly = true;
             dgvProyectos.RowTemplate.Height = 25;
-            dgvProyectos.Size = new Size(912, 552);
+            dgvProyectos.Size = new Size(912, 643);
             dgvProyectos.TabIndex = 0;
             dgvProyectos.CellContentClick += dgvProyectos_CellContentClick;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(numericUpDownOferta);
+            groupBox1.Controls.Add(numericUpDownTarea);
+            groupBox1.Controls.Add(numericUpDownMontoIVA);
+            groupBox1.Controls.Add(numericUpDownMonto);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(txtDescripcion);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(comboBoxTipoMoneda);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(txtOrdenCompra);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(checkBoxPublico);
+            groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(txtCedula);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(cbProvincia);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(cbTipoTrabajo);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(numberOfertas);
             groupBox1.Controls.Add(txtNombreCliente);
             groupBox1.Controls.Add(dtpOrdenCompra);
             groupBox1.Controls.Add(cbVendedores);
             groupBox1.Controls.Add(cbEstado);
             groupBox1.Controls.Add(numericUpDownPorcentaje);
-            groupBox1.Controls.Add(dtpFechaFinal);
-            groupBox1.Controls.Add(dtpFechaInicio);
             groupBox1.Controls.Add(btnAgregar);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(lblEstado);
-            groupBox1.Controls.Add(label16);
-            groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(txtUbicacion);
             groupBox1.Controls.Add(label14);
-            groupBox1.Controls.Add(txtNumeroTarea);
             groupBox1.Controls.Add(lblTarea);
-            groupBox1.Controls.Add(txtNumeroFactura);
-            groupBox1.Controls.Add(lblFacturaAnticipo);
-            groupBox1.Controls.Add(txtMonto);
             groupBox1.Controls.Add(lblPorcentaje);
             groupBox1.Controls.Add(lblMonto);
             groupBox1.Controls.Add(lblOferta);
-            groupBox1.Controls.Add(txtContacto);
-            groupBox1.Controls.Add(lblContacto);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(lblRazon);
             groupBox1.Controls.Add(lblVendedor);
@@ -233,17 +241,136 @@
             groupBox1.ForeColor = SystemColors.ButtonFace;
             groupBox1.Location = new Point(0, 24);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(429, 623);
+            groupBox1.Size = new Size(429, 714);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Agregar Proyecto";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // numericUpDownMontoIVA
+            // 
+            numericUpDownMontoIVA.DecimalPlaces = 3;
+            numericUpDownMontoIVA.Location = new Point(189, 258);
+            numericUpDownMontoIVA.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericUpDownMontoIVA.Name = "numericUpDownMontoIVA";
+            numericUpDownMontoIVA.Size = new Size(225, 23);
+            numericUpDownMontoIVA.TabIndex = 61;
+            numericUpDownMontoIVA.ThousandsSeparator = true;
+            // 
+            // numericUpDownMonto
+            // 
+            numericUpDownMonto.DecimalPlaces = 3;
+            numericUpDownMonto.Location = new Point(189, 229);
+            numericUpDownMonto.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            numericUpDownMonto.Name = "numericUpDownMonto";
+            numericUpDownMonto.Size = new Size(225, 23);
+            numericUpDownMonto.TabIndex = 60;
+            numericUpDownMonto.ThousandsSeparator = true;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(15, 345);
+            label11.Name = "label11";
+            label11.Size = new Size(69, 15);
+            label11.TabIndex = 59;
+            label11.Text = "Descripción";
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Location = new Point(189, 345);
+            txtDescripcion.Multiline = true;
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(225, 44);
+            txtDescripcion.TabIndex = 58;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(15, 258);
+            label10.Name = "label10";
+            label10.Size = new Size(63, 15);
+            label10.TabIndex = 56;
+            label10.Text = "Monto IVA";
+            // 
+            // comboBoxTipoMoneda
+            // 
+            comboBoxTipoMoneda.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTipoMoneda.FormattingEnabled = true;
+            comboBoxTipoMoneda.Items.AddRange(new object[] { "Dolar ", "Colón", "Euro", "Yen" });
+            comboBoxTipoMoneda.Location = new Point(189, 200);
+            comboBoxTipoMoneda.Name = "comboBoxTipoMoneda";
+            comboBoxTipoMoneda.Size = new Size(225, 23);
+            comboBoxTipoMoneda.TabIndex = 55;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(16, 200);
+            label9.Name = "label9";
+            label9.Size = new Size(77, 15);
+            label9.TabIndex = 54;
+            label9.Text = "Tipo Moneda";
+            // 
+            // txtOrdenCompra
+            // 
+            txtOrdenCompra.Location = new Point(189, 142);
+            txtOrdenCompra.Name = "txtOrdenCompra";
+            txtOrdenCompra.Size = new Size(225, 23);
+            txtOrdenCompra.TabIndex = 53;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(16, 142);
+            label8.Name = "label8";
+            label8.Size = new Size(102, 15);
+            label8.TabIndex = 52;
+            label8.Text = "Orden de Compra";
+            // 
+            // checkBoxPublico
+            // 
+            checkBoxPublico.AutoSize = true;
+            checkBoxPublico.Location = new Point(189, 88);
+            checkBoxPublico.Name = "checkBoxPublico";
+            checkBoxPublico.Size = new Size(80, 19);
+            checkBoxPublico.TabIndex = 51;
+            checkBoxPublico.Text = "Es Público";
+            checkBoxPublico.UseVisualStyleBackColor = true;
+            checkBoxPublico.CheckedChanged += checkBoxPublico_CheckedChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(16, 88);
+            label7.Name = "label7";
+            label7.Size = new Size(40, 15);
+            label7.TabIndex = 50;
+            label7.Text = "Sector";
+            // 
+            // txtCedula
+            // 
+            txtCedula.Location = new Point(189, 59);
+            txtCedula.Name = "txtCedula";
+            txtCedula.PlaceholderText = "111111111111111";
+            txtCedula.Size = new Size(225, 23);
+            txtCedula.TabIndex = 49;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(16, 59);
+            label6.Name = "label6";
+            label6.Size = new Size(44, 15);
+            label6.TabIndex = 48;
+            label6.Text = "Cedula";
             // 
             // cbProvincia
             // 
             cbProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProvincia.FormattingEnabled = true;
             cbProvincia.Items.AddRange(new object[] { "San José", "Cartago", "Heredia", "Alajuela", "Limón", "Puntarenas", "Guanacaste", "Internacional" });
-            cbProvincia.Location = new Point(189, 401);
+            cbProvincia.Location = new Point(189, 395);
             cbProvincia.Name = "cbProvincia";
             cbProvincia.Size = new Size(225, 23);
             cbProvincia.TabIndex = 47;
@@ -251,7 +378,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(15, 404);
+            label4.Location = new Point(15, 395);
             label4.Name = "label4";
             label4.Size = new Size(56, 15);
             label4.TabIndex = 46;
@@ -262,7 +389,7 @@
             cbTipoTrabajo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoTrabajo.FormattingEnabled = true;
             cbTipoTrabajo.Items.AddRange(new object[] { "DDCE - Instalación", "DDCE - Mantenimiento", "DDCE - Mejoras", "Ionizante - Instalación", "Ionizante - Mantenimiento", "Ionizante - Mejoras", "Mallas - Instalación", "Mallas - Mantenimiento", "Mallas - Mejora", "Supresores - Instalación", "Trabajo Eléctrico", "Otro" });
-            cbTipoTrabajo.Location = new Point(189, 498);
+            cbTipoTrabajo.Location = new Point(189, 316);
             cbTipoTrabajo.Name = "cbTipoTrabajo";
             cbTipoTrabajo.Size = new Size(225, 23);
             cbTipoTrabajo.TabIndex = 45;
@@ -270,23 +397,15 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(16, 498);
+            label3.Location = new Point(15, 316);
             label3.Name = "label3";
             label3.Size = new Size(71, 15);
             label3.TabIndex = 44;
             label3.Text = "Tipo Trabajo";
             // 
-            // numberOfertas
-            // 
-            numberOfertas.Location = new Point(189, 175);
-            numberOfertas.Name = "numberOfertas";
-            numberOfertas.PlaceholderText = "125000";
-            numberOfertas.Size = new Size(225, 23);
-            numberOfertas.TabIndex = 43;
-            // 
             // txtNombreCliente
             // 
-            txtNombreCliente.Location = new Point(189, 59);
+            txtNombreCliente.Location = new Point(189, 27);
             txtNombreCliente.Name = "txtNombreCliente";
             txtNombreCliente.PlaceholderText = "Ejemplo S.A";
             txtNombreCliente.Size = new Size(225, 23);
@@ -294,7 +413,7 @@
             // 
             // dtpOrdenCompra
             // 
-            dtpOrdenCompra.Location = new Point(189, 117);
+            dtpOrdenCompra.Location = new Point(189, 171);
             dtpOrdenCompra.Name = "dtpOrdenCompra";
             dtpOrdenCompra.Size = new Size(225, 23);
             dtpOrdenCompra.TabIndex = 38;
@@ -303,7 +422,7 @@
             // 
             cbVendedores.DropDownStyle = ComboBoxStyle.DropDownList;
             cbVendedores.FormattingEnabled = true;
-            cbVendedores.Location = new Point(189, 22);
+            cbVendedores.Location = new Point(189, 534);
             cbVendedores.Name = "cbVendedores";
             cbVendedores.Size = new Size(225, 23);
             cbVendedores.TabIndex = 37;
@@ -313,38 +432,24 @@
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
             cbEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            cbEstado.Location = new Point(186, 530);
+            cbEstado.Location = new Point(189, 563);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(225, 23);
             cbEstado.TabIndex = 36;
             // 
             // numericUpDownPorcentaje
             // 
-            numericUpDownPorcentaje.Location = new Point(189, 236);
+            numericUpDownPorcentaje.Location = new Point(189, 287);
             numericUpDownPorcentaje.Name = "numericUpDownPorcentaje";
             numericUpDownPorcentaje.Size = new Size(225, 23);
             numericUpDownPorcentaje.TabIndex = 35;
             // 
-            // dtpFechaFinal
-            // 
-            dtpFechaFinal.Location = new Point(189, 463);
-            dtpFechaFinal.Name = "dtpFechaFinal";
-            dtpFechaFinal.Size = new Size(225, 23);
-            dtpFechaFinal.TabIndex = 34;
-            // 
-            // dtpFechaInicio
-            // 
-            dtpFechaInicio.Location = new Point(189, 434);
-            dtpFechaInicio.Name = "dtpFechaInicio";
-            dtpFechaInicio.Size = new Size(225, 23);
-            dtpFechaInicio.TabIndex = 33;
-            // 
             // btnAgregar
             // 
             btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
-            btnAgregar.Location = new Point(288, 565);
+            btnAgregar.Location = new Point(255, 613);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.Size = new Size(96, 23);
             btnAgregar.TabIndex = 31;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -353,7 +458,7 @@
             // button2
             // 
             button2.ForeColor = SystemColors.ActiveCaptionText;
-            button2.Location = new Point(186, 565);
+            button2.Location = new Point(124, 613);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 30;
@@ -364,33 +469,15 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(12, 530);
+            lblEstado.Location = new Point(12, 563);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(42, 15);
             lblEstado.TabIndex = 28;
             lblEstado.Text = "Estado";
             // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(15, 463);
-            label16.Name = "label16";
-            label16.Size = new Size(103, 15);
-            label16.TabIndex = 26;
-            label16.Text = "Fecha Finalización";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(15, 434);
-            label15.Name = "label15";
-            label15.Size = new Size(70, 15);
-            label15.TabIndex = 24;
-            label15.Text = "Fecha Inicio";
-            // 
             // txtUbicacion
             // 
-            txtUbicacion.Location = new Point(189, 320);
+            txtUbicacion.Location = new Point(189, 424);
             txtUbicacion.Multiline = true;
             txtUbicacion.Name = "txtUbicacion";
             txtUbicacion.PlaceholderText = "Canton, Distrito, Direcciones";
@@ -400,59 +487,25 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(15, 323);
+            label14.Location = new Point(15, 424);
             label14.Name = "label14";
             label14.Size = new Size(60, 15);
             label14.TabIndex = 22;
             label14.Text = "Ubicación";
             // 
-            // txtNumeroTarea
-            // 
-            txtNumeroTarea.Location = new Point(189, 291);
-            txtNumeroTarea.Name = "txtNumeroTarea";
-            txtNumeroTarea.PlaceholderText = "4582";
-            txtNumeroTarea.Size = new Size(225, 23);
-            txtNumeroTarea.TabIndex = 21;
-            // 
             // lblTarea
             // 
             lblTarea.AutoSize = true;
-            lblTarea.Location = new Point(15, 294);
+            lblTarea.Location = new Point(12, 505);
             lblTarea.Name = "lblTarea";
             lblTarea.Size = new Size(64, 15);
             lblTarea.TabIndex = 20;
             lblTarea.Text = "Tarea Bitrix";
             // 
-            // txtNumeroFactura
-            // 
-            txtNumeroFactura.Location = new Point(189, 262);
-            txtNumeroFactura.Name = "txtNumeroFactura";
-            txtNumeroFactura.PlaceholderText = "15632";
-            txtNumeroFactura.Size = new Size(225, 23);
-            txtNumeroFactura.TabIndex = 17;
-            // 
-            // lblFacturaAnticipo
-            // 
-            lblFacturaAnticipo.AutoSize = true;
-            lblFacturaAnticipo.Location = new Point(15, 265);
-            lblFacturaAnticipo.Name = "lblFacturaAnticipo";
-            lblFacturaAnticipo.Size = new Size(93, 15);
-            lblFacturaAnticipo.TabIndex = 16;
-            lblFacturaAnticipo.Text = "Número Factura";
-            // 
-            // txtMonto
-            // 
-            txtMonto.Location = new Point(189, 207);
-            txtMonto.Name = "txtMonto";
-            txtMonto.PlaceholderText = "125000";
-            txtMonto.Size = new Size(225, 23);
-            txtMonto.TabIndex = 15;
-            txtMonto.Leave += txtMonto_Leave;
-            // 
             // lblPorcentaje
             // 
             lblPorcentaje.AutoSize = true;
-            lblPorcentaje.Location = new Point(15, 236);
+            lblPorcentaje.Location = new Point(12, 287);
             lblPorcentaje.Name = "lblPorcentaje";
             lblPorcentaje.Size = new Size(111, 15);
             lblPorcentaje.TabIndex = 14;
@@ -461,7 +514,7 @@
             // lblMonto
             // 
             lblMonto.AutoSize = true;
-            lblMonto.Location = new Point(15, 207);
+            lblMonto.Location = new Point(16, 229);
             lblMonto.Name = "lblMonto";
             lblMonto.Size = new Size(43, 15);
             lblMonto.TabIndex = 12;
@@ -470,33 +523,16 @@
             // lblOferta
             // 
             lblOferta.AutoSize = true;
-            lblOferta.Location = new Point(15, 178);
+            lblOferta.Location = new Point(16, 113);
             lblOferta.Name = "lblOferta";
             lblOferta.Size = new Size(77, 15);
             lblOferta.TabIndex = 10;
             lblOferta.Text = "Oferta Mecsa";
             // 
-            // txtContacto
-            // 
-            txtContacto.Location = new Point(189, 146);
-            txtContacto.Name = "txtContacto";
-            txtContacto.PlaceholderText = "Pepe";
-            txtContacto.Size = new Size(225, 23);
-            txtContacto.TabIndex = 9;
-            // 
-            // lblContacto
-            // 
-            lblContacto.AutoSize = true;
-            lblContacto.Location = new Point(15, 149);
-            lblContacto.Name = "lblContacto";
-            lblContacto.Size = new Size(56, 15);
-            lblContacto.TabIndex = 8;
-            lblContacto.Text = "Contacto";
-            // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(15, 120);
+            label5.Location = new Point(16, 171);
             label5.Name = "label5";
             label5.Size = new Size(120, 15);
             label5.TabIndex = 2;
@@ -505,7 +541,7 @@
             // lblRazon
             // 
             lblRazon.AutoSize = true;
-            lblRazon.Location = new Point(15, 62);
+            lblRazon.Location = new Point(16, 32);
             lblRazon.Name = "lblRazon";
             lblRazon.Size = new Size(73, 15);
             lblRazon.TabIndex = 1;
@@ -514,7 +550,7 @@
             // lblVendedor
             // 
             lblVendedor.AutoSize = true;
-            lblVendedor.Location = new Point(15, 30);
+            lblVendedor.Location = new Point(12, 534);
             lblVendedor.Name = "lblVendedor";
             lblVendedor.Size = new Size(57, 15);
             lblVendedor.TabIndex = 0;
@@ -672,29 +708,30 @@
             agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
             agregarUsuarioToolStripMenuItem.Size = new Size(61, 4);
             // 
-            // txtCedula
+            // numericUpDownTarea
             // 
-            txtCedula.Location = new Point(189, 88);
-            txtCedula.Name = "txtCedula";
-            txtCedula.PlaceholderText = "111111111111111";
-            txtCedula.Size = new Size(225, 23);
-            txtCedula.TabIndex = 49;
+            numericUpDownTarea.Location = new Point(189, 505);
+            numericUpDownTarea.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericUpDownTarea.Name = "numericUpDownTarea";
+            numericUpDownTarea.Size = new Size(225, 23);
+            numericUpDownTarea.TabIndex = 62;
+            numericUpDownTarea.ThousandsSeparator = true;
             // 
-            // label6
+            // numericUpDownOferta
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(15, 91);
-            label6.Name = "label6";
-            label6.Size = new Size(44, 15);
-            label6.TabIndex = 48;
-            label6.Text = "Cedula";
+            numericUpDownOferta.Location = new Point(189, 113);
+            numericUpDownOferta.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+            numericUpDownOferta.Name = "numericUpDownOferta";
+            numericUpDownOferta.Size = new Size(225, 23);
+            numericUpDownOferta.TabIndex = 63;
+            numericUpDownOferta.ThousandsSeparator = true;
             // 
             // ModuloAdministrador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.ForestGreen;
-            ClientSize = new Size(1365, 647);
+            ClientSize = new Size(1365, 738);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
@@ -709,9 +746,13 @@
             ((System.ComponentModel.ISupportInitialize)dgvProyectos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMontoIVA).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMonto).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPorcentaje).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTarea).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownOferta).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -726,25 +767,15 @@
         private ComboBox cbVendedores;
         private ComboBox cbEstado;
         private NumericUpDown numericUpDownPorcentaje;
-        private DateTimePicker dtpFechaFinal;
-        private DateTimePicker dtpFechaInicio;
         private Button btnAgregar;
         private Button button2;
         private Label lblEstado;
-        private Label label16;
-        private Label label15;
         private TextBox txtUbicacion;
         private Label label14;
-        private TextBox txtNumeroTarea;
         private Label lblTarea;
-        private TextBox txtNumeroFactura;
-        private Label lblFacturaAnticipo;
-        private TextBox txtMonto;
         private Label lblPorcentaje;
         private Label lblMonto;
         private Label lblOferta;
-        private TextBox txtContacto;
-        private Label lblContacto;
         private Label label5;
         private Label lblRazon;
         private Label lblVendedor;
@@ -766,7 +797,6 @@
         private TextBox txtNumeroProyectoBuscar;
         private Label label2;
         private TextBox txtNombreBuscar;
-        private TextBox numberOfertas;
         private ComboBox cbTipoTrabajo;
         private Label label3;
         private ComboBox cbProvincia;
@@ -784,5 +814,18 @@
         private ToolStripMenuItem resumenToolStripMenuItem;
         private TextBox txtCedula;
         private Label label6;
+        private CheckBox checkBoxPublico;
+        private Label label7;
+        private TextBox txtOrdenCompra;
+        private Label label8;
+        private Label label10;
+        private ComboBox comboBoxTipoMoneda;
+        private Label label9;
+        private Label label11;
+        private TextBox txtDescripcion;
+        private NumericUpDown numericUpDownMontoIVA;
+        private NumericUpDown numericUpDownMonto;
+        private NumericUpDown numericUpDownOferta;
+        private NumericUpDown numericUpDownTarea;
     }
 }
