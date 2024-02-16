@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            numericUpDownTipoCambio = new NumericUpDown();
+            kkk = new Label();
+            comboBoxVendedores = new ComboBox();
             numericUpDownOfertaID = new NumericUpDown();
             numericUpDownTarea = new NumericUpDown();
             numericUpDownMontoIVA = new NumericUpDown();
@@ -67,8 +70,8 @@
             btnAgregar = new Button();
             button2 = new Button();
             label4 = new Label();
-            comboBoxVendedores = new ComboBox();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTipoCambio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownOfertaID).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownTarea).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMontoIVA).BeginInit();
@@ -78,6 +81,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(numericUpDownTipoCambio);
+            groupBox1.Controls.Add(kkk);
             groupBox1.Controls.Add(comboBoxVendedores);
             groupBox1.Controls.Add(numericUpDownOfertaID);
             groupBox1.Controls.Add(numericUpDownTarea);
@@ -125,6 +130,35 @@
             groupBox1.Text = "Información del Proyecto";
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // numericUpDownTipoCambio
+            // 
+            numericUpDownTipoCambio.DecimalPlaces = 3;
+            numericUpDownTipoCambio.Location = new Point(181, 257);
+            numericUpDownTipoCambio.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numericUpDownTipoCambio.Name = "numericUpDownTipoCambio";
+            numericUpDownTipoCambio.Size = new Size(225, 23);
+            numericUpDownTipoCambio.TabIndex = 96;
+            numericUpDownTipoCambio.ThousandsSeparator = true;
+            // 
+            // kkk
+            // 
+            kkk.AutoSize = true;
+            kkk.Location = new Point(11, 257);
+            kkk.Name = "kkk";
+            kkk.Size = new Size(75, 15);
+            kkk.TabIndex = 95;
+            kkk.Text = "Tipo Cambio";
+            // 
+            // comboBoxVendedores
+            // 
+            comboBoxVendedores.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxVendedores.FormattingEnabled = true;
+            comboBoxVendedores.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
+            comboBoxVendedores.Location = new Point(181, 591);
+            comboBoxVendedores.Name = "comboBoxVendedores";
+            comboBoxVendedores.Size = new Size(225, 23);
+            comboBoxVendedores.TabIndex = 94;
+            // 
             // numericUpDownOfertaID
             // 
             numericUpDownOfertaID.Location = new Point(181, 139);
@@ -135,7 +169,7 @@
             // 
             // numericUpDownTarea
             // 
-            numericUpDownTarea.Location = new Point(181, 533);
+            numericUpDownTarea.Location = new Point(181, 562);
             numericUpDownTarea.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             numericUpDownTarea.Name = "numericUpDownTarea";
             numericUpDownTarea.Size = new Size(225, 23);
@@ -144,7 +178,7 @@
             // numericUpDownMontoIVA
             // 
             numericUpDownMontoIVA.DecimalPlaces = 3;
-            numericUpDownMontoIVA.Location = new Point(181, 286);
+            numericUpDownMontoIVA.Location = new Point(181, 315);
             numericUpDownMontoIVA.Maximum = new decimal(new int[] { 99999999, 0, 0, 0 });
             numericUpDownMontoIVA.Name = "numericUpDownMontoIVA";
             numericUpDownMontoIVA.Size = new Size(225, 23);
@@ -154,7 +188,7 @@
             // numericUpDownMonto
             // 
             numericUpDownMonto.DecimalPlaces = 3;
-            numericUpDownMonto.Location = new Point(181, 257);
+            numericUpDownMonto.Location = new Point(181, 286);
             numericUpDownMonto.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             numericUpDownMonto.Name = "numericUpDownMonto";
             numericUpDownMonto.Size = new Size(225, 23);
@@ -164,7 +198,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(10, 373);
+            label11.Location = new Point(10, 402);
             label11.Name = "label11";
             label11.Size = new Size(69, 15);
             label11.TabIndex = 89;
@@ -172,7 +206,7 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(181, 373);
+            txtDescripcion.Location = new Point(181, 402);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(225, 44);
@@ -181,7 +215,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(10, 286);
+            label10.Location = new Point(10, 315);
             label10.Name = "label10";
             label10.Size = new Size(63, 15);
             label10.TabIndex = 86;
@@ -246,7 +280,7 @@
             cbProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProvincia.FormattingEnabled = true;
             cbProvincia.Items.AddRange(new object[] { "San José", "Cartago", "Heredia", "Alajuela", "Limón", "Puntarenas", "Guanacaste", "Internacional" });
-            cbProvincia.Location = new Point(181, 423);
+            cbProvincia.Location = new Point(181, 452);
             cbProvincia.Name = "cbProvincia";
             cbProvincia.Size = new Size(225, 23);
             cbProvincia.TabIndex = 79;
@@ -254,7 +288,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(10, 423);
+            label1.Location = new Point(10, 452);
             label1.Name = "label1";
             label1.Size = new Size(56, 15);
             label1.TabIndex = 78;
@@ -265,7 +299,7 @@
             cbTipoTrabajo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoTrabajo.FormattingEnabled = true;
             cbTipoTrabajo.Items.AddRange(new object[] { "DDCE - Instalación", "DDCE - Mantenimiento", "DDCE - Mejoras", "Ionizante - Instalación", "Ionizante - Mantenimiento", "Ionizante - Mejoras", "Mallas - Instalación", "Mallas - Mantenimiento", "Mallas - Mejora", "Supresores - Instalación", "Trabajo Eléctrico", "Otro" });
-            cbTipoTrabajo.Location = new Point(181, 344);
+            cbTipoTrabajo.Location = new Point(181, 373);
             cbTipoTrabajo.Name = "cbTipoTrabajo";
             cbTipoTrabajo.Size = new Size(225, 23);
             cbTipoTrabajo.TabIndex = 77;
@@ -273,7 +307,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(10, 344);
+            label3.Location = new Point(10, 373);
             label3.Name = "label3";
             label3.Size = new Size(71, 15);
             label3.TabIndex = 76;
@@ -290,15 +324,15 @@
             // 
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
-            cbEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            cbEstado.Location = new Point(181, 591);
+            cbEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado sin cobro" });
+            cbEstado.Location = new Point(181, 620);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(225, 23);
             cbEstado.TabIndex = 72;
             // 
             // numericUpDownPorcentaje
             // 
-            numericUpDownPorcentaje.Location = new Point(181, 315);
+            numericUpDownPorcentaje.Location = new Point(181, 344);
             numericUpDownPorcentaje.Name = "numericUpDownPorcentaje";
             numericUpDownPorcentaje.Size = new Size(225, 23);
             numericUpDownPorcentaje.TabIndex = 71;
@@ -306,7 +340,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(7, 591);
+            lblEstado.Location = new Point(7, 620);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(42, 15);
             lblEstado.TabIndex = 70;
@@ -314,7 +348,7 @@
             // 
             // txtUbicacion
             // 
-            txtUbicacion.Location = new Point(181, 452);
+            txtUbicacion.Location = new Point(181, 481);
             txtUbicacion.Multiline = true;
             txtUbicacion.Name = "txtUbicacion";
             txtUbicacion.PlaceholderText = "Canton, Distrito, Direcciones";
@@ -324,7 +358,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(10, 452);
+            label14.Location = new Point(10, 481);
             label14.Name = "label14";
             label14.Size = new Size(60, 15);
             label14.TabIndex = 68;
@@ -333,7 +367,7 @@
             // lblTarea
             // 
             lblTarea.AutoSize = true;
-            lblTarea.Location = new Point(7, 533);
+            lblTarea.Location = new Point(7, 562);
             lblTarea.Name = "lblTarea";
             lblTarea.Size = new Size(64, 15);
             lblTarea.TabIndex = 66;
@@ -342,7 +376,7 @@
             // lblPorcentaje
             // 
             lblPorcentaje.AutoSize = true;
-            lblPorcentaje.Location = new Point(7, 315);
+            lblPorcentaje.Location = new Point(7, 344);
             lblPorcentaje.Name = "lblPorcentaje";
             lblPorcentaje.Size = new Size(111, 15);
             lblPorcentaje.TabIndex = 64;
@@ -351,7 +385,7 @@
             // lblMonto
             // 
             lblMonto.AutoSize = true;
-            lblMonto.Location = new Point(11, 257);
+            lblMonto.Location = new Point(11, 286);
             lblMonto.Name = "lblMonto";
             lblMonto.Size = new Size(43, 15);
             lblMonto.TabIndex = 63;
@@ -378,7 +412,7 @@
             // lblVendedor
             // 
             lblVendedor.AutoSize = true;
-            lblVendedor.Location = new Point(7, 562);
+            lblVendedor.Location = new Point(7, 591);
             lblVendedor.Name = "lblVendedor";
             lblVendedor.Size = new Size(57, 15);
             lblVendedor.TabIndex = 60;
@@ -404,7 +438,7 @@
             // btnBorrar
             // 
             btnBorrar.BackColor = Color.LightCoral;
-            btnBorrar.Location = new Point(25, 638);
+            btnBorrar.Location = new Point(25, 667);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(106, 23);
             btnBorrar.TabIndex = 41;
@@ -439,7 +473,7 @@
             // btnAgregar
             // 
             btnAgregar.BackColor = Color.SkyBlue;
-            btnAgregar.Location = new Point(264, 638);
+            btnAgregar.Location = new Point(264, 667);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(123, 23);
             btnAgregar.TabIndex = 31;
@@ -449,7 +483,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(166, 638);
+            button2.Location = new Point(166, 667);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 30;
@@ -464,16 +498,6 @@
             label4.Size = new Size(73, 15);
             label4.TabIndex = 1;
             label4.Text = "Razon Social";
-            // 
-            // comboBoxVendedores
-            // 
-            comboBoxVendedores.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxVendedores.FormattingEnabled = true;
-            comboBoxVendedores.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            comboBoxVendedores.Location = new Point(181, 562);
-            comboBoxVendedores.Name = "comboBoxVendedores";
-            comboBoxVendedores.Size = new Size(225, 23);
-            comboBoxVendedores.TabIndex = 94;
             // 
             // EditarProyecto
             // 
@@ -490,6 +514,7 @@
             Load += EditarProyecto_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTipoCambio).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownOfertaID).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownTarea).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMontoIVA).EndInit();
@@ -542,5 +567,7 @@
         private NumericUpDown numericUpDownTarea;
         private NumericUpDown numericUpDownOfertaID;
         private ComboBox comboBoxVendedores;
+        private NumericUpDown numericUpDownTipoCambio;
+        private Label kkk;
     }
 }

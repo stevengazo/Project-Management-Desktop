@@ -41,7 +41,7 @@ namespace Interfaz
             this.Text = $"Modulo Ventas - Asfaltos - Bienvenido {Temporal.UsuarioActivo.Nombre}";
         }
 
-     
+
 
         private void CargarVendedores()
         {
@@ -65,7 +65,7 @@ namespace Interfaz
             else
             {
 #pragma warning disable CS8601 // Posible asignación de referencia nula
-                proyectos = await proyectosNegocio.ListaProyectos(Temporal.UsuarioActivo.UsuarioId);
+                proyectos = await proyectosNegocio.ListaProyectos(idEncargado: Temporal.UsuarioActivo.UsuarioId);
 #pragma warning restore CS8601 // Posible asignación de referencia nula
             }
             if (proyectos != null)
@@ -135,7 +135,7 @@ namespace Interfaz
             txtOrdenCompra.Text = string.Empty;
             dtpOrdenCompra.Value = DateTime.Today;
             cbTipoTrabajo.SelectedIndex = -1;
-            numericUpDownMonto.Value = 0;   
+            numericUpDownMonto.Value = 0;
             numericUpDownMontoIVA.Value = 0;
             numericUpDownPorcentaje.Value = 0;
             cbTipoTrabajo.SelectedIndex = -1;
@@ -143,7 +143,7 @@ namespace Interfaz
             cbProvincia.SelectedIndex = -1;
             numericUpDownTarea.Value = 0;
             cbVendedores.SelectedIndex = -1;
-            cbEstado.SelectedIndex = -1;            
+            cbEstado.SelectedIndex = -1;
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -243,6 +243,7 @@ namespace Interfaz
                     proyectoNuevo.OrdenCompra = txtOrdenCompra.Text;
                     proyectoNuevo.FechaOC = dtpOrdenCompra.Value;
                     proyectoNuevo.TipoMoneda = comboBoxTipoMoneda.Text;
+                    proyectoNuevo.TipoCambio = (float)numericUpDowntipoCambio.Value;
                     proyectoNuevo.Monto = (float)numericUpDownMonto.Value;
                     proyectoNuevo.MontoIVA = (float)numericUpDownMontoIVA.Value;
                     proyectoNuevo.PorcentajeAnticipo = (int)numericUpDownPorcentaje.Value;
@@ -286,15 +287,15 @@ namespace Interfaz
         }
         private void SetBackLabels()
         {
-            
-            
+
+
         }
         private bool ValidarCampos()
         {
             try
             {
                 SetBackLabels();
-              
+
                 var VendedorSeleccionado = cbVendedores.Text;
                 // Vendedor
                 if (string.IsNullOrEmpty(cbVendedores.Text))
@@ -318,7 +319,7 @@ namespace Interfaz
                     MessageBox.Show("El porcentaje de anticipo no puede ser negativo.", "Advertencia: Validación Porcentaje de Anticipo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                
+
 
                 // Ubicacion
                 if (string.IsNullOrEmpty(txtUbicacion.Text))
@@ -490,7 +491,7 @@ namespace Interfaz
 
         private void txtMonto_Leave(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

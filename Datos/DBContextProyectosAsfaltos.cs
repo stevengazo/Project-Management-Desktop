@@ -111,6 +111,7 @@ namespace Modelos
                 OfertaId = "PS-00001",
                 TipoMoneda = "Colon",
                 Monto = 100f,
+                TipoCambio =0,
                 Cedula = "2894043",
                 PorcentajeAnticipo = 50,
                 MontoIVA= 13,
@@ -125,6 +126,7 @@ namespace Modelos
                 UltimaEdicion = DateTime.Today,
                 UsuarioId = usuarioBase.UsuarioId,
                 UltimoEditor = usuarioBase.Nombre,
+                Facturado = false,
                 Enable = true,
                 Finalizado = false
                 //ClienteID = clienteBase.ClienteID

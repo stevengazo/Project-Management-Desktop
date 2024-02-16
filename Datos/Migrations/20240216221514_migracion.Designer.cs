@@ -12,7 +12,7 @@ using Modelos;
 namespace Datos.Migrations
 {
     [DbContext(typeof(DBContextProyectosAsfaltos))]
-    [Migration("20240215212351_migracion")]
+    [Migration("20240216221514_migracion")]
     partial class migracion
     {
         /// <inheritdoc />
@@ -304,7 +304,7 @@ namespace Datos.Migrations
                             DDCE = true,
                             EncargadoCotizador = "Gabriel",
                             Estado = "Pendiente",
-                            Fecha = new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            Fecha = new DateTime(2024, 2, 16, 0, 0, 0, 0, DateTimeKind.Local),
                             Ionizante = true,
                             Malla = true,
                             Monto = 100f,
@@ -314,7 +314,7 @@ namespace Datos.Migrations
                             Provincia = "San José",
                             Supresor = true,
                             Torre = true,
-                            UltimaModificacion = new DateTime(2024, 2, 15, 1, 0, 0, 0, DateTimeKind.Local),
+                            UltimaModificacion = new DateTime(2024, 2, 16, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
                 });
@@ -349,6 +349,9 @@ namespace Datos.Migrations
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Facturado")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("FechaIngreso")
                         .HasColumnType("datetime2");
@@ -387,6 +390,9 @@ namespace Datos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<float>("TipoCambio")
+                        .HasColumnType("real");
+
                     b.Property<string>("TipoMoneda")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -422,8 +428,9 @@ namespace Datos.Migrations
                             Enable = true,
                             EsPublico = true,
                             Estado = "Finalizado",
-                            FechaIngreso = new DateTime(2024, 2, 15, 15, 23, 51, 521, DateTimeKind.Local).AddTicks(7692),
-                            FechaOC = new DateTime(2024, 2, 15, 15, 23, 51, 521, DateTimeKind.Local).AddTicks(7678),
+                            Facturado = false,
+                            FechaIngreso = new DateTime(2024, 2, 16, 16, 15, 13, 794, DateTimeKind.Local).AddTicks(4441),
+                            FechaOC = new DateTime(2024, 2, 16, 16, 15, 13, 794, DateTimeKind.Local).AddTicks(4430),
                             Finalizado = false,
                             Monto = 100f,
                             MontoIVA = 13f,
@@ -433,9 +440,10 @@ namespace Datos.Migrations
                             Provincia = "",
                             TareaId = 2000,
                             Tipo = "Instalación",
+                            TipoCambio = 0f,
                             TipoMoneda = "Colon",
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2024, 2, 15, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2024, 2, 16, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });

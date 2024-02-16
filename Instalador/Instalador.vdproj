@@ -245,9 +245,9 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Proyectos - Mecsa Electrica"
-        "ProductCode" = "8:{1B3EE36A-1995-4EA0-BD63-4182C4394D77}"
+        "ProductCode" = "8:{5051E70A-F783-40DF-A9A2-E3CC56B75740}"
         "PackageCode" = "8:{63BA2507-7110-442B-BB72-1F9AD83FB441}"
-        "UpgradeCode" = "8:{F90E4FE1-A4F6-49EA-B38A-86E655509B05}"
+        "UpgradeCode" = "8:{ED943B81-F137-4B93-8ED0-BFB5452D9AD5}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"

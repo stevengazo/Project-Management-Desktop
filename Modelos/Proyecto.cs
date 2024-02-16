@@ -17,6 +17,7 @@ namespace Modelos
         public string OrdenCompra { get; set; }
         public DateTime FechaOC { get; set; }
         public string TipoMoneda { get; set; }
+        public float TipoCambio { get; set; }
         public float Monto { get; set; }
         public float MontoIVA { get; set; }    
         public int PorcentajeAnticipo { get; set; }
@@ -30,6 +31,7 @@ namespace Modelos
         public string Estado { get; set; }
         public bool Finalizado { get; set; }
         // Metadatos
+        public bool Facturado { get; set; }
         public string Autor { get; set; }
         public DateTime FechaIngreso { get; set; }
         public DateTime UltimaEdicion { get; set; }

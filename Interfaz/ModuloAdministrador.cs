@@ -122,6 +122,7 @@ namespace Interfaz
                             DataTable _tabla = new();
                             _tabla.Columns.Add("Id Interno");
                             _tabla.Columns.Add("Tarea");
+                            _tabla.Columns.Add("Vendedor");
                             _tabla.Columns.Add("Cliente");
                             _tabla.Columns.Add("Cedula");
                             _tabla.Columns.Add("Fecha Ingreso");
@@ -133,18 +134,21 @@ namespace Interfaz
                             _tabla.Columns.Add("Moneda");
                             _tabla.Columns.Add("Estado");
 
+
                             foreach (Proyecto i in proyectos)
                             {
                                 _tabla.Rows.Add(
                                     i.ProyectoId,
-                                    i.TareaId,
+                                    i.TareaId.ToString(),
+                                    i.Vendedor.Nombre,
                                     i.Cliente,
                                     i.Cedula,
                                     i.FechaIngreso.ToShortDateString(),
                                     i.Tipo,
-                                    i.Ubicacion,
+                                    i.Provincia,
                                     i.OrdenCompra,
-                                    i.Monto,
+                                    i.OfertaId.ToString(),
+                                    i.Monto.ToString(),
                                     i.TipoMoneda,
                                     i.Estado
                                     );
@@ -233,16 +237,12 @@ namespace Interfaz
             AgregarOferta agregarOferta = new();
             agregarOferta.ShowDialog();
         }
-
-        /// <summary>
-        /// Exporta a Excel
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void excelToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExportadoExcel()
         {
             try
             {
+
+
                 saveFileDialog1.Title = "Exportar a Excel";
                 saveFileDialog1.Filter = "Excel|*.xlsx";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -304,13 +304,45 @@ namespace Interfaz
                     ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
                     ExcelApp.ActiveWorkbook.Close();
                     ExcelApp.Quit();
-                    MessageBox.Show("Documento Generado", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Documento Generado", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information,MessageBoxDefaultButton.Button1,MessageBoxOptions.ServiceNotification);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un problema. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+
+
+        /// <summary>
+        /// Exporta a Excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void excelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Exportado == null)
+            {
+                Exportado = new Thread(ExportadoExcel);
+                Exportado.SetApartmentState(ApartmentState.STA);
+                Exportado.Start();
+            }
+            else
+            {
+                if(Exportado.ThreadState == ThreadState.Running)
+                {
+                    MessageBox.Show("Exportando datos...", "Informacion");
+                }
+                else
+                {
+                    Exportado = new Thread(ExportadoExcel);
+                    Exportado.SetApartmentState(ApartmentState.STA);
+                    Exportado.Start();
+                }
+            }
+            
         }
 
 
@@ -332,10 +364,12 @@ namespace Interfaz
                     proyectoTemporal.FechaOC = dtpOrdenCompra.Value;
                     proyectoTemporal.EsPublico = checkBoxPublico.Checked;
                     proyectoTemporal.Monto = (float)numericUpDownMonto.Value;
+                    proyectoTemporal.FechaIngreso = DateTime.Now;
                     proyectoTemporal.MontoIVA = (int)numericUpDownMontoIVA.Value;
                     proyectoTemporal.Ubicacion = txtUbicacion.Text;
                     proyectoTemporal.Cedula = txtCedula.Text;
-                    proyectoTemporal.TareaId = (int) numericUpDownTarea.Value;
+                    proyectoTemporal.TareaId = (int)numericUpDownTarea.Value;
+                    proyectoTemporal.TipoCambio = (float) numericUpDownTipoCambio.Value;
                     proyectoTemporal.Tipo = cbTipoTrabajo.Text;
                     proyectoTemporal.Descripcion = txtDescripcion.Text.ToLower();
                     proyectoTemporal.TipoMoneda = comboBoxTipoMoneda.Text;
@@ -344,7 +378,7 @@ namespace Interfaz
                     proyectoTemporal.UsuarioId = (from i in Vendedores
                                                   where i.Nombre == cbVendedores.Text
                                                   select i.UsuarioId).FirstOrDefault();
-                    proyectoTemporal.OfertaId =  numericUpDownOferta.Value.ToString();
+                    proyectoTemporal.OfertaId = numericUpDownOferta.Value.ToString();
                     proyectoTemporal.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                     proyectoTemporal.Autor = Temporal.UsuarioActivo.Nombre;
                     proyectoTemporal.UltimaEdicion = DateTime.Today;
@@ -408,7 +442,7 @@ namespace Interfaz
                     MessageBox.Show("No indicó una razón social", "Advertencia: Validación de Razón Social", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                
+
 
                 /// Porcentaje Anticipo
                 if (numericUpDownPorcentaje.Value < 0)
@@ -425,7 +459,7 @@ namespace Interfaz
                         return false;
                     }
                 }
-                
+
                 // Ubicacion
                 if (string.IsNullOrEmpty(txtUbicacion.Text))
                 {
@@ -521,11 +555,11 @@ namespace Interfaz
             numericUpDownPorcentaje.Value = 0;
             cbTipoTrabajo.SelectedIndex = -1;
             txtDescripcion.Text = string.Empty;
-            cbProvincia.SelectedIndex =-1;
+            cbProvincia.SelectedIndex = -1;
             txtUbicacion.Text = string.Empty;
             numericUpDownTarea.Value = 0;
             cbVendedores.SelectedIndex = -1;
-            cbEstado.SelectedIndex = -1;    
+            cbEstado.SelectedIndex = -1;
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)

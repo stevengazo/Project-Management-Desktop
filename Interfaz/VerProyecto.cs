@@ -9,6 +9,7 @@ namespace Interfaz
     public partial class VerProyecto : Form
     {
         public int idProyecto { get; set; } = 0;
+        Proyecto proyectoTemporal { get; set; }
         public VerProyecto()
         {
             InitializeComponent();
@@ -68,7 +69,7 @@ namespace Interfaz
                 else
                 {
                     ProyectoNegocios proyectoNegocios = new();
-                    Proyecto proyectoTemporal = proyectoNegocios.ObtenerProyecto(idProyecto);
+                    proyectoTemporal = proyectoNegocios.ObtenerProyecto(idProyecto);
                     this.idProyecto = proyectoTemporal.ProyectoId;
                     CargarNotas(proyectoTemporal.ProyectoId);
                     // Carga Informacion
@@ -77,11 +78,12 @@ namespace Interfaz
                     txtSector.Text = (proyectoTemporal.EsPublico) ? "Proyecto Sector Publico" : "Proyecto Sector Privado";
                     txtOfertaId.Text = proyectoTemporal.OfertaId;
                     txtOrdenCompra.Text = proyectoTemporal.OrdenCompra;
+                    tipocambio.Text = proyectoTemporal.TipoCambio.ToString();
                     txtFechaOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
                     txtTipoMoneda.Text = proyectoTemporal.TipoMoneda;
                     txtMonto.Text = proyectoTemporal.Monto.ToString();
                     txtMontoIVA.Text = proyectoTemporal.MontoIVA.ToString();
-                    txtPorcentajeAnticipo.Text =$"{proyectoTemporal.PorcentajeAnticipo}%";
+                    txtPorcentajeAnticipo.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
                     txtTipoTrabajo.Text = proyectoTemporal.Tipo;
                     txtDescripcion.Text = proyectoTemporal.Descripcion;
                     txtProvincia.Text = proyectoTemporal.Provincia;
@@ -191,6 +193,34 @@ namespace Interfaz
                 dataGridViewInformes.DataSource = dt;
             }
 
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            // Mostrar un cuadro de diálogo de entrada
+            string resultado = Microsoft.VisualBasic.Interaction.InputBox("Digite el número de Factura. Advertencia el proyecto se marcará como facturado\n\nRecomendación: ingrese una nota de que este proyecto ya fue facturado", "Ingreso de Factura");
+            if (!string.IsNullOrEmpty(resultado))
+            {
+                var pN = new ProyectoNegocios();
+                proyectoTemporal.Finalizado = true;
+                proyectoTemporal.Facturado = true;
+                proyectoTemporal.Estado = "Finalizado con cobro";
+                pN.ActualizarProyecto(proyectoTemporal);
+                MessageBox.Show("Factura añadida, proyecto finalizado", "Informacion", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            var response = MessageBox.Show("Desea Marcar Este proyecto como finalizado? (Solo debe ser marcado una vez la ejecución)", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (response == DialogResult.Yes)
+            {
+                var pN = new ProyectoNegocios();
+                proyectoTemporal.Finalizado = true;
+                proyectoTemporal.Estado = "Finalizado sin cobro";
+                pN.ActualizarProyecto(proyectoTemporal);
+                MessageBox.Show("Proyecto marcado como finalizado", "Informacion", MessageBoxButtons.OK);
+            }
         }
     }
 }

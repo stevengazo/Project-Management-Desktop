@@ -218,6 +218,29 @@ namespace Negocios
             }
         }
 
+        public List<Proyecto>? ListaProyectosAno ()
+        {
+            try
+            {
+                List<Proyecto> proyectos = new List<Proyecto>();
+                using (var db = dBContext)
+                {
+                    proyectos = (from proye in db.Proyectos
+                                 where proye.FechaIngreso.Year == DateTime.Now.Year || proye.FechaIngreso.Year == DateTime.Now.AddYears(-1).Year
+                                 orderby proye.ProyectoId descending
+                                 select proye).Include(P => P.Vendedor).ToList();
+                }
+                return proyectos;
+            }
+            catch (Exception f)
+            {
+                Console.WriteLine(f.Message);
+                return null;
+            }
+        }
+
+
+
         public List<Proyecto>? ListaProyectos()
         {
             try

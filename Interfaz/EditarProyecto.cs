@@ -142,6 +142,7 @@ namespace Interfaz
                         ProyectoActual.Monto = (float)numericUpDownMonto.Value;
                         ProyectoActual.MontoIVA = (int)numericUpDownMontoIVA.Value;
                         ProyectoActual.PorcentajeAnticipo = (int)numericUpDownPorcentaje.Value;
+                        ProyectoActual.TipoCambio = (float)numericUpDownTipoCambio.Value;
                         ProyectoActual.Tipo = cbTipoTrabajo.Text;
                         ProyectoActual.Descripcion = txtDescripcion.Text;
                         ProyectoActual.Provincia = cbProvincia.Text;
@@ -152,7 +153,7 @@ namespace Interfaz
                                                     where v.Nombre == comboBoxVendedores.Text
                                                     select v.UsuarioId).FirstOrDefault();
                         ProyectoActual.Estado = cbEstado.Text;
-                        ProyectoActual.Finalizado = (cbEstado.Text == "Finalizado sin cobro" || cbEstado.Text == "Finalizado con cobro") ? true : false;
+                        ProyectoActual.Finalizado = (cbEstado.Text == "Finalizado sin cobro" ) ? true : false;
 
                         // Metadata
                         ProyectoActual.UltimoEditor = Temporal.UsuarioActivo.Nombre;
