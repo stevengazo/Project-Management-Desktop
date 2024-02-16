@@ -284,14 +284,11 @@ namespace Interfaz
                 MessageBox.Show(r.Message);
             }
         }
-
-
         private void SetBackLabels()
         {
             
             
         }
-
         private bool ValidarCampos()
         {
             try
@@ -360,36 +357,31 @@ namespace Interfaz
                 return false;
             }
         }
-
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void usuariosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             ListarUsuario listarUsuariousuarios = new();
             listarUsuariousuarios.ShowDialog();
         }
-
         private void agregarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarUsuario agregarUsuario = new();
             agregarUsuario.ShowDialog();
         }
-
         private void verCotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarOferta listarOferta = new();
             listarOferta.ShowDialog();
 
         }
-
         private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                if (e.ColumnIndex == 11)
+                if (e.ColumnIndex == 12)
                 {
                     VerProyecto verProyecto = new();
                     var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -397,7 +389,7 @@ namespace Interfaz
                     verProyecto.ShowDialog();
                 }
                 else
-                if (e.ColumnIndex == 12)
+                if (e.ColumnIndex == 13)
                 {
                     var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
                     EditarProyecto editarProyecto = new();
