@@ -301,7 +301,7 @@ namespace Datos.Migrations
                             DDCE = true,
                             EncargadoCotizador = "Gabriel",
                             Estado = "Pendiente",
-                            Fecha = new DateTime(2024, 2, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            Fecha = new DateTime(2024, 2, 19, 0, 0, 0, 0, DateTimeKind.Local),
                             Ionizante = true,
                             Malla = true,
                             Monto = 100f,
@@ -311,7 +311,7 @@ namespace Datos.Migrations
                             Provincia = "San José",
                             Supresor = true,
                             Torre = true,
-                            UltimaModificacion = new DateTime(2024, 2, 16, 1, 0, 0, 0, DateTimeKind.Local),
+                            UltimaModificacion = new DateTime(2024, 2, 19, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
                 });
@@ -344,6 +344,10 @@ namespace Datos.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Factura")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -425,9 +429,10 @@ namespace Datos.Migrations
                             Enable = true,
                             EsPublico = true,
                             Estado = "Finalizado",
+                            Factura = "",
                             Facturado = false,
-                            FechaIngreso = new DateTime(2024, 2, 16, 16, 15, 13, 794, DateTimeKind.Local).AddTicks(4441),
-                            FechaOC = new DateTime(2024, 2, 16, 16, 15, 13, 794, DateTimeKind.Local).AddTicks(4430),
+                            FechaIngreso = new DateTime(2024, 2, 19, 14, 49, 30, 725, DateTimeKind.Local).AddTicks(1543),
+                            FechaOC = new DateTime(2024, 2, 19, 14, 49, 30, 725, DateTimeKind.Local).AddTicks(1528),
                             Finalizado = false,
                             Monto = 100f,
                             MontoIVA = 13f,
@@ -440,7 +445,7 @@ namespace Datos.Migrations
                             TipoCambio = 0f,
                             TipoMoneda = "Colon",
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2024, 2, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2024, 2, 19, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });

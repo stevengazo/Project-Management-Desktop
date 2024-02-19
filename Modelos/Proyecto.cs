@@ -29,6 +29,7 @@ namespace Modelos
         public Usuario Vendedor { get; set; } 
         public int UsuarioId { get; set; }
         public string Estado { get; set; }
+        public string Factura { get; set; }
         public bool Finalizado { get; set; }
         // Metadatos
         public bool Facturado { get; set; }

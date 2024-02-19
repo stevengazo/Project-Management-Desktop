@@ -119,6 +119,8 @@ namespace Modelos
                 TareaId = 2000,
                 Ubicacion = "Grupo Mecsa",
                 Tipo = "Instalación",
+                Factura = "",
+                Facturado = false,
                 FechaIngreso = DateTime.Now,
                 Estado = "Finalizado",
                 Provincia = "",
@@ -126,7 +128,6 @@ namespace Modelos
                 UltimaEdicion = DateTime.Today,
                 UsuarioId = usuarioBase.UsuarioId,
                 UltimoEditor = usuarioBase.Nombre,
-                Facturado = false,
                 Enable = true,
                 Finalizado = false
                 //ClienteID = clienteBase.ClienteID

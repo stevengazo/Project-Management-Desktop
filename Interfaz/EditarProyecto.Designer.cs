@@ -70,6 +70,8 @@
             btnAgregar = new Button();
             button2 = new Button();
             label4 = new Label();
+            textBoxFactura = new TextBox();
+            label2 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownTipoCambio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownOfertaID).BeginInit();
@@ -81,6 +83,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(textBoxFactura);
+            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(numericUpDownTipoCambio);
             groupBox1.Controls.Add(kkk);
             groupBox1.Controls.Add(comboBoxVendedores);
@@ -154,7 +158,7 @@
             comboBoxVendedores.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxVendedores.FormattingEnabled = true;
             comboBoxVendedores.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            comboBoxVendedores.Location = new Point(181, 591);
+            comboBoxVendedores.Location = new Point(181, 620);
             comboBoxVendedores.Name = "comboBoxVendedores";
             comboBoxVendedores.Size = new Size(225, 23);
             comboBoxVendedores.TabIndex = 94;
@@ -169,7 +173,7 @@
             // 
             // numericUpDownTarea
             // 
-            numericUpDownTarea.Location = new Point(181, 562);
+            numericUpDownTarea.Location = new Point(181, 591);
             numericUpDownTarea.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             numericUpDownTarea.Name = "numericUpDownTarea";
             numericUpDownTarea.Size = new Size(225, 23);
@@ -198,7 +202,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(10, 402);
+            label11.Location = new Point(10, 431);
             label11.Name = "label11";
             label11.Size = new Size(69, 15);
             label11.TabIndex = 89;
@@ -206,7 +210,7 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(181, 402);
+            txtDescripcion.Location = new Point(181, 431);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(225, 44);
@@ -280,7 +284,7 @@
             cbProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProvincia.FormattingEnabled = true;
             cbProvincia.Items.AddRange(new object[] { "San José", "Cartago", "Heredia", "Alajuela", "Limón", "Puntarenas", "Guanacaste", "Internacional" });
-            cbProvincia.Location = new Point(181, 452);
+            cbProvincia.Location = new Point(181, 481);
             cbProvincia.Name = "cbProvincia";
             cbProvincia.Size = new Size(225, 23);
             cbProvincia.TabIndex = 79;
@@ -288,7 +292,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(10, 452);
+            label1.Location = new Point(10, 481);
             label1.Name = "label1";
             label1.Size = new Size(56, 15);
             label1.TabIndex = 78;
@@ -299,7 +303,7 @@
             cbTipoTrabajo.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoTrabajo.FormattingEnabled = true;
             cbTipoTrabajo.Items.AddRange(new object[] { "DDCE - Instalación", "DDCE - Mantenimiento", "DDCE - Mejoras", "Ionizante - Instalación", "Ionizante - Mantenimiento", "Ionizante - Mejoras", "Mallas - Instalación", "Mallas - Mantenimiento", "Mallas - Mejora", "Supresores - Instalación", "Trabajo Eléctrico", "Otro" });
-            cbTipoTrabajo.Location = new Point(181, 373);
+            cbTipoTrabajo.Location = new Point(181, 402);
             cbTipoTrabajo.Name = "cbTipoTrabajo";
             cbTipoTrabajo.Size = new Size(225, 23);
             cbTipoTrabajo.TabIndex = 77;
@@ -307,7 +311,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(10, 373);
+            label3.Location = new Point(10, 402);
             label3.Name = "label3";
             label3.Size = new Size(71, 15);
             label3.TabIndex = 76;
@@ -325,7 +329,7 @@
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
             cbEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado sin cobro" });
-            cbEstado.Location = new Point(181, 620);
+            cbEstado.Location = new Point(181, 649);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(225, 23);
             cbEstado.TabIndex = 72;
@@ -340,7 +344,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(7, 620);
+            lblEstado.Location = new Point(7, 649);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(42, 15);
             lblEstado.TabIndex = 70;
@@ -348,7 +352,7 @@
             // 
             // txtUbicacion
             // 
-            txtUbicacion.Location = new Point(181, 481);
+            txtUbicacion.Location = new Point(181, 510);
             txtUbicacion.Multiline = true;
             txtUbicacion.Name = "txtUbicacion";
             txtUbicacion.PlaceholderText = "Canton, Distrito, Direcciones";
@@ -358,7 +362,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(10, 481);
+            label14.Location = new Point(10, 510);
             label14.Name = "label14";
             label14.Size = new Size(60, 15);
             label14.TabIndex = 68;
@@ -367,7 +371,7 @@
             // lblTarea
             // 
             lblTarea.AutoSize = true;
-            lblTarea.Location = new Point(7, 562);
+            lblTarea.Location = new Point(7, 591);
             lblTarea.Name = "lblTarea";
             lblTarea.Size = new Size(64, 15);
             lblTarea.TabIndex = 66;
@@ -412,7 +416,7 @@
             // lblVendedor
             // 
             lblVendedor.AutoSize = true;
-            lblVendedor.Location = new Point(7, 591);
+            lblVendedor.Location = new Point(7, 620);
             lblVendedor.Name = "lblVendedor";
             lblVendedor.Size = new Size(57, 15);
             lblVendedor.TabIndex = 60;
@@ -438,7 +442,7 @@
             // btnBorrar
             // 
             btnBorrar.BackColor = Color.LightCoral;
-            btnBorrar.Location = new Point(25, 667);
+            btnBorrar.Location = new Point(25, 684);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(106, 23);
             btnBorrar.TabIndex = 41;
@@ -473,7 +477,7 @@
             // btnAgregar
             // 
             btnAgregar.BackColor = Color.SkyBlue;
-            btnAgregar.Location = new Point(264, 667);
+            btnAgregar.Location = new Point(264, 684);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(123, 23);
             btnAgregar.TabIndex = 31;
@@ -483,7 +487,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(166, 667);
+            button2.Location = new Point(166, 684);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 30;
@@ -498,6 +502,22 @@
             label4.Size = new Size(73, 15);
             label4.TabIndex = 1;
             label4.Text = "Razon Social";
+            // 
+            // textBoxFactura
+            // 
+            textBoxFactura.Location = new Point(181, 373);
+            textBoxFactura.Name = "textBoxFactura";
+            textBoxFactura.Size = new Size(225, 23);
+            textBoxFactura.TabIndex = 98;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(8, 373);
+            label2.Name = "label2";
+            label2.Size = new Size(46, 15);
+            label2.TabIndex = 97;
+            label2.Text = "Factura";
             // 
             // EditarProyecto
             // 
@@ -569,5 +589,7 @@
         private ComboBox comboBoxVendedores;
         private NumericUpDown numericUpDownTipoCambio;
         private Label kkk;
+        private TextBox textBoxFactura;
+        private Label label2;
     }
 }

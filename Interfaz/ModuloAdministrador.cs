@@ -378,6 +378,7 @@ namespace Interfaz
                     proyectoTemporal.UsuarioId = (from i in Vendedores
                                                   where i.Nombre == cbVendedores.Text
                                                   select i.UsuarioId).FirstOrDefault();
+                    proyectoTemporal.Factura = string.Empty;
                     proyectoTemporal.OfertaId = numericUpDownOferta.Value.ToString();
                     proyectoTemporal.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                     proyectoTemporal.Autor = Temporal.UsuarioActivo.Nombre;

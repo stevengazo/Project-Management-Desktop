@@ -130,8 +130,23 @@ namespace Interfaz
                     ProyectoNegocios proyectoNegocios = new();
                     if (ProyectoActual != null)
                     {
-
-
+                        if (!string.IsNullOrEmpty(textBoxFactura.Text))
+                        {
+                            var response =MessageBox.Show("El campo factura tiene datos, ¿Desea marcar el proyecto como finalizado?", "Información",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                            if(response == DialogResult.Yes)
+                            {
+                                ProyectoActual.Finalizado = true;
+                                ProyectoActual.Estado = "Finalizado con cobro";
+                                ProyectoActual.Facturado = true;
+                            }
+                            else
+                            {
+                                ProyectoActual.Estado = cbEstado.Text;
+                                ProyectoActual.Finalizado =  false;
+                                ProyectoActual.Facturado = false;
+                            }
+                        }
+                        ProyectoActual.Factura = textBoxFactura.Text;
                         ProyectoActual.Cliente = txtRazonSocial.Text;
                         ProyectoActual.Cedula = txtCedula.Text;
                         ProyectoActual.EsPublico = checkBoxPublico.Checked;
@@ -152,9 +167,7 @@ namespace Interfaz
                         ProyectoActual.UsuarioId = (from v in Vendedores
                                                     where v.Nombre == comboBoxVendedores.Text
                                                     select v.UsuarioId).FirstOrDefault();
-                        ProyectoActual.Estado = cbEstado.Text;
-                        ProyectoActual.Finalizado = (cbEstado.Text == "Finalizado sin cobro" ) ? true : false;
-
+                        
                         // Metadata
                         ProyectoActual.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                         ProyectoActual.UltimaEdicion = DateTime.Now;

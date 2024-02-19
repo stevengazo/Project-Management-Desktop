@@ -42,6 +42,7 @@
             btnFacturados = new Button();
             dataGridViewFacturados = new DataGridView();
             saveFileDialogExcel = new SaveFileDialog();
+            saveFileDialog = new SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPendientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFinalizados).BeginInit();
             tabControl1.SuspendLayout();
@@ -129,6 +130,7 @@
             btnFinalizados.TabIndex = 2;
             btnFinalizados.Text = "Exportado";
             btnFinalizados.UseVisualStyleBackColor = true;
+            btnFinalizados.Click += btnFinalizados_Click;
             // 
             // tabPage3
             // 
@@ -233,5 +235,6 @@
         private Button btnSinFacturar;
         private Button btnFacturados;
         private SaveFileDialog saveFileDialogExcel;
+        private SaveFileDialog saveFileDialog;
     }
 }

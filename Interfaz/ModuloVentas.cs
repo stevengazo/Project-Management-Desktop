@@ -256,6 +256,7 @@ namespace Interfaz
                     proyectoNuevo.UsuarioId = (from i in Vendedores
                                                where i.Nombre == cbVendedores.Text
                                                select i.UsuarioId).FirstOrDefault();
+                    proyectoNuevo.Factura = string.Empty;
                     proyectoNuevo.Estado = cbEstado.Text;
                     proyectoNuevo.Finalizado = false;
 
