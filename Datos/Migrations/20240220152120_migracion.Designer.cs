@@ -12,7 +12,7 @@ using Modelos;
 namespace Datos.Migrations
 {
     [DbContext(typeof(DBContextProyectosAsfaltos))]
-    [Migration("20240219204930_migracion")]
+    [Migration("20240220152120_migracion")]
     partial class migracion
     {
         /// <inheritdoc />
@@ -256,6 +256,10 @@ namespace Datos.Migrations
                     b.Property<bool>("Malla")
                         .HasColumnType("bit");
 
+                    b.Property<string>("MedioContacto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Monto")
                         .HasColumnType("real");
 
@@ -277,6 +281,9 @@ namespace Datos.Migrations
                     b.Property<bool>("Supresor")
                         .HasColumnType("bit");
 
+                    b.Property<int>("TareaId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Torre")
                         .HasColumnType("bit");
 
@@ -295,7 +302,7 @@ namespace Datos.Migrations
                     b.HasData(
                         new
                         {
-                            OfertaId = 1,
+                            OfertaId = 11,
                             AutorPrespuesto = "Administrador",
                             Categoria = "Instalación",
                             Cliente = "Ejemplo",
@@ -304,17 +311,19 @@ namespace Datos.Migrations
                             DDCE = true,
                             EncargadoCotizador = "Gabriel",
                             Estado = "Pendiente",
-                            Fecha = new DateTime(2024, 2, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            Fecha = new DateTime(2024, 2, 20, 0, 0, 0, 0, DateTimeKind.Local),
                             Ionizante = true,
                             Malla = true,
+                            MedioContacto = "",
                             Monto = 100f,
                             Notas = "",
                             Observaciones = "",
                             Otros = true,
                             Provincia = "San José",
                             Supresor = true,
+                            TareaId = 2000,
                             Torre = true,
-                            UltimaModificacion = new DateTime(2024, 2, 19, 1, 0, 0, 0, DateTimeKind.Local),
+                            UltimaModificacion = new DateTime(2024, 2, 20, 1, 0, 0, 0, DateTimeKind.Local),
                             UsuarioId = 1
                         });
                 });
@@ -434,8 +443,8 @@ namespace Datos.Migrations
                             Estado = "Finalizado",
                             Factura = "",
                             Facturado = false,
-                            FechaIngreso = new DateTime(2024, 2, 19, 14, 49, 30, 725, DateTimeKind.Local).AddTicks(1543),
-                            FechaOC = new DateTime(2024, 2, 19, 14, 49, 30, 725, DateTimeKind.Local).AddTicks(1528),
+                            FechaIngreso = new DateTime(2024, 2, 20, 9, 21, 20, 247, DateTimeKind.Local).AddTicks(7253),
+                            FechaOC = new DateTime(2024, 2, 20, 9, 21, 20, 247, DateTimeKind.Local).AddTicks(7242),
                             Finalizado = false,
                             Monto = 100f,
                             MontoIVA = 13f,
@@ -448,7 +457,7 @@ namespace Datos.Migrations
                             TipoCambio = 0f,
                             TipoMoneda = "Colon",
                             Ubicacion = "Grupo Mecsa",
-                            UltimaEdicion = new DateTime(2024, 2, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            UltimaEdicion = new DateTime(2024, 2, 20, 0, 0, 0, 0, DateTimeKind.Local),
                             UltimoEditor = "Administrador",
                             UsuarioId = 1
                         });

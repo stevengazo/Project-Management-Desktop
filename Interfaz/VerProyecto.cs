@@ -81,6 +81,7 @@ namespace Interfaz
                     tipocambio.Text = proyectoTemporal.TipoCambio.ToString();
                     txtFechaOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
                     txtTipoMoneda.Text = proyectoTemporal.TipoMoneda;
+                    textBoxFactura.Text = proyectoTemporal.Factura;
                     txtMonto.Text = proyectoTemporal.Monto.ToString();
                     txtMontoIVA.Text = proyectoTemporal.MontoIVA.ToString();
                     txtPorcentajeAnticipo.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
@@ -202,9 +203,13 @@ namespace Interfaz
             if (!string.IsNullOrEmpty(resultado))
             {
                 var pN = new ProyectoNegocios();
-                proyectoTemporal.Finalizado = true;
-                proyectoTemporal.Facturado = true;
-                proyectoTemporal.Estado = "Finalizado con cobro";
+                proyectoTemporal.Factura = $"{proyectoTemporal.Factura}, {resultado}";
+                var response1 = MessageBox.Show("¿Desea marcar el proyecto como facturado?", "Información", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                proyectoTemporal.Facturado = (response1 == DialogResult.Yes) ? true : false;
+                var response2 = MessageBox.Show("¿Desea marcar el proyecto como finalizado?", "Información", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                proyectoTemporal.Finalizado = (response2 == DialogResult.Yes) ? true : false;
+                proyectoTemporal.Estado = (response2 == DialogResult.Yes) ? "Finalizado con cobro" : proyectoTemporal.Estado;
+
                 pN.ActualizarProyecto(proyectoTemporal);
                 MessageBox.Show("Factura añadida, proyecto finalizado", "Informacion", MessageBoxButtons.OK);
             }

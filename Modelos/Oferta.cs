@@ -18,6 +18,8 @@ namespace Modelos
         public bool Malla { get; set; }
         public bool Otros { get; set; }
         public string Categoria { get; set; }
+        public int TareaId { get; set; }
+        public string MedioContacto { get; set; }
         public string Notas { get; set; }
         public string Provincia { get; set; }
         public string Observaciones { get; set; }

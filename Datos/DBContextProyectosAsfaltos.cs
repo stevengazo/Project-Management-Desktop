@@ -37,14 +37,6 @@ namespace Modelos
         protected void GenerateSeedOfData(ModelBuilder model)
         {
 
-            /*	Cliente clienteBase = new Cliente()
-				{
-					ClienteID = 1,
-					ClienteName = "Cliente Base"
-				};
-				model.Entity<Cliente>().HasData(clienteBase);
-			*/
-
             var contrasena = "admin123";
             using (var md6Hash = MD5.Create())
             {
@@ -83,8 +75,6 @@ namespace Modelos
                 Nombre="Asistente"
             };
             model.Entity<Rol>().HasData(Asistente);
-
-
             RolUsuario rolUsuarioBase = new()
             {
                 RolUsuarioId = 1,
@@ -99,7 +89,6 @@ namespace Modelos
             };
             model.Entity<RolUsuario>().HasData(rolUsuarioBase);
             model.Entity<RolUsuario>().HasData(rolUsuarioOferta);
-
 
             Proyecto ProyectoBase = new()
             {
@@ -136,7 +125,7 @@ namespace Modelos
 
             Oferta ofertaBase = new()
             {
-                OfertaId = 1,
+                OfertaId = 11,
                 Fecha = DateTime.Today,
                 Codigo = 1,
                 Monto = 100f,
@@ -147,6 +136,8 @@ namespace Modelos
                 Torre = true,
                 Otros = true,
                 Supresor = true,
+                TareaId= 2000,
+                MedioContacto = "",
                 Categoria = "Instalación",
                 Provincia = "San José",
                 Observaciones = string.Empty,

@@ -9,6 +9,9 @@ namespace Interfaz
     {
 
         private List<Oferta> ListaOfertas { get; set; }
+
+        private Thread HiloCargaDatos = null;
+
         public ListarOferta()
         {
             InitializeComponent();
@@ -62,6 +65,7 @@ namespace Interfaz
                     _tabla.Columns.Add("Oferta Id");
                     _tabla.Columns.Add("Fecha");
                     _tabla.Columns.Add("Monto");
+                    _tabla.Columns.Add("Estado");
                     _tabla.Columns.Add("Cliente");
                     _tabla.Columns.Add("Encargado");
                     _tabla.Columns.Add("Cotizado Por");
@@ -71,8 +75,8 @@ namespace Interfaz
                         _tabla.Rows.Add(
                             $"CM-{item.OfertaId.ToString()}",
                             item.Fecha.ToLongDateString(),
-                            //item.Codigo,
-                            item.Monto.ToString("C", CultureInfo.CurrentCulture),
+                            item.Monto.ToString(),
+                            item.Estado,
                             item.Cliente,
                             item.Encargado.Nombre,
                             item.EncargadoCotizador
@@ -119,9 +123,9 @@ namespace Interfaz
                 _tabla.Columns.Add("Oferta Id");
                 _tabla.Columns.Add("Cliente");
                 _tabla.Columns.Add("Fecha");
-                //_tabla.Columns.Add("Codigo");
                 _tabla.Columns.Add("Monto");
-                _tabla.Columns.Add("Encargado");
+                _tabla.Columns.Add("Estado");
+                _tabla.Columns.Add("Vendedor");
                 _tabla.Columns.Add("Creado por");
                 _tabla.Columns.Add("Cotizado Por");
 
@@ -131,8 +135,8 @@ namespace Interfaz
                         $"CM-{item.OfertaId.ToString()}",
                         item.Cliente,
                         item.Fecha.ToLongDateString(),
-                        //item.Codigo,
-                        item.Monto.ToString("C", CultureInfo.CurrentCulture),
+                        item.Monto.ToString(),
+                        item.Estado,
                         item.Encargado.Nombre,
                         item.AutorPrespuesto,
                         item.EncargadoCotizador
@@ -211,7 +215,6 @@ namespace Interfaz
         {
             try
             {
-                // CAMBIAR CONTRASENA
                 if (e.ColumnIndex == 0)
                 {
                     // Obtener el id
@@ -219,7 +222,7 @@ namespace Interfaz
                     var id = int.Parse(dato[1]);
                     VerOferta verOferta = new VerOferta();
                     verOferta.idOferta = id;
-                    verOferta.ShowDialog();
+                    verOferta.Show();
                 }
                 else if (e.ColumnIndex == 1)
                 {
@@ -228,6 +231,15 @@ namespace Interfaz
                     var id = int.Parse(dato[1]);
                     EditarOferta editarOferta = new() { idOferta = id };
                     editarOferta.ShowDialog();
+                    if (Temporal.TipoLogin.Equals("Administrador"))
+                    {
+                        CargarTablaAdministradores();
+                    }
+                    else
+                    {
+                        CargarTablaVendedores();
+                    }
+
 
                 }
             }

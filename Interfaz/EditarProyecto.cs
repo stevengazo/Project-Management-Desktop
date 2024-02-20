@@ -97,13 +97,20 @@ namespace Interfaz
                     numericUpDownMontoIVA.Value = decimal.Parse(ProyectoActual.MontoIVA.ToString());
                     numericUpDownPorcentaje.Value = ProyectoActual.PorcentajeAnticipo;
                     txtDescripcion.Text = ProyectoActual.Descripcion;
+                    textBoxFactura.Text = ProyectoActual.Factura;
                     txtUbicacion.Text = ProyectoActual.Ubicacion;
                     numericUpDownTarea.Value = decimal.Parse(ProyectoActual.TareaId.ToString());
                     cbTipoTrabajo.Text = ProyectoActual.Tipo;
                     cbProvincia.Text = ProyectoActual.Provincia;
                     var nombre = ProyectoActual.Vendedor.Nombre.ToString();
                     comboBoxVendedores.Text = nombre;
+
+                    if (!cbEstado.Items.Contains(ProyectoActual.Estado))
+                    {
+                        cbEstado.Items.Add(ProyectoActual.Estado);
+                    }
                     cbEstado.Text = ProyectoActual.Estado;
+
 
                 }
                 else
@@ -130,22 +137,6 @@ namespace Interfaz
                     ProyectoNegocios proyectoNegocios = new();
                     if (ProyectoActual != null)
                     {
-                        if (!string.IsNullOrEmpty(textBoxFactura.Text))
-                        {
-                            var response =MessageBox.Show("El campo factura tiene datos, ¿Desea marcar el proyecto como finalizado?", "Información",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                            if(response == DialogResult.Yes)
-                            {
-                                ProyectoActual.Finalizado = true;
-                                ProyectoActual.Estado = "Finalizado con cobro";
-                                ProyectoActual.Facturado = true;
-                            }
-                            else
-                            {
-                                ProyectoActual.Estado = cbEstado.Text;
-                                ProyectoActual.Finalizado =  false;
-                                ProyectoActual.Facturado = false;
-                            }
-                        }
                         ProyectoActual.Factura = textBoxFactura.Text;
                         ProyectoActual.Cliente = txtRazonSocial.Text;
                         ProyectoActual.Cedula = txtCedula.Text;
@@ -167,7 +158,36 @@ namespace Interfaz
                         ProyectoActual.UsuarioId = (from v in Vendedores
                                                     where v.Nombre == comboBoxVendedores.Text
                                                     select v.UsuarioId).FirstOrDefault();
-                        
+
+
+                        ProyectoActual.Estado = cbEstado.Text;
+                        ProyectoActual.Finalizado = (cbEstado.Text == "Finalizado sin cobro") ? true : false;
+
+                        if (!string.IsNullOrEmpty(textBoxFactura.Text))
+                        {
+                            var response = MessageBox.Show("¿El campo factura tiene datos, ¿Desea marcar el proyecto como facturado\n(Al marcar esta opción, se da por finalizado y facturado el proyecto)?", "Información", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (response == DialogResult.Yes)
+                            {
+                                ProyectoActual.Finalizado = true;
+                                ProyectoActual.Estado = "Finalizado con cobro";
+                                ProyectoActual.Facturado = true;
+                            }
+                            else
+                            {
+                                ProyectoActual.Estado = cbEstado.Text;
+                                ProyectoActual.Finalizado = false;
+                                ProyectoActual.Facturado = false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El campo Factura se encuentra vacio, el proyecto seguirá activo, para finalizarlo ingrese la información de facturación", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ProyectoActual.Estado = cbEstado.Text;
+                            ProyectoActual.Finalizado = false;
+                            ProyectoActual.Facturado = false;
+                        }
+
+
                         // Metadata
                         ProyectoActual.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                         ProyectoActual.UltimaEdicion = DateTime.Now;

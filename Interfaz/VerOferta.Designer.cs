@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            txtTareaId = new TextBox();
+            label13 = new Label();
+            label6 = new Label();
+            textBoxEstado = new TextBox();
+            label5 = new Label();
+            textBoxMedioContacto = new TextBox();
             checkBoxOtro = new CheckBox();
             checkBoxMalla = new CheckBox();
             checkBoxTorre = new CheckBox();
@@ -59,6 +65,12 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtTareaId);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(textBoxEstado);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(textBoxMedioContacto);
             groupBox1.Controls.Add(checkBoxOtro);
             groupBox1.Controls.Add(checkBoxMalla);
             groupBox1.Controls.Add(checkBoxTorre);
@@ -86,15 +98,72 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(309, 454);
+            groupBox1.Size = new Size(309, 577);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Información de Ofeta";
+            groupBox1.Text = "Información de Oferta";
+            // 
+            // txtTareaId
+            // 
+            txtTareaId.Location = new Point(103, 380);
+            txtTareaId.Name = "txtTareaId";
+            txtTareaId.PlaceholderText = "Adrian ";
+            txtTareaId.ReadOnly = true;
+            txtTareaId.Size = new Size(184, 23);
+            txtTareaId.TabIndex = 46;
+            txtTareaId.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(13, 380);
+            label13.Name = "label13";
+            label13.Size = new Size(34, 15);
+            label13.TabIndex = 45;
+            label13.Text = "Tarea";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(13, 496);
+            label6.Name = "label6";
+            label6.Size = new Size(42, 15);
+            label6.TabIndex = 44;
+            label6.Text = "Estado";
+            // 
+            // textBoxEstado
+            // 
+            textBoxEstado.Location = new Point(103, 496);
+            textBoxEstado.Name = "textBoxEstado";
+            textBoxEstado.PlaceholderText = "Adrian ";
+            textBoxEstado.ReadOnly = true;
+            textBoxEstado.Size = new Size(184, 23);
+            textBoxEstado.TabIndex = 43;
+            textBoxEstado.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(13, 90);
+            label5.Name = "label5";
+            label5.Size = new Size(93, 15);
+            label5.TabIndex = 42;
+            label5.Text = "Medio Contacto";
+            // 
+            // textBoxMedioContacto
+            // 
+            textBoxMedioContacto.Location = new Point(103, 87);
+            textBoxMedioContacto.Name = "textBoxMedioContacto";
+            textBoxMedioContacto.PlaceholderText = "Pepe";
+            textBoxMedioContacto.ReadOnly = true;
+            textBoxMedioContacto.Size = new Size(184, 23);
+            textBoxMedioContacto.TabIndex = 41;
+            textBoxMedioContacto.TextAlign = HorizontalAlignment.Right;
             // 
             // checkBoxOtro
             // 
             checkBoxOtro.AutoSize = true;
-            checkBoxOtro.Location = new Point(190, 149);
+            checkBoxOtro.Location = new Point(190, 171);
             checkBoxOtro.Name = "checkBoxOtro";
             checkBoxOtro.Size = new Size(50, 19);
             checkBoxOtro.TabIndex = 40;
@@ -104,7 +173,7 @@
             // checkBoxMalla
             // 
             checkBoxMalla.AutoSize = true;
-            checkBoxMalla.Location = new Point(103, 149);
+            checkBoxMalla.Location = new Point(103, 171);
             checkBoxMalla.Name = "checkBoxMalla";
             checkBoxMalla.Size = new Size(55, 19);
             checkBoxMalla.TabIndex = 39;
@@ -114,7 +183,7 @@
             // checkBoxTorre
             // 
             checkBoxTorre.AutoSize = true;
-            checkBoxTorre.Location = new Point(190, 124);
+            checkBoxTorre.Location = new Point(190, 146);
             checkBoxTorre.Name = "checkBoxTorre";
             checkBoxTorre.Size = new Size(52, 19);
             checkBoxTorre.TabIndex = 38;
@@ -124,7 +193,7 @@
             // checkBoxSupresor
             // 
             checkBoxSupresor.AutoSize = true;
-            checkBoxSupresor.Location = new Point(103, 124);
+            checkBoxSupresor.Location = new Point(103, 146);
             checkBoxSupresor.Name = "checkBoxSupresor";
             checkBoxSupresor.Size = new Size(72, 19);
             checkBoxSupresor.TabIndex = 37;
@@ -134,7 +203,7 @@
             // checkBoxIonizante
             // 
             checkBoxIonizante.AutoSize = true;
-            checkBoxIonizante.Location = new Point(190, 99);
+            checkBoxIonizante.Location = new Point(190, 121);
             checkBoxIonizante.Name = "checkBoxIonizante";
             checkBoxIonizante.Size = new Size(74, 19);
             checkBoxIonizante.TabIndex = 36;
@@ -144,7 +213,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(13, 99);
+            label4.Location = new Point(13, 121);
             label4.Name = "label4";
             label4.Size = new Size(59, 15);
             label4.TabIndex = 35;
@@ -153,7 +222,7 @@
             // checkBoxDDCE
             // 
             checkBoxDDCE.AutoSize = true;
-            checkBoxDDCE.Location = new Point(103, 99);
+            checkBoxDDCE.Location = new Point(103, 121);
             checkBoxDDCE.Name = "checkBoxDDCE";
             checkBoxDDCE.Size = new Size(56, 19);
             checkBoxDDCE.TabIndex = 34;
@@ -162,7 +231,7 @@
             // 
             // textBoxCategoria
             // 
-            textBoxCategoria.Location = new Point(103, 178);
+            textBoxCategoria.Location = new Point(103, 200);
             textBoxCategoria.Name = "textBoxCategoria";
             textBoxCategoria.PlaceholderText = "Adrian ";
             textBoxCategoria.ReadOnly = true;
@@ -173,7 +242,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(13, 178);
+            label3.Location = new Point(13, 200);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 31;
@@ -181,7 +250,7 @@
             // 
             // textBoxProvincia
             // 
-            textBoxProvincia.Location = new Point(103, 357);
+            textBoxProvincia.Location = new Point(103, 409);
             textBoxProvincia.Name = "textBoxProvincia";
             textBoxProvincia.PlaceholderText = "Adrian ";
             textBoxProvincia.ReadOnly = true;
@@ -192,7 +261,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(13, 357);
+            label2.Location = new Point(13, 409);
             label2.Name = "label2";
             label2.Size = new Size(56, 15);
             label2.TabIndex = 29;
@@ -200,7 +269,7 @@
             // 
             // textEncargado
             // 
-            textEncargado.Location = new Point(103, 386);
+            textEncargado.Location = new Point(103, 438);
             textEncargado.Name = "textEncargado";
             textEncargado.PlaceholderText = "Adrian ";
             textEncargado.ReadOnly = true;
@@ -221,7 +290,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(13, 415);
+            label12.Location = new Point(13, 467);
             label12.Name = "label12";
             label12.Size = new Size(75, 15);
             label12.TabIndex = 26;
@@ -229,7 +298,7 @@
             // 
             // txtCotizador
             // 
-            txtCotizador.Location = new Point(103, 415);
+            txtCotizador.Location = new Point(103, 467);
             txtCotizador.Name = "txtCotizador";
             txtCotizador.PlaceholderText = "Adrian ";
             txtCotizador.ReadOnly = true;
@@ -259,7 +328,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(13, 386);
+            label10.Location = new Point(13, 438);
             label10.Name = "label10";
             label10.Size = new Size(63, 15);
             label10.TabIndex = 19;
@@ -268,7 +337,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(13, 298);
+            label9.Location = new Point(13, 320);
             label9.Name = "label9";
             label9.Size = new Size(69, 15);
             label9.TabIndex = 17;
@@ -276,7 +345,7 @@
             // 
             // txtObservaciones
             // 
-            txtObservaciones.Location = new Point(103, 298);
+            txtObservaciones.Location = new Point(103, 320);
             txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
             txtObservaciones.ReadOnly = true;
@@ -288,7 +357,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(13, 236);
+            label8.Location = new Point(13, 258);
             label8.Name = "label8";
             label8.Size = new Size(38, 15);
             label8.TabIndex = 15;
@@ -296,7 +365,7 @@
             // 
             // txtNotas
             // 
-            txtNotas.Location = new Point(103, 236);
+            txtNotas.Location = new Point(103, 258);
             txtNotas.Multiline = true;
             txtNotas.Name = "txtNotas";
             txtNotas.PlaceholderText = "Notas de relevancia, sobre la tarea";
@@ -308,7 +377,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(13, 207);
+            label7.Location = new Point(13, 229);
             label7.Name = "label7";
             label7.Size = new Size(43, 15);
             label7.TabIndex = 13;
@@ -316,7 +385,7 @@
             // 
             // txtMonto
             // 
-            txtMonto.Location = new Point(103, 207);
+            txtMonto.Location = new Point(103, 229);
             txtMonto.Name = "txtMonto";
             txtMonto.PlaceholderText = "150000";
             txtMonto.ReadOnly = true;
@@ -337,10 +406,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(342, 477);
+            ClientSize = new Size(342, 601);
             Controls.Add(groupBox1);
             MaximizeBox = false;
-            MinimizeBox = false;
             Name = "VerOferta";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -379,5 +447,11 @@
         private CheckBox checkBoxIonizante;
         private Label label4;
         private CheckBox checkBoxDDCE;
+        private Label label6;
+        private TextBox textBoxEstado;
+        private Label label5;
+        private TextBox textBoxMedioContacto;
+        private TextBox txtTareaId;
+        private Label label13;
     }
 }

@@ -30,7 +30,6 @@
         {
             label1 = new Label();
             dateTimePickerFecha = new DateTimePicker();
-            txtMonto = new TextBox();
             label7 = new Label();
             txtNotas = new TextBox();
             label8 = new Label();
@@ -45,6 +44,13 @@
             txtEncargado = new TextBox();
             label12 = new Label();
             groupBox1 = new GroupBox();
+            comboBoxMedio = new ComboBox();
+            label13 = new Label();
+            comboBoxEstado = new ComboBox();
+            label6 = new Label();
+            numericUpDownTarea = new NumericUpDown();
+            label5 = new Label();
+            numericUpDownMonto = new NumericUpDown();
             comboBoxProvincia = new ComboBox();
             label4 = new Label();
             comboBoxCategoria = new ComboBox();
@@ -57,6 +63,8 @@
             label2 = new Label();
             checkBoxDDCE = new CheckBox();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTarea).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMonto).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -76,18 +84,10 @@
             dateTimePickerFecha.TabIndex = 1;
             dateTimePickerFecha.ValueChanged += dateTimePicker1_ValueChanged;
             // 
-            // txtMonto
-            // 
-            txtMonto.Location = new Point(106, 197);
-            txtMonto.Name = "txtMonto";
-            txtMonto.PlaceholderText = "150000";
-            txtMonto.Size = new Size(184, 23);
-            txtMonto.TabIndex = 12;
-            // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(13, 200);
+            label7.Location = new Point(13, 219);
             label7.Name = "label7";
             label7.Size = new Size(43, 15);
             label7.TabIndex = 13;
@@ -95,7 +95,7 @@
             // 
             // txtNotas
             // 
-            txtNotas.Location = new Point(106, 226);
+            txtNotas.Location = new Point(103, 274);
             txtNotas.Multiline = true;
             txtNotas.Name = "txtNotas";
             txtNotas.PlaceholderText = "Notas e información varia";
@@ -105,7 +105,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(13, 229);
+            label8.Location = new Point(10, 277);
             label8.Name = "label8";
             label8.Size = new Size(38, 15);
             label8.TabIndex = 15;
@@ -113,7 +113,7 @@
             // 
             // txtObservaciones
             // 
-            txtObservaciones.Location = new Point(106, 288);
+            txtObservaciones.Location = new Point(103, 336);
             txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
             txtObservaciones.PlaceholderText = "Descripción y ubicación";
@@ -123,7 +123,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(13, 288);
+            label9.Location = new Point(10, 336);
             label9.Name = "label9";
             label9.Size = new Size(69, 15);
             label9.TabIndex = 17;
@@ -132,7 +132,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(13, 379);
+            label10.Location = new Point(10, 456);
             label10.Name = "label10";
             label10.Size = new Size(57, 15);
             label10.TabIndex = 19;
@@ -142,14 +142,14 @@
             // 
             cbEncargado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEncargado.FormattingEnabled = true;
-            cbEncargado.Location = new Point(106, 376);
+            cbEncargado.Location = new Point(103, 453);
             cbEncargado.Name = "cbEncargado";
             cbEncargado.Size = new Size(184, 23);
             cbEncargado.TabIndex = 20;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(60, 438);
+            btnAgregar.Location = new Point(57, 515);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 21;
@@ -159,7 +159,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(165, 438);
+            btnCancelar.Location = new Point(162, 515);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 22;
@@ -186,7 +186,7 @@
             // 
             // txtEncargado
             // 
-            txtEncargado.Location = new Point(106, 405);
+            txtEncargado.Location = new Point(103, 482);
             txtEncargado.Name = "txtEncargado";
             txtEncargado.PlaceholderText = "Adrián Sólis";
             txtEncargado.Size = new Size(184, 23);
@@ -195,7 +195,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(14, 408);
+            label12.Location = new Point(11, 485);
             label12.Name = "label12";
             label12.Size = new Size(75, 15);
             label12.TabIndex = 26;
@@ -203,6 +203,13 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(comboBoxMedio);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(comboBoxEstado);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(numericUpDownTarea);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(numericUpDownMonto);
             groupBox1.Controls.Add(comboBoxProvincia);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(comboBoxCategoria);
@@ -227,23 +234,88 @@
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(txtNotas);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(txtMonto);
             groupBox1.Controls.Add(dateTimePickerFecha);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(309, 479);
+            groupBox1.Size = new Size(309, 573);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información de Ofeta";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // comboBoxMedio
+            // 
+            comboBoxMedio.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMedio.FormattingEnabled = true;
+            comboBoxMedio.Items.AddRange(new object[] { "Whatsapp", "Llamada", "Correo ", "Vendedor", "Reactivación" });
+            comboBoxMedio.Location = new Point(103, 81);
+            comboBoxMedio.Name = "comboBoxMedio";
+            comboBoxMedio.Size = new Size(184, 23);
+            comboBoxMedio.TabIndex = 44;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(10, 84);
+            label13.Name = "label13";
+            label13.Size = new Size(56, 15);
+            label13.TabIndex = 43;
+            label13.Text = "Contacto";
+            // 
+            // comboBoxEstado
+            // 
+            comboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEstado.FormattingEnabled = true;
+            comboBoxEstado.Items.AddRange(new object[] { "Enviado", "Negociación", "Pendiente", "Vendido", "Cobro" });
+            comboBoxEstado.Location = new Point(103, 424);
+            comboBoxEstado.Name = "comboBoxEstado";
+            comboBoxEstado.Size = new Size(184, 23);
+            comboBoxEstado.TabIndex = 42;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(10, 427);
+            label6.Name = "label6";
+            label6.Size = new Size(42, 15);
+            label6.TabIndex = 41;
+            label6.Text = "Estado";
+            // 
+            // numericUpDownTarea
+            // 
+            numericUpDownTarea.Location = new Point(103, 243);
+            numericUpDownTarea.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
+            numericUpDownTarea.Name = "numericUpDownTarea";
+            numericUpDownTarea.Size = new Size(184, 23);
+            numericUpDownTarea.TabIndex = 40;
+            numericUpDownTarea.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(13, 248);
+            label5.Name = "label5";
+            label5.Size = new Size(34, 15);
+            label5.TabIndex = 39;
+            label5.Text = "Tarea";
+            // 
+            // numericUpDownMonto
+            // 
+            numericUpDownMonto.DecimalPlaces = 3;
+            numericUpDownMonto.Location = new Point(103, 214);
+            numericUpDownMonto.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numericUpDownMonto.Name = "numericUpDownMonto";
+            numericUpDownMonto.Size = new Size(184, 23);
+            numericUpDownMonto.TabIndex = 38;
+            numericUpDownMonto.TextAlign = HorizontalAlignment.Right;
             // 
             // comboBoxProvincia
             // 
             comboBoxProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxProvincia.FormattingEnabled = true;
             comboBoxProvincia.Items.AddRange(new object[] { "San José", "Cartago", "Heredia", "Alajuela", "Puntarenas", "Guanacaste", "Limón", "No definido", "Internacional" });
-            comboBoxProvincia.Location = new Point(106, 347);
+            comboBoxProvincia.Location = new Point(103, 395);
             comboBoxProvincia.Name = "comboBoxProvincia";
             comboBoxProvincia.Size = new Size(184, 23);
             comboBoxProvincia.TabIndex = 37;
@@ -251,7 +323,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(13, 350);
+            label4.Location = new Point(10, 398);
             label4.Name = "label4";
             label4.Size = new Size(56, 15);
             label4.TabIndex = 36;
@@ -262,7 +334,7 @@
             comboBoxCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCategoria.FormattingEnabled = true;
             comboBoxCategoria.Items.AddRange(new object[] { "Instalación", "Mantenimiento", "Mejora", "Otro" });
-            comboBoxCategoria.Location = new Point(103, 166);
+            comboBoxCategoria.Location = new Point(103, 185);
             comboBoxCategoria.Name = "comboBoxCategoria";
             comboBoxCategoria.Size = new Size(184, 23);
             comboBoxCategoria.TabIndex = 35;
@@ -270,7 +342,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(13, 169);
+            label3.Location = new Point(13, 188);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 34;
@@ -279,7 +351,7 @@
             // checkBoxOtro
             // 
             checkBoxOtro.AutoSize = true;
-            checkBoxOtro.Location = new Point(190, 141);
+            checkBoxOtro.Location = new Point(190, 160);
             checkBoxOtro.Name = "checkBoxOtro";
             checkBoxOtro.Size = new Size(50, 19);
             checkBoxOtro.TabIndex = 33;
@@ -289,7 +361,7 @@
             // checkBoxMalla
             // 
             checkBoxMalla.AutoSize = true;
-            checkBoxMalla.Location = new Point(103, 141);
+            checkBoxMalla.Location = new Point(103, 160);
             checkBoxMalla.Name = "checkBoxMalla";
             checkBoxMalla.Size = new Size(55, 19);
             checkBoxMalla.TabIndex = 32;
@@ -299,7 +371,7 @@
             // checkBoxTorre
             // 
             checkBoxTorre.AutoSize = true;
-            checkBoxTorre.Location = new Point(190, 116);
+            checkBoxTorre.Location = new Point(190, 135);
             checkBoxTorre.Name = "checkBoxTorre";
             checkBoxTorre.Size = new Size(52, 19);
             checkBoxTorre.TabIndex = 31;
@@ -309,7 +381,7 @@
             // checkBoxSupresor
             // 
             checkBoxSupresor.AutoSize = true;
-            checkBoxSupresor.Location = new Point(103, 116);
+            checkBoxSupresor.Location = new Point(103, 135);
             checkBoxSupresor.Name = "checkBoxSupresor";
             checkBoxSupresor.Size = new Size(72, 19);
             checkBoxSupresor.TabIndex = 30;
@@ -319,7 +391,7 @@
             // checkBoxIonizante
             // 
             checkBoxIonizante.AutoSize = true;
-            checkBoxIonizante.Location = new Point(190, 91);
+            checkBoxIonizante.Location = new Point(190, 110);
             checkBoxIonizante.Name = "checkBoxIonizante";
             checkBoxIonizante.Size = new Size(74, 19);
             checkBoxIonizante.TabIndex = 29;
@@ -329,7 +401,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(13, 91);
+            label2.Location = new Point(13, 110);
             label2.Name = "label2";
             label2.Size = new Size(59, 15);
             label2.TabIndex = 28;
@@ -339,7 +411,7 @@
             // checkBoxDDCE
             // 
             checkBoxDDCE.AutoSize = true;
-            checkBoxDDCE.Location = new Point(103, 91);
+            checkBoxDDCE.Location = new Point(103, 110);
             checkBoxDDCE.Name = "checkBoxDDCE";
             checkBoxDDCE.Size = new Size(56, 19);
             checkBoxDDCE.TabIndex = 27;
@@ -350,7 +422,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(333, 497);
+            ClientSize = new Size(333, 597);
             Controls.Add(groupBox1);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -361,6 +433,8 @@
             Load += AgregarOferta_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTarea).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMonto).EndInit();
             ResumeLayout(false);
         }
 
@@ -368,7 +442,6 @@
 
         private Label label1;
         private DateTimePicker dateTimePickerFecha;
-        private TextBox txtMonto;
         private Label label7;
         private TextBox txtNotas;
         private Label label8;
@@ -394,5 +467,12 @@
         private CheckBox checkBoxOtro;
         private ComboBox comboBoxProvincia;
         private Label label4;
+        private ComboBox comboBoxMedio;
+        private Label label13;
+        private ComboBox comboBoxEstado;
+        private Label label6;
+        private NumericUpDown numericUpDownTarea;
+        private Label label5;
+        private NumericUpDown numericUpDownMonto;
     }
 }

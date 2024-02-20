@@ -17,6 +17,7 @@ namespace Interfaz
             var oferta = ofertaNegocio.ObtenerOferta(idOferta);
             if (oferta != null)
             {
+                this.Text = $"Oferta {oferta.OfertaId} | {oferta.Cliente}";
                 txtCliente.Text = oferta.Cliente;
                 txtFecha.Text = oferta.Fecha.ToLongDateString();
 
@@ -29,6 +30,9 @@ namespace Interfaz
                 checkBoxOtro.Checked = oferta.Otros;
                 checkBoxSupresor.Checked = oferta.Supresor;
                 checkBoxTorre.Checked = oferta.Torre;
+                textBoxEstado.Text = oferta.Estado;
+                textBoxMedioContacto.Text = oferta.MedioContacto;
+                txtTareaId.Text = oferta.TareaId.ToString();
                 textBoxProvincia.Text = oferta.Provincia;
                 textBoxCategoria.Text = oferta.Categoria;
                 txtObservaciones.Text = oferta.Observaciones;

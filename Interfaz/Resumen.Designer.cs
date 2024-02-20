@@ -74,6 +74,7 @@
             dataGridViewFinalizados.RowTemplate.Height = 25;
             dataGridViewFinalizados.Size = new Size(870, 494);
             dataGridViewFinalizados.TabIndex = 1;
+            dataGridViewFinalizados.CellContentClick += dataGridViewFinalizados_CellContentClick;
             // 
             // tabControl1
             // 
@@ -164,6 +165,7 @@
             dataGridViewSinFacturar.RowTemplate.Height = 25;
             dataGridViewSinFacturar.Size = new Size(870, 479);
             dataGridViewSinFacturar.TabIndex = 1;
+            dataGridViewSinFacturar.CellContentClick += dataGridViewSinFacturar_CellContentClick;
             // 
             // tabPage4
             // 
@@ -196,6 +198,7 @@
             dataGridViewFacturados.RowTemplate.Height = 25;
             dataGridViewFacturados.Size = new Size(870, 480);
             dataGridViewFacturados.TabIndex = 1;
+            dataGridViewFacturados.CellContentClick += dataGridViewFacturados_CellContentClick;
             // 
             // Resumen
             // 

@@ -50,8 +50,8 @@ namespace Interfaz
                 ofertaTemporal.UltimaModificacion = DateTime.Now;
                 ofertaTemporal.Fecha = dateTimePickerFecha.Value;
                 ofertaTemporal.Cliente = txtCliente.Text;
-                float.TryParse(txtMonto.Text, out float tmpNumero);
-                ofertaTemporal.Monto = tmpNumero;
+                ofertaTemporal.Monto = (float)numericUpDownMonto.Value;
+                ofertaTemporal.TareaId = (int)numericUpDownTarea.Value;
                 ofertaTemporal.Notas = txtNotas.Text;
                 ofertaTemporal.DDCE = checkBoxDDCE.Checked;
                 ofertaTemporal.Ionizante = checkBoxIonizante.Checked;
@@ -59,8 +59,10 @@ namespace Interfaz
                 ofertaTemporal.Torre = checkBoxTorre.Checked;
                 ofertaTemporal.Malla = checkBoxMalla.Checked;
                 ofertaTemporal.Otros = checkBoxOtro.Checked;
-                ofertaTemporal.Estado = "Pendiente";
+                ofertaTemporal.Estado = comboBoxEstado.Text;
+                ofertaTemporal.MedioContacto = comboBoxMedio.Text;
                 ofertaTemporal.Provincia = comboBoxProvincia.Text;
+                ofertaTemporal.Concluida = false;
                 ofertaTemporal.Categoria = comboBoxCategoria.Text;
                 ofertaTemporal.Observaciones = txtObservaciones.Text;
                 ofertaTemporal.UsuarioId = (from i in usuarios
@@ -94,8 +96,8 @@ namespace Interfaz
                     MessageBox.Show($"Nombre del Cliente no digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-                int.TryParse(txtMonto.Text, out int val);
-                if (val == 0)
+
+                if (numericUpDownMonto.Value == 0)
                 {
                     var resultado = MessageBox.Show($"Monto No digitado\n¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado != DialogResult.Yes)

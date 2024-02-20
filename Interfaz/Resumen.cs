@@ -65,11 +65,18 @@ namespace Interfaz
 
             if (listaProyectos.Count > 0)
             {
+
+
                 dataGridViewD.Invoke(new Action(() =>
                 {
                     dataGridViewD.Columns.Clear();
                     DataTable _tabla = new();
                     _tabla.Columns.Add("Id Interno");
+                    _tabla.Columns.Add("Estado");
+                    _tabla.Columns.Add("Finalizado");
+                    _tabla.Columns.Add("Facturado");
+                    _tabla.Columns.Add("Factura");
+
                     _tabla.Columns.Add("Tarea");
                     _tabla.Columns.Add("Vendedor");
                     _tabla.Columns.Add("Cliente");
@@ -81,15 +88,16 @@ namespace Interfaz
                     _tabla.Columns.Add("Oferta Id");
                     _tabla.Columns.Add("Monto");
                     _tabla.Columns.Add("Moneda");
-                    _tabla.Columns.Add("Estado");
-                    _tabla.Columns.Add("Finalizado");
-                    _tabla.Columns.Add("Facturado");
-                    _tabla.Columns.Add("Factura");
+
 
                     foreach (Proyecto i in listaProyectos)
                     {
                         _tabla.Rows.Add(
                             i.ProyectoId,
+                            i.Estado,
+                            (i.Finalizado) ? "Finalizado" : "No finalizado",
+                            (i.Facturado) ? "Facturado" : "No Facturado",
+                            i.Factura,
                             i.TareaId.ToString(),
                             i.Vendedor.Nombre,
                             i.Cliente,
@@ -100,13 +108,27 @@ namespace Interfaz
                             i.OrdenCompra,
                             i.OfertaId.ToString(),
                             i.Monto.ToString(),
-                            i.TipoMoneda,
-                            i.Estado,
-                            (i.Finalizado) ? "Finalizado" : "No finalizado",
-                            (i.Facturado) ? "Facturado" : "No Facturado",
-                            i.Factura
+                            i.TipoMoneda
                             ); ;
                     }
+
+
+                    DataGridViewButtonColumn b1 = new();
+                    b1.Text = "Ver";
+                    b1.HeaderText = "Ver";
+                    b1.Name = $"{nameof(b1)}_Ver";
+                    b1.UseColumnTextForButtonValue = true;
+                    dataGridViewD.Columns.Add(b1);
+
+
+                    DataGridViewButtonColumn b2 = new();
+                    b2.Text = "Editar";
+                    b2.HeaderText = "Editar";
+                    b2.Name = $"{nameof(b1)}_Editar";
+                    b2.UseColumnTextForButtonValue = true;
+                    dataGridViewD.Columns.Add(b2);
+
+
                     dataGridViewD.DataSource = _tabla;
                 }));
             }
@@ -122,10 +144,7 @@ namespace Interfaz
         {
 
         }
-        private void dataGridViewPendientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
         private void btnPendientes_Click(object sender, EventArgs e)
         {
             var prPendientes = (from i in _Proyectos where i.Finalizado == true select i).ToList();
@@ -224,7 +243,7 @@ namespace Interfaz
                         {
                             ExportadoExcel(prFacturado);
                         })
-                        ) ;
+                        );
                     Exportado.SetApartmentState(ApartmentState.STA);
                     Exportado.Start();
                 }
@@ -268,7 +287,7 @@ namespace Interfaz
         }
         private void ExportadoExcel(object proyectos)
         {
-            var _proyectos = (List<Proyecto>) proyectos;
+            var _proyectos = (List<Proyecto>)proyectos;
             try
             {
                 saveFileDialog.Title = "Exportar a Excel";
@@ -345,8 +364,128 @@ namespace Interfaz
         }
 
 
+        private void dataGridViewPendientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    VerProyecto verProyecto = new();
+                    var id = int.Parse(dataGridViewPendientes.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    verProyecto.idProyecto = id;
+                    verProyecto.Show();
+                }
+                else if (e.ColumnIndex == 1)
+                {
+                    var id = int.Parse(dataGridViewPendientes.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    EditarProyecto editarProyecto = new();
+                    editarProyecto.ProyectoId = id;
+                    editarProyecto.ShowDialog();
+                    Finalizados();
+                }
+                else
+                {
 
+                }
+            }
+            catch (Exception f)
+            {
+                MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+        }
+        private void dataGridViewFinalizados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    VerProyecto verProyecto = new();
+                    var id = int.Parse(dataGridViewFinalizados.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    verProyecto.idProyecto = id;
+                    verProyecto.Show();
+                }
+                else if (e.ColumnIndex == 1)
+                {
+                    var id = int.Parse(dataGridViewFinalizados.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    EditarProyecto editarProyecto = new();
+                    editarProyecto.ProyectoId = id;
+                    editarProyecto.ShowDialog();
+                    Finalizados();
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception f)
+            {
+                MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void dataGridViewSinFacturar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    VerProyecto verProyecto = new();
+                    var id = int.Parse(dataGridViewSinFacturar.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    verProyecto.idProyecto = id;
+                    verProyecto.Show();
+                }
+                else if (e.ColumnIndex == 1)
+                {
+                    var id = int.Parse(dataGridViewFacturados.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    EditarProyecto editarProyecto = new();
+                    editarProyecto.ProyectoId = id;
+                    editarProyecto.ShowDialog();
+                    Finalizados();
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception f)
+            {
+                MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void dataGridViewFacturados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    VerProyecto verProyecto = new();
+                    var id = int.Parse(dataGridViewFacturados.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    verProyecto.idProyecto = id;
+                    verProyecto.Show();
+                }
+                else if (e.ColumnIndex == 1)
+                {
+                    var id = int.Parse(dataGridViewFacturados.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    EditarProyecto editarProyecto = new();
+                    editarProyecto.ProyectoId = id;
+                    editarProyecto.ShowDialog();
+                    Finalizados();
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception f)
+            {
+                MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
     }
 
 }

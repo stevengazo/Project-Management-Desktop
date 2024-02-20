@@ -77,6 +77,8 @@
             dataGridViewInformes = new DataGridView();
             groupBox5 = new GroupBox();
             groupBox2 = new GroupBox();
+            label21 = new Label();
+            textBoxFactura = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewComentarios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInformes).BeginInit();
@@ -106,6 +108,8 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox1.Controls.Add(label21);
+            groupBox1.Controls.Add(textBoxFactura);
             groupBox1.Controls.Add(btnFacturar);
             groupBox1.Controls.Add(btnFinalizar);
             groupBox1.Controls.Add(label20);
@@ -146,13 +150,13 @@
             groupBox1.Controls.Add(txtNumeroProyecto);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(438, 675);
+            groupBox1.Size = new Size(438, 733);
             groupBox1.TabIndex = 81;
             groupBox1.TabStop = false;
             // 
             // btnFacturar
             // 
-            btnFacturar.Location = new Point(244, 646);
+            btnFacturar.Location = new Point(244, 695);
             btnFacturar.Name = "btnFacturar";
             btnFacturar.Size = new Size(111, 23);
             btnFacturar.TabIndex = 106;
@@ -162,7 +166,7 @@
             // 
             // btnFinalizar
             // 
-            btnFinalizar.Location = new Point(104, 646);
+            btnFinalizar.Location = new Point(104, 695);
             btnFinalizar.Name = "btnFinalizar";
             btnFinalizar.Size = new Size(111, 23);
             btnFinalizar.TabIndex = 105;
@@ -193,7 +197,7 @@
             // 
             label19.AutoSize = true;
             label19.ForeColor = SystemColors.ButtonHighlight;
-            label19.Location = new Point(6, 473);
+            label19.Location = new Point(6, 522);
             label19.Name = "label19";
             label19.Size = new Size(60, 15);
             label19.TabIndex = 101;
@@ -201,7 +205,7 @@
             // 
             // txtUbicacion
             // 
-            txtUbicacion.Location = new Point(180, 470);
+            txtUbicacion.Location = new Point(180, 519);
             txtUbicacion.Multiline = true;
             txtUbicacion.Name = "txtUbicacion";
             txtUbicacion.ReadOnly = true;
@@ -213,7 +217,7 @@
             // 
             label18.AutoSize = true;
             label18.ForeColor = SystemColors.ButtonHighlight;
-            label18.Location = new Point(6, 608);
+            label18.Location = new Point(6, 657);
             label18.Name = "label18";
             label18.Size = new Size(42, 15);
             label18.TabIndex = 99;
@@ -221,7 +225,7 @@
             // 
             // txtEstado
             // 
-            txtEstado.Location = new Point(180, 605);
+            txtEstado.Location = new Point(180, 654);
             txtEstado.Name = "txtEstado";
             txtEstado.ReadOnly = true;
             txtEstado.Size = new Size(225, 23);
@@ -232,7 +236,7 @@
             // 
             label17.AutoSize = true;
             label17.ForeColor = SystemColors.ButtonHighlight;
-            label17.Location = new Point(6, 579);
+            label17.Location = new Point(6, 628);
             label17.Name = "label17";
             label17.Size = new Size(57, 15);
             label17.TabIndex = 97;
@@ -240,7 +244,7 @@
             // 
             // txtVendedor
             // 
-            txtVendedor.Location = new Point(180, 576);
+            txtVendedor.Location = new Point(180, 625);
             txtVendedor.Name = "txtVendedor";
             txtVendedor.ReadOnly = true;
             txtVendedor.Size = new Size(225, 23);
@@ -251,7 +255,7 @@
             // 
             label16.AutoSize = true;
             label16.ForeColor = SystemColors.ButtonHighlight;
-            label16.Location = new Point(6, 550);
+            label16.Location = new Point(6, 599);
             label16.Name = "label16";
             label16.Size = new Size(64, 15);
             label16.TabIndex = 95;
@@ -259,7 +263,7 @@
             // 
             // txtTarea
             // 
-            txtTarea.Location = new Point(180, 547);
+            txtTarea.Location = new Point(180, 596);
             txtTarea.Name = "txtTarea";
             txtTarea.ReadOnly = true;
             txtTarea.Size = new Size(225, 23);
@@ -270,7 +274,7 @@
             // 
             label15.AutoSize = true;
             label15.ForeColor = SystemColors.ButtonHighlight;
-            label15.Location = new Point(6, 444);
+            label15.Location = new Point(6, 493);
             label15.Name = "label15";
             label15.Size = new Size(56, 15);
             label15.TabIndex = 93;
@@ -278,7 +282,7 @@
             // 
             // txtProvincia
             // 
-            txtProvincia.Location = new Point(180, 441);
+            txtProvincia.Location = new Point(180, 490);
             txtProvincia.Name = "txtProvincia";
             txtProvincia.ReadOnly = true;
             txtProvincia.Size = new Size(225, 23);
@@ -289,7 +293,7 @@
             // 
             label14.AutoSize = true;
             label14.ForeColor = SystemColors.ButtonHighlight;
-            label14.Location = new Point(6, 371);
+            label14.Location = new Point(6, 420);
             label14.Name = "label14";
             label14.Size = new Size(69, 15);
             label14.TabIndex = 91;
@@ -297,7 +301,7 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(180, 368);
+            txtDescripcion.Location = new Point(180, 417);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.ReadOnly = true;
@@ -309,7 +313,7 @@
             // 
             label13.AutoSize = true;
             label13.ForeColor = SystemColors.ButtonHighlight;
-            label13.Location = new Point(6, 342);
+            label13.Location = new Point(6, 391);
             label13.Name = "label13";
             label13.Size = new Size(71, 15);
             label13.TabIndex = 89;
@@ -317,7 +321,7 @@
             // 
             // txtTipoTrabajo
             // 
-            txtTipoTrabajo.Location = new Point(180, 339);
+            txtTipoTrabajo.Location = new Point(180, 388);
             txtTipoTrabajo.Name = "txtTipoTrabajo";
             txtTipoTrabajo.ReadOnly = true;
             txtTipoTrabajo.Size = new Size(225, 23);
@@ -559,7 +563,7 @@
             dataGridViewComentarios.Name = "dataGridViewComentarios";
             dataGridViewComentarios.ReadOnly = true;
             dataGridViewComentarios.RowTemplate.Height = 25;
-            dataGridViewComentarios.Size = new Size(378, 287);
+            dataGridViewComentarios.Size = new Size(378, 345);
             dataGridViewComentarios.TabIndex = 0;
             dataGridViewComentarios.CellContentClick += dataGridViewComentarios_CellContentClick;
             // 
@@ -570,7 +574,7 @@
             dataGridViewInformes.Location = new Point(6, 22);
             dataGridViewInformes.Name = "dataGridViewInformes";
             dataGridViewInformes.RowTemplate.Height = 25;
-            dataGridViewInformes.Size = new Size(678, 323);
+            dataGridViewInformes.Size = new Size(678, 381);
             dataGridViewInformes.TabIndex = 0;
             // 
             // groupBox5
@@ -585,7 +589,7 @@
             groupBox5.Controls.Add(txtTituloNota);
             groupBox5.Location = new Point(456, 12);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(696, 309);
+            groupBox5.Size = new Size(696, 367);
             groupBox5.TabIndex = 88;
             groupBox5.TabStop = false;
             groupBox5.Text = "Notas";
@@ -596,17 +600,37 @@
             groupBox2.Controls.Add(dataGridViewInformes);
             groupBox2.Location = new Point(456, 327);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(696, 360);
+            groupBox2.Size = new Size(696, 418);
             groupBox2.TabIndex = 89;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informes";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.ForeColor = SystemColors.ButtonHighlight;
+            label21.Location = new Point(6, 340);
+            label21.Name = "label21";
+            label21.Size = new Size(51, 15);
+            label21.TabIndex = 107;
+            label21.Text = "Facturas";
+            // 
+            // textBoxFactura
+            // 
+            textBoxFactura.Location = new Point(180, 337);
+            textBoxFactura.Multiline = true;
+            textBoxFactura.Name = "textBoxFactura";
+            textBoxFactura.ReadOnly = true;
+            textBoxFactura.Size = new Size(225, 45);
+            textBoxFactura.TabIndex = 108;
+            textBoxFactura.TextAlign = HorizontalAlignment.Right;
             // 
             // VerProyecto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.ForestGreen;
-            ClientSize = new Size(1164, 705);
+            ClientSize = new Size(1164, 763);
             Controls.Add(groupBox2);
             Controls.Add(groupBox5);
             Controls.Add(groupBox1);
@@ -676,5 +700,7 @@
         private TextBox tipocambio;
         private Button btnFacturar;
         private Button btnFinalizar;
+        private Label label21;
+        private TextBox textBoxFactura;
     }
 }

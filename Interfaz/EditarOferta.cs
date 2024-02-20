@@ -36,8 +36,8 @@ namespace Interfaz
                     MessageBox.Show($"Nombre del Cliente no digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-                int.TryParse(txtMonto.Text, out int val);
-                if (val == 0)
+                
+                if ( numericUpDownMonto.Value == 0)
                 {
                     var resultado = MessageBox.Show($"Monto No digitado\n¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.Yes)
@@ -110,13 +110,16 @@ namespace Interfaz
                         {
                             dateTimePickerFecha.Value = Ofertatmp.Fecha;
                             txtCliente.Text = Ofertatmp.Cliente;
-                            txtMonto.Text = Ofertatmp.Monto.ToString();
+                            numericUpDownMonto.Value = (decimal) Ofertatmp.Monto;
+                            comboBoxMedio.Text = Ofertatmp.MedioContacto;
+                            comboBoxEstado.Text = Ofertatmp.Estado;
                             txtNotas.Text = Ofertatmp.Notas;
                             checkBoxDDCE.Checked = Ofertatmp.DDCE;
                             checkBoxIonizante.Checked = Ofertatmp.Ionizante;
                             checkBoxSupresor.Checked = Ofertatmp.Supresor;
                             checkBoxTorre.Checked = Ofertatmp.Torre;
                             checkBoxMalla.Checked = Ofertatmp.Malla;
+                            numericUpDownTarea.Value = (decimal)Ofertatmp.TareaId;
                             checkBoxOtro.Checked = Ofertatmp.Otros;
                             comboBoxCategoria.Text = Ofertatmp.Categoria;
                             comboBoxProvincia.Text = Ofertatmp.Provincia;
@@ -155,21 +158,24 @@ namespace Interfaz
                     Ofertatmp.UltimaModificacion = DateTime.Now;
                     Ofertatmp.Fecha = dateTimePickerFecha.Value;
                     Ofertatmp.Cliente = txtCliente.Text;
-                    float.TryParse(txtMonto.Text, out float tmpNumero);
-                    Ofertatmp.Monto = tmpNumero;
+                    Ofertatmp.Monto = (float) numericUpDownMonto.Value;
                     Ofertatmp.Notas = txtNotas.Text;
                     Ofertatmp.Observaciones = txtObservaciones.Text;
                     Ofertatmp.UsuarioId = (from i in usuarios
                                            where i.Nombre == cbEncargado.Text
                                            select i.UsuarioId).FirstOrDefault();
+                    Ofertatmp.Encargado = null;
                     Ofertatmp.EncargadoCotizador = txtEncargado.Text;
                     Ofertatmp.DDCE = checkBoxDDCE.Checked;
                     Ofertatmp.Ionizante = checkBoxIonizante.Checked;
                     Ofertatmp.Supresor = checkBoxSupresor.Checked;
-                    Ofertatmp.Torre= checkBoxTorre.Checked;
+                    Ofertatmp.Torre = checkBoxTorre.Checked;
                     Ofertatmp.Malla = checkBoxMalla.Checked;
                     Ofertatmp.Otros = checkBoxOtro.Checked;
-
+                    Ofertatmp.MedioContacto = comboBoxMedio.Text;
+                    Ofertatmp.Estado = comboBoxEstado.Text; 
+                    Ofertatmp.TareaId = (int) numericUpDownTarea.Value;
+                    Ofertatmp.Concluida = (comboBoxEstado.Text == "Cobro") ? true : false;
                     Ofertatmp.Categoria = comboBoxCategoria.Text;
                     Ofertatmp.Provincia = comboBoxProvincia.Text;
 
@@ -190,6 +196,11 @@ namespace Interfaz
             {
                 MessageBox.Show($"Error interno, no fue posible guardar la informacion. {ex.Message}", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
