@@ -26,13 +26,11 @@ namespace Interfaz
         {
             InitializeComponent();
         }
-
         private void Resumen_Load(object sender, EventArgs e)
         {
             CargaDatos();
             Finalizados();
         }
-
         private void Finalizados()
         {
             HFinalizados = new Thread(new ParameterizedThreadStart(Cargar));
@@ -51,9 +49,7 @@ namespace Interfaz
             HPendientes.Start(new object[] { prPendientes, dataGridViewPendientes });
             HSinFactura.Start(new object[] { prSinFactura, dataGridViewSinFacturar });
             HFacturados.Start(new object[] { prFacturado, dataGridViewFacturados });
-
         }
-
         private void Cargar(object parametros)
         {
             // Convertimos los parámetros en un array de objetos
@@ -134,7 +130,6 @@ namespace Interfaz
             }
 
         }
-
         private void CargaDatos()
         {
             ProyectoNegocios pN = new ProyectoNegocios();
@@ -144,7 +139,6 @@ namespace Interfaz
         {
 
         }
-
         private void btnPendientes_Click(object sender, EventArgs e)
         {
             var prPendientes = (from i in _Proyectos where i.Finalizado == true select i).ToList();
@@ -362,8 +356,6 @@ namespace Interfaz
                 MessageBox.Show("Ocurrió un problema. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
         private void dataGridViewPendientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -424,7 +416,6 @@ namespace Interfaz
 
             }
         }
-
         private void dataGridViewSinFacturar_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -455,7 +446,6 @@ namespace Interfaz
 
             }
         }
-
         private void dataGridViewFacturados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

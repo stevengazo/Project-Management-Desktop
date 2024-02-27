@@ -49,7 +49,8 @@ namespace Interfaz
         private void CrearInforme_Load(object sender, EventArgs e)
         {
             ProyectoNegocios pN = new ProyectoNegocios();
-            var da = pN.ArregloIds();
+            var da = pN.ArregloIds().Take(150);
+            
             foreach (var item in da)
             {
                 comboBoxProyectoId.Items.Add(item);

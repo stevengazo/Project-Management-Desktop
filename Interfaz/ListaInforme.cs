@@ -22,11 +22,10 @@ namespace Interfaz
             InitializeComponent();
 
         }
-
         private void ListaInforme_Load(object sender, EventArgs e)
         {
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-            var autores = usuarioNegocio.ListarUsuarios();
+            var autores =  usuarioNegocio.ListarAsistentes();
 
             foreach (var item in autores)
             {
@@ -34,7 +33,6 @@ namespace Interfaz
             }
             CargarTabla();
         }
-
         private void CargarTabla()
         {
             if (CargarInformes == null || CargarInformes.ThreadState == ThreadState.Stopped)
@@ -48,9 +46,10 @@ namespace Interfaz
                         {
                             DataTable dt = new DataTable();
                             dt.Columns.Add("Id");
-                            dt.Columns.Add("Cliente");
+                            dt.Columns.Add("Proyecto");
                             dt.Columns.Add("ID Proyecto");
-                            dt.Columns.Add("Tipo Informe");
+                            dt.Columns.Add("Tarea");
+                            dt.Columns.Add("Tipo Proyecto");
                             dt.Columns.Add("Estado");
                             dt.Columns.Add("Fecha Finalizacion");
                             dt.Columns.Add("Técnico");
@@ -63,6 +62,7 @@ namespace Interfaz
                                       item.InformeId,
                                       item.Proyecto.Cliente,
                                       item.ProyectoId,
+                                      item.Proyecto.TareaId,
                                       item.Proyecto.Tipo,
                                       item.Estado,
                                       (item.Concluido) ? item.FechaRegistro.ToLongDateString() : "Sin Finalizar",
@@ -79,20 +79,17 @@ namespace Interfaz
                 CargarInformes.Start();
             }
         }
-
         private void informesPendientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InformesPendientes informesPendientes = new();
             informesPendientes.Show();
         }
-
         private void crearInformeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CrearInforme crearInforme = new();
             crearInforme.Show();
             CargarTabla();
         }
-
         private void dataGridViewInformes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -117,14 +114,14 @@ namespace Interfaz
 
             }
         }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             try
             {
+                var finalizado = "finalizado";
                 informe.Estado = comboBoxEstado.Text;
                 // set the conclude report
-                informe.Concluido = (comboBoxEstado.Text.ToLower().Equals("finalizado")) ? true : false;
+                informe.Concluido = (comboBoxEstado.Text.ToLower().Equals(finalizado.ToLower())) ? true : false;
                 UsuarioNegocio usuarioNegocio = new();
                 // get user id
                 var id = usuarioNegocio.GetIdByName(comboBoxAutor.Text);

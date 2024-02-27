@@ -31,6 +31,50 @@ namespace Negocios
             }
         }
 
+        public async Task<List<Usuario>?> ListarAsistentesAsync()
+        {
+            try
+            {
+                List<Usuario> Asistentes = new();
+                using (var db = new DBContextProyectosAsfaltos())
+                {
+                    Asistentes = await (from usuario in db.Usuarios
+                                        join rolesUsuario in db.RolUsuarios on usuario.UsuarioId equals rolesUsuario.UsuarioId
+                                        where rolesUsuario.RolId == 3 && usuario.Activo == true
+                                        select usuario
+                                  ).Distinct().ToListAsync();
+                }
+                return Asistentes;
+            }
+            catch (Exception f)
+            {
+                Console.WriteLine(f.Message);
+                return null;
+            }
+        }
+        public List<Usuario> ListarAsistentes()
+        {
+            try
+            {
+                List<Usuario> Asistentes = new();
+                using (var db = new DBContextProyectosAsfaltos())
+                {
+                    Asistentes = (from usuario in db.Usuarios
+                                       join rolesUsuario in db.RolUsuarios on usuario.UsuarioId equals rolesUsuario.UsuarioId
+                                       where rolesUsuario.RolId == 3 && usuario.Activo == true
+                                       select usuario
+                                  ).Distinct().ToList();
+                }
+                return Asistentes;
+            }
+            catch (Exception f)
+            {
+                Console.WriteLine(f.Message);
+                return null;
+            }
+        }
+
+
         public int GetIdByName(string nombre)
         {
             if (!string.IsNullOrEmpty(nombre))

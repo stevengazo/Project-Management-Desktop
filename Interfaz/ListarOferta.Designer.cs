@@ -33,12 +33,14 @@
             salirToolStripMenuItem = new ToolStripMenuItem();
             agregarOfertaToolStripMenuItem = new ToolStripMenuItem();
             groupBox1 = new GroupBox();
+            buttonExportar = new Button();
             BtnLimpar = new Button();
             btnBuscar = new Button();
             txtCliente = new TextBox();
             label3 = new Label();
             txtNumeroOferta = new TextBox();
             label1 = new Label();
+            saveFileDialog1 = new SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)dgvOfertas).BeginInit();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -84,6 +86,7 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(buttonExportar);
             groupBox1.Controls.Add(BtnLimpar);
             groupBox1.Controls.Add(btnBuscar);
             groupBox1.Controls.Add(txtCliente);
@@ -96,6 +99,16 @@
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Buscar";
+            // 
+            // buttonExportar
+            // 
+            buttonExportar.Location = new Point(877, 23);
+            buttonExportar.Name = "buttonExportar";
+            buttonExportar.Size = new Size(105, 23);
+            buttonExportar.TabIndex = 8;
+            buttonExportar.Text = "Exportar";
+            buttonExportar.UseVisualStyleBackColor = true;
+            buttonExportar.Click += buttonExportar_Click;
             // 
             // BtnLimpar
             // 
@@ -160,7 +173,6 @@
             Controls.Add(dgvOfertas);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            MinimizeBox = false;
             Name = "ListarOferta";
             ShowIcon = false;
             ShowInTaskbar = false;
@@ -189,5 +201,7 @@
         private Label label3;
         private TextBox txtNumeroOferta;
         private Label label1;
+        private Button buttonExportar;
+        private SaveFileDialog saveFileDialog1;
     }
 }

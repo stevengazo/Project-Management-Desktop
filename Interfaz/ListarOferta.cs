@@ -10,6 +10,7 @@ namespace Interfaz
 
         private List<Oferta> ListaOfertas { get; set; }
 
+        private Thread Exportado;
         private Thread HiloCargaDatos = null;
 
         public ListarOferta()
@@ -69,6 +70,7 @@ namespace Interfaz
                     _tabla.Columns.Add("Cliente");
                     _tabla.Columns.Add("Encargado");
                     _tabla.Columns.Add("Cotizado Por");
+                    _tabla.Columns.Add("Descripción");
 
                     foreach (Oferta item in ListaOfertas)
                     {
@@ -79,7 +81,8 @@ namespace Interfaz
                             item.Estado,
                             item.Cliente,
                             item.Encargado.Nombre,
-                            item.EncargadoCotizador
+                            item.EncargadoCotizador,
+                            item.Observaciones
                             );
                     }
                     dgvOfertas.DataSource = _tabla;
@@ -191,7 +194,7 @@ namespace Interfaz
             {
                 int.TryParse(txtNumeroOferta.Text, out int numeroOferta);
                 var cliente = (string.IsNullOrEmpty(txtCliente.Text)) ? string.Empty : txtCliente.Text;
-                List<Oferta> busqueda = new List<Oferta>(); 
+                List<Oferta> busqueda = new List<Oferta>();
                 OfertaNegocio tmp = new OfertaNegocio();
                 if (Temporal.TipoLogin.Equals("Administrador"))
                 {
@@ -248,6 +251,98 @@ namespace Interfaz
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+        private void ExportadoExcel()
+        {
+            try
+            {
+
+
+                saveFileDialog1.Title = "Exportar a Excel";
+                saveFileDialog1.Filter = "Excel|*.xlsx";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string URLArchivo = saveFileDialog1.FileName;
+                    var ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    ExcelApp.Workbooks.Add();
+                    Microsoft.Office.Interop.Excel._Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelApp.ActiveSheet;
+                    worksheet.Cells[1, "A"] = "ID";
+                    worksheet.Cells[1, "B"] = "Fecha";
+                    worksheet.Cells[1, "C"] = "DDCE";
+                    worksheet.Cells[1, "D"] = "Ionizante";
+                    worksheet.Cells[1, "E"] = "Supresor";
+                    worksheet.Cells[1, "F"] = "Torre";
+                    worksheet.Cells[1, "G"] = "Malla";
+                    worksheet.Cells[1, "H"] = "Otros";
+                    worksheet.Cells[1, "I"] = "Categoria";
+                    worksheet.Cells[1, "J"] = "Tarea Id";
+                    worksheet.Cells[1, "K"] = "Medio Contacto";
+                    worksheet.Cells[1, "L"] = "Notas";
+                    worksheet.Cells[1, "M"] = "Provincia";
+                    worksheet.Cells[1, "N"] = "Observaciones";
+                    worksheet.Cells[1, "O"] = "Encargado Cotizador";
+                    worksheet.Cells[1, "P"] = "Autor Presupuesto";
+                    worksheet.Cells[1, "Q"] = "Cliente";
+                    worksheet.Cells[1, "R"] = "Estado";
+                    worksheet.Cells[1, "S"] = "Vendedor";
+
+                    int contador = 2;
+                    foreach (var item in ListaOfertas)
+                    {
+                        worksheet.Cells[contador, 1] = item.OfertaId.ToString(); // id
+                        worksheet.Cells[contador, 2] = item.Fecha.ToLongDateString(); // cLIENTE
+                        worksheet.Cells[contador, 3] = (item.DDCE) ? "Requiere" : ""; // ddce
+                        worksheet.Cells[contador, 4] = (item.Ionizante) ? "Requiere" : ""; // Ionizante
+                        worksheet.Cells[contador, 5] = (item.Supresor) ? "Requiere" : ""; // Supresor
+                        worksheet.Cells[contador, 6] = (item.Torre) ? "Requiere" : ""; // Torre
+                        worksheet.Cells[contador, 7] = (item.Malla) ? "Requiere" : ""; // Malla
+                        worksheet.Cells[contador, 8] = (item.Otros) ? "Requiere" : ""; // otros
+                        worksheet.Cells[contador, 9] = item.Categoria; // Categoria
+                        worksheet.Cells[contador, 10] = item.TareaId.ToString();
+                        worksheet.Cells[contador, 11] = item.MedioContacto.ToString();// Medio Contacto
+                        worksheet.Cells[contador, 12] = item.Notas.ToLower(); // Notas
+                        worksheet.Cells[contador, 13] = item.Provincia.ToString(); // Provincia
+                        worksheet.Cells[contador, 14] = item.Observaciones; // Observaciones
+                        worksheet.Cells[contador, 15] = item.EncargadoCotizador.ToString();
+                        worksheet.Cells[contador, 16] = item.AutorPrespuesto.ToString(); // Autor Presupuesto
+                        worksheet.Cells[contador, 17] = item.Cliente; // Cliente
+                        worksheet.Cells[contador, 18] = item.Estado;
+                        worksheet.Cells[contador, 19] = item.Encargado.Nombre;
+                        contador++;
+                    }
+                    ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault);
+                    ExcelApp.ActiveWorkbook.Close();
+                    ExcelApp.Quit();
+                    MessageBox.Show("Documento Generado", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un problema. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonExportar_Click(object sender, EventArgs e)
+        {
+            if (Exportado == null)
+            {
+                Exportado = new Thread(ExportadoExcel);
+                Exportado.SetApartmentState(ApartmentState.STA);
+                Exportado.Start();
+            }
+            else
+            {
+                if (Exportado.ThreadState == ThreadState.Running)
+                {
+                    MessageBox.Show("Exportando datos...", "Informacion");
+                }
+                else
+                {
+                    Exportado = new Thread(ExportadoExcel);
+                    Exportado.SetApartmentState(ApartmentState.STA);
+                    Exportado.Start();
+                }
+            }
         }
     }
 }

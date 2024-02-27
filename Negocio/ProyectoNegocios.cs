@@ -14,10 +14,6 @@ namespace Negocios
                      select p.ProyectoId).ToArray();
                      return d;
         }
-
-
-
-
         public int ObtenerUltimoNumero()
         {
             try
@@ -33,7 +29,6 @@ namespace Negocios
                 return -1;
             }
         }
-
         public async Task<List<Proyecto>> ListaFinalizados()
         {
             try
@@ -70,7 +65,6 @@ namespace Negocios
                 return null;
             }
         }
-
         public async Task<bool> DesactivarProyectoAsync(int ProyectoId)
         {
             try
@@ -97,7 +91,6 @@ namespace Negocios
                 return false;
             }
         }
-
         public bool DesactivarProyecto(int ProyectoId)
         {
             try
@@ -124,7 +117,6 @@ namespace Negocios
                 return false;
             }
         }
-
         public bool ActualizarProyecto(Proyecto proyecto)
         {
             try
@@ -142,7 +134,6 @@ namespace Negocios
                 return false;
             }
         }
-
         public bool CrearProyecto(Proyecto proyecto, out int idProyecto)
         {
             try
@@ -175,7 +166,6 @@ namespace Negocios
                 return false;
             }
         }
-
         public async Task<List<Proyecto>?> ListaProyectos(int idEncargado)
         {
             try
@@ -196,7 +186,6 @@ namespace Negocios
                 return null;
             }
         }
-
         public async Task<List<Proyecto>?> ListarProyectoAsync()
         {
             try
@@ -217,7 +206,10 @@ namespace Negocios
                 return null;
             }
         }
-
+        /// <summary>
+        /// Solamente Devuelve los ultimos 2 años 
+        /// </summary>
+        /// <returns></returns>
         public List<Proyecto>? ListaProyectosAno ()
         {
             try
@@ -238,9 +230,6 @@ namespace Negocios
                 return null;
             }
         }
-
-
-
         public List<Proyecto>? ListaProyectos()
         {
             try
@@ -279,6 +268,52 @@ namespace Negocios
             {
                 Console.WriteLine(f.Message);
                 return null;
+            }
+        }
+        public List<Proyecto> BuscarProyecto( string Nombre=null, int Numero = 0)
+        {
+            try
+            {
+                Nombre = (string.IsNullOrEmpty(Nombre)) ? null : Nombre; 
+                List<Proyecto> resultados = new();
+
+                if( Nombre!=null && Numero != 0)
+                {
+                    resultados = (from i in dBContext.Proyectos
+                                  where i.ProyectoId == Numero && i.Cliente.Contains(Nombre)
+                                  orderby i.ProyectoId descending
+                                  select i)
+                               .Include(i => i.Vendedor)
+                               .ToList();
+                }
+                else if (Nombre == null && Numero != 0)
+                {
+                    resultados = (from i in dBContext.Proyectos
+                                  where i.ProyectoId == Numero 
+                                  orderby i.ProyectoId descending
+                                  select i)
+                               .Include(i => i.Vendedor)
+                               .ToList();
+
+                }
+                else if (Nombre != null && Numero == 0)
+                {
+                    resultados = (from i in dBContext.Proyectos
+                                  where i.Cliente.Contains(Nombre)
+                                  orderby i.ProyectoId descending
+                                  select i)
+                               .Include(i => i.Vendedor)
+                               .ToList();
+                }
+
+                return resultados;
+
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
             }
         }
     }

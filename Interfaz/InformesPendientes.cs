@@ -28,7 +28,7 @@ namespace Interfaz
         private void cargar()
         {
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-            var us = usuarioNegocio.ListarUsuarios();
+            var us = usuarioNegocio.ListarAsistentes();
             foreach (var item in us)
             {
                 comboBoxAutor.Items.Add(item.Nombre);

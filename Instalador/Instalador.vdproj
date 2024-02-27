@@ -15,7 +15,19 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_6B70248D591641B084351F965FB3FACE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7A5B65C22D454B178430CED4590C9220"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B305D4252562442189C32E8CF755E21A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -138,6 +150,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B70248D591641B084351F965FB3FACE"
+            {
+            "SourcePath" = "8:..\\Licencia.rtf"
+            "TargetName" = "8:Licencia.rtf"
+            "Tag" = "8:"
+            "Folder" = "8:_333325947964420B9A79EB9DD57763B0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B305D4252562442189C32E8CF755E21A"
+            {
+            "SourcePath" = "8:..\\Licencia.rtf"
+            "TargetName" = "8:Licencia.rtf"
+            "Tag" = "8:"
+            "Folder" = "8:_09DB19F13B3141C2B570CBE51FA2928D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CBA002302FFA495DA13B57E2043F6C52"
             {
             "SourcePath" = "8:..\\Logo.ico"
@@ -708,7 +760,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_B305D4252562442189C32E8CF755E21A"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "EulaText"
@@ -869,7 +922,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7A5B65C22D454B178430CED4590C9220"
             {
-            "SourcePath" = "8:..\\Interfaz\\obj\\Release\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Interfaz\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_333325947964420B9A79EB9DD57763B0"

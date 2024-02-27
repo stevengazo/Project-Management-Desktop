@@ -565,12 +565,11 @@ namespace Interfaz
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtNombreBuscar.Text) && !string.IsNullOrEmpty(txtNumeroProyectoBuscar.Text))
-            {
+
+            ProyectoNegocios pN = new();
+            
                 int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
-                var proyectosFiltrados = (from p in proyectos
-                                          where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper()) && p.ProyectoId == idProyecto
-                                          select p).ToList();
+                var proyectosFiltrados = pN.BuscarProyecto(txtNombreBuscar.Text, idProyecto);
                 if (proyectosFiltrados.Count > 0)
                 {
                     await CargarTablaAsync(proyectosFiltrados);
@@ -579,36 +578,6 @@ namespace Interfaz
                 {
                     MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
-            else if (!string.IsNullOrEmpty(txtNombreBuscar.Text))
-            {
-                var proyectosFiltrados = (from p in proyectos
-                                          where p.Cliente.ToUpper().Contains(txtNombreBuscar.Text.ToUpper())
-                                          select p).ToList();
-                if (proyectosFiltrados.Count > 0)
-                {
-                    CargarTablaAsync(proyectosFiltrados);
-                }
-                else
-                {
-                    MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else if (!string.IsNullOrEmpty(txtNumeroProyectoBuscar.Text))
-            {
-                int.TryParse(txtNumeroProyectoBuscar.Text, out int idProyecto);
-                var proyectosFiltrados = (from p in proyectos
-                                          where p.ProyectoId == idProyecto
-                                          select p).ToList();
-                if (proyectosFiltrados.Count > 0)
-                {
-                    CargarTablaAsync(proyectosFiltrados);
-                }
-                else
-                {
-                    MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
         }
 
         private async void btnLimpiarBusqueda_Click(object sender, EventArgs e)
