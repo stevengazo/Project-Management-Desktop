@@ -36,8 +36,8 @@ namespace Interfaz
                     MessageBox.Show($"Nombre del Cliente no digitado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-                
-                if ( numericUpDownMonto.Value == 0)
+
+                if (numericUpDownMonto.Value == 0)
                 {
                     var resultado = MessageBox.Show($"Monto No digitado\n¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.Yes)
@@ -110,7 +110,7 @@ namespace Interfaz
                         {
                             dateTimePickerFecha.Value = Ofertatmp.Fecha;
                             txtCliente.Text = Ofertatmp.Cliente;
-                            numericUpDownMonto.Value = (decimal) Ofertatmp.Monto;
+                            numericUpDownMonto.Value = (decimal)Ofertatmp.Monto;
                             comboBoxMedio.Text = Ofertatmp.MedioContacto;
                             comboBoxEstado.Text = Ofertatmp.Estado;
                             txtNotas.Text = Ofertatmp.Notas;
@@ -158,7 +158,7 @@ namespace Interfaz
                     Ofertatmp.UltimaModificacion = DateTime.Now;
                     Ofertatmp.Fecha = dateTimePickerFecha.Value;
                     Ofertatmp.Cliente = txtCliente.Text;
-                    Ofertatmp.Monto = (float) numericUpDownMonto.Value;
+                    Ofertatmp.Monto = (float)numericUpDownMonto.Value;
                     Ofertatmp.Notas = txtNotas.Text;
                     Ofertatmp.Observaciones = txtObservaciones.Text;
                     Ofertatmp.UsuarioId = (from i in usuarios
@@ -173,8 +173,8 @@ namespace Interfaz
                     Ofertatmp.Malla = checkBoxMalla.Checked;
                     Ofertatmp.Otros = checkBoxOtro.Checked;
                     Ofertatmp.MedioContacto = comboBoxMedio.Text;
-                    Ofertatmp.Estado = comboBoxEstado.Text; 
-                    Ofertatmp.TareaId = (int) numericUpDownTarea.Value;
+                    Ofertatmp.Estado = comboBoxEstado.Text;
+                    Ofertatmp.TareaId = (int)numericUpDownTarea.Value;
                     Ofertatmp.Concluida = (comboBoxEstado.Text == "Cobro") ? true : false;
                     Ofertatmp.Categoria = comboBoxCategoria.Text;
                     Ofertatmp.Provincia = comboBoxProvincia.Text;

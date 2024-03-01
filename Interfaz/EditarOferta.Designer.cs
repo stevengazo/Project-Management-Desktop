@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            comboBoxEstado = new ComboBox();
+            label6 = new Label();
+            numericUpDownTarea = new NumericUpDown();
+            label5 = new Label();
+            numericUpDownMonto = new NumericUpDown();
+            comboBoxMedio = new ComboBox();
+            label13 = new Label();
             checkBoxOtro = new CheckBox();
             checkBoxMalla = new CheckBox();
             checkBoxTorre = new CheckBox();
@@ -55,16 +62,9 @@
             label7 = new Label();
             dateTimePickerFecha = new DateTimePicker();
             label1 = new Label();
-            comboBoxMedio = new ComboBox();
-            label13 = new Label();
-            numericUpDownMonto = new NumericUpDown();
-            numericUpDownTarea = new NumericUpDown();
-            label5 = new Label();
-            comboBoxEstado = new ComboBox();
-            label6 = new Label();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownMonto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownTarea).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMonto).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -108,6 +108,72 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Información de Ofeta";
+            // 
+            // comboBoxEstado
+            // 
+            comboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEstado.FormattingEnabled = true;
+            comboBoxEstado.Items.AddRange(new object[] { "Enviado", "Negociación", "Pendiente", "Vendido", "Cobro" });
+            comboBoxEstado.Location = new Point(103, 426);
+            comboBoxEstado.Name = "comboBoxEstado";
+            comboBoxEstado.Size = new Size(184, 23);
+            comboBoxEstado.TabIndex = 55;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(10, 426);
+            label6.Name = "label6";
+            label6.Size = new Size(42, 15);
+            label6.TabIndex = 54;
+            label6.Text = "Estado";
+            // 
+            // numericUpDownTarea
+            // 
+            numericUpDownTarea.Location = new Point(103, 243);
+            numericUpDownTarea.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
+            numericUpDownTarea.Name = "numericUpDownTarea";
+            numericUpDownTarea.Size = new Size(184, 23);
+            numericUpDownTarea.TabIndex = 53;
+            numericUpDownTarea.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(13, 248);
+            label5.Name = "label5";
+            label5.Size = new Size(34, 15);
+            label5.TabIndex = 52;
+            label5.Text = "Tarea";
+            // 
+            // numericUpDownMonto
+            // 
+            numericUpDownMonto.DecimalPlaces = 3;
+            numericUpDownMonto.Location = new Point(103, 214);
+            numericUpDownMonto.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numericUpDownMonto.Name = "numericUpDownMonto";
+            numericUpDownMonto.Size = new Size(184, 23);
+            numericUpDownMonto.TabIndex = 51;
+            numericUpDownMonto.TextAlign = HorizontalAlignment.Right;
+            // 
+            // comboBoxMedio
+            // 
+            comboBoxMedio.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMedio.FormattingEnabled = true;
+            comboBoxMedio.Items.AddRange(new object[] { "Whatsapp", "Llamada", "Correo ", "Vendedor", "Reactivación" });
+            comboBoxMedio.Location = new Point(103, 80);
+            comboBoxMedio.Name = "comboBoxMedio";
+            comboBoxMedio.Size = new Size(184, 23);
+            comboBoxMedio.TabIndex = 50;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(13, 83);
+            label13.Name = "label13";
+            label13.Size = new Size(56, 15);
+            label13.TabIndex = 49;
+            label13.Text = "Contacto";
             // 
             // checkBoxOtro
             // 
@@ -182,7 +248,7 @@
             // 
             comboBoxCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCategoria.FormattingEnabled = true;
-            comboBoxCategoria.Items.AddRange(new object[] { "Instalación", "Mantenimiento", "Mejora", "Otro" });
+            comboBoxCategoria.Items.AddRange(new object[] { "Instalación", "Mantenimiento", "Mejora", "Venta", "Otro" });
             comboBoxCategoria.Location = new Point(103, 185);
             comboBoxCategoria.Name = "comboBoxCategoria";
             comboBoxCategoria.Size = new Size(184, 23);
@@ -349,72 +415,6 @@
             label1.TabIndex = 0;
             label1.Text = "Fecha";
             // 
-            // comboBoxMedio
-            // 
-            comboBoxMedio.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxMedio.FormattingEnabled = true;
-            comboBoxMedio.Items.AddRange(new object[] { "Whatsapp", "Llamada", "Correo ", "Vendedor", "Reactivación" });
-            comboBoxMedio.Location = new Point(103, 80);
-            comboBoxMedio.Name = "comboBoxMedio";
-            comboBoxMedio.Size = new Size(184, 23);
-            comboBoxMedio.TabIndex = 50;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(13, 83);
-            label13.Name = "label13";
-            label13.Size = new Size(56, 15);
-            label13.TabIndex = 49;
-            label13.Text = "Contacto";
-            // 
-            // numericUpDownMonto
-            // 
-            numericUpDownMonto.DecimalPlaces = 3;
-            numericUpDownMonto.Location = new Point(103, 214);
-            numericUpDownMonto.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
-            numericUpDownMonto.Name = "numericUpDownMonto";
-            numericUpDownMonto.Size = new Size(184, 23);
-            numericUpDownMonto.TabIndex = 51;
-            numericUpDownMonto.TextAlign = HorizontalAlignment.Right;
-            // 
-            // numericUpDownTarea
-            // 
-            numericUpDownTarea.Location = new Point(103, 243);
-            numericUpDownTarea.Maximum = new decimal(new int[] { 9999999, 0, 0, 0 });
-            numericUpDownTarea.Name = "numericUpDownTarea";
-            numericUpDownTarea.Size = new Size(184, 23);
-            numericUpDownTarea.TabIndex = 53;
-            numericUpDownTarea.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(13, 248);
-            label5.Name = "label5";
-            label5.Size = new Size(34, 15);
-            label5.TabIndex = 52;
-            label5.Text = "Tarea";
-            // 
-            // comboBoxEstado
-            // 
-            comboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxEstado.FormattingEnabled = true;
-            comboBoxEstado.Items.AddRange(new object[] { "Enviado", "Negociación", "Pendiente", "Vendido", "Cobro" });
-            comboBoxEstado.Location = new Point(103, 426);
-            comboBoxEstado.Name = "comboBoxEstado";
-            comboBoxEstado.Size = new Size(184, 23);
-            comboBoxEstado.TabIndex = 55;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(10, 426);
-            label6.Name = "label6";
-            label6.Size = new Size(42, 15);
-            label6.TabIndex = 54;
-            label6.Text = "Estado";
-            // 
             // EditarOferta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -430,8 +430,8 @@
             Load += EditarOferta_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownMonto).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownTarea).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownMonto).EndInit();
             ResumeLayout(false);
         }
 

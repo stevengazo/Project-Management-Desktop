@@ -144,9 +144,11 @@ namespace Interfaz
                                 RecordarCredenciales();
                                 Temporal.UsuarioActivo = usuarioNegocio.ObtenerUsuario(txtUsuario.Text);
                                 Temporal.TipoLogin = "Vendedor";
+                                ListarOferta _listarOferta = new();
                                 ModuloVentas moduloVentas = new();
                                 this.Hide();
-                                moduloVentas.ShowDialog();
+                                _listarOferta.ShowDialog();
+                                //moduloVentas.ShowDialog();
                                 this.Close();
                             }
                             else

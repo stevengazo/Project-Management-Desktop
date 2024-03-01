@@ -68,21 +68,21 @@ namespace Interfaz
                     _tabla.Columns.Add("Monto");
                     _tabla.Columns.Add("Estado");
                     _tabla.Columns.Add("Cliente");
-                    _tabla.Columns.Add("Encargado");
+                    _tabla.Columns.Add("Categoria");
                     _tabla.Columns.Add("Cotizado Por");
                     _tabla.Columns.Add("Descripción");
 
                     foreach (Oferta item in ListaOfertas)
                     {
                         _tabla.Rows.Add(
-                            $"CM-{item.OfertaId.ToString()}",
-                            item.Fecha.ToLongDateString(),
-                            item.Monto.ToString(),
-                            item.Estado,
-                            item.Cliente,
-                            item.Encargado.Nombre,
-                            item.EncargadoCotizador,
-                            item.Observaciones
+                            $"CM-{item.OfertaId.ToString()}", // Oferta Id
+                            item.Fecha.ToLongDateString(), // Fecha
+                            item.Monto.ToString(), // Monto
+                            item.Estado, // Estado
+                            item.Cliente, // Cliente
+                            item.Categoria, //Categoria
+                            item.EncargadoCotizador, // Cotizado por
+                            item.Observaciones // descripcion
                             );
                     }
                     dgvOfertas.DataSource = _tabla;
@@ -125,24 +125,28 @@ namespace Interfaz
                 DataTable _tabla = new();
                 _tabla.Columns.Add("Oferta Id");
                 _tabla.Columns.Add("Cliente");
+                _tabla.Columns.Add("Categoria");
                 _tabla.Columns.Add("Fecha");
                 _tabla.Columns.Add("Monto");
                 _tabla.Columns.Add("Estado");
                 _tabla.Columns.Add("Vendedor");
                 _tabla.Columns.Add("Creado por");
                 _tabla.Columns.Add("Cotizado Por");
+                _tabla.Columns.Add("Descripcion");
 
                 foreach (Oferta item in ListaOfertas)
                 {
                     _tabla.Rows.Add(
                         $"CM-{item.OfertaId.ToString()}",
                         item.Cliente,
+                        item.Categoria,
                         item.Fecha.ToLongDateString(),
                         item.Monto.ToString(),
                         item.Estado,
                         item.Encargado.Nombre,
                         item.AutorPrespuesto,
-                        item.EncargadoCotizador
+                        item.EncargadoCotizador,
+                        item.Observaciones
                         );
                 }
                 dgvOfertas.DataSource = _tabla;
