@@ -86,7 +86,6 @@ namespace Interfaz
             listarUsuario.ShowDialog();
             CargarVendedoresAsync();
         }
-
         /// <summary>
         /// Agrega un usuario
         /// </summary>
@@ -98,7 +97,6 @@ namespace Interfaz
             agregarUsuario.ShowDialog();
             CargarVendedoresAsync();
         }
-
         /// <summary>
         /// Carga la lista de Vendedores en el combobox
         /// </summary>
@@ -116,7 +114,6 @@ namespace Interfaz
                 }
             }
         }
-
         /// <summary>
         /// Carga la información de la tabla
         /// </summary>
@@ -203,7 +200,6 @@ namespace Interfaz
 
             }
         }
-
         private async void DgvProyectos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             // Aquí puedes manejar lo que sucede cuando se termina de editar una celda
@@ -237,8 +233,6 @@ namespace Interfaz
 
             }
         }
-
-
         /// <summary>
         /// Opciones de seleccion de botones en grid
         /// </summary>
@@ -297,7 +291,6 @@ namespace Interfaz
             await cargarOfertas();
         }
 
-
         private async void agregarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarOferta agregarOferta = new();
@@ -322,19 +315,30 @@ namespace Interfaz
                     var ExcelApp = new Excel.Application();
                     ExcelApp.Workbooks.Add();
                     Excel._Worksheet worksheet = (Excel.Worksheet)ExcelApp.ActiveSheet;
-                    worksheet.Cells[1, "A"] = "Numero Proyecto";
-                    worksheet.Cells[1, "B"] = "Vendedor";
-                    worksheet.Cells[1, "C"] = "Cliente";
-                    worksheet.Cells[1, "D"] = "Factura Anticipo";
-                    worksheet.Cells[1, "E"] = "Factura Final";
-                    worksheet.Cells[1, "F"] = "Porcentaje Anticipo";
-                    worksheet.Cells[1, "G"] = "Tarea Bitrix";
-                    worksheet.Cells[1, "H"] = "Fecha OC";
-                    worksheet.Cells[1, "I"] = "Oferta";
-                    worksheet.Cells[1, "J"] = "Fecha Inicio";
-                    worksheet.Cells[1, "K"] = "Fecha Final";
-                    worksheet.Cells[1, "L"] = "Monto";
-                    int contador = 2;
+
+                    // Título
+                    worksheet.Cells[1, 1] = "Datos de exportación";
+                    worksheet.get_Range("A1", "M1").Merge();
+                    worksheet.Cells[1, 1].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    worksheet.Cells[1, 1].Font.Size = 14;
+                    worksheet.Cells[1, 1].Font.Bold = true;
+
+                    // Encabezados de la tabla
+                    worksheet.Cells[2, "A"] = "Numero Proyecto";
+                    worksheet.Cells[2, "B"] = "Vendedor";
+                    worksheet.Cells[2, "C"] = "Cliente";
+                    worksheet.Cells[2, "D"] = "Factura Anticipo";
+                    worksheet.Cells[2, "E"] = "Factura Final";
+                    worksheet.Cells[2, "F"] = "Porcentaje Anticipo";
+                    worksheet.Cells[2, "G"] = "Tarea Bitrix";
+                    worksheet.Cells[2, "H"] = "Fecha OC";
+                    worksheet.Cells[2, "I"] = "Oferta";
+                    worksheet.Cells[2, "J"] = "Fecha Inicio";
+                    worksheet.Cells[2, "K"] = "Fecha Final";
+                    worksheet.Cells[2, "L"] = "Monto";
+                    worksheet.Cells[2, "M"] = "Tipo";
+
+                    int contador = 3;  // Comenzamos desde la fila 3 porque las dos primeras están reservadas para el título y los encabezados
                     foreach (Proyecto item in proyectos)
                     {
                         worksheet.Cells[contador, 1] = item.ProyectoId.ToString();
@@ -348,12 +352,33 @@ namespace Interfaz
                         worksheet.Cells[contador, 9] = item.OfertaId.ToString();
                         worksheet.Cells[contador, 10] = item.FechaInicio.ToString("dd/MM/yy");
                         worksheet.Cells[contador, 11] = item.FechaFinal.ToString("dd/MM/yy");
-                        worksheet.Cells[contador, 12] = item.Monto.ToString("C", CultureInfo.CurrentCulture);
+                        worksheet.Cells[contador, 12] = item.Monto.ToString();
+                        worksheet.Cells[contador, 13] = item.Notas;
                         contador++;
                     }
+
+                    // Definir el rango de datos de la tabla (de A2 a M<contador-1>)
+                    Excel.Range range = worksheet.get_Range("A2", "M" + (contador - 1).ToString());
+
+                    // Crear la tabla en ese rango
+                    Excel.ListObject table = worksheet.ListObjects.Add(
+                        Excel.XlListObjectSourceType.xlSrcRange, // Tipo de origen de datos
+                        range, // Rango que se convertirá en tabla
+                        0, // Usar encabezados
+                        Excel.XlYesNoGuess.xlYes, // Los encabezados están presentes
+                        null); // Sin opciones adicionales
+
+                    // Aplicar estilo de tabla (puedes elegir otro estilo según tus necesidades)
+                    table.TableStyle = "TableStyleMedium9"; // Puedes cambiar el nombre del estilo si lo prefieres
+
+                    // Ajustar el tamaño de las columnas automáticamente
+                    worksheet.Columns.AutoFit();
+
+                    // Guardar el archivo
                     ExcelApp.ActiveWorkbook.SaveAs(URLArchivo, Excel.XlFileFormat.xlWorkbookDefault);
                     ExcelApp.ActiveWorkbook.Close();
                     ExcelApp.Quit();
+
                     MessageBox.Show("Documento Generado", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -362,6 +387,7 @@ namespace Interfaz
                 MessageBox.Show("Ocurrió un problema. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         /// <summary>
