@@ -323,15 +323,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Proyectos y Ofertas - Asfaltos Mecsa"
-        "ProductCode" = "8:{337B70DE-EA6D-4AE3-85D1-5417F8313A35}"
-        "PackageCode" = "8:{2F2A5545-A129-40CF-9A15-B44A98DF7A6C}"
+        "ProductCode" = "8:{EBE31071-3791-4D54-8813-E05F316B0FDA}"
+        "PackageCode" = "8:{C38938DC-75E9-4023-9561-580CF009A8E8}"
         "UpgradeCode" = "8:{A5057F17-8AA7-436F-9927-1EDE8B5CA68D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:Mecsa Service"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -485,7 +485,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_68086E469387404B8C16F753D4B264FA"
                     {
                     "Sequence" = "3:300"
-                    "DisplayName" = "8:Confirm Installation"
+                    "DisplayName" = "8:Confirmar instalación"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminConfirmDlg.wid"
@@ -507,7 +507,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_CEE1699DBF2445999C58E135A10E5E01"
                     {
                     "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
+                    "DisplayName" = "8:Carpeta de instalación"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
@@ -529,7 +529,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_D4E5407FBD1548DBBDB277864DD51E8B"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Welcome"
+                    "DisplayName" = "8:Pantalla de bienvenida"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminWelcomeDlg.wid"
@@ -592,7 +592,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_96B62DB02A8441C2B284139F34E08003"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Finished"
+                    "DisplayName" = "8:Finalizado"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdFinishedDlg.wid"
@@ -636,7 +636,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_C9A83B8B52224BA1A6019FDC791B0EF6"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Progress"
+                    "DisplayName" = "8:Progreso"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdProgressDlg.wid"
@@ -680,7 +680,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_F368A537264C47D8A5DBC70B69FB59CF"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Progress"
+                    "DisplayName" = "8:Progreso"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminProgressDlg.wid"
@@ -724,7 +724,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_0E4DBD8008474C9F8AB8B70035B3677A"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Welcome"
+                    "DisplayName" = "8:Pantalla de bienvenida"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdWelcomeDlg.wid"
@@ -772,7 +772,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_31F6FD5507DE4DEC99D398B0843A224E"
                     {
                     "Sequence" = "3:110"
-                    "DisplayName" = "8:License Agreement"
+                    "DisplayName" = "8:Contrato de licencia"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdLicenseDlg.wid"
@@ -819,7 +819,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_50E275DF295D479AB033EE33C8C275A0"
                     {
                     "Sequence" = "3:300"
-                    "DisplayName" = "8:Confirm Installation"
+                    "DisplayName" = "8:Confirmar instalación"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdConfirmDlg.wid"
@@ -841,7 +841,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_FF9D3A6952D443A9B2F055A9DEA567CC"
                     {
                     "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
+                    "DisplayName" = "8:Carpeta de instalación"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdFolderDlg.wid"
@@ -891,7 +891,7 @@
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_B8FE93CF28D544ACA73CFF450186A895"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Finished"
+                    "DisplayName" = "8:Finalizado"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
                     "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFinishedDlg.wid"
@@ -948,7 +948,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7A5B65C22D454B178430CED4590C9220"
             {
-            "SourcePath" = "8:..\\Interfaz\\obj\\Release\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Interfaz\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_333325947964420B9A79EB9DD57763B0"
