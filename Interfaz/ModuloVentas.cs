@@ -53,7 +53,7 @@ namespace Interfaz
                     comboBoxOfertas.Items.Add($"1-No Asignado / No Disponible");
                     foreach (var item in Ofertas)
                     {
-                        comboBoxOfertas.Items.Add($"{item.Key}-{item.Value}");
+                        comboBoxOfertas.Items.Add($"{item.Key}");
                     }
                 }
             }
@@ -120,7 +120,7 @@ namespace Interfaz
                             i.FacturaAnticipoId,
                             i.FechaInicio.ToLongDateString(),
                             i.FechaFinal.ToLongDateString(),
-                            i.Monto.ToString("C", CultureInfo.CurrentCulture),
+                            i.Monto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")),
                             i.Estado
                             );
                     }

@@ -22,6 +22,7 @@ namespace Interfaz
         {
             InitializeComponent();
             Carga();
+
         }
         #endregion
 
@@ -32,6 +33,9 @@ namespace Interfaz
             await CargarVendedoresAsync();
             await CargarTablaAsync();
             await cargarOfertas();
+            dgvProyectos.CellEndEdit += DgvProyectos_CellEndEdit;
+            dgvProyectos.CellBeginEdit += dgvProyectos_CellBeginEdit;
+
         }
 
         private void CargarClientes()
@@ -61,7 +65,7 @@ namespace Interfaz
                     cbOfertas.Items.Add($"1-No Asignado / No Disponible");
                     foreach (var item in Ofertas)
                     {
-                        cbOfertas.Items.Add($"{item.Key}-{item.Value}");
+                        cbOfertas.Items.Add($"{item.Key}");
                     }
                 }
             }
@@ -129,6 +133,7 @@ namespace Interfaz
                 var proyectosNegocio = new ProyectoNegocios();
                 proyectos = await proyectosNegocio.ListarProyectoAsync();
             }
+
             if (proyectos.Count > 0)
             {
                 dgvProyectos.Columns.Clear();
@@ -138,12 +143,12 @@ namespace Interfaz
                 _tabla.Columns.Add("Cliente");
                 _tabla.Columns.Add("Fecha OC");
                 _tabla.Columns.Add("Factura Anticipo");
+                _tabla.Columns.Add("Factura Final");
                 _tabla.Columns.Add("Tarea");
                 _tabla.Columns.Add("Oferta");
-                _tabla.Columns.Add("Fecha Inicio");
-                _tabla.Columns.Add("Fecha Final");
                 _tabla.Columns.Add("Monto");
                 _tabla.Columns.Add("Estado");
+
                 foreach (Proyecto i in proyectos)
                 {
                     _tabla.Rows.Add(
@@ -152,29 +157,86 @@ namespace Interfaz
                         i.Cliente,
                         i.FechaOC.ToString("dd MMM yy"),
                         i.FacturaAnticipoId.ToString(),
+                         i.FacturaFinalId.ToString(),
                         i.TareaId,
                         i.OfertaId,
-                        i.FechaInicio.ToString("dd MMM yy"),
-                        i.FechaFinal.ToString("dd MMM yy"),
-                        i.Monto.ToString("C", CultureInfo.CurrentCulture),
+                        i.Monto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")),
                         i.Estado
-                        );
+                    );
                 }
+
+                // Botón Ver
                 DataGridViewButtonColumn botonVer = new();
                 botonVer.HeaderText = "Ver";
                 botonVer.Text = "Ver";
                 botonVer.Name = "btnVerProyecto";
                 botonVer.UseColumnTextForButtonValue = true;
                 dgvProyectos.Columns.Add(botonVer);
+
+                // Botón Editar
                 DataGridViewButtonColumn botonEditar = new();
                 botonEditar.HeaderText = "Editar";
                 botonEditar.Text = "Editar";
                 botonEditar.Name = "btnEditarProyecto";
                 botonEditar.UseColumnTextForButtonValue = true;
                 dgvProyectos.Columns.Add(botonEditar);
+
                 dgvProyectos.DataSource = _tabla;
+
+
+                dgvProyectos.ReadOnly = false;
+
+
             }
         }
+        private void dgvProyectos_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dgvProyectos.Columns[e.ColumnIndex].Name == "Factura Anticipo" || dgvProyectos.Columns[e.ColumnIndex].Name == "Factura Final")
+            {
+                e.Cancel = false; // Esto asegura que la edición se permita
+            }
+            else
+            {
+                e.Cancel = true;
+                MessageBox.Show($"Solo se pueden editar las facturas");
+
+            }
+        }
+
+        private async void DgvProyectos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            // Aquí puedes manejar lo que sucede cuando se termina de editar una celda
+            if (e.RowIndex >= 0 && e.ColumnIndex == 6 || e.ColumnIndex == 7)
+            {
+
+                var project = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[2].Value.ToString());
+                var p = proyectos.FirstOrDefault(e => e.ProyectoId == project);
+
+                // Por ejemplo, puedes validar que el valor editado sea correcto
+                var valorEditado = dgvProyectos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                switch (e.ColumnIndex)
+                {
+                    case 6:
+                        p.FacturaAnticipoId = valorEditado.ToString();
+                        MessageBox.Show($"Anticipo: {valorEditado}");
+                        break;
+                    case 7:
+                        MessageBox.Show($"Final: {valorEditado}");
+                        p.FacturaFinalId = valorEditado.ToString();
+                        break;
+                    default:
+                        break;
+                }
+                var proyectosNegocio = new ProyectoNegocios();
+                proyectosNegocio.ActualizarProyecto(p);
+            }
+            else
+            {
+                MessageBox.Show($"Solo se pueden editar las facturas");
+
+            }
+        }
+
 
         /// <summary>
         /// Opciones de seleccion de botones en grid
