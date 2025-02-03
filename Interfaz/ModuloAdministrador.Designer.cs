@@ -81,6 +81,8 @@
             ayudaToolStripMenuItem = new ToolStripMenuItem();
             agregarUsuarioToolStripMenuItem = new ToolStripDropDownMenu();
             saveFileDialog1 = new SaveFileDialog();
+            txtTipoTrabajo = new TextBox();
+            label3 = new Label();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProyectos).BeginInit();
             groupBox1.SuspendLayout();
@@ -175,6 +177,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtTipoTrabajo);
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtNombreCliente);
             groupBox1.Controls.Add(cbOfertas);
             groupBox1.Controls.Add(dtpOrdenCompra);
@@ -248,7 +252,7 @@
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
             cbEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            cbEstado.Location = new Point(189, 433);
+            cbEstado.Location = new Point(189, 410);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(225, 23);
             cbEstado.TabIndex = 36;
@@ -262,21 +266,21 @@
             // 
             // dtpFechaFinal
             // 
-            dtpFechaFinal.Location = new Point(189, 404);
+            dtpFechaFinal.Location = new Point(189, 381);
             dtpFechaFinal.Name = "dtpFechaFinal";
             dtpFechaFinal.Size = new Size(225, 23);
             dtpFechaFinal.TabIndex = 34;
             // 
             // dtpFechaInicio
             // 
-            dtpFechaInicio.Location = new Point(189, 375);
+            dtpFechaInicio.Location = new Point(189, 352);
             dtpFechaInicio.Name = "dtpFechaInicio";
             dtpFechaInicio.Size = new Size(225, 23);
             dtpFechaInicio.TabIndex = 33;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(291, 468);
+            btnAgregar.Location = new Point(291, 445);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 31;
@@ -286,7 +290,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(189, 468);
+            button2.Location = new Point(189, 445);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 30;
@@ -297,7 +301,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(15, 433);
+            lblEstado.Location = new Point(15, 410);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(42, 15);
             lblEstado.TabIndex = 28;
@@ -306,7 +310,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(15, 404);
+            label16.Location = new Point(15, 381);
             label16.Name = "label16";
             label16.Size = new Size(103, 15);
             label16.TabIndex = 26;
@@ -315,7 +319,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(15, 375);
+            label15.Location = new Point(15, 352);
             label15.Name = "label15";
             label15.Size = new Size(70, 15);
             label15.TabIndex = 24;
@@ -327,7 +331,7 @@
             txtUbicacion.Multiline = true;
             txtUbicacion.Name = "txtUbicacion";
             txtUbicacion.PlaceholderText = "Provincia, Canton, Distrito, Direcciones";
-            txtUbicacion.Size = new Size(225, 75);
+            txtUbicacion.Size = new Size(225, 23);
             txtUbicacion.TabIndex = 23;
             // 
             // label14
@@ -551,6 +555,24 @@
             agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
             agregarUsuarioToolStripMenuItem.Size = new Size(61, 4);
             // 
+            // txtTipoTrabajo
+            // 
+            txtTipoTrabajo.Location = new Point(189, 323);
+            txtTipoTrabajo.Multiline = true;
+            txtTipoTrabajo.Name = "txtTipoTrabajo";
+            txtTipoTrabajo.PlaceholderText = "Demarcación, Sellador, Asfaltado....";
+            txtTipoTrabajo.Size = new Size(225, 23);
+            txtTipoTrabajo.TabIndex = 45;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(15, 326);
+            label3.Name = "label3";
+            label3.Size = new Size(87, 15);
+            label3.TabIndex = 44;
+            label3.Text = "Tipo de Trabajo";
+            // 
             // ModuloAdministrador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -632,5 +654,7 @@
         private TextBox txtNumeroProyectoBuscar;
         private Label label2;
         private TextBox txtNombreBuscar;
+        private TextBox txtTipoTrabajo;
+        private Label label3;
     }
 }

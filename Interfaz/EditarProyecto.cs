@@ -67,10 +67,10 @@ namespace Interfaz
                 if (Ofertas != null)
                 {
                     comboBoxOfertas.Items.Clear();
-                    comboBoxOfertas.Items.Add($"1-No asignado / No Asignado");
+                    comboBoxOfertas.Items.Add($"1");
                     foreach (var item in Ofertas)
                     {
-                        comboBoxOfertas.Items.Add($"{item.Key}-{item.Value}");
+                        comboBoxOfertas.Items.Add($"{item.Key}");
                     }
                 }
             }
@@ -126,7 +126,7 @@ namespace Interfaz
                         var ofertaIdTemporal = int.Parse(ProyectoActual.OfertaId);
                         OfertaNegocio ofertaNegocio = new();
                         var oferta = ofertaNegocio.ObtenerOferta(idOferta);
-                        comboBoxOfertas.Text = (oferta == null) ? $"1-No Asignado/No Disponible" : $"{oferta.OfertaId}-{oferta.Cliente}";
+                        comboBoxOfertas.Text = (oferta == null) ? $"1" : $"{oferta.OfertaId}";
 
                     }
                     else
@@ -178,14 +178,14 @@ namespace Interfaz
                                                     select v.UsuarioId).FirstOrDefault();
                         ProyectoActual.Cliente = txtRazonSocial.Text;
                         ProyectoActual.FechaOC = dtpOC.Value;
-                        ProyectoActual.Contacto = txtContacto.Text;
-                        var oferta = comboBoxOfertas.Text.Split('-');
-                        ProyectoActual.OfertaId = oferta[0];
+                        ProyectoActual.Contacto = txtContacto.Text;  
+                        ProyectoActual.OfertaId = comboBoxOfertas.Text;
                         ProyectoActual.Monto = float.Parse(txtMonto.Text);
                         ProyectoActual.PorcentajeAnticipo = int.Parse(numericUpDownPorcentaje.Value.ToString());
                         ProyectoActual.FacturaAnticipoId = txtNumeroFacturaAnticipo.Text;
                         ProyectoActual.FacturaFinalId = (string.IsNullOrEmpty(txtFacturalFinalId.Text)) ? "No ingresado" : txtFacturalFinalId.Text;
                         ProyectoActual.TareaId = int.Parse(txtTarea.Text);
+                        ProyectoActual.Notas = txtNota.Text;
                         ProyectoActual.Ubicacion = (string.IsNullOrEmpty(txtUbicacion.Text)) ? "No Ingresado" : txtUbicacion.Text;
                         ProyectoActual.FechaInicio = dtpInicio.Value;
                         ProyectoActual.FechaFinal = dtpFinalizacion.Value;
@@ -228,10 +228,10 @@ namespace Interfaz
             {
                 string VendedorSeleccionado = cbVendedores.Text;
                 string OfertaSeleccionada = comboBoxOfertas.Text;
-                bool isvalid = int.TryParse(OfertaSeleccionada.Split('-').FirstOrDefault(), out int number);
+                bool isvalid = int.TryParse(OfertaSeleccionada, out int number);
                 if (string.IsNullOrEmpty(OfertaSeleccionada) || !isvalid)
                 {
-                    MessageBox.Show($"Compruebe la oferta, el valor '{OfertaSeleccionada}' no es valido\nLa oferta debe tener este formado: [Numero Oferta]-[Nombre]\nSeleccione algún numero de oferta de los existentes o seleccione 1-No aplica/no disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Compruebe la oferta, el valor '{OfertaSeleccionada}' no es valido\nSeleccione algún numero de oferta de los existentes o seleccione 1-No aplica/no disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
                 if (string.IsNullOrEmpty(VendedorSeleccionado))

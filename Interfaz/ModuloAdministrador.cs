@@ -144,6 +144,7 @@ namespace Interfaz
                 _tabla.Columns.Add("Fecha OC");
                 _tabla.Columns.Add("Factura Anticipo");
                 _tabla.Columns.Add("Factura Final");
+                _tabla.Columns.Add("Tipo");
                 _tabla.Columns.Add("Tarea");
                 _tabla.Columns.Add("Oferta");
                 _tabla.Columns.Add("Monto");
@@ -157,7 +158,8 @@ namespace Interfaz
                         i.Cliente,
                         i.FechaOC.ToString("dd MMM yy"),
                         i.FacturaAnticipoId.ToString(),
-                         i.FacturaFinalId.ToString(),
+                        i.FacturaFinalId.ToString(),
+                        i.Notas,
                         i.TareaId,
                         i.OfertaId,
                         i.Monto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")),
@@ -182,7 +184,6 @@ namespace Interfaz
                 dgvProyectos.Columns.Add(botonEditar);
 
                 dgvProyectos.DataSource = _tabla;
-
 
                 dgvProyectos.ReadOnly = false;
 
@@ -218,10 +219,10 @@ namespace Interfaz
                 {
                     case 6:
                         p.FacturaAnticipoId = valorEditado.ToString();
-                        MessageBox.Show($"Anticipo: {valorEditado}");
+             
                         break;
                     case 7:
-                        MessageBox.Show($"Final: {valorEditado}");
+                       
                         p.FacturaFinalId = valorEditado.ToString();
                         break;
                     default:
@@ -385,7 +386,7 @@ namespace Interfaz
                     proyectoTemporal.Ubicacion = txtUbicacion.Text;
                     proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
                     proyectoTemporal.Estado = cbEstado.Text;
-                    proyectoTemporal.Notas = string.Empty;
+                    proyectoTemporal.Notas = txtTipoTrabajo.Text;
                     proyectoTemporal.FacturaAnticipoId = txtNumeroFactura.Text;
                     proyectoTemporal.UsuarioId = (from i in Vendedores
                                                   where i.Nombre == cbVendedores.Text

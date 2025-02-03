@@ -76,6 +76,8 @@
             label1 = new Label();
             dgvProyectos = new DataGridView();
             saveFileDialog = new SaveFileDialog();
+            txtTipoTrabajo = new TextBox();
+            label3 = new Label();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPorcentaje).BeginInit();
@@ -148,6 +150,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtTipoTrabajo);
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(comboBoxOfertas);
             groupBox1.Controls.Add(txtRazonSocial);
             groupBox1.Controls.Add(dtpFechaOC);
@@ -221,7 +225,7 @@
             comboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxEstado.FormattingEnabled = true;
             comboBoxEstado.Items.AddRange(new object[] { "Pendiente de Ejecución", "En ejecución", "Finalizado con cobro", "Finalizado sin cobro" });
-            comboBoxEstado.Location = new Point(198, 433);
+            comboBoxEstado.Location = new Point(198, 410);
             comboBoxEstado.Name = "comboBoxEstado";
             comboBoxEstado.Size = new Size(225, 23);
             comboBoxEstado.TabIndex = 36;
@@ -235,21 +239,21 @@
             // 
             // dateTimePickerFinal
             // 
-            dateTimePickerFinal.Location = new Point(198, 404);
+            dateTimePickerFinal.Location = new Point(198, 381);
             dateTimePickerFinal.Name = "dateTimePickerFinal";
             dateTimePickerFinal.Size = new Size(225, 23);
             dateTimePickerFinal.TabIndex = 34;
             // 
             // dateTimePickerInicio
             // 
-            dateTimePickerInicio.Location = new Point(198, 375);
+            dateTimePickerInicio.Location = new Point(198, 352);
             dateTimePickerInicio.Name = "dateTimePickerInicio";
             dateTimePickerInicio.Size = new Size(225, 23);
             dateTimePickerInicio.TabIndex = 33;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(300, 468);
+            btnAgregar.Location = new Point(300, 445);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 31;
@@ -259,7 +263,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(198, 468);
+            btnLimpiar.Location = new Point(198, 445);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(75, 23);
             btnLimpiar.TabIndex = 30;
@@ -270,7 +274,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(24, 433);
+            lblEstado.Location = new Point(24, 410);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(42, 15);
             lblEstado.TabIndex = 28;
@@ -279,7 +283,7 @@
             // lblFechaFinalizacion
             // 
             lblFechaFinalizacion.AutoSize = true;
-            lblFechaFinalizacion.Location = new Point(24, 404);
+            lblFechaFinalizacion.Location = new Point(24, 381);
             lblFechaFinalizacion.Name = "lblFechaFinalizacion";
             lblFechaFinalizacion.Size = new Size(103, 15);
             lblFechaFinalizacion.TabIndex = 26;
@@ -288,7 +292,7 @@
             // lblFechaInicio
             // 
             lblFechaInicio.AutoSize = true;
-            lblFechaInicio.Location = new Point(24, 375);
+            lblFechaInicio.Location = new Point(24, 352);
             lblFechaInicio.Name = "lblFechaInicio";
             lblFechaInicio.Size = new Size(70, 15);
             lblFechaInicio.TabIndex = 24;
@@ -300,7 +304,7 @@
             textBoxUbicacion.Multiline = true;
             textBoxUbicacion.Name = "textBoxUbicacion";
             textBoxUbicacion.PlaceholderText = "Provincia, Canton, Distrito, Indicaciones";
-            textBoxUbicacion.Size = new Size(225, 75);
+            textBoxUbicacion.Size = new Size(225, 23);
             textBoxUbicacion.TabIndex = 23;
             // 
             // lblUbicacion
@@ -509,6 +513,24 @@
             dgvProyectos.TabIndex = 0;
             dgvProyectos.CellContentClick += dgvProyectos_CellContentClick;
             // 
+            // txtTipoTrabajo
+            // 
+            txtTipoTrabajo.Location = new Point(198, 323);
+            txtTipoTrabajo.Multiline = true;
+            txtTipoTrabajo.Name = "txtTipoTrabajo";
+            txtTipoTrabajo.PlaceholderText = "Demarcación, Sellador, Asfaltado....";
+            txtTipoTrabajo.Size = new Size(225, 23);
+            txtTipoTrabajo.TabIndex = 43;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(24, 326);
+            label3.Name = "label3";
+            label3.Size = new Size(87, 15);
+            label3.TabIndex = 42;
+            label3.Text = "Tipo de Trabajo";
+            // 
             // ModuloVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -585,5 +607,7 @@
         private TextBox txtClienteBuscar;
         private ComboBox comboBoxOfertas;
         private Button limpar;
+        private TextBox txtTipoTrabajo;
+        private Label label3;
     }
 }

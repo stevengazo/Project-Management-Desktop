@@ -236,13 +236,10 @@ namespace Interfaz
                     // No visible
                     proyectoNuevo.FacturaFinalId = string.Empty;
                     proyectoNuevo.Enable = true;
-
-                    var vendedor = (from v in Vendedores
-                                    where v.Nombre == cbVendedores.Text
-                                    select v.UsuarioId).FirstOrDefault();
+                    var vendedor = (from v in Vendedores where v.Nombre == cbVendedores.Text select v.UsuarioId).FirstOrDefault();
                     proyectoNuevo.UsuarioId = vendedor;
                     proyectoNuevo.Cliente = txtRazonSocial.Text;
-                    proyectoNuevo.Notas = "Sin notas";
+                    proyectoNuevo.Notas = txtTipoTrabajo.Text;
                     proyectoNuevo.FechaOC = dtpFechaOC.Value;
                     proyectoNuevo.Contacto = txtContacto.Text;
                     var oferta = comboBoxOfertas.Text.Split('-');
