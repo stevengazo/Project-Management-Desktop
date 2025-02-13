@@ -323,15 +323,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Proyectos y Ofertas - Asfaltos Mecsa"
-        "ProductCode" = "8:{EBE31071-3791-4D54-8813-E05F316B0FDA}"
-        "PackageCode" = "8:{C38938DC-75E9-4023-9561-580CF009A8E8}"
-        "UpgradeCode" = "8:{A5057F17-8AA7-436F-9927-1EDE8B5CA68D}"
+        "ProductCode" = "8:{CB2B3C4F-3CC1-4F90-8A1F-84EBFBDEBA1B}"
+        "PackageCode" = "8:{B4BED6B9-B19A-4E54-AA49-73F398E6E53C}"
+        "UpgradeCode" = "8:{62C3BC90-B8C9-4CCB-8054-E0042F1025BF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.3"
+        "ProductVersion" = "8:1.1.5"
         "Manufacturer" = "8:Mecsa Service"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -948,7 +948,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7A5B65C22D454B178430CED4590C9220"
             {
-            "SourcePath" = "8:..\\Interfaz\\obj\\Debug\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\Interfaz\\obj\\Release\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_333325947964420B9A79EB9DD57763B0"

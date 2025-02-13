@@ -22,12 +22,108 @@ namespace Interfaz
         {
             InitializeComponent();
             Carga();
-
         }
         #endregion
 
-        #region Eventos
+        #region Loadings
+        private async Task CargarVendedoresAsync()
+        {
+            UsuarioNegocio usuarioNegocio = new();
+            Vendedores = await usuarioNegocio.ListarVendedoresAsync();
+            if (Vendedores.Count > 0)
+            {
+                Vendedores = Vendedores.OrderBy(e => e.Nombre).ToList();
+                cbVendedores.Items.Clear();
+                foreach (var item in Vendedores)
+                {
+                    if (item.Activo)
+                    {
+                        cbVendedores.Items.Add(item.Nombre);
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Carga la información de la tabla
+        /// </summary>
+        /// <param name="proyectosFiltrados"></param>
+        /// <returns></returns>
+        private async Task CargarTablaAsync(List<Proyecto> proyectosFiltrados = null)
+        {
+            try
+            {
+                if (proyectosFiltrados != null)
+                {
+                    proyectos = proyectosFiltrados;
+                }
+                else
+                {
+                    var proyectosNegocio = new ProyectoNegocios();
+                    proyectos = await proyectosNegocio.ListarProyectoAsync();
+                }
 
+                if (proyectos.Count > 0)
+                {
+                    dgvProyectos.Columns.Clear();
+                    DataTable _tabla = new();
+                    _tabla.Columns.Add("Id Interno");
+                    _tabla.Columns.Add("Vendedor");
+                    _tabla.Columns.Add("Cliente");
+                    _tabla.Columns.Add("Fecha OC");
+                    _tabla.Columns.Add("Factura Anticipo");
+                    _tabla.Columns.Add("Factura Final");
+                    _tabla.Columns.Add("Tipo");
+                    _tabla.Columns.Add("Tarea");
+                    _tabla.Columns.Add("Oferta");
+                    _tabla.Columns.Add("Monto");
+                    _tabla.Columns.Add("Estado");
+
+                    foreach (Proyecto i in proyectos)
+                    {
+                        _tabla.Rows.Add(
+                            i.ProyectoId,
+                            i.Vendedor.Nombre,
+                            i.Cliente,
+                            i.FechaOC.ToString("dd MMM yy"),
+                            i.FacturaAnticipoId.ToString(),
+                            i.FacturaFinalId.ToString(),
+                            i.Notas,
+                            i.TareaId,
+                            i.OfertaId,
+                            i.Monto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")),
+                            i.Estado
+                        );
+                    }
+
+                    // Botón Ver
+                    DataGridViewButtonColumn botonVer = new();
+                    botonVer.HeaderText = "Ver";
+                    botonVer.Text = "Ver";
+                    botonVer.Name = "btnVerProyecto";
+                    botonVer.UseColumnTextForButtonValue = true;
+                    dgvProyectos.Columns.Add(botonVer);
+
+                    // Botón Editar
+                    DataGridViewButtonColumn botonEditar = new();
+                    botonEditar.HeaderText = "Editar";
+                    botonEditar.Text = "Editar";
+                    botonEditar.Name = "btnEditarProyecto";
+                    botonEditar.UseColumnTextForButtonValue = true;
+                    dgvProyectos.Columns.Add(botonEditar);
+
+                    dgvProyectos.DataSource = _tabla;
+
+                    dgvProyectos.ReadOnly = false;
+
+
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
         public async void Carga()
         {
             await CargarVendedoresAsync();
@@ -37,7 +133,6 @@ namespace Interfaz
             dgvProyectos.CellBeginEdit += dgvProyectos_CellBeginEdit;
 
         }
-
         private void CargarClientes()
         {
             try
@@ -62,7 +157,7 @@ namespace Interfaz
                 if (Ofertas != null)
                 {
                     cbOfertas.Items.Clear();
-                    cbOfertas.Items.Add($"1-No Asignado / No Disponible");
+                    cbOfertas.Items.Add($"1");
                     foreach (var item in Ofertas)
                     {
                         cbOfertas.Items.Add($"{item.Key}");
@@ -75,8 +170,12 @@ namespace Interfaz
             }
         }
 
+        #endregion
+
+        #region Eventos
+
         /// <summary>
-        /// Muestra la lista de Usuarios
+        /// Muestra la Lista de Usuario del Sistema
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -101,126 +200,83 @@ namespace Interfaz
         /// Carga la lista de Vendedores en el combobox
         /// </summary>
         /// <returns></returns>
-        private async Task CargarVendedoresAsync()
-        {
-            UsuarioNegocio usuarioNegocio = new();
-            Vendedores = await usuarioNegocio.ListarVendedoresAsync();
-            if (Vendedores.Count > 0)
-            {
-                cbVendedores.Items.Clear();
-                foreach (var item in Vendedores)
-                {
-                    cbVendedores.Items.Add(item.Nombre);
-                }
-            }
-        }
-        /// <summary>
-        /// Carga la información de la tabla
-        /// </summary>
-        /// <param name="proyectosFiltrados"></param>
-        /// <returns></returns>
-        private async Task CargarTablaAsync(List<Proyecto> proyectosFiltrados = null)
-        {
-            if (proyectosFiltrados != null)
-            {
-                proyectos = proyectosFiltrados;
-            }
-            else
-            {
-                var proyectosNegocio = new ProyectoNegocios();
-                proyectos = await proyectosNegocio.ListarProyectoAsync();
-            }
-
-            if (proyectos.Count > 0)
-            {
-                dgvProyectos.Columns.Clear();
-                DataTable _tabla = new();
-                _tabla.Columns.Add("Id Interno");
-                _tabla.Columns.Add("Vendedor");
-                _tabla.Columns.Add("Cliente");
-                _tabla.Columns.Add("Fecha OC");
-                _tabla.Columns.Add("Factura Anticipo");
-                _tabla.Columns.Add("Factura Final");
-                _tabla.Columns.Add("Tipo");
-                _tabla.Columns.Add("Tarea");
-                _tabla.Columns.Add("Oferta");
-                _tabla.Columns.Add("Monto");
-                _tabla.Columns.Add("Estado");
-
-                foreach (Proyecto i in proyectos)
-                {
-                    _tabla.Rows.Add(
-                        i.ProyectoId,
-                        i.Vendedor.Nombre,
-                        i.Cliente,
-                        i.FechaOC.ToString("dd MMM yy"),
-                        i.FacturaAnticipoId.ToString(),
-                        i.FacturaFinalId.ToString(),
-                        i.Notas,
-                        i.TareaId,
-                        i.OfertaId,
-                        i.Monto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")),
-                        i.Estado
-                    );
-                }
-
-                // Botón Ver
-                DataGridViewButtonColumn botonVer = new();
-                botonVer.HeaderText = "Ver";
-                botonVer.Text = "Ver";
-                botonVer.Name = "btnVerProyecto";
-                botonVer.UseColumnTextForButtonValue = true;
-                dgvProyectos.Columns.Add(botonVer);
-
-                // Botón Editar
-                DataGridViewButtonColumn botonEditar = new();
-                botonEditar.HeaderText = "Editar";
-                botonEditar.Text = "Editar";
-                botonEditar.Name = "btnEditarProyecto";
-                botonEditar.UseColumnTextForButtonValue = true;
-                dgvProyectos.Columns.Add(botonEditar);
-
-                dgvProyectos.DataSource = _tabla;
-
-                dgvProyectos.ReadOnly = false;
-
-
-            }
-        }
         private void dgvProyectos_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            if (dgvProyectos.Columns[e.ColumnIndex].Name == "Factura Anticipo" || dgvProyectos.Columns[e.ColumnIndex].Name == "Factura Final")
+            if (dgvProyectos.Columns[e.ColumnIndex].Name == "Factura Anticipo" ||
+                dgvProyectos.Columns[e.ColumnIndex].Name == "Factura Final" ||
+                dgvProyectos.Columns[e.ColumnIndex].Name == "Tipo" ||
+                dgvProyectos.Columns[e.ColumnIndex].Name == "Tarea" ||
+                dgvProyectos.Columns[e.ColumnIndex].Name == "Oferta" ||
+                dgvProyectos.Columns[e.ColumnIndex].Name == "Monto"
+                )
             {
                 e.Cancel = false; // Esto asegura que la edición se permita
             }
             else
             {
                 e.Cancel = true;
-                MessageBox.Show($"Solo se pueden editar las facturas");
+                MessageBox.Show($"Solo se pueden editar: Facturas, Tipo, Tarea, Ofertas, Monto");
 
             }
         }
         private async void DgvProyectos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             // Aquí puedes manejar lo que sucede cuando se termina de editar una celda
-            if (e.RowIndex >= 0 && e.ColumnIndex == 6 || e.ColumnIndex == 7)
+            if (e.RowIndex >= 0)
             {
-
+                // Get the current project
                 var project = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[2].Value.ToString());
                 var p = proyectos.FirstOrDefault(e => e.ProyectoId == project);
 
                 // Por ejemplo, puedes validar que el valor editado sea correcto
                 var valorEditado = dgvProyectos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
                 switch (e.ColumnIndex)
                 {
+                    /// Factura Anticipo
                     case 6:
+
                         p.FacturaAnticipoId = valorEditado.ToString();
-             
+
                         break;
+                    /// Factura Final
                     case 7:
-                       
                         p.FacturaFinalId = valorEditado.ToString();
                         break;
+                    /// Tipo
+                    case 8:
+                        p.Notas = valorEditado.ToString();
+                        break;
+
+                    /// Tarea
+                    case 9:
+                        var d = int.TryParse(valorEditado.ToString(), out int val);
+                        if (d)
+                        {
+                            p.TareaId = val;
+                        }
+
+                        break;
+                    /// Oferta
+                    case 10:
+                        p.OfertaId = valorEditado.ToString();
+                        break;
+                    /// Monto
+                    case 11:
+                        // Eliminar el símbolo '₡' y los espacios en blanco.
+                        string ddat = valorEditado.ToString().Replace("₡", "").Replace(" ", "").Trim();
+
+                        // Intentar convertir la cadena a un valor flotante.
+                        if (float.TryParse(ddat, out float val2))
+                        {
+                            p.Monto = val2;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en el formato del monto");
+                        }
+                        break;
+
                     default:
                         break;
                 }
@@ -388,8 +444,6 @@ namespace Interfaz
             }
         }
 
-
-
         /// <summary>
         /// Agrega un nuevo proyecto
         /// </summary>
@@ -408,7 +462,7 @@ namespace Interfaz
                     proyectoTemporal.FechaOC = dtpOrdenCompra.Value;
                     proyectoTemporal.FechaInicio = dtpFechaInicio.Value;
                     proyectoTemporal.FechaFinal = dtpFechaFinal.Value;
-                    proyectoTemporal.Monto = int.Parse(txtMonto.Text);
+                    proyectoTemporal.Monto = float.Parse(txtMonto.Text);
                     proyectoTemporal.Ubicacion = txtUbicacion.Text;
                     proyectoTemporal.TareaId = int.Parse(txtNumeroTarea.Text);
                     proyectoTemporal.Estado = cbEstado.Text;
@@ -417,8 +471,8 @@ namespace Interfaz
                     proyectoTemporal.UsuarioId = (from i in Vendedores
                                                   where i.Nombre == cbVendedores.Text
                                                   select i.UsuarioId).FirstOrDefault();
-                    var ofertatmp = cbOfertas.Text.Split('-');
-                    proyectoTemporal.OfertaId = ofertatmp[0];
+
+                    proyectoTemporal.OfertaId = cbOfertas.Text;
                     proyectoTemporal.Notas = "Sin notas";
                     proyectoTemporal.UltimoEditor = Temporal.UsuarioActivo.Nombre;
                     proyectoTemporal.Autor = Temporal.UsuarioActivo.Nombre;
@@ -440,147 +494,14 @@ namespace Interfaz
 
                 }
             }
+            catch (System.FormatException ee)
+            {
+                MessageBox.Show("Error de formato, verifica la información ingresada. " + ee.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un problema. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private bool ValidarCampos()
-        {
-            try
-            {
-                SetBackLabels();
-                bool OfertaIDValido = int.TryParse(cbOfertas.Text.Split('-').FirstOrDefault(), out int IDValido);
-                var VendedorSeleccionado = cbVendedores.Text;
-                // Vendedor
-                if (string.IsNullOrEmpty(cbVendedores.Text))
-                {
-                    lblVendedor.ForeColor = Color.Red;
-                    MessageBox.Show("No Seleccionó un vendedor", "Advertencia: Validación Vendedor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                // Razón Social
-                if (string.IsNullOrEmpty(txtNombreCliente.Text))
-                {
-                    lblRazon.ForeColor = Color.Red;
-                    MessageBox.Show("No indicó una razón social", "Advertencia: Validación de Razón Social", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-                /// Contacto
-                if (string.IsNullOrEmpty(txtContacto.Text))
-                {
-                    lblContacto.ForeColor = Color.Red;
-                    MessageBox.Show("No indicó un contacto \nSi no posee, indicar: \"No aplica\"", "Advertencia: Validación de Contacto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-                /// Oferta
-                if (string.IsNullOrEmpty(cbOfertas.Text))
-                {
-                    lblOferta.ForeColor = Color.Red;
-                    MessageBox.Show("No indicó una oferta", "Advertencia: Validación Oferta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-                //  Monto
-                bool value = float.TryParse(txtMonto.Text, out float resultado);
-                if (!value)
-                {
-                    lblMonto.ForeColor = Color.Red;
-                    MessageBox.Show("No indicó un monto", "Advertencia: Validación Monto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-                /// Porcentaje Anticipo
-                if (numericUpDownPorcentaje.Value < 0)
-                {
-                    lblPorcentaje.ForeColor = Color.Red;
-                    MessageBox.Show("El porcentaje de anticipo no puede ser negativo.", "Advertencia: Validación Porcentaje de Anticipo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-                else if (numericUpDownPorcentaje.Value == 0)
-                {
-                    var response = MessageBox.Show("El porcentaje de anticipo se dejó en 0. ¿Desea continuar?", "Advertencia: Validación Porcentaje Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (response == DialogResult.No)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        txtNumeroFactura.Text = "No hay anticipo";
-                    }
-                }
-                // Numero Factura de anticipo
-                if (string.IsNullOrEmpty(txtNumeroFactura.Text))
-                {
-                    lblFacturaAnticipo.ForeColor = Color.Red;
-                    var response = MessageBox.Show("No indico una factura de anticipo \n¿Desea continuar?", "Advertencia: Validación Número Factura Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (response == DialogResult.No)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        txtNumeroFactura.Text = "No hay factura de anticipo";
-                    }
-                }
-                // Validación de Tarea 
-                var taskNumber = int.TryParse(txtNumeroTarea.Text, out int numberTask);
-                if (!taskNumber)
-                {
-                    lblTarea.ForeColor = Color.Red;
-                    MessageBox.Show("No puede dejar el número de tarea en blanco.\nSi no posee, indique: 1", "Advertencia: Validación de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-                // Ubicacion
-                if (string.IsNullOrEmpty(txtUbicacion.Text))
-                {
-                    var response = MessageBox.Show("No indico la ubicación del proyecto \n¿Desea continuar?", "Advertencia: Validación de Ubicación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (response == DialogResult.Yes)
-                    {
-                        txtUbicacion.Text = "No se indica la ubicación del proyecto";
-
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                // Estado
-                if (string.IsNullOrEmpty(cbEstado.Text))
-                {
-                    lblEstado.ForeColor = Color.Red;
-                    var response = MessageBox.Show("No indico el estado del proyecto \n¿Desea continuar?", "Advertencia: Estado del proyecto", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (response == DialogResult.Yes)
-                    {
-                        cbEstado.Text = "Pendiente de Ejecución";
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                SetBackLabels();
-                return true;
-
-
-            }
-            catch (Exception f)
-            {
-                Console.WriteLine(f.Message);
-                return false;
-            }
-        }
-
-        private void SetBackLabels()
-        {
-            lblVendedor.ForeColor = Color.Black;
-            lblRazon.ForeColor = Color.Black;
-            lblContacto.ForeColor = Color.Black;
-            lblOferta.ForeColor = Color.Black;
-            lblMonto.ForeColor = Color.Black;
-            lblPorcentaje.ForeColor = Color.Black;
-            lblFacturaAnticipo.ForeColor = Color.Black;
-            lblTarea.ForeColor = Color.Black;
-
         }
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -675,16 +596,171 @@ namespace Interfaz
             CargarTablaAsync();
         }
 
-        private void txtMonto_Leave(object sender, EventArgs e)
+        #endregion
+
+        #region Validations
+
+        private void txtNumeroTarea_TextChanged(object sender, EventArgs e)
         {
-            bool parseable = float.TryParse(txtMonto.Text, out float resultado);
-            if (!parseable)
+            if (!int.TryParse(txtNumeroTarea.Text, out _))
             {
-                MessageBox.Show($"El valor '{txtMonto.Text}' no es válido, Reviselo e intente de nuevo\nEjemplo de valor aceptable: 1520,25", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La tarea no puede tener texto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNumeroTarea.Clear(); // Opcional: Limpia el campo si la entrada no es válida
+            }
+        }
+
+        private void txtMonto_TextChanged(object sender, EventArgs e)
+        {
+            if (!float.TryParse(txtMonto.Text, out _) && !string.IsNullOrEmpty(txtMonto.Text))
+            {
+                MessageBox.Show("El valor en el monto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMonto.Clear(); // Opcional: Limpia el campo si la entrada no es válida
+            }
+        }
+
+        private void cbOfertas_TextChanged(object sender, EventArgs e)
+        {
+            if (!float.TryParse(cbOfertas.Text, out _) && !string.IsNullOrEmpty(cbOfertas.Text))
+            {
+                MessageBox.Show("Solo se permiten números", "Advertencia - Número Oferta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbOfertas.SelectedIndex = -1; // Opcional: Limpia el campo si la entrada no es válida
             }
 
         }
 
+        private bool ValidarCampos()
+        {
+            try
+            {
+                SetBackLabels();
+                bool OfertaIDValido = int.TryParse(cbOfertas.Text.Split('-').FirstOrDefault(), out int IDValido);
+                var VendedorSeleccionado = cbVendedores.Text;
+                // Vendedor
+                if (string.IsNullOrEmpty(cbVendedores.Text))
+                {
+                    lblVendedor.ForeColor = Color.Red;
+                    MessageBox.Show("No Seleccionó un vendedor", "Advertencia: Validación Vendedor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                // Razón Social
+                if (string.IsNullOrEmpty(txtNombreCliente.Text))
+                {
+                    lblRazon.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó una razón social", "Advertencia: Validación de Razón Social", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                /// Contacto
+                if (string.IsNullOrEmpty(txtContacto.Text))
+                {
+                    lblContacto.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó un contacto \nSi no posee, indicar: \"No aplica\"", "Advertencia: Validación de Contacto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                /// Oferta
+                if (string.IsNullOrEmpty(cbOfertas.Text))
+                {
+                    lblOferta.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó una oferta", "Advertencia: Validación Oferta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                //  Monto
+                bool value = float.TryParse(txtMonto.Text, out float resultado);
+                if (!value)
+                {
+                    lblMonto.ForeColor = Color.Red;
+                    MessageBox.Show("No indicó un monto", "Advertencia: Validación Monto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                /// Porcentaje Anticipo
+                if (numericUpDownPorcentaje.Value < 0)
+                {
+                    lblPorcentaje.ForeColor = Color.Red;
+                    MessageBox.Show("El porcentaje de anticipo no puede ser negativo.", "Advertencia: Validación Porcentaje de Anticipo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                else if (numericUpDownPorcentaje.Value == 0)
+                {
+                    var response = MessageBox.Show("El porcentaje de anticipo se dejó en 0. ¿Desea continuar?", "Advertencia: Validación Porcentaje Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (response == DialogResult.No)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        txtNumeroFactura.Text = "No hay anticipo";
+                    }
+                }
+                // Numero Factura de anticipo
+                if (string.IsNullOrEmpty(txtNumeroFactura.Text))
+                {
+                    lblFacturaAnticipo.ForeColor = Color.Red;
+                    var response = MessageBox.Show("No indico una factura de anticipo \n¿Desea continuar?", "Advertencia: Validación Número Factura Anticipo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (response == DialogResult.No)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        txtNumeroFactura.Text = "No hay factura de anticipo";
+                    }
+                }
+                // Validación de Tarea 
+                var taskNumber = int.TryParse(txtNumeroTarea.Text, out int numberTask);
+                if (!taskNumber)
+                {
+                    lblTarea.ForeColor = Color.Red;
+                    MessageBox.Show("No puede dejar el número de tarea en blanco.\nSi no posee, indique: 1", "Advertencia: Validación de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                // Ubicacion
+                if (string.IsNullOrEmpty(txtUbicacion.Text))
+                {
+                    var response = MessageBox.Show("No indico la ubicación del proyecto \n¿Desea continuar?", "Advertencia: Validación de Ubicación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (response == DialogResult.Yes)
+                    {
+                        txtUbicacion.Text = "No se indica la ubicación del proyecto";
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                // Estado
+                if (string.IsNullOrEmpty(cbEstado.Text))
+                {
+                    lblEstado.ForeColor = Color.Red;
+                    var response = MessageBox.Show("No indico el estado del proyecto \n¿Desea continuar?", "Advertencia: Estado del proyecto", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (response == DialogResult.Yes)
+                    {
+                        cbEstado.Text = "Pendiente de Ejecución";
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                SetBackLabels();
+                return true;
+            }
+            catch (Exception f)
+            {
+                Console.WriteLine(f.Message);
+                return false;
+            }
+        }
+
+        private void SetBackLabels()
+        {
+            lblVendedor.ForeColor = Color.Black;
+            lblRazon.ForeColor = Color.Black;
+            lblContacto.ForeColor = Color.Black;
+            lblOferta.ForeColor = Color.Black;
+            lblMonto.ForeColor = Color.Black;
+            lblPorcentaje.ForeColor = Color.Black;
+            lblFacturaAnticipo.ForeColor = Color.Black;
+            lblTarea.ForeColor = Color.Black;
+
+        }
         #endregion
     }
 }

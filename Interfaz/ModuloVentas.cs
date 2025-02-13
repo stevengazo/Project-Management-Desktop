@@ -27,12 +27,10 @@ namespace Interfaz
 
 
         }
-
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
         private async void Form1_Load(object sender, EventArgs e)
         {
             await CargarTabla();
@@ -40,7 +38,6 @@ namespace Interfaz
             CargarVendedores();
             this.Text = $"Modulo Ventas - Asfaltos - Bienvenido {Temporal.UsuarioActivo.Nombre}";
         }
-
         private void cargarOfertas()
         {
             try
@@ -50,7 +47,7 @@ namespace Interfaz
                 if (Ofertas != null)
                 {
                     comboBoxOfertas.Items.Clear();
-                    comboBoxOfertas.Items.Add($"1-No Asignado / No Disponible");
+                    comboBoxOfertas.Items.Add($"1");
                     foreach (var item in Ofertas)
                     {
                         comboBoxOfertas.Items.Add($"{item.Key}");
@@ -62,17 +59,19 @@ namespace Interfaz
                 MessageBox.Show(ex.Message);
             }
         }
-
-
         private void CargarVendedores()
         {
             UsuarioNegocio usuarioNegocio = new();
-            Vendedores = usuarioNegocio.ListarVendedores();
+            Vendedores = usuarioNegocio.ListarVendedores().OrderBy(e=>e.Nombre).ToList();
             if (Vendedores.Count > 0)
             {
                 foreach (var item in Vendedores)
                 {
-                    cbVendedores.Items.Add(item.Nombre);
+                    if (item.Activo)
+                    {
+                        cbVendedores.Items.Add(item.Nombre);
+
+                    }
                 }
             }
         }
@@ -143,8 +142,6 @@ namespace Interfaz
                 }
             }
         }
-
-
         private void LimpiarDatos()
         {
             cbVendedores.Text = string.Empty;
@@ -161,13 +158,11 @@ namespace Interfaz
             dateTimePickerFinal.Value = DateTime.Now;
             comboBoxEstado.Text = string.Empty;
         }
-
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarUsuario listarUsuariotmp = new();
             listarUsuariotmp.ShowDialog();
         }
-
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -242,8 +237,8 @@ namespace Interfaz
                     proyectoNuevo.Notas = txtTipoTrabajo.Text;
                     proyectoNuevo.FechaOC = dtpFechaOC.Value;
                     proyectoNuevo.Contacto = txtContacto.Text;
-                    var oferta = comboBoxOfertas.Text.Split('-');
-                    proyectoNuevo.OfertaId = oferta.First();
+
+                    proyectoNuevo.OfertaId = comboBoxOfertas.Text;
                     proyectoNuevo.Monto = float.Parse(txtMonto.Text);
                     proyectoNuevo.PorcentajeAnticipo = (int)numericUpDownPorcentaje.Value;
                     proyectoNuevo.FacturaAnticipoId = txtNumeroFacturaAnticipo.Text;
@@ -279,8 +274,6 @@ namespace Interfaz
                 MessageBox.Show(r.Message);
             }
         }
-
-
         private void SetBackLabels()
         {
             lblVendedor.ForeColor = Color.Black;
@@ -297,13 +290,12 @@ namespace Interfaz
             lblFechaFinalizacion.ForeColor = Color.Black;
             lblEstado.ForeColor = Color.Black;
         }
-
         private bool ValidarCampos()
         {
             try
             {
                 SetBackLabels();
-                bool OfertaIDValido = int.TryParse(comboBoxOfertas.Text.Split('-').FirstOrDefault(), out int IDValido);
+                bool OfertaIDValido = int.TryParse(comboBoxOfertas.Text, out int IDValido);
                 var VendedorSeleccionado = cbVendedores.Text;
                 // Vendedor
                 if (string.IsNullOrEmpty(cbVendedores.Text))
@@ -419,31 +411,26 @@ namespace Interfaz
                 return false;
             }
         }
-
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void usuariosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             ListarUsuario listarUsuariousuarios = new();
             listarUsuariousuarios.ShowDialog();
         }
-
         private void agregarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarUsuario agregarUsuario = new();
             agregarUsuario.ShowDialog();
         }
-
         private void verCotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListarOferta listarOferta = new();
             listarOferta.ShowDialog();
 
         }
-
         private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -474,23 +461,19 @@ namespace Interfaz
                 MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
-
         private void agregarCotizaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AgregarOferta agregarOferta = new();
             agregarOferta.ShowDialog();
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
 
         }
-
         private void btnLimpiar_Click_1(object sender, EventArgs e)
         {
             LimpiarDatos();
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -547,14 +530,12 @@ namespace Interfaz
                 MessageBox.Show($"Error interno {f.Message}", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
         private void limpar_Click(object sender, EventArgs e)
         {
             txtNumeroPBuscar.Text = string.Empty;
             txtClienteBuscar.Text = string.Empty;
             CargarTabla();
         }
-
         private void txtMonto_Leave(object sender, EventArgs e)
         {
             bool parseable = float.TryParse(txtMonto.Text, out float resultado);
