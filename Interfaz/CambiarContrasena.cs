@@ -4,12 +4,18 @@ namespace Interfaz
 {
     public partial class CambiarContrasena : Form
     {
+        #region Properties
         public int idUsuario { get; set; }
+        #endregion
+
+        #region Constructor
         public CambiarContrasena()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Methods
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -36,7 +42,9 @@ namespace Interfaz
                 }
             }
         }
-
+        #endregion
+      
+        #region Validations
         private bool ValidarCampos()
         {
             if (string.IsNullOrEmpty(txtContrasena.Text))
@@ -57,5 +65,6 @@ namespace Interfaz
                 }
             }
         }
+        #endregion
     }
 }

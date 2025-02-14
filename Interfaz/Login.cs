@@ -8,17 +8,58 @@ namespace Interfaz
 {
     public partial class Login : Form
     {
+        #region Properties
         private List<Rol> Rols { get; set; }
+        #endregion
+
+        #region Constructor
         public Login()
         {
             InitializeComponent();
             CargarCredenciales();
         }
+        #endregion
 
+        #region Methods
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
+        private async void btnIngresar_Click(object sender, EventArgs e)
+        {
+            loging();
+        }
+        private void Login_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loging();
+            }
+        }
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loging();
+            }
+        }
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loging();
+            }
+        }
+        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loging();
+            }
+        }
+        #endregion
+
+        #region Loading
         private async Task CargarCredenciales()
         {
             try
@@ -60,7 +101,6 @@ namespace Interfaz
             }
 
         }
-
         private async Task RecordarCredenciales()
         {
             try
@@ -107,12 +147,6 @@ namespace Interfaz
                 MessageBox.Show(f.Message, "Error SaveCredentias");
             }
         }
-
-        private async void btnIngresar_Click(object sender, EventArgs e)
-        {
-            loging();
-        }
-
         private void loging()
         {
             RolUsuarioNegocio rolUsuarioNegocio = new();
@@ -193,7 +227,6 @@ namespace Interfaz
                 }
             }
         }
-
         private void Login_Load(object sender, EventArgs e)
         {
             var conexion = Negocio.ComunNegocios.VerificarConexion();
@@ -209,7 +242,6 @@ namespace Interfaz
 
 
         }
-
         private void CargarRoles()
         {
             RolNegocio rolNegocio = new();
@@ -222,37 +254,6 @@ namespace Interfaz
                 }
             }
         }
-
-        private void Login_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                loging();
-            }
-        }
-
-        private void Login_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                loging();
-            }
-        }
-
-        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                loging();
-            }
-        }
-
-        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                loging();
-            }
-        }
+        #endregion
     }
 }

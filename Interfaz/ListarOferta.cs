@@ -7,13 +7,11 @@ namespace Interfaz
 {
     public partial class ListarOferta : Form
     {
-
+        #region Properties
         private List<Oferta> ListaOfertas { get; set; }
-        public ListarOferta()
-        {
-            InitializeComponent();
-        }
+        #endregion
 
+        #region loadings
         private async void ListarOferta_Load(object sender, EventArgs e)
         {
             if (Temporal.TipoLogin.Equals("Administrador"))
@@ -25,7 +23,16 @@ namespace Interfaz
                 await CargarTablaVendedores();
             }
         }
+        #endregion
 
+        #region Constructor
+        public ListarOferta()
+        {
+            InitializeComponent();
+        }
+        #endregion
+
+        #region Methods
         private async Task CargarTablaVendedores(List<Oferta> lista = null)
         {
             try
@@ -308,5 +315,7 @@ namespace Interfaz
             }
 
         }
+
+        #endregion
     }
 }

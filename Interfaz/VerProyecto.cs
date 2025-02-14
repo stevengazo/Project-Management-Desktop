@@ -6,11 +6,19 @@ namespace Interfaz
 {
     public partial class VerProyecto : Form
     {
+
+        #region Properties
         public int idProyecto { get; set; } = 0;
+        #endregion
+    
+        #region Constructor
         public VerProyecto()
         {
             InitializeComponent();
         }
+        #endregion
+        
+        #region Loading
         private void VerProyecto_Load(object sender, EventArgs e)
         {
             CargarProyectoDetallado();
@@ -65,5 +73,7 @@ namespace Interfaz
 
 
         }
+        #endregion
+   
     }
 }

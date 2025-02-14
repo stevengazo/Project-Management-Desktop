@@ -5,12 +5,18 @@ namespace Interfaz
 {
     public partial class VerOferta : Form
     {
+        #region Properties
         public int idOferta { get; set; }
+        #endregion
+
+        #region Constructor
         public VerOferta()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Loadings
         private void VerOferta_Load(object sender, EventArgs e)
         {
             OfertaNegocio ofertaNegocio = new();
@@ -43,5 +49,6 @@ namespace Interfaz
                 this.Close();
             }
         }
+        #endregion
     }
 }

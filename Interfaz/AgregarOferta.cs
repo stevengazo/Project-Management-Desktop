@@ -7,39 +7,22 @@ namespace Interfaz
 {
     public partial class AgregarOferta : Form
     {
+        #region Properties
         private List<Usuario> usuarios = new();
+        #endregion
+
+        #region Constructor
         public AgregarOferta()
         {
             InitializeComponent();
         }
+        #endregion
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        #region Methods
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
-
-        private async void AgregarOferta_Load(object sender, EventArgs e)
-        {
-            await CargarEncargadosAsync();
-        }
-        private async Task CargarEncargadosAsync()
-        {
-            try
-            {
-                UsuarioNegocio UsuarioNegocio = new();
-                usuarios = await UsuarioNegocio.ListarVendedoresAsync();
-                foreach (var item in usuarios)
-                {
-                    cbEncargado.Items.Add(item.Nombre);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error Interno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             bool valido = ValidarCampos();
@@ -77,7 +60,39 @@ namespace Interfaz
                 }
             }
         }
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        #endregion
+
+        #region Loaders
+        private async void AgregarOferta_Load(object sender, EventArgs e)
+        {
+            await CargarEncargadosAsync();
+        }
+        private async Task CargarEncargadosAsync()
+        {
+            try
+            {
+                UsuarioNegocio UsuarioNegocio = new();
+                usuarios = await UsuarioNegocio.ListarVendedoresAsync();
+                foreach (var item in usuarios)
+                {
+                    cbEncargado.Items.Add(item.Nombre);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error Interno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        #endregion
+
+        #region Validations
         /// <summary>
         /// Valida la verificación realizada a los campos del formulario
         /// </summary>
@@ -134,10 +149,6 @@ namespace Interfaz
                 return false;
             }
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        #endregion
     }
 }

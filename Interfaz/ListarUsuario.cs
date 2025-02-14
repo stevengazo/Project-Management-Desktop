@@ -6,12 +6,19 @@ namespace Interfaz
 {
     public partial class ListarUsuario : Form
     {
+        #region Properties
         private List<Usuario> usuarios;
         private RolUsuarioNegocio RolUsuario = new RolUsuarioNegocio();
+        #endregion
+
+        #region Constructor 
         public ListarUsuario()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region Loading
         public async Task CargarUsuarios()
         {
             try
@@ -89,11 +96,13 @@ namespace Interfaz
 
             }
         }
+        #endregion
+
+        #region Methods
         private async void ListarUsuario_Load(object sender, EventArgs e)
         {
             await CargarUsuarios();
         }
-
         private async void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -229,5 +238,6 @@ namespace Interfaz
             }
 
         }
+        #endregion
     }
 }

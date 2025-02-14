@@ -5,11 +5,15 @@ namespace Interfaz
 {
     public partial class AgregarUsuario : Form
     {
+        #region Constructor
         public AgregarUsuario()
         {
             InitializeComponent();
         }
 
+        #endregion
+
+        #region Methods
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -99,7 +103,9 @@ namespace Interfaz
             }
 
         }
-
+        #endregion
+      
+        #region Validations
         private bool ValidarCampos()
         {
             if (string.IsNullOrEmpty(txtLogin.Text))
@@ -128,5 +134,6 @@ namespace Interfaz
                 }
             }
         }
+        #endregion
     }
 }
