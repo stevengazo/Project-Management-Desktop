@@ -12,25 +12,24 @@ namespace Interfaz
 {
     public partial class ModuloVentas : Form
     {
+        #region Properties
+
         private Dictionary<int, string> Ofertas = new();
         private List<Proyecto> proyectos = new();
         private Proyecto ProyectoTemporal = new();
         private List<Usuario> Vendedores = new();
+        #endregion
+
+        #region Constructor
+
         public ModuloVentas()
         {
             InitializeComponent();
         }
 
-        private void agregarRazónSocialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        #endregion
 
-
-
-        }
-        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+        #region Loadings
         private async void Form1_Load(object sender, EventArgs e)
         {
             await CargarTabla();
@@ -62,7 +61,7 @@ namespace Interfaz
         private void CargarVendedores()
         {
             UsuarioNegocio usuarioNegocio = new();
-            Vendedores = usuarioNegocio.ListarVendedores().OrderBy(e=>e.Nombre).ToList();
+            Vendedores = usuarioNegocio.ListarVendedores().OrderBy(e => e.Nombre).ToList();
             if (Vendedores.Count > 0)
             {
                 foreach (var item in Vendedores)
@@ -142,6 +141,12 @@ namespace Interfaz
                 }
             }
         }
+
+
+        #endregion
+
+        #region Methods
+
         private void LimpiarDatos()
         {
             cbVendedores.Text = string.Empty;
@@ -274,6 +279,134 @@ namespace Interfaz
                 MessageBox.Show(r.Message);
             }
         }
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void usuariosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            ListarUsuario listarUsuariousuarios = new();
+            listarUsuariousuarios.ShowDialog();
+        }
+        private void agregarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarUsuario agregarUsuario = new();
+            agregarUsuario.ShowDialog();
+        }
+        private void verCotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListarOferta listarOferta = new();
+            listarOferta.ShowDialog();
+
+        }
+        private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 11)
+                {
+                    VerProyecto verProyecto = new();
+                    var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    verProyecto.idProyecto = id;
+                    verProyecto.ShowDialog();
+                }
+                else
+                if (e.ColumnIndex == 12)
+                {
+                    var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    EditarProyecto editarProyecto = new();
+                    editarProyecto.ProyectoId = id;
+                    editarProyecto.ShowDialog();
+                    CargarTabla();
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception f)
+            {
+                MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+        private void agregarCotizaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarOferta agregarOferta = new();
+            agregarOferta.ShowDialog();
+        }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            LimpiarDatos();
+        }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtClienteBuscar.Text) && !string.IsNullOrEmpty(txtNumeroPBuscar.Text))
+                {
+                    int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
+                    var proyectosFiltrados = (from p in proyectos
+                                              where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper()) && p.ProyectoId == idProyecto
+                                              select p).ToList();
+                    if (proyectosFiltrados.Count > 0)
+                    {
+                        CargarTabla(proyectosFiltrados);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else if (!string.IsNullOrEmpty(txtClienteBuscar.Text))
+                {
+                    var proyectosFiltrados = (from p in proyectos
+                                              where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper())
+                                              select p).ToList();
+                    if (proyectosFiltrados.Count > 0)
+                    {
+                        CargarTabla(proyectosFiltrados);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else if (!string.IsNullOrEmpty(txtNumeroPBuscar.Text))
+                {
+                    int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
+                    var proyectosFiltrados = (from p in proyectos
+                                              where p.ProyectoId == idProyecto
+                                              select p).ToList();
+                    if (proyectosFiltrados.Count > 0)
+                    {
+                        CargarTabla(proyectosFiltrados);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                txtNumeroPBuscar.Text = string.Empty;
+                txtClienteBuscar.Text = string.Empty;
+            }
+            catch (Exception f)
+            {
+                MessageBox.Show($"Error interno {f.Message}", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void limpar_Click(object sender, EventArgs e)
+        {
+            txtNumeroPBuscar.Text = string.Empty;
+            txtClienteBuscar.Text = string.Empty;
+            CargarTabla();
+        }
+        #endregion
+
+        #region Validations
         private void SetBackLabels()
         {
             lblVendedor.ForeColor = Color.Black;
@@ -411,131 +544,7 @@ namespace Interfaz
                 return false;
             }
         }
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void usuariosToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            ListarUsuario listarUsuariousuarios = new();
-            listarUsuariousuarios.ShowDialog();
-        }
-        private void agregarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AgregarUsuario agregarUsuario = new();
-            agregarUsuario.ShowDialog();
-        }
-        private void verCotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ListarOferta listarOferta = new();
-            listarOferta.ShowDialog();
 
-        }
-        private void dgvProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.ColumnIndex == 11)
-                {
-                    VerProyecto verProyecto = new();
-                    var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    verProyecto.idProyecto = id;
-                    verProyecto.ShowDialog();
-                }
-                else
-                if (e.ColumnIndex == 12)
-                {
-                    var id = int.Parse(dgvProyectos.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    EditarProyecto editarProyecto = new();
-                    editarProyecto.ProyectoId = id;
-                    editarProyecto.ShowDialog();
-                    CargarTabla();
-                }
-                else
-                {
-
-                }
-            }
-            catch (Exception f)
-            {
-                MessageBox.Show($"Error interno: {f.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-        }
-        private void agregarCotizaciónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AgregarOferta agregarOferta = new();
-            agregarOferta.ShowDialog();
-        }
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnLimpiar_Click_1(object sender, EventArgs e)
-        {
-            LimpiarDatos();
-        }
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(txtClienteBuscar.Text) && !string.IsNullOrEmpty(txtNumeroPBuscar.Text))
-                {
-                    int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
-                    var proyectosFiltrados = (from p in proyectos
-                                              where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper()) && p.ProyectoId == idProyecto
-                                              select p).ToList();
-                    if (proyectosFiltrados.Count > 0)
-                    {
-                        CargarTabla(proyectosFiltrados);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                else if (!string.IsNullOrEmpty(txtClienteBuscar.Text))
-                {
-                    var proyectosFiltrados = (from p in proyectos
-                                              where p.Cliente.ToUpper().Contains(txtClienteBuscar.Text.ToUpper())
-                                              select p).ToList();
-                    if (proyectosFiltrados.Count > 0)
-                    {
-                        CargarTabla(proyectosFiltrados);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                else if (!string.IsNullOrEmpty(txtNumeroPBuscar.Text))
-                {
-                    int.TryParse(txtNumeroPBuscar.Text, out int idProyecto);
-                    var proyectosFiltrados = (from p in proyectos
-                                              where p.ProyectoId == idProyecto
-                                              select p).ToList();
-                    if (proyectosFiltrados.Count > 0)
-                    {
-                        CargarTabla(proyectosFiltrados);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No hay coindencias", "Adventencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                txtNumeroPBuscar.Text = string.Empty;
-                txtClienteBuscar.Text = string.Empty;
-            }
-            catch (Exception f)
-            {
-                MessageBox.Show($"Error interno {f.Message}", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        private void limpar_Click(object sender, EventArgs e)
-        {
-            txtNumeroPBuscar.Text = string.Empty;
-            txtClienteBuscar.Text = string.Empty;
-            CargarTabla();
-        }
         private void txtMonto_Leave(object sender, EventArgs e)
         {
             bool parseable = float.TryParse(txtMonto.Text, out float resultado);
@@ -544,5 +553,7 @@ namespace Interfaz
                 MessageBox.Show($"El valor {txtMonto.Text} no es valido, reviselo\n Ejemplo: 1520,25", "", MessageBoxButtons.OK);
             }
         }
+        #endregion
+
     }
 }
