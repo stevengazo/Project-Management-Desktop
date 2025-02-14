@@ -544,7 +544,6 @@ namespace Interfaz
                 return false;
             }
         }
-
         private void txtMonto_Leave(object sender, EventArgs e)
         {
             bool parseable = float.TryParse(txtMonto.Text, out float resultado);
@@ -553,7 +552,30 @@ namespace Interfaz
                 MessageBox.Show($"El valor {txtMonto.Text} no es valido, reviselo\n Ejemplo: 1520,25", "", MessageBoxButtons.OK);
             }
         }
+        private void comboBoxOfertas_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(comboBoxOfertas.Text, out _) && !string.IsNullOrEmpty(comboBoxOfertas.Text))
+            {
+                MessageBox.Show("Solo se permiten números", "Advertencia - Número Oferta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBoxOfertas.SelectedIndex = -1;
+            }
+        }
+        private void txtMonto_TextChanged(object sender, EventArgs e)
+        {
+            if (!float.TryParse(txtMonto.Text, out _) && !string.IsNullOrEmpty(txtMonto.Text))
+            {
+                MessageBox.Show("El valor en el monto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMonto.Clear(); // Opcional: Limpia el campo si la entrada no es válida
+            }
+        }
+        private void txtTareaBitrix_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtTareaBitrix.Text, out _) && !string.IsNullOrEmpty(txtTareaBitrix.Text) )
+            {
+                MessageBox.Show("La tarea no puede tener texto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTareaBitrix.Clear(); // Opcional: Limpia el campo si la entrada no es válida
+            }
+        }
         #endregion
-
     }
 }

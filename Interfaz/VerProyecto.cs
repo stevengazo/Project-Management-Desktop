@@ -11,12 +11,10 @@ namespace Interfaz
         {
             InitializeComponent();
         }
-
         private void VerProyecto_Load(object sender, EventArgs e)
         {
             CargarProyectoDetallado();
         }
-
         private void CargarProyectoBasico()
         {
             if (idProyecto == 0)
@@ -48,7 +46,7 @@ namespace Interfaz
                     txtOC.Text = proyectoTemporal.FechaOC.ToLongDateString();
                     txtContacto.Text = proyectoTemporal.Contacto;
                     txtOferta.Text = proyectoTemporal.OfertaId;
-                    txtMontoProyecto.Text = proyectoTemporal.Monto.ToString("C", CultureInfo.CurrentCulture);
+                    txtMontoProyecto.Text = proyectoTemporal.Monto.ToString("C", CultureInfo.GetCultureInfo("es-cr"));
                     txtPorcentaje.Text = $"{proyectoTemporal.PorcentajeAnticipo}%";
                     txtNumeroFacturaAnticipo.Text = proyectoTemporal.FacturaAnticipoId;
                     txtNumeroTarea.Text = proyectoTemporal.TareaId.ToString();

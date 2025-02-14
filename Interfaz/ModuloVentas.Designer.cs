@@ -39,6 +39,8 @@
             agregarCotizaciónToolStripMenuItem = new ToolStripMenuItem();
             verCotizacionesToolStripMenuItem = new ToolStripMenuItem();
             groupBox1 = new GroupBox();
+            txtTipoTrabajo = new TextBox();
+            label3 = new Label();
             comboBoxOfertas = new ComboBox();
             txtRazonSocial = new TextBox();
             dtpFechaOC = new DateTimePicker();
@@ -76,8 +78,6 @@
             label1 = new Label();
             dgvProyectos = new DataGridView();
             saveFileDialog = new SaveFileDialog();
-            txtTipoTrabajo = new TextBox();
-            label3 = new Label();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPorcentaje).BeginInit();
@@ -187,6 +187,24 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Agregar Proyecto";
             // 
+            // txtTipoTrabajo
+            // 
+            txtTipoTrabajo.Location = new Point(198, 323);
+            txtTipoTrabajo.Multiline = true;
+            txtTipoTrabajo.Name = "txtTipoTrabajo";
+            txtTipoTrabajo.PlaceholderText = "Demarcación, Sellador, Asfaltado....";
+            txtTipoTrabajo.Size = new Size(225, 23);
+            txtTipoTrabajo.TabIndex = 43;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(24, 326);
+            label3.Name = "label3";
+            label3.Size = new Size(87, 15);
+            label3.TabIndex = 42;
+            label3.Text = "Tipo de Trabajo";
+            // 
             // comboBoxOfertas
             // 
             comboBoxOfertas.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -195,6 +213,7 @@
             comboBoxOfertas.Name = "comboBoxOfertas";
             comboBoxOfertas.Size = new Size(225, 23);
             comboBoxOfertas.TabIndex = 41;
+            comboBoxOfertas.TextChanged += comboBoxOfertas_TextChanged;
             // 
             // txtRazonSocial
             // 
@@ -323,6 +342,7 @@
             txtTareaBitrix.PlaceholderText = "2155465";
             txtTareaBitrix.Size = new Size(225, 23);
             txtTareaBitrix.TabIndex = 21;
+            txtTareaBitrix.TextChanged += txtTareaBitrix_TextChanged;
             // 
             // lblTarea
             // 
@@ -357,6 +377,7 @@
             txtMonto.PlaceholderText = "150000";
             txtMonto.Size = new Size(225, 23);
             txtMonto.TabIndex = 15;
+            txtMonto.TextChanged += txtMonto_TextChanged;
             txtMonto.Leave += txtMonto_Leave;
             // 
             // lblPorcentaje
@@ -512,24 +533,6 @@
             dgvProyectos.Size = new Size(865, 540);
             dgvProyectos.TabIndex = 0;
             dgvProyectos.CellContentClick += dgvProyectos_CellContentClick;
-            // 
-            // txtTipoTrabajo
-            // 
-            txtTipoTrabajo.Location = new Point(198, 323);
-            txtTipoTrabajo.Multiline = true;
-            txtTipoTrabajo.Name = "txtTipoTrabajo";
-            txtTipoTrabajo.PlaceholderText = "Demarcación, Sellador, Asfaltado....";
-            txtTipoTrabajo.Size = new Size(225, 23);
-            txtTipoTrabajo.TabIndex = 43;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(24, 326);
-            label3.Name = "label3";
-            label3.Size = new Size(87, 15);
-            label3.TabIndex = 42;
-            label3.Text = "Tipo de Trabajo";
             // 
             // ModuloVentas
             // 
