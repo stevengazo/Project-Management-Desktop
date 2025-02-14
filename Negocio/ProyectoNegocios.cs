@@ -160,6 +160,8 @@ namespace Negocios
                 using (var db = dBContext)
                 {
                     proyectos = await (from proye in db.Proyectos
+                                       where proye.FechaOC.Year == DateTime.Now.Year ||
+                                       proye.FechaOC.Year == DateTime.Now.AddYears(-1).Year
                                        orderby proye.ProyectoId descending
                                        select proye).Include(P => P.Vendedor).ToListAsync();
                 }

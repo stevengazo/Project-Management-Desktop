@@ -67,36 +67,46 @@ namespace Interfaz
                     dgvProyectos.Columns.Clear();
                     DataTable _tabla = new();
                     _tabla.Columns.Add("Id Interno");
+                    _tabla.Columns.Add("Tarea");
+                    _tabla.Columns.Add("Fecha OC");
                     _tabla.Columns.Add("Vendedor");
                     _tabla.Columns.Add("Cliente");
-                    _tabla.Columns.Add("Fecha OC");
                     _tabla.Columns.Add("Factura Anticipo");
                     _tabla.Columns.Add("Factura Final");
                     _tabla.Columns.Add("Tipo");
-                    _tabla.Columns.Add("Tarea");
                     _tabla.Columns.Add("Oferta");
                     _tabla.Columns.Add("Monto");
                     _tabla.Columns.Add("Estado");
 
+           
                     foreach (Proyecto i in proyectos)
                     {
                         _tabla.Rows.Add(
                             i.ProyectoId,
+                            i.TareaId.ToString(),
+                            i.FechaOC.ToString("dd MMMM yy"),
                             i.Vendedor.Nombre,
                             i.Cliente,
-                            i.FechaOC.ToString("dd MMM yy"),
                             i.FacturaAnticipoId.ToString(),
                             i.FacturaFinalId.ToString(),
                             i.Notas,
-                            i.TareaId,
                             i.OfertaId,
                             i.Monto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")),
                             i.Estado
                         );
+
                     }
+
+
+
+                   
+
+
+
 
                     // Botón Ver
                     DataGridViewButtonColumn botonVer = new();
+                    botonVer.Width = 50;
                     botonVer.HeaderText = "Ver";
                     botonVer.Text = "Ver";
                     botonVer.Name = "btnVerProyecto";
@@ -105,6 +115,8 @@ namespace Interfaz
 
                     // Botón Editar
                     DataGridViewButtonColumn botonEditar = new();
+                    botonEditar.Width = 50;
+           
                     botonEditar.HeaderText = "Editar";
                     botonEditar.Text = "Editar";
                     botonEditar.Name = "btnEditarProyecto";
@@ -115,7 +127,7 @@ namespace Interfaz
 
                     dgvProyectos.ReadOnly = false;
 
-
+                    AjustarTamano();
                 }
             }
             catch (Exception e)
@@ -124,6 +136,29 @@ namespace Interfaz
                 throw;
             }
         }
+
+        private void AjustarTamano()
+        {
+            // O ajustar manualmente el ancho de columnas específicas
+            dgvProyectos.Columns["Id Interno"].Width = 40;
+            dgvProyectos.Columns["Tarea"].Width = 50;
+            dgvProyectos.Columns["Cliente"].Width = 120;
+            dgvProyectos.Columns["Monto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvProyectos.Columns["Monto"].Width = 100;
+            dgvProyectos.Columns["Fecha OC"].Width = 95;
+            dgvProyectos.Columns["Vendedor"].Width = 95;
+
+
+            // Fijar las primeras columnas para que no se desplacen con el scroll horizontal
+            dgvProyectos.Columns["Id Interno"].Frozen = true;
+            dgvProyectos.Columns["Tarea"].Frozen = true;
+
+            // Opcional: Ajustar colores para diferenciar las columnas fijas
+            dgvProyectos.Columns["Id Interno"].DefaultCellStyle.BackColor = Color.LightGray;
+            dgvProyectos.Columns["Tarea"].DefaultCellStyle.BackColor = Color.LightGray;
+
+        }
+
         public async void Carga()
         {
             await CargarVendedoresAsync();
